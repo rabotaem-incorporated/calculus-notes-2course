@@ -1,0 +1,187 @@
+#import "../../utils/core.typ": * 
+
+== Системы множеств
+
+#denote[
+  $A union.sq B$ --- объединение $A$ и $B$, такое, что $A sect B != nothing$.
+
+  $union.sq.big_(k = 1)^n A_k$ --- объединение множеств $A_1, ..., A_n$ и $A_j sect A_j = nothing$ для всех $i != j$.
+
+  Такие объединения называются _дизъюнктными объединениями_, а множества и них называют _дизъюнктными_.
+]
+
+#def[
+  ${E_alpha}$ --- разбиение множества $E$, если $ E = union.sq.big_(alpha in I) E_alpha $
+]
+
+#notice(name: "Напоминание")[
+  $ 
+    X without union.big_(alpha in I) E_alpha &= sect.big_(alpha in I)(X without E_alpha) \
+    X without sect.big_(alpha in I) E_alpha &= union.big_(alpha in I)(X without E_alpha)
+  $
+]
+
+#def[
+  $Aa$ --- семейство подмножеств множества $X$. Будем говорить, что множество имеет свойства:
+  - $(sigma_0)$, если $A "и" B in Aa$, то $A union B in Aa$
+  - $(delta_0)$, если $A "и" B in Aa$, то $A sect B in Aa$
+  - $(sigma)$, если $A_n in Aa space forall n in NN$, то $union.big_(n = 1)^oo A_n in Aa$
+  - $(delta)$, если $A_n in Aa space forall n in NN$, то $sect.big_(n = 1)^oo A_n in Aa$
+]
+
+#def[
+  $Aa$ --- симметричная система, если $A in Aa ==> X without A in Aa$
+]
+
+#pr[
+  Пусть $Aa$ симметричная система множеств. Тогда
+  $ (sigma_0) <==> (delta_0) space #[и] space (sigma) <==> (delta). $
+]
+#proof[\
+  "$<==$"
+  $
+   
+     X \\ (A union B) = (X \\ A) sect (X \\ B)
+  $
+  "$==>$" 
+  $ 
+    X \\ (A sect B) = (X \\ A) union (X \\ B)
+  $
+]
+
+#def[
+  Система множеств $Aa$ называется _Алгеброй_, если $Aa$ --- симметричная система и $(sigma_0)$, $(delta_0)$ и $nothing in Aa$, то есть если $A, B in Aa$, то $X \ A$, $A union B$ и $A sect B$ лежат в системе $Aa$.
+]
+
+#def[
+  $Aa$ -- $sigma$-алгебра, если $Aa$ -- симметричная система, $nothing, (sigma), (delta) in Aa$
+]
+
+#props[
+  1. Если $Aa$ --- $sigma$-алгебра, то $Aa$ --- алгбера.
+
+  2. Если $Aa$ --- алгебра, то $X in Aa$.
+
+  3. Если $Aa$ --- алгебра, $A, B in Aa$, то $A without B in Aa$.
+
+  4. Если $Aa$ --- алгербра, то $A_1, ..., A_n in Aa ==> union.big_(j = 1)^n A_j, sect.big_(j = 1)^n A_j in Aa$.
+]
+
+#proof[
+  3. $A without B = A sect (X without B)$
+  4. Индукция
+]
+
+#examples[
+  1. Ограниченные в $RR^n$ и их дополнения --- алгебра, но не $sigma$-алгебра.
+  2. $2^X$ --- и алгебра, и $sigma$-алгебра.
+  3. _Индуцированная алгебра_ ($sigma$-алгебра): \ 
+    $Aa in 2^X$ --- алгебра, $Y in X$, $Bb := {A sect Y bar A in Aa}$ --- алгебра подмножеств в $Y$.
+    #TODO[Пруфануть --- не трудно, но надо расписать.]
+    #TODO[Понять как пишется "не трудно" --- слитно или раздельно]
+  4. Пусть $Aa_alpha$ --- алгебра/$sigma$-алгебра подмножеств в $X$. Тогда $sect.big_(alpha in I) Aa_alpha$ --- алгебра ($sigma$-алгебра) подмножеств в $X$.
+  5. Пусть $A$ и $B$ --- множества. Наименьшая алгебра, содержащая $A$ и $B$: 
+    $ 
+      empty, X, A, B, X without A, X without B, A union B, A sect B, X without (A sect B), A triangle.t.small B, X without (A triangle.t.small B), X without (A without B), X without (B without A)
+    $
+    #TODO[Ебануть сюда ахуенную картинку с четырьмя ебейшими атомами] 
+]
+
+#let Ee = $cal(E)$
+#let Rr = $cal(R)$
+
+
+#th[
+  $Ee$ --- система подмножеств $X$.
+  Тогда сущесвует наименьшая по включению $sigma$-алгебора подмножеств в $X$, содержащая $Ee$.
+]
+
+#proof[
+  Рассмотрим всевозможные $sigma$-лагеры $Aa_alpha supset Ee$
+  $ ==> sect.big_(alpha in I) Aa_alpha space #[--- $sigma$-алегбра и она содержит $Ee$] $
+]
+
+#def[
+  Такая $sigma$-алгебра называется _Борелевской оболочкой множества $Ee$_. Обозначается $Bb(Ee)$.
+]
+
+#def[
+  Минимальная $sigma$-алгебра, содержащая все открытые множества в $RR^n$ называется _Борелевской $sigma$-алгеброй_. Обозначается $Bb^n$.
+]
+
+#notice[
+  $underbrace(Bb^n, "континуум") != underbrace(2^RR^n, #[больше \ континуума])$
+  // много и очень много
+  // дохуя и пиздец дохуя
+]
+
+#def[
+  $Rr$ --- кольцо подмножеств $X$, если $A, B in Rr ==> A union B, A sect B, A without B in Rr$.
+  Пустые кольца не рассматриваются.
+]
+#notice[
+  $ nothing in Rr space #[так как $A without A = nothing$] $
+  $X$ не обязательно лежит в $Rr$. \
+  Если $X$ лежит в $Rr$, то $Rr$ --- алгебра.
+]
+
+#def[
+  $Pp$ --- полукольцо подмножеств $X$, если 
+    1. $nothing in Pp$
+    2. $A, B in Pp ==> A sect B in Pp$
+    3. $A, B in Pp ==> exists Q_1, ..., Q_m in Pp$ такие, что $A without B = union.sq.big_(j=1)^m Q_j$
+]
+
+#examples[
+  1. Все возможные полуинтервалы $lr((a, b]) in RR$ --- полукольцо.
+  2. $Aa := { lr((a, b]) bar a, b in QQ }$
+]
+
+#lemma[
+  $union.big A_n = union.sq.big (A_n without union.big_(k = 1)^(n - 1) A_k)$
+]
+
+#proof[
+  Пусть $B_n := A_n without union.big_(k = 1)^(n - 1) A_k subset A_n$. Если $i < j$, то 
+  $
+    B_j sect A_i != without nothing ==> B_j sect B_j = nothing. 
+  $
+  Значит $B_j$ --- дизъюнктны.
+  - "$supset$": $A_n supset B_n$
+  - "$subset$": Берем все $x in union.big A_n$. Пусть $m$ --- наименьший номер, для которого $x in A_m$. Тогда $x in B_m$.
+]
+
+#th[
+  $Pp$ --- полукольцо, $P_1, P_2, ... in Pp$. Тогда
+  1. $display(Pp without union.big_(j = 1)^n P_j = union.sq.big_(i = 0)^m Q_i)$ для некоторых $Q_i in Pp$.
+  
+  2. $display(union.big_(k = 1)^n P_k = union.sq.big_(k = 1)^n union.sq.big_(j = 1)^m_k Q_(k j))$, где $Q_(k, j) in Pp$ и $Q_(k j) in P_k$.
+
+  3. В 2) можно написать счетное объединение.
+]
+
+#proof[
+  1. Индукция по $n$: 
+    $ P without union.big_(j=1)^(n-1) P_j = union.sq.big_(i=1)^m Q_i \
+      P without union.big_(j=1)^n P_j = (P without union.big_(j=1)^(n-1) P_j) without P_n = (union.sq.big_(i=1)^m Q_i) without P_n = union.sq.big_(i=1)^m (Q_i without P_n).
+    $
+  2. $
+      union.big_(k = 1)^n P_k = union.sq.big_(k = 1)^n (P_k without union.big_(j = 1)^(k - 1) P_j) = union.sq.big_(k - 1)^n union.sq.big_(j = 1)^(m_k) Q_(k j).
+    $.
+]
+
+#let Qq = $cal(Q)$
+
+#th(name: [декартово произведение полуколец])[
+  $Pp$ --- полукольцо подмножества $X$, $Qq$ --- полукольцо подмножества $Y$
+  $ Pp times Qq = {A times B: A in Pp, B in Qq} space #[--- полукольцо подмножеств в $X times Y$] $
+]
+
+#proof[
+  $nothing in Pp times Qq$
+  Пусть $A_1 times B_1$ и $A_2 times B_2 in Pp times Qq$. Тогда $ (A_1 times B_1) sect (A_2 times B_2) = (A_1 sect A_2) times (B_1 sect B_2) in Pp times Qq. $
+
+  $(A_1 times B_1) without (A_2 times B_2) = A_1 times (B_1 without B_2) union.sq (A_1 without A_2) times (B_1 sect B_2) = union.sq.big_(j=1)^m A_1 times Q_j union.sq union.sq.big_(i = 1)^n (P_i times (B_1 sect B_2)) in Pp times Qq$
+
+  // Надо отформатировать
+]

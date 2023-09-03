@@ -1,0 +1,49 @@
+name: Compile and release PDF on push
+on:
+  push:
+    branches:
+      - master
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Set variables
+        id: vars
+        run: |
+          echo "date=$(date +'%Y-%m-%d')" >> $GITHUB_ENV
+          echo "sha=$(git rev-parse --short HEAD)" >> $GITHUB_ENV
+      - name: Get Typst
+        uses: robinraju/release-downloader@v1.6
+        with:
+          repository: typst/typst
+          latest: true
+          filename: typst-x86_64-unknown-linux-musl.tar.xz
+      - name: Unpack the executable
+        run: |
+          tar -xf typst-x86_64-unknown-linux-musl.tar.xz
+          mv typst-x86_64-unknown-linux-musl/typst .
+      - name: Install Python
+        uses: actions/setup-python@v2
+        with:
+          python-version: 3.11
+      - name: Compile the PDFs
+        run: |
+          chmod +x typst
+          export PATH=$PATH:$(pwd)
+          python compile-everything.py "v${{ env.date }}-${{ env.sha }}"
+      - name: Add tag
+        id: tag_version
+        uses: mathieudutour/github-tag-action@v6.1
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          custom_tag: ${{ env.date }}-${{ env.sha }}
+      - name: Post the release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: "*.pdf"
+          name: Edition v${{ env.date }}-${{ env.sha }}
+          tag_name: ${{ steps.tag_version.outputs.new_tag }}
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
