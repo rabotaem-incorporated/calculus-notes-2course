@@ -10,6 +10,9 @@
 #let nsubg = sym.triangle.l.small
 #let iso = sym.tilde.equiv
 #let fg = sym.slash
+#let usb = sym.union.sq.big
+#let Union = sym.union.big
+#let UnionSq = sym.union.sq.big
 
 // operators
 #let sgn = math.op("sgn")
