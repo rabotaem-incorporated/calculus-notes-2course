@@ -11,13 +11,13 @@
 ]
 
 #def[
-  ${E_alpha}$ --- разбиение множества $E$, если $ E = union.sq.big_(alpha in I) E_alpha $
+  ${E_alpha}$ --- разбиение множества $E$, если $ E = union.sq.big_(alpha in I) E_alpha. $
 ]
 
 #notice(name: "Напоминание")[
   $ 
-    X without union.big_(alpha in I) E_alpha &= sect.big_(alpha in I)(X without E_alpha) \
-    X without sect.big_(alpha in I) E_alpha &= union.big_(alpha in I)(X without E_alpha)
+    X without union.big_(alpha in I) E_alpha &= sect.big_(alpha in I)(X without E_alpha), \
+    X without sect.big_(alpha in I) E_alpha &= union.big_(alpha in I)(X without E_alpha).
   $
 ]
 
@@ -34,7 +34,7 @@
 ]
 
 #def[
-  $Aa$ --- симметричная система, если $A in Aa ==> X without A in Aa$
+  $Aa$ --- симметричная система, если $A in Aa ==> X without A in Aa.$
 ]
 
 #pr[
@@ -80,7 +80,7 @@
   1. Ограниченные в $RR^n$ и их дополнения --- алгебра, но не $sigma$-алгебра.
   2. $2^X$ --- и алгебра, и $sigma$-алгебра.
   3. _Индуцированная алгебра_ ($sigma$-алгебра): \ 
-    $Aa in 2^X$ --- алгебра, $Y in X$, $Bb := {A sect Y bar A in Aa}$ --- алгебра подмножеств в $Y$.
+    $Aa subset 2^X$ --- алгебра, $Y in X$, $Bb := {A sect Y bar A in Aa}$ --- алгебра подмножеств в $Y$.
     #TODO[Пруфануть --- не трудно, но надо расписать.]
     #TODO[Понять как пишется "не трудно" --- слитно или раздельно]
   4. Пусть $Aa_alpha$ --- алгебра/$sigma$-алгебра подмножеств в $X$. Тогда $sect.big_(alpha in I) Aa_alpha$ --- алгебра ($sigma$-алгебра) подмножеств в $X$.
@@ -157,7 +157,7 @@
 
 #th[
   $Pp$ --- полукольцо, $P_1, P_2, ... in Pp$. Тогда
-  1. $display(Pp without union.big_(j = 1)^n P_j = union.sq.big_(i = 0)^m Q_i)$ для некоторых $Q_i in Pp$.
+  1. $display(P without union.big_(j = 1)^n P_j = union.sq.big_(i = 0)^m Q_i)$ для некоторых $Q_i in Pp$.
   
   2. $display(union.big_(k = 1)^n P_k = union.sq.big_(k = 1)^n union.sq.big_(j = 1)^m_k Q_(k j))$, где $Q_(k, j) in Pp$ и $Q_(k j) in P_k$.
 
@@ -171,14 +171,14 @@
     $
   2. $
       union.big_(k = 1)^n P_k = union.sq.big_(k = 1)^n (P_k without union.big_(j = 1)^(k - 1) P_j) = union.sq.big_(k - 1)^n union.sq.big_(j = 1)^(m_k) Q_(k j).
-    $.
+    $
 ]
 
 #let Qq = $cal(Q)$
 
 #th(name: [декартово произведение полуколец])[
-  $Pp$ --- полукольцо подмножества $X$, $Qq$ --- полукольцо подмножества $Y$
-  $ Pp times Qq = {A times B: A in Pp, B in Qq} space #[--- полукольцо подмножеств в $X times Y$] $
+  $Pp$ --- полукольцо подмножества $X$, $Qq$ --- полукольцо подмножества $Y$.
+  $ Pp times Qq = {A times B: A in Pp, B in Qq} space #[--- полукольцо подмножеств в $X times Y$]. $
 ]
 
 #proof[

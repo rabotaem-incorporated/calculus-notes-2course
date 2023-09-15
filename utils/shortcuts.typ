@@ -11,8 +11,10 @@
 #let iso = sym.tilde.equiv
 #let fg = sym.slash
 #let usb = sym.union.sq.big
+#let eps = sym.epsilon
 #let Union = sym.union.big
 #let UnionSq = sym.union.sq.big
+#let Sect = sym.sect.big
 
 // operators
 #let sgn = math.op("sgn")

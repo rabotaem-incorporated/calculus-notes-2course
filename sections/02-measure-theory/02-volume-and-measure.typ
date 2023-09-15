@@ -7,11 +7,11 @@
     
     - $mu$ --- _объем_, если:
         1. $mu nothing = 0$
-        2. $P_1, ..., P_n in Pp; thin union.sq.big_(k = 1)^n P_k in Pp ==> mu (union.sq.big_(k = 1)^n P_k) = sum_(k = 1)^m mu P_k$
+        2. $P_1, ..., P_n in Pp; quad union.sq.big_(k = 1)^n P_k in Pp ==> mu (union.sq.big_(k = 1)^n P_k) = sum_(k = 1)^m mu P_k$
 
     - $mu$ -- _мера_, если:
         1. $mu nothing = 0$
-        2. $P_1, P_2, ... in Pp; thin union.sq.big_(k = 1)^oo P_k in Pp ==> mu (union.sq.big_(k = 1)^n P_k) = sum_(k = 1)^m mu P_k$ #h(1fr) $(2*)$
+        2. $P_1, P_2, ... in Pp; quad union.sq.big_(k = 1)^oo P_k in Pp ==> mu (union.sq.big_(k = 1)^n P_k) = sum_(k = 1)^m mu P_k$ #h(1fr) $(2*)$
 ]
 
 #notice[
@@ -91,7 +91,7 @@
 
 #proof[
     $
-        B = A union.sq B without A space space mu B = mu A + mu (B without A)
+        B = A union.sq B without A \ mu B = mu A + mu (B without A)
     $
 ]
 
@@ -153,7 +153,7 @@
 ]
 
 #th[
-    $mu: Pp --> [0; +oo]$ объем на полукольце $Pp$. Тогда $mu --- #[мера] <==> #[если] P, P_1, P_2, ... in Pp$, такие что $P subset Union_(k=1)^oo P_k$, то
+    $mu: Pp --> [0; +oo]$ объем на полукольце $Pp$. Тогда $mu #[--- мера] <==> #[если] P, P_1, P_2, ... in Pp$, такие что $P subset Union_(k=1)^oo P_k$, то
     $mu P <= sum_(k=1)^oo mu P_k$. Это свойство называется _счетная полуаддитивность_.
 ]
 
@@ -209,6 +209,6 @@
 ]
 
 #notice[
-    1. Если $mu$ --- мера, и $mu A < +oo$ для какого-то $n$, то $mu(sect.big A_k) = lim_(k -> oo) mu A_k$.
+    1. Если $mu$ --- мера, и $mu A_n < +oo$ для какого-то $n$, то $mu(sect.big A_k) = lim_(k -> oo) mu A_k$.
     2. Условие $mu X < +oo$ важно, например если $A_n = (n, +oo)$.
 ]
