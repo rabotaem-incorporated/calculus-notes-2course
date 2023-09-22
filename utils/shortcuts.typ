@@ -40,6 +40,8 @@
 #let char = math.op("char")
 #let Irr = math.op("Irr")
 #let arg = math.op("arg")
+#let Int = math.op("Int")
+#let Cl = math.op("Cl")
 
 // letters
 #let Aa = math.cal($A$)
