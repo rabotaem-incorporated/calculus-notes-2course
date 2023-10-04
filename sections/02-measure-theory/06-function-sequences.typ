@@ -9,7 +9,7 @@
 ]
 
 #def[
-    Пусть $f_n, f: E --> overline(RR)$ сходится к $f$ _почти везде по мере $mu$_, если $exists e subset E$, такое, что $mu e = 0$ и $f(x) = lim_(n -> oo) f_n(x)$ для любого $E without e$.
+    Пусть $f_n, f: E --> overline(RR)$ сходится к $f$ _почти везде по мере $mu$_, если $exists e subset E$, такое, что $mu e = 0$ и $f(x) = lim_(n -> oo) f_n (x)$ для любого $E without e$.
 ]
 
 #denote[
