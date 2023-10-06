@@ -9,5 +9,6 @@
 
 #include "sections/01-leftovers/!sec.typ"
 #include "sections/02-measure-theory/!sec.typ"
+#include "sections/03-lebesgue-integral/!sec.typ"
 
 #include "appendix.typ"
