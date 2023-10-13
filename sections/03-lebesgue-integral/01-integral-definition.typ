@@ -23,18 +23,18 @@
 ]
 
 #props[
-    1. $ integral_E c dif mu = c mu E $.
+    1. $ integral_E c dif mu = c mu E. $
 
-    2. Если $f <= g$ --- неотрицательные простые функции, то $ integral_E f dif mu = integral g dif mu $
+    2. Если $f <= g$ --- неотрицательные простые функции, то $ integral_E f dif mu <= integral_E g dif mu. $
 
-    3. Пусть $f, g >= 0$ простые.
+    3. Пусть $f, g >= 0$ простые:
         $
-            integral_E (f + g) dif mu = integral_E f dif mu + integral_E g dif mu    
+            integral_E (f + g) dif mu = integral_E f dif mu + integral_E g dif mu.    
         $
 
     4. Пусть $alpha in RR_(>= 0)$, $f >= 0$ --- простая. Тогда
         $
-            integral_E alpha f dif mu = alpha integral_E f dif mu
+            integral_E alpha f dif mu = alpha integral_E f dif mu.
         $
 ]
 
@@ -98,7 +98,7 @@
 ]
 
 #proof[
-    $f_n <= f_(n + 1)$, значит $integral_E f_n dif mu <= integral_E f_(n + 1) dif mu$. Тогда существует $lim integral_E f_n dif mu =: L$. $f_n <= n$, поэтому $integral_E f_n dif mu <= integral_E f dif mu ==> L <= integral_E f dif mu.$ Одно неравенство доказали.
+    $f_n <= f_(n + 1)$, значит $integral_E f_n dif mu <= integral_E f_(n + 1) dif mu$. Тогда существует $lim integral_E f_n dif mu =: L$. $f_n <= f$, поэтому $integral_E f_n dif mu <= integral_E f dif mu ==> L <= integral_E f dif mu.$ Одно неравенство доказали.
 
     Надо доказать, что $L >= integral_E f dif mu = sup { integral_E phi dif mu bar 0 <= phi <= f, phi #[--- простая] }$. Достаточно доказать, что $L$ --- верхняя граница, то есть что $L >= integral_E phi dif mu$, где $phi$ --- простая $0 <= phi <= f$.
 
@@ -106,7 +106,7 @@
     
     
     Возьмем $x in E$. Если $phi(x) = 0$, то $forall n space x in E_n$.
-    Если $phi(x) > 0$, то $lim f_n(x) = f(x) >= phi(x) > theta phi(x)$ (здесь используется положительность). Значит, начиная с некоторого номера $f_n(x) >= theta phi(x)$, значит $x in E_n$. По непрерывности меры снизу, $mu A sect E_n --> mu (A sect E)$.
+    Если $phi(x) > 0$, то $lim f_n (x) = f(x) >= phi(x) > theta phi(x)$ (здесь используется положительность). Значит, начиная с некоторого номера $f_n (x) >= theta phi(x)$, значит $x in E_n$. По непрерывности меры снизу, $mu (A sect E_n) --> mu (A sect E)$.
     
     $
         integral_E f_n dif mu >= integral_(E_n) f_n dif mu >= integral_(E_n) theta phi dif mu = theta integral_(E_n) phi dif mu = \ = theta sum_(k = 1)^m a_k mu(A_k sect E_n) -->_(n -> oo) theta sum_(k = 1)^m a_k mu(A_k sect E) = theta integral_E phi dif mu ==>\
