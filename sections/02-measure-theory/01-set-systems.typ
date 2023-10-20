@@ -41,7 +41,8 @@
   Пусть $Aa$ симметричная система множеств. Тогда
   $ (sigma_0) <==> (delta_0) space #[и] space (sigma) <==> (delta). $
 ]
-#proof[\
+#proof[
+
   "$<==$"
   $
    
@@ -58,7 +59,7 @@
 ]
 
 #def[
-  $Aa$ -- $sigma$-алгебра, если $Aa$ -- симметричная система, $nothing, (sigma), (delta) in Aa$
+  $Aa$ -- $sigma$-алгебра, если $Aa$ -- алгебра и $(sigma), (delta) in Aa$
 ]
 
 #props[
@@ -81,8 +82,12 @@
   2. $2^X$ --- и алгебра, и $sigma$-алгебра.
   3. _Индуцированная алгебра_ ($sigma$-алгебра): \ 
     $Aa subset 2^X$ --- алгебра, $Y in X$, $Bb := {A sect Y bar A in Aa}$ --- алгебра подмножеств в $Y$.
-    #TODO[Пруфануть --- не трудно, но надо расписать.]
-    #TODO[Понять как пишется "не трудно" --- слитно или раздельно]
+    #proof[
+
+      $x in B <==> x = x' sect Y, x' in A ==> Y without x =  Y without (x' sect Y) = Y without x' = (Y without x') sect Y, (Y without x') in A$
+
+      $x in B, y in B <==> ... ==> x sect y = (Y sect x') sect (Y sect x') = Y sect (x' sect y'), (x' sect y') in A$
+    ]
   4. Пусть $Aa_alpha$ --- алгебра/$sigma$-алгебра подмножеств в $X$. Тогда $sect.big_(alpha in I) Aa_alpha$ --- алгебра ($sigma$-алгебра) подмножеств в $X$.
   5. Пусть $A$ и $B$ --- множества. Наименьшая алгебра, содержащая $A$ и $B$: 
     $ 
@@ -185,9 +190,7 @@
   $nothing in Pp times Qq$
   Пусть $A_1 times B_1$ и $A_2 times B_2 in Pp times Qq$. Тогда $ (A_1 times B_1) sect (A_2 times B_2) = (A_1 sect A_2) times (B_1 sect B_2) in Pp times Qq. $
 
-  $(A_1 times B_1) without (A_2 times B_2) = A_1 times (B_1 without B_2) union.sq (A_1 without A_2) times (B_1 sect B_2) = union.sq.big_(j=1)^m A_1 times Q_j union.sq union.sq.big_(i = 1)^n (P_i times (B_1 sect B_2)) in Pp times Qq$
-
-  // Надо отформатировать
+  $ (A_1 times B_1) without (A_2 times B_2) = A_1 times (B_1 without B_2) union.sq (A_1 without A_2) times (B_1 sect B_2) =\ union.sq.big_(j=1)^m A_1 times Q_j union.sq union.sq.big_(i = 1)^n (P_i times (B_1 sect B_2)) in Pp times Qq $
 ]
 
 #def[

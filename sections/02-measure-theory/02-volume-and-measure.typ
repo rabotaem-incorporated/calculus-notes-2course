@@ -19,7 +19,7 @@
     2. Если $mu$ удовлетворяет $(2*)$ и есть непустое множество, на котором $mu$ конечно, то $(2*) ==> mu nothing = 0$. Иными словами, $(1*)$ нужно просто чтобы исключить тупой случай $mu equiv +oo$. 
 ]
 
-#examples[
+#examples[(Объемов)
     1. Длина на полуинтервалах --- объем.
     2. Пусть $g: RR --> RR$ неубывающая. Тогда следующее $nu_g$ --- объем:
         $ 
@@ -37,7 +37,6 @@
 ]
 
 #th(name: "свойства объема")[
-    // #show enum.item.where(number: 228): set(numbering: x => "2')")
     #set enum(numbering: x => if x != 228 { numbering("1)", x) } else { "2')" } )
     
     $Pp$ --- полукольцо подмножества $X, mu$ --- объем на $Pp$. Тогда
@@ -57,7 +56,7 @@
 #proof[
     #set enum(numbering: x => if x != 228 { numbering("1)", x) } else { "2')" } )
     
-    2. $P without union.sq.big_(k=1)^n = union.sq.big_(j=1)^m Q_j$ для некоторых $Q_j in P$, поэтому 
+    2. $P without union.sq.big_(k=1)^n P_k = union.sq.big_(j=1)^m Q_j$ для некоторых $Q_j in Pp$, поэтому 
     $
         P &= union.sq.big_(k=1)^n P_k union.sq union.sq.big_(j=1)^m Q_j
         ==> \ mu P &= sum_(k=1)^n mu P_k + sum_(j = 1)^m mu Q_j >= sum_(k=1)^n mu P_k. 
@@ -65,23 +64,17 @@
 
     228. 
         $
-            union.sq.big_(k=1)^n subset union.sq.big_(k=1)^oo P_k subset P  ==> mu P >= sum_(k=1)^n mu P_k --> sum_(k=1)^oo mu P_k
+            union.sq.big_(k=1)^n P_k subset union.sq.big_(k=1)^oo P_k subset P  ==> mu P >= sum_(k=1)^n mu P_k --> sum_(k=1)^oo mu P_k
         $
     
     3. 
         $
-            P_k' := P sect P_k in Pp space P = Union_(k=1)^n P_k' = usb_(k=1)^n usb_(j=1)^(m_k)Q_(k j),
-        $ 
-        где
-        $ 
-            Q_(k j) subset P_k' subset P_k space Q_(k j) in Pp. 
-        $
-        Тогда 
-        $
+            P'_k := P sect P_k in Pp, space P = Union_(k=1)^n P_k' = usb_(k=1)^n usb_(j=1)^(m_k)Q_(k j), \
+            "где" \
+            Q_(k j) subset P_k' subset P_k, space Q_(k j) in Pp. \
+            "Тогда" \
+            usb_(j=1)^(m_k) Q_(k j) subset P_k ==>_(#[по 2.]) sum_(j=1)^(m_k)mu Q_(k j) <= mu P_k. \
             mu P = sum_(k=1)^n sum_(j=1)^(m_k) mu Q_(k j) <= sum_(k =1)^n mu P_k
-        $
-        $
-            usb_(j=1)^(m_k) Q_(k j) subset P_k ==>_(#[по 2.]) sum_(j=1)^(m_k)mu Q_(k j) <= mu P_k.
         $
 ]
 
@@ -109,14 +102,14 @@
 
 #proof[
     - Простой случай: пусть $P = usb_(k =1)^n P_k, space Q = usb_(j = 1)^m Q_j, space P, P_k in Pp, space Q, Q_j in Qq$
-    Тогда $P times Q = usb_(k=1)^n usb(j = 1)^m P_k times Q_j$
+    Тогда $P times Q = usb_(k=1)^n usb_(j=1)^m P_k times Q_j$
     #TODO[картиночка]
     $
         lambda (P times Q) = mu P dot nu Q = sum_(k=1)^n mu P_k dot sum_(j=1)^m nu Q_j = sum_(k=1)^n sum_(j = 1)^m underbrace(mu P_k dot nu Q_j, = lambda(P_k times Q_j))
     $
     - Противный случай: $P times Q = usb_(k=1)^n P_k times Q_k$
-    $ P times Q = usb_(i = 1)^N usb_(j = 1)^M P_i' times Q_j' $
-    $ lambda(P times Q) = sum_(i=1)^N sum_(j=1)^M lambda(P_i' times Q_j') = sum_(k=)^n lambda (P_k times Q_k) $
+    $ P_k times Q_k = usb_(i = 1)^N usb_(j = 1)^M P_i' times Q_j' $
+    $ lambda(P times Q) = sum_(k=1)^n sum_(i=1)^N sum_(j=1)^M lambda(P_i' times Q_j') = sum_(k=1)^n lambda (P_k times Q_k) $
     #TODO[картиночка]
 ]
 
@@ -124,7 +117,7 @@
     Классический объем --- это объем.
 ]
 
-#examples[
+#examples[(Мер)
     1. Классический объем --- мера. (доказательство позже)
     2. Пусть $g: RR --> RR$ --- неубывающая непрерывная справа фукнция. Тогда $nu_g lr((a, b]) = g(b) - g(a)$ --- мера.
     3. $x_0 in X$, $a > 0$, то 
@@ -132,7 +125,7 @@
             mu A = cases(a\, & "если" x_0 in A, 0\, & "иначе") quad #[--- мера].
         $
     4. (_Считающая мера_) $X$ --- произвольное множество. $mu: 2^X --> [0; +oo]$, где $mu A$ --- количество элементов в множестве $A$.
-    5. $X$ --- произвольное, $X supset T = {t_1, t_2, ...}$ --- не более чем счетное. $w_1, w_2, ... >= 0$. Пусть $display(mu A = sum_{i: t_i in A} w_i)$. Это мера.
+    5. $X$ --- произвольное, $X supset T = {t_1, t_2, ...}$ --- не более чем счетное. $w_1, w_2, ... >= 0$. Пусть $display(mu A = sum_(t_i in A) w_i)$. Это мера.
 ]
 
 #proof[
@@ -144,7 +137,7 @@
             sum_(k = 1)^n sum_(j = 1)^oo a_(k j) = sum^oo_(j = 1) sum_(k = 1)^n a_(k j).
         $ 
         $
-            S => sum_(k = 1)^n sum_(j = 1)^oo a_(k j) --> sum_(k = 1)^oo sum_(j = 1)^oo a_(k j) ==> S >= S'.
+            S >= sum_(k = 1)^n sum_(j = 1)^oo a_(k j) --> sum_(k = 1)^oo sum_(j = 1)^oo a_(k j) ==> S >= S'.
         $
 
         Рассмотрим конечную сумму $ sum a_(k j) <= sum_(k = 1)^n sum_(j = 1)^m a_(k j) <= sum_(k = 1)^n sum_(j = 1)^oo a_(k j) <= sum_(k = 1)^oo sum_(j = 1)^oo a_(k j) = S' ==> S <= S' $
@@ -158,7 +151,7 @@
 ]
 
 #proof[
-    - "$<==$" $P = usb_(k=1)^oo P_k$ тогда из счетной полуаддитивности следует, что $mu P <= sum_(k=1)mu P_k$. А из объема следует усиленная монотонность  $==> mu P >= sum_(k=1)^oo mu P_k$
+    - "$<==$" $P = usb_(k=1)^oo P_k$ тогда из счетной полуаддитивности следует, что $mu P <= sum_(k=1)^oo mu P_k$. А из объема следует усиленная монотонность  $==> mu P >= sum_(k=1)^oo mu P_k$
 
     - "$==>$": $P subset Union_(k=1)^oo P_k space space P_k' = P sect P_k ==> P = Union_(k=1)^oo P_k' ==>$
     $ ==> P = usb_(k=1)^oo usb_(j=1)^(m_k) Q_(k j)$, где $Q_(k j) in P$ и $Q_(k j) subset P_k' subset P_k $
@@ -185,7 +178,7 @@
 
     - "$<==$": Пусть $C = usb_(k = 1)^oo C_k$. Надо доказать, что $mu C = sum_(k = 1)^oo mu C_k$. Пусть $A_n := usb_(k = 1)^n C_k$.
         $ 
-            mu A_n = sum_(k = 1)^n mu C_k ==> mu C = mu(Union_(n = 1)^oo A)n) = lim mu A_n = sum_(k = 1)^oo mu C_k 
+            mu A_n = sum_(k = 1)^n mu C_k ==> mu C = mu(Union_(n = 1)^oo A_n) = lim mu A_n = sum_(k = 1)^oo mu C_k 
         $
 ]
 
