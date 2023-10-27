@@ -7,11 +7,11 @@
     
     - $mu$ --- _объем_, если:
         1. $mu nothing = 0$
-        2. $P_1, ..., P_n in Pp; quad union.sq.big_(k = 1)^n P_k in Pp ==> mu (union.sq.big_(k = 1)^n P_k) = sum_(k = 1)^m mu P_k$
+        2. $P_1, ..., P_n in Pp; quad union.sq.big_(k = 1)^n P_k in Pp ==> mu (union.sq.big_(k = 1)^n P_k) = sum_(k = 1)^n mu P_k$
 
     - $mu$ -- _мера_, если:
         1. $mu nothing = 0$
-        2. $P_1, P_2, ... in Pp; quad union.sq.big_(k = 1)^oo P_k in Pp ==> mu (union.sq.big_(k = 1)^n P_k) = sum_(k = 1)^m mu P_k$ #h(1fr) $(2*)$
+        2. $P_1, P_2, ... in Pp; quad union.sq.big_(k = 1)^oo P_k in Pp ==> mu (union.sq.big_(k = 1)^oo P_k) = sum_(k = 1)^oo mu P_k$ #h(1fr) $(2*)$
 ]
 
 #notice[
@@ -128,21 +128,21 @@
     5. $X$ --- произвольное, $X supset T = {t_1, t_2, ...}$ --- не более чем счетное. $w_1, w_2, ... >= 0$. Пусть $display(mu A = sum_(t_i in A) w_i)$. Это мера.
 ]
 
-#proof[
-    5. Пусть $A = usb_(k = 1)^oo A_k$. Докажем, что $mu A = sum^oo_(k = 1) mu A_k$.
+#proof[(Классический объем --- мера)
+    Пусть $A = usb_(k = 1)^oo A_k$. Докажем, что $mu A = sum^oo_(k = 1) mu A_k$.
 
-        Пусть $S := underbrace(sum a_(k j), "в каком-то порядке") = sum_(k = 1)^oo sum_(j = 1)^oo a_(k j) =: S'$.
+    Пусть $S := underbrace(sum a_(k j), "в каком-то порядке") = sum_(k = 1)^oo sum_(j = 1)^oo a_(k j) =: S'$.
 
-        $
-            sum_(k = 1)^n sum_(j = 1)^oo a_(k j) = sum^oo_(j = 1) sum_(k = 1)^n a_(k j).
-        $ 
-        $
-            S >= sum_(k = 1)^n sum_(j = 1)^oo a_(k j) --> sum_(k = 1)^oo sum_(j = 1)^oo a_(k j) ==> S >= S'.
-        $
+    $
+        sum_(k = 1)^n sum_(j = 1)^oo a_(k j) = sum^oo_(j = 1) sum_(k = 1)^n a_(k j).
+    $ 
+    $
+        S >= sum_(k = 1)^n sum_(j = 1)^oo a_(k j) --> sum_(k = 1)^oo sum_(j = 1)^oo a_(k j) ==> S >= S'.
+    $
 
-        Рассмотрим конечную сумму $ sum a_(k j) <= sum_(k = 1)^n sum_(j = 1)^m a_(k j) <= sum_(k = 1)^n sum_(j = 1)^oo a_(k j) <= sum_(k = 1)^oo sum_(j = 1)^oo a_(k j) = S' ==> S <= S' $
+    Рассмотрим конечную сумму $ sum a_(k j) <= sum_(k = 1)^n sum_(j = 1)^m a_(k j) <= sum_(k = 1)^n sum_(j = 1)^oo a_(k j) <= sum_(k = 1)^oo sum_(j = 1)^oo a_(k j) = S' ==> S <= S' $
 
-        Значит $S = S'$
+    Значит $S = S'$
 ]
 
 #th[
@@ -193,7 +193,7 @@
     - $2) => 3)$ --- тривиально. 
     - $1) => 2)$: $B_n = A_1 without A_n$. $nothing != B_1 subset B_2 subset B_3 subset ...$.
     $
-        nu A_1 - mu (sect.big_(n = 1)^oo A_n) = mu(A_1 without sect.big_(n = 1)^oo A_n) = mu(Union_(n = 1)^oo B_n) = \ #h(3cm) lim_(n -> oo) mu B_n = lim_(n -> oo) (mu A_1 - mu A_n) = mu A_1 - lim mu A_n.
+        mu A_1 - mu (sect.big_(n = 1)^oo A_n) = mu(A_1 without sect.big_(n = 1)^oo A_n) = mu(Union_(n = 1)^oo B_n) = \ #h(3cm) lim_(n -> oo) mu B_n = lim_(n -> oo) (mu A_1 - mu A_n) = mu A_1 - lim mu A_n.
     $
     - $3) => 1)$: Пусть $A = usb_(k = 1)^oo C_k$. Рассмотрим $A_n = usb_(k = n)^oo C_k$. Так как $A_1 supset A_2 supset A_3 supset ...$ и $sect.big_(n = 1)^oo A_n = nothing$, $mu A_n --> 0$. 
     $ 
