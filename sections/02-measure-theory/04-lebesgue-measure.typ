@@ -6,7 +6,7 @@
 ]
 
 #proof[
-    Надо проверить счетную полуаддитивность. $ (a, b] subset Union_(n = 1)^oo (a_n, b_n] ==>^? lambda_m (a, b] <= sum_(n = 1)^oo lambda_m (a_n, b_n], $
+    Надо проверить счетную полуаддитивность: $ (a, b] subset Union_(n = 1)^oo (a_n, b_n] ==> lambda_m (a, b] <= sum_(n = 1)^oo lambda_m (a_n, b_n], $
     где $a, b, a_n, b_n in RR^m$. Возьмем $eps > 0$ и 
     $(a, b] supset [a', b]$ так, чтобы $lambda_m (a', b] > lambda_m (a, b] - eps$.
 

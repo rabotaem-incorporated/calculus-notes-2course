@@ -10,13 +10,13 @@
         2. $P_1, ..., P_n in Pp; quad union.sq.big_(k = 1)^n P_k in Pp ==> mu (union.sq.big_(k = 1)^n P_k) = sum_(k = 1)^n mu P_k$
 
     - $mu$ -- _мера_, если:
-        1. $mu nothing = 0$
-        2. $P_1, P_2, ... in Pp; quad union.sq.big_(k = 1)^oo P_k in Pp ==> mu (union.sq.big_(k = 1)^oo P_k) = sum_(k = 1)^oo mu P_k$ #h(1fr) $(2*)$
+        1. $mu nothing = 0$ #h(1fr) $(1^*)$
+        2. $P_1, P_2, ... in Pp; quad union.sq.big_(k = 1)^oo P_k in Pp ==> mu (union.sq.big_(k = 1)^oo P_k) = sum_(k = 1)^oo mu P_k$ #h(1fr) $(2^*)$
 ]
 
 #notice[
     1. Если $mu$ --- мера, то $mu$ --- объем
-    2. Если $mu$ удовлетворяет $(2*)$ и есть непустое множество, на котором $mu$ конечно, то $(2*) ==> mu nothing = 0$. Иными словами, $(1*)$ нужно просто чтобы исключить тупой случай $mu equiv +oo$. 
+    2. Если $mu$ удовлетворяет $(2^*)$ и есть непустое множество, на котором $mu$ конечно, то $(2^*) ==> mu nothing = 0$. Иными словами, $(1^*)$ нужно просто чтобы исключить тупой случай $mu equiv +oo$. 
 ]
 
 #examples[(Объемов)
@@ -128,7 +128,8 @@
     5. $X$ --- произвольное, $X supset T = {t_1, t_2, ...}$ --- не более чем счетное. $w_1, w_2, ... >= 0$. Пусть $display(mu A = sum_(t_i in A) w_i)$. Это мера.
 ]
 
-#proof[(Классический объем --- мера)
+#proof[(Чего-то)
+
     Пусть $A = usb_(k = 1)^oo A_k$. Докажем, что $mu A = sum^oo_(k = 1) mu A_k$.
 
     Пусть $S := underbrace(sum a_(k j), "в каком-то порядке") = sum_(k = 1)^oo sum_(j = 1)^oo a_(k j) =: S'$.
