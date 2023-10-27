@@ -18,7 +18,7 @@
         lambda_m (a, b] - eps < lambda_m [a', b] <= sum_(i = 1)^N lambda_m (a_n_i, b'_n_i) < \ < sum_(i = 1)^N (lambda_m (a_n_i, b_n_i] + eps / 2^(n_i)) < sum_(n = 1)^oo lambda_m (a_n, b_n] + eps.
     $
 
-    Значит $lambda_m (a, b] < 2 eps + sum_(n = 1)^oo lambda_m (a_n, b_n]$. Устремим $eps$ к нулю. Доказали.
+    Значит $lambda_m (a, b] < 2 eps + sum_(n = 1)^oo lambda_m (a_n, b_n]$. Устремим $eps$ к нулю и получим требуемое.
 ]
 
 #def[
