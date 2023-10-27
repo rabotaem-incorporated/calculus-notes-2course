@@ -186,7 +186,7 @@
     $mu$ --- объем на $sigma$-алгебре $Aa$ подмножеств $X$, $mu X < +oo$. Тогда следующие условия равносильны:
     1. $mu$ --- мера
     2. (непрерывность сверху) $A_1 supset A_2 supset A_3 supset ... ==> mu(sect.big_(n=1)^oo A_n) = lim_(n-->oo)mu A_n$
-    3. (непрерывность сверху на пустом множестве) Если $A_1 supset A_2 supset A_3 supset ...$ и $sect.big_(n=1)^oo = nothing$, то $lim_(n-->oo)mu A_n = 0$
+    3. (непрерывность сверху на пустом множестве) Если $A_1 supset A_2 supset A_3 supset ...$ и $sect.big_(n=1)^oo A_n = nothing$, то $lim_(n-->oo)mu A_n = 0$
 ]
 
 #proof[

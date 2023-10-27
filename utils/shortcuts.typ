@@ -15,6 +15,14 @@
 #let Union = sym.union.big
 #let UnionSq = sym.union.sq.big
 #let Sect = sym.sect.big
+#let limsup = $overline(lim)$
+#let liminf = $underline(lim)$
+#let INT(f, E: $E$, mu: $mu$) = $ integral_#E #f dif #mu $
+
+// set fix
+#let nothing = math.diameter
+#let emptyset = math.diameter
+
 
 // operators
 #let sgn = math.op("sgn")
@@ -42,6 +50,7 @@
 #let arg = math.op("arg")
 #let Int = math.op("Int")
 #let Cl = math.op("Cl")
+#let const = math.op("const")
 
 // letters
 #let Aa = math.cal($A$)

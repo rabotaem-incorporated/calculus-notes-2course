@@ -106,7 +106,7 @@
 ]
 
 #proof[
-  Рассмотрим всевозможные $sigma$-лагеры $Aa_alpha supset Ee$
+  Рассмотрим всевозможные $sigma$-алгебры $Aa_alpha supset Ee$
   $ ==> sect.big_(alpha in I) Aa_alpha space #[--- $sigma$-алегбра и она содержит $Ee$] $
 ]
 
