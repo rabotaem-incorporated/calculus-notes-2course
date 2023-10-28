@@ -27,7 +27,7 @@
 
 #notice[
     Если $A in Ll^m$, то 
-    $ lambda_m A = inf {sum_(k = 1)^oo lambda_m P_k: P_k in Pp^m and A in Union_(k = 1)^oo P_k}. $
+    $ lambda_m A = inf {sum_(k = 1)^oo lambda_m P_k: P_k in Pp^m and A subset Union_(k = 1)^oo P_k}. $
 ]
 
 #props[
@@ -37,7 +37,7 @@
     4. Всякое измеримое множество --- это дизъюнктное объединение счетного числа множеств конечной меры.
     5. Пусть $E subset RR^m$. Если $forall eps > 0 space exists "измеримые множества" A_eps, B_eps$, такие, что $A_eps subset E subset B_eps$ и $lambda(B_eps without A_eps) < eps$, то $E$ измеримо.
         _Это свойство верно для любой меры на $sigma$-алгебре, не только для меры Лебега._
-    6. Пусть $E in RR^m$. Если $forall eps > 0$, найдется $B_eps supset E$, такое, что $lambda B_eps < B$, то $E$ измеримо, и $lambda E = 0$.
+    6. Пусть $E in RR^m$. Если $forall eps > 0$, найдется $B_eps supset E$, такое, что $lambda B_eps < eps$, то $E$ измеримо, и $lambda E = 0$.
     7. Счетное объединение множеств нулевой меры имеет меру 0.
     8. Счетное множество имеет нулевую меру.
     9. Множество нулевой меры имеет пустую внутренность.
@@ -56,11 +56,11 @@
     
     4. $RR^m = usb_(k = 1)^oo P_k$, где $P_k$ --- ячейка с единичными сторонами. Тогда $E = usb_(k = 1)^oo (P_k sect E)$, а $lambda(E sect P_k) <= lambda P_k = 1$.
 
-    5. $A := Union_(n=1)^oo A_(1/n)$ и $B := Sect_(n=1)^00 B_(1/n) ==> A subset E subset B$. 
+    5. $A := Union_(n=1)^oo A_(1/n)$ и $B := Sect_(n=1)^oo B_(1/n) ==> A subset E subset B$. 
     $ B without A subset B_(1/n) without A_(1/n) ==> lambda(B without A) <= lambda(B_(1/n) without A_(1/n)) < 1/n ==> lambda(B without A) = 0 $
-    $ E without A subset B without A ==>^("полнота") E without A space #[--- измеримо] space ==> A = (E without A)union.sq A space #[--- измеримо] $.
+    $ E without A subset B without A ==>^("полнота") E without A space #[--- измеримо] space ==> E = (E without A)union.sq A space #[--- измеримо] $.
 
-    6. $A_eps = nothing$, подставляем Ашки в предыдущее свойство --- фиксируем результат. Если $E subset B_eps ==> lambda E <= lambda B_eps < eps$.
+    6. $A_eps = nothing$, подставляем А-шки в предыдущее свойство --- фиксируем результат. Если $E subset B_eps ==> lambda E <= lambda B_eps < eps$.
 
     7. Верно для любой меры на $sigma$-алгебре.
 
@@ -75,7 +75,7 @@
 
     12. Свойство 7. + монотонность.
 
-    13. Знаем, что $(a, b) subset (a, b] subset [a, b]$, $[a, b] without (a, b) subset$ конечное объединение гиперплоскостей, поэтому $lambda([a, b] without (a, b))$.
+    13. Знаем, что $(a, b) subset (a, b] subset [a, b]$, $[a, b] without (a, b) subset$ конечное объединение гиперплоскостей, поэтому $lambda([a, b] without (a, b)) = 0$.
 ]
 
 #notice[
@@ -96,7 +96,7 @@
 
 #proof[
     Пусть $lambda E < +oo$. Знаем, что $ lambda E = inf {sum_(k = 1)^oo lambda P_k : P_k #[--- ячейки] and E subset Union_(k = 1)^oo P_k}. $
-    Возьмем такое покрытие, что $E subset Union_(n=1)^oo (a_n, b_n]$, что $sum_(n=1)^oo lambda (a_n, b_n] < lambda E + eps$. Возьмем $(a_n, b_n') supset (a_n, b_n]$, т.ч. $lambda (a_n, b_n') < lambda (a_n, b_n] + eps/(2^n) $. Пусть $G  Union_(n=1)^oo (a_n, b_n')$ --- открытое $G supset E$. $lambda G <= sum_(n=1)^oo lambda (a_n, b_n') <= sum_(n=1)^oo(lambda (a_n, b_n] + eps/(2^n)) = eps + sum_(n=1)^oo lambda (a_n, b_n] < 2eps + lambda E$. Поэтому $lambda (G without E) = lambda G - lambda E < 2 eps$.
+    Возьмем такое покрытие, что $E subset Union_(n=1)^oo (a_n, b_n]$, что $sum_(n=1)^oo lambda (a_n, b_n] < lambda E + eps$. Возьмем $(a_n, b'_n) supset (a_n, b_n]$, т.ч. $lambda (a_n, b'_n) < lambda (a_n, b_n] + eps/(2^n) $. Пусть $G = Union_(n=1)^oo (a_n, b'_n)$ --- открытое $G supset E$. $lambda G <= sum_(n=1)^oo lambda (a_n, b'_n) <= sum_(n=1)^oo (lambda (a_n, b_n] + eps/(2^n)) = eps + sum_(n=1)^oo lambda (a_n, b_n] < 2eps + lambda E$. Поэтому $lambda (G without E) = lambda G - lambda E < 2 eps$.
 
     Пусть $lambda E = +oo$. Тогда $E = usb_(n = 1)^oo E_n$, где $lambda E_n < +oo$. Возьмем открытое $G_n supset E_n$, такое, что $lambda (G_n without E_n) < eps / 2^n$. Тогда $G := Union_(n = 1)^oo G_n$ подходит.
 
@@ -120,7 +120,7 @@
     1. Давайте возьмем $X without E$ и по нему открытое $G$, которое накрывает $X without E$, такое, что $eps > lambda(underbrace(G without (X without E), E without (X without G)))$. Положим $F = X without G$. Оно подходит.
     #TODO[картиночка той самой прослойки]
 
-    2. Про компакты: давайте рассмотрим $K_n := [-n, n]^m subset F$, где $F$ --- замкнутое. Тогда это компакт. $K_1 subset K_2 subset ...$ и $Union_(n=1)^oo K_n = F ==>_("непрерывность меры" \ "снизу") lambda K_n --> lambda F$.
+    2. Про компакты: давайте рассмотрим $K_n := [-n, n]^m sect F$, где $F$ --- замкнутое. Тогда это компакт. $K_1 subset K_2 subset ...$ и $Union_(n=1)^oo K_n = F ==>_("непрерывность меры" \ "снизу") lambda K_n --> lambda F$.
 
     3. Пусть $lambda E < +oo$. Найдется $tilde(K)_n subset E$, такое, что $lambda tilde(K)_n + 1/n > lambda E$. $Union_(n=1)^oo tilde(K)_n subset E$. $lambda E >= lambda(Union_(n=1)^oo tilde(K)_n) >= lambda tilde(K)_n > lambda E - 1/n ==> lambda(Union tilde(K)_n) = lambda E ==> lambda(underbrace(E without Union tilde(K)_n, e)) = 0$
 
@@ -136,14 +136,14 @@
 ]
 
 #th[
-    Пусть $mu$ --- мера, заданная на $Zz^m$ и такая, что:
+    Пусть $mu$ --- мера, заданная на $Ll^m$ и такая, что:
         1. $mu$ инварианта относительно сдвига.
         2. $mu$ конечна на ячейках. ($= mu$ конечна на органиченных измеримых множествах)
-    Тогда $exists k in [0, +oo)$, такое, что $mu = k lambda$ (то есть $mu E = k lambda E space forall E in Zz^m$).
+    Тогда $exists k in [0, +oo)$, такое, что $mu = k lambda$ (то есть $mu E = k lambda E space forall E in Ll^m$).
 ]
 #proof[
     $Q := (0, 1]^m space k := mu Q$
-    - Случай 1 ($k = 1$): надо доказать, что $mu = lambda$. По единственности продолжения достаточно проверить, что $mu P = lambda P forall P in Pp_(QQ)^m$.
+    - Случай 1 ($k = 1$): надо доказать, что $mu = lambda$. По единственности продолжения достаточно проверить, что $mu P = lambda P space forall P in Pp_(QQ)^m$.
         $P$ разбивается на кубические ячейки со стороной $1/n$, где $n$ --- это НОК знаменателей длин сторон $P$. Поэтому нам достаточно проверить, что $ mu (0, 1/n]^m = lambda (0, 1/n]^m = 1/n^m. $ Представим $Q = usb_(k=1)^(n^m)$ сдвиги $(0, 1/n]^m$. Значит, что $ 1 = mu Q = n^m dot mu (0, 1/n]^m ==> mu (0, 1/n]^m = 1/n^m. $
 
     - Случай 2 ($k > 0$): возьмем $tilde(mu) := 1/k mu$, то есть $(tilde(mu) E = (mu E) / k)$. $tilde(mu) Q = 1$, $tilde(mu)$ --- мера, инвариантна относительно сдвигов, поэтому $tilde(mu) = lambda$.
@@ -151,8 +151,7 @@
     - Случай 3 ($k = 0$): $RR^m = usb_(k=1)^oo$ сдвиги $Q$, поэтому $mu RR^m = 0 ==> mu = 0 dot lambda$.
 ]
 #notice[
-    #TODO[Это точно отсюда?]
-    Для просто диффериенцируемых отображений это неверно.
+    Для просто диффериенцируемых отображений (обобщение сдвига) это неверно.
 ]
 
 #th[
@@ -162,7 +161,7 @@
 ]
 #proof[
     1. Случай 1: $e subset P subset Cl P subset G$, $P$ --- ячейка.
-    $Cl P$ --- компакт, а $norm(Phi'(x))$ непрерывна на $Cl P$, поэтому $norm(Phi'(x))$ ограничена на $Cl P$. Пусть $norm(Phi'(x)) <= M forall x in Cl P$, поэтому если $x, y in Cl P$, то $norm(Phi(x) - Phi(y)) <= M norm(x - y)$. Покроем $e$ кубическими ячейками $Q_j$ так, что $sum lambda Q_j < eps$ и пусть $h_j$ длина стороны $Q_j$. $x, y in Q_j ==> norm(x - y) <= sqrt(m) dot h_j ==> norm(Phi(x) - Phi(y)) <= M sqrt(m) dot h_j ==> Phi(Q_j)$ содержится в шаре радиуса $M sqrt(m) h_j$.
+    $Cl P$ --- компакт, а $norm(Phi'(x))$ непрерывна на $Cl P$, поэтому $norm(Phi'(x))$ ограничена на $Cl P$. Пусть $norm(Phi'(x)) <= M space forall x in Cl P$, поэтому если $x, y in Cl P$, то $norm(Phi(x) - Phi(y)) = norm(Phi(xi)) norm(x - y) <= M norm(x - y)$. Покроем $e$ кубическими ячейками $Q_j$ так, что $sum lambda Q_j < eps$ и пусть $h_j$ длина стороны $Q_j$. $x, y in Q_j ==> norm(x - y) <= sqrt(m) dot h_j ==> norm(Phi(x) - Phi(y)) <= M sqrt(m) dot h_j ==> Phi(Q_j)$ содержится в шаре радиуса $M sqrt(m) h_j$.
 
     Тогда $Phi(Q_j)$ накрылось кубиком со стороной $M sqrt(m) h_j$.
 
@@ -170,7 +169,7 @@
 
     $lambda("кубик со стороной" 2 M sqrt(m) h_j) = (2 M sqrt(m) h_j)^m = (2M sqrt(m))^m lambda Q_j$. Тогда сумма мер кубиков равна $sum (2M sqrt(m))^m lambda Q_j < (2 M sqrt(m))^m eps$, значит $Phi(e)$ измеримо и $lambda(Phi(e)) = 0$.
 
-    Случай 2: $e subset G$ произвольного. $F = usb_(k=1)^oo P_k$, такие, что $P_k in Pp_(QQ)^m$ и $P_k subset Cl P_k subset G$. $e = usb_(k=1)^oo (P_k sect e) space P_k sect e subset P_k ==>_("сл. 1") lambda(P_k sect e) = 0 ==> lambda(underbrace(usb(P_k sect e), = e)) = 0$
+    Случай 2: $e subset G$, $F = usb_(k=1)^oo P_k$, такие, что $P_k in Pp_(QQ)^m$ и $P_k subset Cl P_k subset G$. $e = usb_(k=1)^oo (P_k sect e), space P_k sect e subset P_k ==>_("сл. 1") lambda(P_k sect e) = 0 ==> lambda(underbrace(usb(P_k sect e), = e)) = 0$
 
     2. $E = e union Union_(n=1)^oo K_n$, где $K_n$ --- компакт и $lambda e = 0$. Поэтому $Phi(E) = underbrace(Phi(e), "измеримо") union Union_(n=1)^oo Phi(K_n)$, последнее --- компакты, поэтому измеримы.
 ]
@@ -180,10 +179,10 @@
 ]
 
 #proof[
-    Пусть $U: RR^m --> RR^m$ --- поворот (линейное отображение), пусть $mu E := lambda(U(E)) space E in Zz^m$
-    -- $mu$ конечна на ограниченных множествах.
-    -- $mu$ инвариантна относительно сдвигов $forall v in RR^m$
-    -- $mu(E + v) = lambda (U(E + v)) = lambda(U(E) + U(v)) = lambda(U(E)) = mu E$, поэтому $mu = k lambda$, но единичный шар переходит в себя при повороте, поэтому на нем $mu = lambda ==> k = 1$.
+    Пусть $U: RR^m --> RR^m$ --- поворот (линейное отображение), пусть $mu E := lambda(U(E)) space E in Ll^m$
+    - $mu$ конечна на ограниченных множествах.
+    - $mu$ инвариантна относительно сдвигов $forall v in RR^m$
+    - $mu(E + v) = lambda (U(E + v)) = lambda(U(E) + U(v)) = lambda(U(E)) = mu E$, поэтому $mu = k lambda$, но единичный шар переходит в себя при повороте, поэтому на нем $mu = lambda ==> k = 1$.
 ]
 
 #th(name: "Об изменении меры Лебега при линейном отображении")[
