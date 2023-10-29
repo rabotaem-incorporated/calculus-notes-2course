@@ -3,7 +3,7 @@
 == Определение Интеграла
 
 #lemma[
-    Пусть $f >= 0$ простая, $A_i$ --- допустимое разбиение, $a_i$ --- значения $f$ на $A_i$. $B_j$ допустимое разбиение, $b_j$ --- значения $f$ на $B_j$. Тогда $sum_(i = 1)^m a_i mu (E sect A_i) = sum_(j = i)^n b_j mu(E sect B_j)$.    
+    Пусть $f >= 0$ простая, $A_i$ --- допустимое разбиение, $a_i$ --- значения $f$ на $A_i$. $B_j$ --- допустимое разбиение, $b_j$ --- значения $f$ на $B_j$. Тогда $sum_(i = 1)^m a_i mu (E sect A_i) = sum_(j = i)^n b_j mu(E sect B_j)$.    
 ]
 
 #proof[
@@ -127,7 +127,7 @@
 
     5. $ underbrace(integral_E (phi_n + psi_n) dif mu, --> integral_E (f + g) dif mu) = underbrace(integral_E phi_n dif mu, --> integral_E f dif mu) + underbrace(integral_E psi_n dif mu, --> integral_E g dif mu). $
 
-    6. $ underbrace(integral_E (alpha phi_n) dif mu, --> integral_E (alpha f) dif mu) = underbrace(alpha integral_E phi_n dif mu, --> integral_E f dif mu). $
+    6. $ underbrace(integral_E (alpha phi_n) dif mu, --> integral_E (alpha f) dif mu) = alpha underbrace( integral_E phi_n dif mu, --> integral_E f dif mu). $
 ]
 
 #props[
@@ -139,7 +139,7 @@
 #proof[
     7. $bb(1)_A f + bb(1)_B f = bb(1)_(A union.sq B) f$. Выразим интегралы из условия через произведение на характеристическую функцию, все получится.
 
-    8. $E_n := E{f >= 1/n}$. Пусть $E_1 subset E_2 subset ...$
+    8. $E_n := E{f >= 1/n}$. $E_1 subset E_2 subset ...$
         
         $ 
             Union_(n = 1)^oo E_n = E ==> mu E_n --> mu E > 0 ==> mu E_n > 0 "при больших" n ==> \ ==> 
@@ -148,30 +148,30 @@
 ]
 
 #example[
-    Рассмотрим следующую меру: $T = {t_1, t_2, ...}$ --- не более чем счетное. $w_1, w_2, ... >= 0$. $mu A := sum_(i: t_i in A) w_i$.
+    Рассмотрим следующую меру: $T = {t_1, t_2, ...}$ --- не более чем счетное. $w_1, w_2, ... >= 0$. $mu A := sum_(t_i in A) w_i$.
     
     Пусть $f >= 0$. Тогда проверим, что
-    $ integral_E f dif mu = sum_(i: t_i in E) f(t_i) w_i. $
+    $ integral_E f dif mu = sum_(t_i in E) f(t_i) w_i. $
     Напомню, $integral_E f dif mu = sup{integral_E phi dif mu : 0 <= phi <= f, phi #[--- простая]}$.
 
-    - Шаг 1. $f = bb(1)_A$. $ integral_E bb(1) dif mu = mu(E sect A) = sum_(i : t_i in E sect A) w_i = sum_(i : t_i in E) f(t_i) w_i. $
+    - Шаг 1. $f = bb(1)_A$. $ integral_E bb(1)_A dif mu = mu(E sect A) = sum_(t_i in E sect A) w_i = sum_(t_i in E) f(t_i) w_i. $
 
     - Шаг 2. $f >= 0$ --- простая. По линейности доказано.
 
     - Шаг 3. $f >= 0$ --- измеримая. Будем проверять неравенства с супремумом:
         - "$sup >= sum$": $phi_n := f bb(1)_{t_1, t_2, ..., t_n} <= f$.
-            $ integral_E phi_n dif m = sum_(i: t_i in E \ i <= n) f(t_i) dot w_i -->_(n -> oo) sum_(i: t_i in E \ i <= n) f(t_i) w_i $
+            $ integral_E phi_n dif mu = sum_(t_i in E \ i <= n) f(t_i) dot w_i -->_(n -> oo) sum_(t_i in E) f(t_i) w_i $
 
-        - "$sup <= sum$": Доказываем $ integral_E phi dif mu <= sum_(i: t_i in E) f(t_i) w_i. $
+        - "$sup <= sum$": Доказываем $ integral_E phi dif mu <= sum_(t_i in E) f(t_i) w_i. $
             Можно записать для простых:
             $
-                integral_E phi dif mu = sum_(i: t_i in E) phi(t_i) w_i <= sum_(i: t_i in E) f(t_i) w_i
+                integral_E phi dif mu = sum_(t_i in E) phi(t_i) w_i <= sum_(t_i in E) f(t_i) w_i
             $
             так как $phi(t_i) <= f(t_i)$.
             
             Если $f$ --- произвольная измеримая, то
             $
-                integral_E f dif mu = sum_(i: t_i in E) f(t_i) w_i
+                integral_E f dif mu = sum_(t_i in E) f(t_i) w_i
             $
             (если $integral_E f_(plus.minus) dif mu$ конечны, иначе интеграл не определен).
 ]
@@ -185,7 +185,7 @@
 ]
 
 #proof[
-    Возьмем все исключительные множества: $e_1, e_2, ...$ и рассмотрим $e = Union e_n$. Тогда $mu e = 0$. На $E without E$ все $P_n$ выполняются.
+    Возьмем все исключительные множества: $e_1, e_2, ...$ и рассмотрим $e = Union e_n$. Тогда $mu e = 0$. На $E without e$ все $P_n$ выполняются.
 ]
 
 #th(name: "неравенство Чебышева (не путать с неравентсвом Чебышева из теорвера, где оно называется \"неравенство Маркова\", а неравенство Чебышева там другое)")[
@@ -216,6 +216,6 @@
 
     3. $ integral_B f dif mu = integral_A f dif mu + underbrace(integral_(B without A) f dif mu, 0). $
 
-    4. Пусть $e subset E$ такой, что $mu e = 0$ на $E without e$.
+    4. Пусть $e subset E$ такое, что $mu e = 0$ и $f = g$ на $E without e$.
         $ integral_E f dif mu = integral_(E without e) f dif mu = integral_(E without e) g dif mu = integral_E g dif mu. $
 ]
