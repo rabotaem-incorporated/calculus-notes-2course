@@ -172,14 +172,14 @@
 
 #proof[
     - "$==>$": $B_n := A_n without A_(n-1), space A_0 != nothing$
-        $ Union_(k=1)^oo = usb_(k=1)^oo B_k, space #[так как $A_n = usb_(k=1)^n B_k$] $
+        $ Union_(k=1)^oo A_n = usb_(k=1)^oo B_k, space #[так как $A_n = usb_(k=1)^n B_k$] $
         $ mu(Union_(k=1)^oo A_k) = mu(usb_(k=1)^oo B_k) = sum_(k=1)^oo mu B_k = sum_(k=1)^oo underbrace(mu(A_k without A_(k-1)), mu A_k - mu A_(k-1)) $
         Если $mu A_k < +oo$, то $mu(Union_(k=1)^oo A_k) = lim_(n-->oo)sum_(k=1)^n (mu A_k - mu A_(k-1)) = lim mu A_n$
         Если $mu A_n = +oo$, то $mu A_k = +oo space forall k >= n$ и $mu(Union A_k) = +oo$
 
     - "$<==$": Пусть $C = usb_(k = 1)^oo C_k$. Надо доказать, что $mu C = sum_(k = 1)^oo mu C_k$. Пусть $A_n := usb_(k = 1)^n C_k$.
         $ 
-            mu A_n = sum_(k = 1)^n mu C_k ==> mu C = mu(Union_(n = 1)^oo A_n) = lim mu A_n = sum_(k = 1)^oo mu C_k 
+            mu A_n = sum_(k = 1)^n mu C_k ==> mu C = mu(Union_(n = 1)^oo A_n) = lim_(n->oo) mu A_n = sum_(k = 1)^oo mu C_k 
         $
 ]
 

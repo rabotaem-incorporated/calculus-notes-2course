@@ -26,12 +26,12 @@
     
     8. _Линейность интеграла_. Пусть $alpha_1, ... alpha_n in RR$, $f_1, ..., f_n$ --- суммируемые. Тогда $alpha_1 f_1 + alpha_2 f_2 + ... + alpha_n f_n$ суммируемая и $ integral_E (alpha_1 f_1 + alpha_2 f_2 + ... + alpha_n f_n) dif mu = alpha_1 integral_E f_1 dif mu + alpha_2 integral_E f_2 dif mu + ... + alpha_n integral_E f_n dif mu. $
 
-    9. _Аддитивность по множеству_. Если $E = Union_(k = 1)_n E_k$, $f$ суммируема на $E_k$ при $k = 1, ... n$, то $f$ суммируема на $E$. В случае, когда объединение дизъюнуктно,
+    9. _Аддитивность по множеству_. Если $E = Union_(k = 1)^n E_k$, $f$ суммируема на $E_k$ при $k = 1, ... n$, то $f$ суммируема на $E$. В случае, когда объединение дизъюнуктно,
         $
             integral_E dif mu = integral_(E_1) f dif mu + ... + integral_(E_n) f dif mu.
         $
 
-    10. _Интеграл по сумме мер_. Пусть $mu_1$ и $mu_2$ меры на $sigma$-алгебре $Aa$. Пусть $mu = mu_1 + mu_2$ в смысле $forall A space mu A = mu_1 + mu_2 A$. Тогда $f$ суммируемо относительно $mu$ тогда и только тогда, когда $f$ суммируема относительно и $mu_1$, и $mu_2$ и $ integral_E f dif mu = integral_E f dif mu_1 + integral_E f dif mu_2 $ если $f >= 0$ или $f$ суммируема по $mu$ (хотя бы одно).
+    10. _Интеграл по сумме мер_. Пусть $mu_1$ и $mu_2$ меры на $sigma$-алгебре $Aa$. Пусть $mu = mu_1 + mu_2$ в смысле $forall A space mu A = mu_1 A + mu_2 A$. Тогда $f$ суммируемо относительно $mu$ тогда и только тогда, когда $f$ суммируема относительно и $mu_1$, и $mu_2$ и $ integral_E f dif mu = integral_E f dif mu_1 + integral_E f dif mu_2 $ если $f >= 0$ или $f$ суммируема по $mu$ (хотя бы одно).
 ]
 
 #let IE = $integral_E$
@@ -49,7 +49,7 @@
 
     5. $ f_+ - f_- = f <= g = g_+ - g_- ==> f_+ + g_- <= g_+ + f_- ==> \ ==> integral_E f_+ dif mu + integral_E g_i dif mu <= integral_E g_+ dif mu + integral_E f_- dif mu ==> \ ==> integral_E f_+ dif mu - integral_E f_- dif mu <= integral_E g_+ dif mu - integral_E g_- dif mu. $
 
-    6. $abs(f + g) <= abs(f) + abs(f)$, поэтому $f + g$ --- суммируемая. Пусть $h = f + g$. Тогда $h_+ + f_- + g_- = f_+ + g_+ + h_-$.
+    6. $abs(f + g) <= abs(f) + abs(g)$, поэтому $f + g$ --- суммируемая. Пусть $h = f + g$. Тогда $h_+ + f_- + g_- = f_+ + g_+ + h_-$.
         $
             integral_E h_+ dif mu + integral_E f_- dif mu + integral_E g_- dif mu = integral_E f_+ dif mu + integral_E g_+ dif mu + integral_E h_- dif mu.
         $
@@ -105,7 +105,7 @@
     Тогда $c e^(i alpha) = abs(c)$ и $e^(-i alpha) = c / abs(c)$.
     $
         abs(INT(f)) = e^(i alpha) INT(f) = INT(e^(i alpha) f) = INT(Re (e^(i alpha) f)) + i underbrace(INT(Im(e^(i alpha) f)), = 0) =\
-        = INT(Re(e^(i alpha f))) <= INT(abs(Re(e^(i alpha f)))) <= INT(abs(e^(i alpha f))) = INT(abs(f)).
+        = INT(Re(e^(i alpha) f)) <= INT(abs(Re(e^(i alpha) f))) <= INT(abs(e^(i alpha) f)) = INT(abs(f)).
     $
 ]
 
@@ -156,7 +156,7 @@
 
 #proof[
     $ INT(abs(f)) = sup{INT(phi) bar 0 <= phi <= abs(f) "простая"} $
-    Рассмотрим такую простую $phi$, что $0 <= phi <= abs(f)$ и $INT(phi) > INT(abs(f)) - eps$. Здесь мы пользуемся конечностью $f$.
+    Рассмотрим такую простую $phi$, что $0 <= phi <= abs(f)$ и $INT(phi) > INT(abs(f)) - eps$. Здесь мы пользуемся суммируемостью $f$.
 
     $phi$ простая, значит ограниченая. Пусть $phi <= C$. Возьмем $delta = eps / C$. Пусть $e subset E$ такое, что $mu e < eps / C$. Тогда $ INT(E: e, abs(f)) = INT(E: e, phi) + INT(E: e, underbrace((abs(f) - phi), >= 0)) <= INT(E: e, phi) + underbrace(INT(abs(f) - phi), < eps) < \ < eps + INT(E: e, phi) <= eps + INT(E: e, C) < eps + eps = 2eps. $
 ]
@@ -178,7 +178,7 @@
 ]
 
 #def[
-    Пусть $mu$ и $nu$ --- меры, заданные на одной $sigma$-алгебре $Aa$. $nu$ _абсолютно непрерывна_ относительно $mu$, если $mu e = 0 ==> nu e = 0$. Обозначается $nu << mu$ или $nu lt.curly mu$ (но не такой значeк, а с кружочком слева, хз, в typst такого нет). #TODO[починить значeк]
+    Пусть $mu$ и $nu$ --- меры, заданные на одной $sigma$-алгебре $Aa$. $nu$ _абсолютно непрерывна_ относительно $mu$, если $mu e = 0 ==> nu e = 0$. Обозначается $nu << mu$ или $nu lt.curly mu$ (но не такой значок, а с кружочком слева, хз, в typst такого нет). #TODO[починить значок]
 ]
 
 #th[
@@ -206,11 +206,11 @@
 ]
 
 #proof[
-    - Шаг 1. $f = bb(1)_A$. Тогда $ INT(bb(1)) = nu(E sect A) = INT(E: E sect A, w) = INT(bb(1)_A w). $
+    - Шаг 1. $f = bb(1)_A$. Тогда $ INT(bb(1)_A, mu: nu) = nu(E sect A) = INT(E: E sect A, w) = INT(bb(1)_A w). $
     
     - Шаг 2. По линейности, верно для простых.
     
-    - Шаг 3. $f >= 0$ измеримые. Рассматриваем $0 <= phi_1 <= phi_2 <= ...$ простые, $phi_n --> f$ поточечно. Тогда $0 <= phi_1 w <= phi_2 w <= ...$ и $phi w --> f w$. $ INT(f, mu: nu) <--^"т. Леви" INT(phi_n, mu: nu) = INT(phi_n) -->^"т. Леви" INT(f w) $
+    - Шаг 3. $f >= 0$ измеримые. Рассматриваем $0 <= phi_1 <= phi_2 <= ...$ простые, $phi_n --> f$ поточечно. Тогда $0 <= phi_1 w <= phi_2 w <= ...$ и $phi w --> f w$. $ INT(f, mu: nu) <--^"т. Леви" INT(phi_n, mu: nu) = INT(phi_n w) -->^"т. Леви" INT(f w) $
 
     - Шаг 4. $f w$ суммируема по $mu$ равносильно $f$ суммируема по $nu$. $ INT(abs(f), mu: nu) = INT(abs(f) w) $
         $ INT(f_pm, mu: nu) = INT(f_pm w) = INT((f w)_pm). $
@@ -245,10 +245,10 @@
     Доказывается такое неравенство через дифференцирование. Пусть $f(u) = u^p/p + v^q/q - u v$. Производная $f'(u) = u^(p - 1) - v$. Эта функция в начале убывает, потом возрастает. Можно подставить минимум и все получится.
 
     Имея это неравенство, все очевидно. Его можно записать в каждой точке и проинтегрировать:
-    $ f / A dot g / B <= 1/p (f/A)^p + 1/q (g/B)^q ==> \ ==> 1/(A B) INT(f g) <= 1/p dot underbrace((1/A^p) INT(f^p), = 1) + 1/q dot underbrace(1/B^p INT(g^q), =1) = 1/p + 1/q = 1 ==> \ ==> INT(f g) <= A dot B. $
+    $ f / A dot g / B <= 1/p (f/A)^p + 1/q (g/B)^q ==> \ ==> 1/(A B) INT(f g) <= 1/p dot underbrace(1/A^p INT(f^p), = 1) + 1/q dot underbrace(1/B^q INT(g^q), =1) = 1/p + 1/q = 1 ==> \ ==> INT(f g) <= A dot B. $
 ]
 
-#th(name: "неравенство Миньковского")[
+#th(name: "неравенство Минковского")[
     Пусть $p >= 1$. Тогда 
     $
         (INT(abs(f + g)^p))^(1/p) <= (INT(abs(f)^p))^(1/p) + (INT(abs(g)
@@ -259,7 +259,7 @@
 #proof[
     Пусть
     $ A := (INT(abs(f)^p))^(1/p), quad B := (INT(abs(g)
-        ^p))^(1/p), quad C := (INT((abs(f) + abs(g))^p))^(1/p). $
+        ^p))^(1/p), quad C := (INT(abs(f + g)^p))^(1/p). $
     
     Докажем, что $C <= A + B$, считаем $f, g >= 0$.
 
