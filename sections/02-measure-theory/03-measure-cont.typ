@@ -131,9 +131,7 @@
 ]
 #proof[
     $ mu^* A = inf{sum_(k=1)^oo mu P_k: P_k in P space #[и] space A subset Union_(k=1)^oo P_k} $
-    В качестве $B_(n k)$ возьмем такие множество, что $B_(n k) in Pp, A subset Union_(k=1)^oo B_(n k)$ и $underbrace(sum_(k=1)^oo mu B_(n k), (*)) < mu^* A + 1/n$, где $C_n supset A ==> C_n supset C supset A$.
-    $ (*) >= mu C_n >= mu C = mu^* C >= mu^* A $
-    Поэтому $mu^* A <= mu C < mu^* A + 1/n ==> mu^* A = mu C$.
+    В качестве $B_(n k)$ возьмем такие множество, что $B_(n k) in Pp, A subset Union_(k=1)^oo B_(n k)$ и $mu^* A + 1/n >sum_(k=1)^oo mu B_(n k) >= mu C_n >= mu C = mu^* C >= mu^* A$, где $C_n supset A ==> C_n supset C supset A$ и $mu^* A <= mu C < mu^* A + 1/n ==> mu^* A = mu C$.
 ]
 #follow[
     $mu$ --- стандартное продолжение с полукольца $Pp$. Пусть $A$ --- измеримо относительно $mu$ и $mu A < +oo$. Тогда $A = B union.sq e$, где $B in Bb(Pp)$ и $mu e = 0$.
@@ -151,7 +149,7 @@
 #proof[
     $A_n = A sect P_n$.
     $
-        mu A_n <= mu P_n < +inf ==> A_n = B_n union.sq e_n = usb B_n union.sq usb e_n.
+        mu A_n <= mu P_n < +oo ==> A_n = B_n union.sq e_n = usb B_n union.sq usb e_n.
     $
 ]
 

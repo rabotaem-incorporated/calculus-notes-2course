@@ -89,7 +89,7 @@
 ]
 
 #th(name: "Декартово произведение объемов")[
-    $Pp$ --- полукольцо подмножеств в $X$, $Q$ --- полукольцо подмножеств в $Y$. $mu$ --- объем на $Pp$, $nu$ --- объем на $Q$.
+    $Pp$ --- полукольцо подмножеств в $X$, $Qq$ --- полукольцо подмножеств в $Y$. $mu$ --- объем на $Pp$, $nu$ --- объем на $Qq$.
     $
         lambda: P times Q &--> [0, +oo] \
         lambda(P times Q) &= mu P dot nu Q,
@@ -107,9 +107,9 @@
     $
         lambda (P times Q) = mu P dot nu Q = sum_(k=1)^n mu P_k dot sum_(j=1)^m nu Q_j = sum_(k=1)^n sum_(j = 1)^m underbrace(mu P_k dot nu Q_j, = lambda(P_k times Q_j))
     $
-    - Противный случай: $P times Q = usb_(k=1)^n P_k times Q_k$
-    $ P_k times Q_k = usb_(i = 1)^N usb_(j = 1)^M P_i' times Q_j' $
-    $ lambda(P times Q) = sum_(k=1)^n sum_(i=1)^N sum_(j=1)^M lambda(P_i' times Q_j') = sum_(k=1)^n lambda (P_k times Q_k) $
+    - Общий случай: $P times Q = usb_(k=1)^n P_k times Q_k$
+    $ P_k times Q_k = usb_(i = 1)^N usb_(j = 1)^M P'_i times Q'_j $
+    $ lambda(P times Q) = sum_(k=1)^n sum_(i=1)^N sum_(j=1)^M lambda(P'_i times Q'_j) = sum_(k=1)^n lambda (P_k times Q_k) $
     #TODO[картиночка]
 ]
 
