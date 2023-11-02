@@ -163,7 +163,7 @@
 #def[
     $(X, Aa, mu)$ --- пространство с $sigma$-конечной мерой. $f: E --> overline(RR)$ неотрицательна. 
     
-    _Подграфиком $f$ над множеством $E$_  называется множество $ Pp_f(E) := {(x, y) in X times RR: 0 <= y <= f(x)}. $
+    _Подграфиком $f$ над множеством $E$_  называется множество $ Pp_f (E) := {(x, y) in X times RR: 0 <= y <= f(x)}. $
 
     _Графиком $f$ над множеством $E$_ называется
     $
@@ -182,7 +182,7 @@
     Пусть $mu E < +oo$, $eps > 0$. $E_k := E{k eps <= f < (k + 1) eps}$. Тогда $Gamma_f (E_k) subset E_k times [k eps, (k + 1) eps)$, значит 
     $ 
         Gamma_f (E) subset Union_(k in ZZ) Gamma_f (E_k) subset Union_(k in ZZ) E_k times [k eps, (k + 1) eps),\
-        m (Union_(k in ZZ)E_k times [k eps, (k + 1) eps)) = sum_(k in ZZ) mu E_k eps = mu E eps ==> Gamma_f (E_k) --> 0.
+        m (Union_(k in ZZ)E_k times [k eps, (k + 1) eps)) = sum_(k in ZZ) mu E_k eps = mu E eps ==> Gamma_f (E) --> 0.
     $
     Если $mu E = +oo$, Порежем $E = Union_(n = 1)^oo F_n$, $mu F_n < +oo$. Тогда
     $
@@ -201,14 +201,14 @@
 #proof[
     Берем $phi_n >= 0$ --- простые. $phi_n arrow.tr f$. $Pp_(phi_n) (E)$ измеримы.
     $
-        Pp_f without Gamma_f subset Union_(n = 1)^oo Pp_(phi_n) (E) subset Pp_f (E).
+        Pp_f (E) without Gamma_f (E) subset Union_(n = 1)^oo Pp_(phi_n) (E) subset Pp_f (E) subset Union_(n = 1)^oo Pp_(phi_n) (E) union Gamma_f.
     $
     Возьмем $x in E$. Если $f(x) = +oo$, то $phi arrow.tr +oo$ и $Union_(n = 1)^oo [0, phi_n (x)] = [0, +oo)$. Если $f(x) < +oo$, то $phi_n arrow.tr f(x)$, и $Union_(n = 1)^oo [0, phi_n (x)] = [0, f(x)) "или" [0, f(x)]$ (оба случая нас устраивают).
 ]
 
 #th(name: "о мере подграфика")[
     $(X, Aa, mu)$ --- пространство с $sigma$-конечной мерой.
-    $f: X --> overline(RR)$, $f >= 0$, $m = mu times lambda_1$. Тогда $f$ --- измерима в широком смысле тогда и только тогда, когда $Pp_f$ измерима, и в этом случае $m Pp_f = integral_X f dif mu$.
+    $f: X --> overline(RR)$, $f >= 0$, $m = mu times lambda_1$. Тогда $f$ --- измерима в широком смысле тогда и только тогда, когда $Pp_f$ измерим, и в этом случае $m Pp_f = integral_X f dif mu$.
 ]
 
 #proof[
@@ -216,19 +216,19 @@
     
     - "$<==$": Примерим принцип Каратеодори для $Pp_f$.
         $
-            (P_f)_x = cases(delim: "[", [0, +oo]\, & "если" f(x) = +oo, [0, f(x)]\, & "если" f(x) < +oo).
+            (Pp_f)_x = cases(delim: "[", [0, +oo]\, & "если" f(x) = +oo, [0, f(x)]\, & "если" f(x) < +oo).
         $
 
         $lambda_1 ((Pp_f)_x) = f(x)$ измерима в широком смысле.
 
-        Согласно принципу Каратеодори, $m Pp_f = integral_X lambda_1 ((P_f)_x) dif mu(x) = integral f dif mu.$
+        Согласно принципу Каратеодори, $m Pp_f = integral_X lambda_1 ((P_f)_x) dif mu(x) = integral_X f dif mu.$
 ]
 
 #th(name: "Тонелли")[
-    $(X, Aa, mu)$, $(Y, Bb, nu)$ --- два пространства с полными $sigma$-конечными мерами. Тогда
+    $(X, Aa, mu)$, $(Y, Bb, nu)$ --- два пространства с полными $sigma$-конечными мерами, $m = mu times nu$, $f: X times Y --> overline(RR)_+$ --- измерима. Тогда
     1. $f_x (y) := f(x, y)$ при почти всех $x in X$ измерима как функция от $y$.
-    2. $phi(x) := integral_Y f(x, y) dif mu$ измерима в широком смысле.
-    3. $ integral_(X times Y) f dif mu = integral_X phi dif mu = integral_X (integral_Y f(x, y) dif nu(y)) dif mu (x) = integral_Y (integral_X f(x, y) dif mu(x)) dif nu(x). $
+    2. $phi(x) := integral_Y f(x, y) dif nu$ измерима в широком смысле.
+    3. $ integral_(X times Y) f dif m = integral_X phi dif mu = integral_X (integral_Y f(x, y) dif nu(y)) dif mu (x) = integral_Y (integral_X f(x, y) dif mu(x)) dif nu(x). $
 ]
 
 #proof[
@@ -245,40 +245,40 @@
     $ integral_(X times Y) f dif mu = sum_(k = 1)^n c_k m C_k = sum_(k = 1)^n c_k integral_X (integral_Y bb(1)_(C_k) (x, y) dif nu(y)) dif mu(x). $
 
     *Шаг 3*. 
-    1. Если $f >= 0$ измеримая. Рассмотрим $psi_n --> f$ поточечно, $0 <= psi_1 <= psi_2 <= ...$. Можно записать неравенство для сечений: $0 <= (psi_1)_x <= (psi_2)_x <= ...$, значит $(psi_x)_x --> f_x$ поточетно. А поточечный предел измеримых функций измерим.
+    1. Если $f >= 0$ измеримая. Рассмотрим $psi_n --> f$ поточечно, $0 <= psi_1 <= psi_2 <= ...$. Можно записать неравенство для сечений: $0 <= (psi_1)_x <= (psi_2)_x <= ...$, значит $(psi_n)_x --> f_x$ поточетно. А поточечный предел измеримых функций измерим.
 
     2. $phi_n (x) := integral_Y (psi_n)_x dif mu$ измерима в широком смысле и по теореме Леви сходится к $integral_Y f_x dif nu$.
 
-    3. $integral_Y (psi_n)_x dif nu <= integral_Y (psi_(n + 1))_x dif nu$. Значит, $integral_(X times Y) psi_n dif nu = integral_(X) phi_n dif mu$, и по теореме Леви, левая часть стремится к $integral_(X times Y) f dif m$, а правая к $integral_X phi dif mu$. Получили равенство.
+    3. $integral_Y (psi_n)_x dif nu <= integral_Y (psi_(n + 1))_x dif nu$. Значит, $integral_(X times Y) psi_n dif m = integral_(X) phi_n dif mu$, и по теореме Леви, левая часть стремится к $integral_(X times Y) f dif m$, а правая к $integral_X phi dif mu$. Получили равенство.
 ]
 
 #th(name: "Фубини")[
     _(Везде вместо измеримости пишем суммируемость)_
 
-    $(X, Aa, mu)$, $(Y, Bb, nu)$ --- два пространства с полными $sigma$-конечными мерами, $m = mu times nu$, $f: X times Y --> overline(RR)$ суммируема на $X times Y$ и измерима относительно $m$. Тогда
+    $(X, Aa, mu)$, $(Y, Bb, nu)$ --- два пространства с полными $sigma$-конечными мерами, $m = mu times nu$, $f: X times Y --> overline(RR)$ --- суммируема. Тогда
     1. $f_x (y) := f(x, y)$ при почти всех $x in X$ суммируема как функция от $y$.
     2. $phi(x) := integral_Y f(x, y) dif nu(y)$ суммируема на $X$.
-    3. $ integral_(X times Y) f dif mu = integral_X phi dif mu = integral_X (integral_Y f(x, y) dif nu(y)) dif mu (x) = integral_Y (integral_X f(x, y) dif mu(x)) dif nu(x). $
+    3. $ integral_(X times Y) f dif m = integral_X phi dif mu = integral_X (integral_Y f(x, y) dif nu(y)) dif mu (x) = integral_Y (integral_X f(x, y) dif mu(x)) dif nu(y). $
 ]
 
 #proof[
     1. $f = f_+ - f_-$, $f_x = (f_+)_x - (f_-)_x$ измерима при причти всех $x$.
-        $ +oo > integral_(X times Y) abs(f) dif m = integral_X integral_Y abs(f(x, y)) dif nu(y) dif mu(x) ==> integral_Y abs(f(x, y)) dif nu(x) < +oo = integral_Y abs(f_x) dif nu < +oo $
+        $ +oo > integral_(X times Y) abs(f) dif m = integral_X integral_Y abs(f(x, y)) dif nu(y) dif mu(x) ==> integral_Y abs(f(x, y)) dif nu(y) = integral_Y abs(f_x) dif nu < +oo $
         при почти всех $x in X$.
 
     2. $ integral_X abs(phi) dif mu = integral_X abs(integral_Y f(x, y) dif nu(y)) dif mu (x) <= integral_X integral_Y abs(f(x, y)) dif nu(y) dif mu(x) < +oo. $
     
-    3. $ integral_(X times Y) f_(plus.minus) dif m = integral_X integral_Y f_(plus.minus) (x, y) dif nu(y) dif mu(x). $ (и вычем)
+    3. $ integral_(X times Y) f_(plus.minus) dif m = integral_X integral_Y f_(plus.minus) (x, y) dif nu(y) dif mu(x). $ (и вычтем)
 ]
 
 #follow[
-    $(X, Aa, mu)$, $(Y, Bb, nu)$ --- два пространства с полными $sigma$-конечными мерами, $m = mu times nu$. $f: X --> overline(R)$ и $g: Y --> overline(RR)$ суммируемы. Пусть $h(x, y) = f(x) g(y)$. Тогда $h$ суммируем на $X times Y$ и $ integral_(X times Y) h dif m = integral_X f dif mu dot integral_Y g dif nu. $
+    $(X, Aa, mu)$, $(Y, Bb, nu)$ --- два пространства с полными $sigma$-конечными мерами, $m = mu times nu$. $f: X --> overline(RR)$ и $g: Y --> overline(RR)$ суммируемы. Пусть $h(x, y) = f(x) g(y)$. Тогда $h$ суммируема на $X times Y$ и $ integral_(X times Y) h dif m = integral_X f dif mu dot integral_Y g dif nu. $
 ]
 
 #proof[
     Если $f$ рассмотреть как функцию двух переменных, то она измерима. Тоже самое с $g$. Значит произведение измеримых функций $h$ тоже измеримо.
 
-    $ integral_(X times Y) abs(h) dif mu =^"Тонелли" integral_X integral_Y underbrace(abs(f(x)), "не зависит от y") abs(g(x)) dif nu(y) dif mu(x) = \ = integral_X abs(f(x)) underbrace(integral_Y abs(g(y)) dif nu(y), "константа") dif mu(x) \= integral_X abs(f) dif mu dot integral_Y abs(g) dif nu < +oo. $
+    $ integral_(X times Y) abs(h) dif mu =^"Тонелли" integral_X integral_Y underbrace(abs(f(x)), "не зависит от y") abs(g(y)) dif nu(y) dif mu(x) = \ = integral_X abs(f(x)) underbrace(integral_Y abs(g(y)) dif nu(y), "константа") dif mu(x) \= integral_X abs(f) dif mu dot integral_Y abs(g) dif nu < +oo. $
 
     Дальше можно записать без модулей по теореме Фубини.
 ]
@@ -288,12 +288,12 @@
     $
         integral_X integral_Y f(x, y) dif nu(y) dif mu(x) = integral_Y integral_X f(x, y) dif mu(x) dif nu(y)
     $
-    не достаточно суммируемости функций $f_x (y) := f(x, y)$, $f^y (x) := f(x, y)$, $phi(x) := integral_Y f_x dif nu(y)$ и $psi(y) := integral_X f^y dif mu(x)$.
+    не достаточно суммируемости функций $f_x (y) := f(x, y)$, $f_y (x) := f(x, y)$, $phi(x) := integral_Y f_x dif nu(y)$ и $psi(y) := integral_X f_y dif mu(x)$.
 ]
 
 #example[
     $mu = nu = lambda_1$, $X = Y = [-1, 1]$, $f(x, y) = (x^2 - y^2)/(x^2 + y^2)^2$. Тогда $ phi(x) = integral_[-1, 1] (x^2 - y^2)/(x^2 + y^2)^2 dif y = lr(y / (x^2 - y^2) bar)_(y=-1)^(y=1) = 2 / (x^2 + 1). $
-    Это хорошая интегрируема, измеримая функция.
+    Это суммируемая функция.
     $
         integral_[-1, 1] phi(x) dif x = integral_(-1)^1 2 / (x^2 + 1) dif x = lr( 2 arctan x bar)_(-1)^1 = pi.
     $
@@ -319,7 +319,7 @@
 ]
 
 #th[
-    $(X, Aa, mu)$ --- пространство с $sigma$-конечной мерой. Тогда $integral_E abs(f) dif mu = integral_0^+oo mu E{abs(f) >= t} dif t$.
+    $(X, Aa, mu)$ --- пространство с $sigma$-конечной мерой. Тогда $integral_E abs(f) dif mu = integral_0^(+oo) mu X{abs(f) >= t} dif t$.
 ]
 
 #notice[
@@ -328,13 +328,13 @@
 
 #proof[
     $m = mu times lambda_1$, 
-    $ integral_X abs(f) dif mu = m Pp_abs(f) = integral_(X times [0, +oo)) bb(1)_(Pp_abs(f)) dif m =_"Тонелли" integral_[0, +oo) integral_X underbrace(bb(1)_(Pp_abs(f)) (x, t), = bb(1)_{abs(f) >= t}) dif mu(x) dif lambda_1 (t) = \ = integral_[0, +oo] integral_X underbrace(bb(1)_{abs(f) >= t}, = mu {abs(f) >= t}) dif mu dif lambda_1 (t). $
+    $ integral_X abs(f) dif mu = m Pp_abs(f) = integral_(X times [0, +oo)) bb(1)_(Pp_abs(f)) dif m =_"Тонелли" integral_[0, +oo) integral_X underbrace(bb(1)_(Pp_abs(f)) (x, t), = bb(1)_{abs(f) >= t}) dif mu(x) dif lambda_1 (t) = \ = integral_[0, +oo] underbrace(integral_X bb(1)_{abs(f) >= t} dif mu, = mu X{abs(f) >= t})  dif lambda_1 (t). $
 ]
 
 #follow[
     В условии теоремы можно записать стогий знак.
 
-    $(X, Aa, mu)$ --- пространство с $sigma$-конечной мерой. Тогда $integral_E abs(f) dif mu = integral_0^+oo mu E{abs(f) > t} dif t$.
+    $(X, Aa, mu)$ --- пространство с $sigma$-конечной мерой. Тогда $integral_E abs(f) dif mu = integral_0^(+oo) mu E{abs(f) > t} dif t$.
 ]
 
 #proof[

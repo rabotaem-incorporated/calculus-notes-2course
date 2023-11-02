@@ -17,7 +17,7 @@
 ]
 
 #def[
-    $f_n, f: E --> overline(RR)$. $f_n$ сходится к $f$ по мере $mu$, если $ mu E {abs(f_n - f) > 0} -->_(n -> oo) 0. $
+    $f_n, f: E --> overline(RR)$. $f_n$ сходится к $f$ по мере $mu$, если $ forall eps > 0 space mu E {abs(f_n - f) > eps} -->_(n -> oo) 0. $
 ]
 
 #notice[
