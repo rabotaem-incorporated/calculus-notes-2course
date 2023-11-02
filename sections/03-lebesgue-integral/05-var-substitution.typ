@@ -10,6 +10,6 @@
 ]
 
 #th(name: "замена переменной в интеграле по мере Лебега")[
-    $Omega subset RR^m$ открытое. $Phi: Omega --> tilde(Omega)$ диффеоморфизм. $f: tilde(Omega) --> overline(RR)$, $f >= 0$ измерима (суммируема). Тогда $ integral_tilde(Omega) f dif lambda_m = integral_Omega f(Phi(x)) abs(Jj_Phi (x)) dif lambda_m (x), $
+    $Omega subset RR^m$ открытое. $Phi: Omega --> tilde(Omega)$ диффеоморфизм. $f: tilde(Omega) --> overline(RR)$, $f >= 0$ суммируема. Тогда $ integral_tilde(Omega) f dif lambda_m = integral_Omega f(Phi(x)) abs(Jj_Phi (x)) dif lambda_m (x), $
     где $Jj_phi(x) = det Phi' (x)$ --- якобиан.
 ]
