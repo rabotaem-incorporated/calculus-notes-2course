@@ -27,7 +27,7 @@
 ]
 
 #lemma[
-    $Phi: Omega -> tilde(Omega)$ диффеоморфизм, $Omega$, $tilde(Omega) subset RR^m$, $a in Omega$, $0 < k < m$. Тогда существует окрестность $U_a$ такая, что $Phi bar_(U_a) = Phi_1 compose Phi_2$, где $Phi_1$, $Phi_2$ --- диффеоморфизмы. $Phi_1$ оставляет на месте $k$ координат, а $Phi_2$ остальные $m - k$ координат. Они могут их переставлять, но не менять значения.
+    $Phi: Omega -> tilde(Omega)$ диффеоморфизм, $Omega$, $tilde(Omega) subset RR^m$, $a in Omega$, $0 < k < m$. Тогда существует окрестность $U_a$ такая, что $Phi bar_(U_a) = Phi_1 compose Phi_2$, где $Phi_1$, $Phi_2$ --- диффеоморфизмы. $Phi_1$ оставляет на месте какие-то (не обязательно любые) $k$ координат, а $Phi_2$ остальные $m - k$ координат.
 ]
 
 #proof[
@@ -35,7 +35,7 @@
     Отсюда можно однозначно определить $g$: $g(u, v) = phi(u, v)$. Теперь $Phi_2$ определяется однозначно: $Phi_2(u, v) = (phi(u, v), v)$. Отсюда $psi(u, v) = f compose Phi_2(u, v)$. Получится формула для $f$: $f(x, y) = psi compose Phi_2^(-1)(x, y)$. Для того, чтобы это получилось, необходима обратимость $Phi_2$ в некоторой окрестности $U_a$ из ответа.
 
     Воспользуемся теоремой об обратной функции. Непрерывную дифференцируемость легко увидеть. Посмотрим на определитель $Phi'_2$:
-    $ Phi'_2 = mat(phi'_u, 0; phi'_v, E) ==> det Phi'_2 = det phi'_u. $
+    $ Phi'_2 = mat(phi'_u, phi'_v; 0, E) ==> det Phi'_2 = det phi'_u. $
     $phi'_u$ --- минор $k times k$ матрицы $Phi'$, так как это производные каких-то $k$ координат функции $Phi$. Так как $Phi$ непрерывно дифференцируемая биекция, то $det Phi != 0$, и у $Phi$ найдется какой-то ненулевой минор размера $k times k$. Это не обязательно угловой минор: может быть какой-то другой, поэтому переменные, возможно, придется переставить.
 ]
 
@@ -50,11 +50,11 @@
 ]
 
 #proof[
-    Пусть $Omega subset Union(alpha in I) G_alpha$, где $G_alpha$ открытые. Возьмем $a in Omega$. Найдется $beta in I$ такое, что $a in G_beta$. Оно открытое, поэтому $B_r (a) subset G_beta$. Пошевелим точку так, чтобы радиус и координаты точки стали рациональными, в нем все еще лежала точка $a$, то есть сделаем шар такой, что $a in B_tilde(r) (b) subset B_r (a) subset G_beta.$ Но таких шариков не более чем счетно. Для каждого шарика оставляем один элемент покрытия, который его содержит, получаем что хотели.
+    Пусть $Omega subset Union_(alpha in I) G_alpha$, где $G_alpha$ открытые. Возьмем $a in Omega$. Найдется $beta in I$ такое, что $a in G_beta$. Оно открытое, поэтому $B_r (a) subset G_beta$. Пошевелим точку так, чтобы радиус и координаты точки стали рациональными, в нем все еще лежала точка $a$, то есть сделаем шар такой, что $a in B_tilde(r) (b) subset B_r (a) subset G_beta.$ Но таких шариков не более чем счетно. Для каждого шарика оставляем один элемент покрытия, который его содержит, получаем что хотели.
 ]
 
 #th[
-    Пусть $Phi: Omega -> tilde(Omega)$ --- диффеоморфизм, $Omega, tilde Omega in RR^m$. $A subset tilde(Omega)$ измеримо Тогда $ lambda_m A = integral_(Phi^(-1) (A)) abs(Jj_Phi) dif lambda_m. $
+    Пусть $Phi: Omega -> tilde(Omega)$ --- диффеоморфизм, $Omega, tilde(Omega) in RR^m$. $A subset tilde(Omega)$ измеримо. Тогда $ lambda_m A = integral_(Phi^(-1) (A)) abs(Jj_Phi) dif lambda_m. $
 ]
 
 #notice[
@@ -75,18 +75,19 @@
 #let Omegatt = $tilde(Omegat)$
 
 #proof(name: "теоремы")[
-    *Шаг 1.* Пусть $Omega = Union U_n$ не более чем счетное объединение открытых множеств. Если теорема верна для каждого $U_alpha$, то она верна и для $Omega$. Пусть $A = usb A_n$, $A_n in U_n$. Тогда $Phi^(-1) (A_n)$ дизъюнктны, так как $Phi$ --- биекция. Тогда
+
+    *Шаг 1.* Пусть $Omega = Union U_n$ --- не более чем счетное объединение открытых множеств. Если теорема верна для каждого $U_n$, то она верна и для $Omega$. Пусть $A = usb A_n$, $A_n in U_n$. Тогда $Phi^(-1) (A_n)$ дизъюнктны, так как $Phi$ --- биекция. Тогда
     $ lambda A = sum lambda A_n = sum integral_(Phi^(-1) (A_n)) abs(Jj_Phi) dif lambda = integral_(Phi^(-1) (A)) abs(Jj_Phi) dif lambda. $
 
     *Шаг 2.* Если теорема верна для диффеоморфизмов $Phi$ и $Psi$, то она верна и для $Phi compose Psi$. Пусть $ Omega -->^Phi Omegat -->^Psi Omegatt, A subset Omegatt $
     Тогда
-    $ lambda A = integral_(phi^(-1) (A)) abs(J_phi) dif lambda = integral_(tilde(Omega)) underbrace(bb(1)_(psi^(-1) (A)) abs(Jj_psi), f) dif lambda =^((*)) integral_Omega f compose Phi abs(Jj_Phi) dif lambda = \ = integral_Omega bb(1)^(psi^(-1) (A)) compose Phi underbrace((abs(Jj_Psi compose Phi) abs(J_Phi)), abs(det Psi'(Phi)) abs(Phi') = \ = abs(det (Psi'(Phi) Phi')) = \ = abs(det (Psi compose Phi)') = \ = abs(J_(Psi compose Phi))) dif lambda = integral_(Phi^(-1) (Psi^(-1) (A))) abs(Jj_(Phi compose Psi)) dif lambda. $
+    $ lambda A = integral_(Psi^-1(A)) abs(Jj_psi) dif lambda =^((*)) integral_(Phi^-1(Psi^-1(A))) (abs(Jj_Psi) compose Phi) abs(Jj_Phi) dif lambda = \ integral_(Phi^-1(Psi^-1(A))) (abs(Jj_Psi) compose Phi) abs(Jj_Phi) dif lambda = integral_(Phi^-1(Psi^-1(A))) abs(det Psi'(Phi)) abs(Phi') dif lambda = \ integral_(Phi^-1(Psi^-1(A))) abs(det (Psi'(Phi) Phi')) dif lambda = integral_(Phi^-1(Psi^-1(A))) abs(det (Psi compose Phi)') dif lambda = integral_(Phi^-1(Psi^-1(A))) abs(Jj_(Phi compose Psi)) dif lambda. $
     Переход $(*)$ верен по теореме о замене переменной, которой, как мы выяснили, здесь можно пользоватся.
 
-    *Шаг 3.* Пусть $m = 1$. $ integral_[a, b] abs(phi') dif lambda_1 = lambda_1 [phi(a), phi(b)] = abs(phi(a) - phi(b)). $ Это формула Ньютона-Лейбница. 
+    *Шаг 3.* Пусть $m = 1$. $ integral_[a, b] abs(phi') dif lambda = abs(phi(a) - phi(b)) = lambda [phi(a), phi(b)]. $ Это формула Ньютона-Лейбница. 
 
     Теперь посмотрим на функцию на ячейке.
-    $ integral_(a, b] abs(phi') dif lambda_1 = lim_(n -> oo) integral_[a + 1/n, b] abs(phi') dif lambda = lim_(n -> oo) underbrace(abs(phi(a + 1/n) - phi(a)), lambda (phi(a), phi(b)]). $
+    $ integral_(a, b] abs(phi') dif lambda = lim_(n -> oo) integral_[a + 1/n, b] abs(phi') dif lambda = lim_(n -> oo) lambda [phi(a + 1/n), phi(b)] = lambda (phi(a), phi(b)]. $
 
     Теперь определим $nu A = integral_(phi^(-1)_A) abs(phi') dif lambda$ --- мера, которая на ячейках совпадает с $lambda$. Значит $nu = lambda$ по единственности продолжения. Значит и для всех остальных измеримых множеств формула работает.
 
@@ -98,7 +99,7 @@
     так как для некоторого $t$ можно записать $s = phi(y, t)$.
     Значит
     $
-        integral_(RR^(m - 1)) lambda_1 (Phi (A))_y dif lambda_(m - 1) (y) = integral_(RR^(m - 1)) lambda_1 (phi(y, A_y)) dif lambda_(m - 1) (y) = integral_(RR^(m - 1)) integral_(A_y) abs(phi'_t (y, t)) dif lambda_1 (t) dif lambda_(m - 1) (y).
+        integral_(RR^(m - 1)) lambda_1 (Phi (A))_y dif lambda_(m - 1) (y) = integral_(RR^(m - 1)) lambda_1 (phi(y, A_y)) dif lambda_(m - 1) (y) = \ integral_(RR^(m - 1)) integral_(A_y) abs(phi'_t (y, t)) dif lambda_1 (t) dif lambda_(m - 1) (y).
     $
     В последнем переходе мы воспользовались предыдущим шагом. Мера $lambda_1$ равняется внутреннему интегралу, так как для одномерного случая мы уже это знаем. Посмотрим на $Phi'$:
     $
