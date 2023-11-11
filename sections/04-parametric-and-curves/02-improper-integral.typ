@@ -13,7 +13,7 @@
 ]
 
 #proof[
-  Пусть $f >= 0$, $f_n := f bb(1)_[a, n]$. Тогда $0 <= f_1 <= f_2 <= ...$ и $f_n --> f$. Тогда $ integral_[a, +oo) f dif lambda_1 =^"Леви" lim integral_[a, +oo) f bb(1)_[a, b_n] dif lambda_1 = lim integral_[a, b_n] f dif lambda_1 = integral_(+oo)_a f dif lambda_1, $
+  Пусть $f >= 0$, $f_n := f bb(1)_[a, n]$. Тогда $0 <= f_1 <= f_2 <= ...$ и $f_n --> f$. Тогда $ integral_[a, +oo) f dif lambda_1 =^"Леви" lim integral_[a, +oo) f bb(1)_[a, b_n] dif lambda_1 = lim integral_[a, b_n] f dif lambda_1 = integral_a^(+oo) f dif lambda_1, $
   где $b_n arrow.tr +oo$ --- какая-то последовательность.
 
   Если $f$ суммируема, можно вычесть.
@@ -33,7 +33,7 @@
 ]
 
 #proof[
-  Пусть $F_b (t) = integral_a^b e^(-t x) f(x) dif x$. Из сходимости $integral_a^(+oo) f(x) dif x$, у нас существует $c$, такое, что $y > b > c$ (критерий Коши?) и $abs(integral_b^y f(x) dif x) < eps$. Пусть $integral_b^y f(x) dif x = g(y)$.
+  Пусть $F_b (t) = integral_a^b e^(-t x) f(x) dif x$. Из сходимости $integral_a^(+oo) f(x) dif x$, у нас существует $c$, такое, что $y > b > c$  и $abs(integral_b^y f(x) dif x) < eps$ (критерий Коши). Пусть $integral_b^y f(x) dif x = g(y)$.
 
   Рассмотрим наш интеграл: 
   $
@@ -41,11 +41,11 @@
   $
   Оценим последний интеграл:
   $
-    abs(integral_b^(+oo) e^(-t x) f(x) dif x) = abs(integral_b^(+oo) t g(x) e^(-t x) dif x) <= t integral_b^(+oo) abs(underbrace(g(x), < eps)) e^(-t x) dif x <= \ <= eps t integral_b^(+oo) e^(-t x) dif x = lr(eps cancel(t) dot (e^(-t x) / -cancel(t)) |)_(x = b)^(x = +oo) = eps dot e^(-b x) < eps.
+    abs(integral_b^(+oo) e^(-t x) f(x) dif x) = abs(integral_b^(+oo) t g(x) e^(-t x) dif x) <= t integral_b^(+oo) abs(underbrace(g(x), < eps)) e^(-t x) dif x <= \ <= eps t integral_b^(+oo) e^(-t x) dif x = lr(eps cancel(t) dot (e^(-t x) / (-cancel(t))) |)_(x = b)^(x = +oo) = eps dot e^(-b x) < eps.
   $
   А еще,
   $
-    abs(F(t) - F(t_0)) <= underbrace(abs(F_b (t) - F(t)), integral_b^(+oo) ... < eps) + abs(F_b (t_0) - F_b (t)) + underbrace(abs(F(t_0) - F_b(t_0)), integral_b^(+oo) ... < eps) < 2 eps + underbrace(abs(F_b (t) - F_b (t_0)), "при" t "близких к" t_0 \ < eps) < 3 eps.
+    abs(F(t) - F(t_0)) <= underbrace(abs(F_b (t) - F(t)), integral_b^(+oo) ... < eps) + abs(F_b (t_0) - F_b (t)) + underbrace(abs(F(t_0) - F_b (t_0)), integral_b^(+oo) ... < eps) < 2 eps + underbrace(abs(F_b (t) - F_b (t_0)), "при" t "близких к" t_0 \ < eps) < 3 eps.
   $
 ]
 
