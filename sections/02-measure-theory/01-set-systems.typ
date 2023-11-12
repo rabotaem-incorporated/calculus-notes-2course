@@ -86,13 +86,10 @@
 
       $x in B <==> x = x' sect Y, x' in A ==> Y without x =  Y without (x' sect Y) = Y without x' = (Y without x') sect Y, (Y without x') in A$
 
-      $x in B, y in B <==> ... ==> x sect y = (Y sect x') sect (Y sect x') = Y sect (x' sect y'), (x' sect y') in A$
+      $x in B, y in B <==> ... ==> x sect y = (Y sect x') sect (Y sect y') = Y sect (x' sect y'), (x' sect y') in A$
     ]
   4. Пусть $Aa_alpha$ --- алгебра/$sigma$-алгебра подмножеств в $X$. Тогда $sect.big_(alpha in I) Aa_alpha$ --- алгебра ($sigma$-алгебра) подмножеств в $X$.
-  5. Пусть $A$ и $B$ --- множества. Наименьшая алгебра, содержащая $A$ и $B$: 
-    $ 
-      empty, X, A, B, X without A, X without B, A union B, A sect B, X without (A sect B), A triangle.t.small B, X without (A triangle.t.small B), X without (A without B), X without (B without A)
-    $
+  5. Пусть $A$ и $B$ --- множества. Наименьшая алгебра, содержащая $A$ и $B$ - все объединения подмножеств ${A \\ B, B \\ A, A sect B, X \\ (A union B)}$, всего $2^4 = 16$ множеств.
     #TODO[Ебануть сюда ахуенную картинку с четырьмя ебейшими атомами] 
 ]
 
