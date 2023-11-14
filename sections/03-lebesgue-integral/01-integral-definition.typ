@@ -177,7 +177,7 @@
 ]
 
 #def[
-    Свойство $P(x)$ верно _при почти всех_ $x in E$ или _почти везде_ на $E$, если существует $e subset E$, $mu e = 0$ такое, что $P(x)$ верно при любом $x in E without E$.
+    Свойство $P(x)$ верно _при почти всех_ $x in E$ или _почти везде_ на $E$, если существует $e subset E$, $mu e = 0$ такое, что $P(x)$ верно при любом $x in E without e$.
 ]
 
 #notice[
@@ -194,7 +194,7 @@
 
 #proof[
     $
-        integral_E f^p dif mu >= integral_(E{f >= t}) f^p dif mu >= integral_(E{f >= t}) f^p dif mu = t^p mu E{f >= t}.
+        integral_E f^p dif mu >= integral_(E{f >= t}) f^p dif mu >= integral_(E{f >= t}) t^p dif mu = t^p mu E{f >= t}.
     $
 ]
 
