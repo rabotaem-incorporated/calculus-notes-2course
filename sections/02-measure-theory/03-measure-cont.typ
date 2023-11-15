@@ -131,7 +131,7 @@
 ]
 #proof[
     $ mu^* A = inf{sum_(k=1)^oo mu P_k: P_k in P space #[и] space A subset Union_(k=1)^oo P_k} $
-    В качестве $B_(n k)$ возьмем такие множество, что $B_(n k) in Pp, A subset Union_(k=1)^oo B_(n k)$ и $mu^* A + 1/n >sum_(k=1)^oo mu B_(n k) >= mu C_n >= mu C = mu^* C >= mu^* A$, где $C_n supset A ==> C_n supset C supset A$ и $mu^* A <= mu C < mu^* A + 1/n ==> mu^* A = mu C$.
+    Возьмем такие $B_(n k)$, что $B_(n k) in Pp, A subset Union_(k=1)^oo B_(n k)$ и $mu^* A + 1/n >sum_(k=1)^oo mu B_(n k) >= mu C_n >= mu C = mu^* C >= mu^* A$, где $C_n supset A ==> C_n supset C supset A$ и $mu^* A <= mu C < mu^* A + 1/n ==> mu^* A = mu C$.
 ]
 #follow[
     $mu$ --- стандартное продолжение с полукольца $Pp$. Пусть $A$ --- измеримо относительно $mu$ и $mu A < +oo$. Тогда $A = B union.sq e$, где $B in Bb(Pp)$ и $mu e = 0$.
@@ -158,7 +158,7 @@
 ]
 
 #proof[
-    Пусть $A in Aa$ и $A subset Union_(n = 1)^oo A_N$, где $A_n in Pp$.
+    Пусть $A in Aa$ и $A subset Union_(n = 1)^oo A_n$, где $A_n in Pp$.
     $ nu A <= sum_(k=1)^oo nu A_k = sum_(k=1)^oo mu A_k ==> nu A <= inf{sum_(n=1)^oo mu A_n: A_n in Pp, A subset Union A_n} = mu A ==> nu A <= mu A $
     Возьмем $P in Pp$.
 

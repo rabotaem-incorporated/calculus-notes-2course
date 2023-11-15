@@ -23,7 +23,7 @@
     1. Длина на полуинтервалах --- объем.
     2. Пусть $g: RR --> RR$ неубывающая. Тогда следующее $nu_g$ --- объем:
         $ 
-            nu_g: Pp^1 &--> [0, +oo) \
+            nu_g: Pp &--> [0, +oo) \
             nu_(a, b] &= g(b) - g(a). 
         $.
     3. Классический объем на ячейках $lambda_m: Pp^m --> [0, +oo)$:
@@ -91,7 +91,7 @@
 #th(name: "Декартово произведение объемов")[
     $Pp$ --- полукольцо подмножеств в $X$, $Qq$ --- полукольцо подмножеств в $Y$. $mu$ --- объем на $Pp$, $nu$ --- объем на $Qq$.
     $
-        lambda: P times Q &--> [0, +oo] \
+        lambda: Pp times Qq &--> [0, +oo] \
         lambda(P times Q) &= mu P dot nu Q,
     $
     причем мы считаем, что $0 dot (+oo) = (+oo) dot 0 = 0$.
@@ -101,15 +101,28 @@
 #show "картиночка": "картин0чка"
 
 #proof[
-    - Простой случай: пусть $P = usb_(k =1)^n P_k, space Q = usb_(j = 1)^m Q_j, space P, P_k in Pp, space Q, Q_j in Qq$
-    Тогда $P times Q = usb_(k=1)^n usb_(j=1)^m P_k times Q_j$
+    Нужно проверить свойства объема:
+    1. $lambda nothing = 0$
+    2. $P_1, ..., P_n in Pp; quad union.sq.big_(k = 1)^n P_k in Pp ==> lambda (union.sq.big_(k = 1)^n P_k) = sum_(k = 1)^n lambda P_k$
+
+    Первое свойство очевидно.
+
+    Докажем второе, для этого рассмотрим частный случай, когда $P = usb_(i=1)^n P_i, space Q = usb_(j = 1)^m Q_j, space P, P_i in Pp, space Q, Q_j in Qq$, тогда $P times Q = usb_(i=1)^n usb_(j=1)^m P_i times Q_j$ и 
     #TODO[картиночка]
     $
-        lambda (P times Q) = mu P dot nu Q = sum_(k=1)^n mu P_k dot sum_(j=1)^m nu Q_j = sum_(k=1)^n sum_(j = 1)^m underbrace(mu P_k dot nu Q_j, = lambda(P_k times Q_j))
+        lambda (P times Q) = mu P dot nu Q = sum_(i=1)^n mu P_i dot sum_(j=1)^m nu Q_j = sum_(i=1)^n sum_(j = 1)^m mu P_i dot nu Q_j = sum_(i=1)^n sum_(j = 1)^m lambda(P_i times Q_j)
     $
-    - Общий случай: $P times Q = usb_(k=1)^n P_k times Q_k$
-    $ P_k times Q_k = usb_(i = 1)^N usb_(j = 1)^M P'_i times Q'_j $
-    $ lambda(P times Q) = sum_(k=1)^n sum_(i=1)^N sum_(j=1)^M lambda(P'_i times Q'_j) = sum_(k=1)^n lambda (P_k times Q_k) $
+    Общий случай: $P times Q = usb_(k=1)^n P_k times Q_k$
+ 
+    Знаем, что $P, Q, P_k, Q_k$ представляются в виде конечного объединения элементов из соответствующих полуколец и их можно попересекать, а значит найдутся такие $P'_i, Q'_j$, что
+    $
+        P times Q = usb_(i = 1)^N usb_(j = 1)^M P'_i times Q'_j \
+        P_k times Q_k = usb_("какое-то подмножество") P'_i times Q'_j \
+        forall i, j space P'_i times Q'_j "лежит ровно в одном" P_k times Q_k
+    $
+    Это разбиение попадает под разобранный случай 
+
+    $ lambda(P times Q) = sum_(i=1)^N sum_(j=1)^M lambda(P'_i times Q'_j) =^"группировка слагаемых" sum_(k=1)^n lambda (P_k times Q_k) $
     #TODO[картиночка]
 ]
 
@@ -130,7 +143,7 @@
 
 #proof[(Чего-то)
 
-    Пусть $A = usb_(k = 1)^oo A_k$. Докажем, что $mu A = sum^oo_(k = 1) mu A_k$.
+    Докажем, что $A = usb_(k = 1)^oo A_k ==> mu A = sum^oo_(k = 1) mu A_k$
 
     Пусть $S := underbrace(sum a_(k j), "в каком-то порядке") = sum_(k = 1)^oo sum_(j = 1)^oo a_(k j) =: S'$.
 
@@ -171,7 +184,7 @@
 ]
 
 #proof[
-    - "$==>$": $B_n := A_n without A_(n-1), space A_0 != nothing$
+    - "$==>$": $B_n := A_n without A_(n-1), space A_0 = nothing$
         $ Union_(k=1)^oo A_n = usb_(k=1)^oo B_k, space #[так как $A_n = usb_(k=1)^n B_k$] $
         $ mu(Union_(k=1)^oo A_k) = mu(usb_(k=1)^oo B_k) = sum_(k=1)^oo mu B_k = sum_(k=1)^oo underbrace(mu(A_k without A_(k-1)), mu A_k - mu A_(k-1)) $
         Если $mu A_k < +oo$, то $mu(Union_(k=1)^oo A_k) = lim_(n-->oo)sum_(k=1)^n (mu A_k - mu A_(k-1)) = lim mu A_n$
@@ -192,7 +205,7 @@
 
 #proof[
     - $2) => 3)$ --- тривиально. 
-    - $1) => 2)$: $B_n = A_1 without A_n$. $nothing != B_1 subset B_2 subset B_3 subset ...$.
+    - $1) => 2)$: $B_n = A_1 without A_n$. $nothing = B_1 subset B_2 subset B_3 subset ...$.
     $
         mu A_1 - mu (sect.big_(n = 1)^oo A_n) = mu(A_1 without sect.big_(n = 1)^oo A_n) = mu(Union_(n = 1)^oo B_n) = \ #h(3cm) lim_(n -> oo) mu B_n = lim_(n -> oo) (mu A_1 - mu A_n) = mu A_1 - lim mu A_n.
     $
