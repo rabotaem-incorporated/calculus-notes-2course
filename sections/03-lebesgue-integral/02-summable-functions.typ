@@ -47,7 +47,7 @@
     
     4. Интеграл не превосходит констатнту на меру множества. 
 
-    5. $ f_+ - f_- = f <= g = g_+ - g_- ==> f_+ + g_- <= g_+ + f_- ==> \ ==> integral_E f_+ dif mu + integral_E g_i dif mu <= integral_E g_+ dif mu + integral_E f_- dif mu ==> \ ==> integral_E f_+ dif mu - integral_E f_- dif mu <= integral_E g_+ dif mu - integral_E g_- dif mu. $
+    5. $ f_+ - f_- = f <= g = g_+ - g_- ==> f_+ + g_- <= g_+ + f_- ==> \ ==> integral_E f_+ dif mu + integral_E g_- dif mu <= integral_E g_+ dif mu + integral_E f_- dif mu ==> \ ==> integral_E f_+ dif mu - integral_E f_- dif mu <= integral_E g_+ dif mu - integral_E g_- dif mu. $
 
     6. $abs(f + g) <= abs(f) + abs(g)$, поэтому $f + g$ --- суммируемая. Пусть $h = f + g$. Тогда $h_+ + f_- + g_- = f_+ + g_+ + h_-$.
         $
@@ -155,7 +155,7 @@
 ]
 
 #proof[
-    $ INT(abs(f)) = sup{INT(phi) bar 0 <= phi <= abs(f) "простая"} $
+    $ INT(abs(f)) = sup{INT(phi): 0 <= phi <= abs(f) "простая"} $
     Рассмотрим такую простую $phi$, что $0 <= phi <= abs(f)$ и $INT(phi) > INT(abs(f)) - eps$. Здесь мы пользуемся суммируемостью $f$.
 
     $phi$ простая, значит ограниченая. Пусть $phi <= C$. Возьмем $delta = eps / C$. Пусть $e subset E$ такое, что $mu e < eps / C$. Тогда $ INT(E: e, abs(f)) = INT(E: e, phi) + INT(E: e, underbrace((abs(f) - phi), >= 0)) <= INT(E: e, phi) + underbrace(INT(abs(f) - phi), < eps) < \ < eps + INT(E: e, phi) <= eps + INT(E: e, C) < eps + eps = 2eps. $
@@ -217,7 +217,7 @@
 ]
 
 #th(name: "Радона-Никодина")[
-    Пусть $mu$ --- $sigma$-конечная на какой-то $sigma$-алгебре $Aa$. $mu$ --- мера $Aa$. Тогда $nu$ имеет плотность относительно $mu$ равносильно $nu$ абсолютно непрерывна относительно $mu$.
+    Пусть $mu$ --- $sigma$-конечная на какой-то $sigma$-алгебре $Aa$. $mu$ --- мера на $Aa$. Тогда $nu$ имеет плотность относительно $mu$ равносильно $nu$ абсолютно непрерывна относительно $mu$.
 ]
 
 #proof[
