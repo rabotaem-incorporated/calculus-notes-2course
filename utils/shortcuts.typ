@@ -15,8 +15,8 @@
 #let Union = sym.union.big
 #let UnionSq = sym.union.sq.big
 #let Sect = sym.sect.big
-#let limsup = $overline(lim)$
-#let liminf = $underline(lim)$
+#let limsup = $limits(overline(lim))$
+#let liminf = $limits(underline(lim))$
 #let INT(f, E: $E$, mu: $mu$) = $ integral_#E #f dif #mu $
 
 // set fix

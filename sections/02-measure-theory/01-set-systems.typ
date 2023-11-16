@@ -161,7 +161,7 @@
   $Pp$ --- полукольцо, $P_1, P_2, ... in Pp$. Тогда
   1. $display(P without union.big_(j = 1)^n P_j = union.sq.big_(i = 0)^m Q_i)$ для некоторых $Q_i in Pp$.
   
-  2. $display(union.big_(k = 1)^n P_k = union.sq.big_(k = 1)^n union.sq.big_(j = 1)^m_k Q_(k j))$, где $Q_(k, j) in Pp$ и $Q_(k j) in P_k$.
+  2. $display(union.big_(k = 1)^n P_k = union.sq.big_(k = 1)^n union.sq.big_(j = 1)^m_k Q_(k j))$, где $Q_(k, j) in Pp$ и $Q_(k j) subset P_k$.
 
   3. В 2) можно написать счетное объединение.
 ]
