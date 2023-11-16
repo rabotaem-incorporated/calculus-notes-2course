@@ -102,15 +102,13 @@
 
     Надо доказать, что $L >= integral_E f dif mu = sup { integral_E phi dif mu bar 0 <= phi <= f, phi #[--- простая] }$. Достаточно доказать, что $L$ --- верхняя граница, то есть что $L >= integral_E phi dif mu$, где $phi$ --- простая $0 <= phi <= f$.
 
-    Возьмем $theta in (0, 1)$ и докажем, что $L >= theta integral_E phi dif mu = integral_E (theta phi) dif mu$, потом перейдем к пределу. Пусть $E_n := E{f_n >= theta phi}$. Это растущая последовательность, и $E_1 subset E_2 subset E_3 subset ...$, $Union_(n = 1)^oo E_n = E$. 
+    Возьмем $theta in (0, 1)$ и докажем, что $L >= theta integral_E phi dif mu = integral_E (theta phi) dif mu$, потом перейдем к пределу. Пусть $E_n := E{f_n >= theta phi}$. Это растущая последовательность, $E_1 subset E_2 subset E_3 subset ...$ и $Union_(n = 1)^oo E_n = E$ (это следует из поточечной сходимости $f_n$ к $f > theta phi$). 
     
-    
-    Возьмем $x in E$. Если $phi(x) = 0$, то $forall n space x in E_n$.
-    Если $phi(x) > 0$, то $lim f_n (x) = f(x) >= phi(x) > theta phi(x)$ (здесь используется положительность). Значит, начиная с некоторого номера $f_n (x) >= theta phi(x)$, значит $x in E_n$. По непрерывности меры снизу, $mu (A sect E_n) --> mu (A sect E)$.
+    По непрерывности меры снизу, $forall A - "измеримое" mu (A sect E_n) -->_(n-->oo) mu (A sect E)$, а значит
     
     $
         integral_E f_n dif mu >= integral_(E_n) f_n dif mu >= integral_(E_n) theta phi dif mu = theta integral_(E_n) phi dif mu = \ = theta sum_(k = 1)^m a_k mu(A_k sect E_n) -->_(n -> oo) theta sum_(k = 1)^m a_k mu(A_k sect E) = theta integral_E phi dif mu ==>\
-        ==> integral_E f_n dif mu >= theta integral_E phi dif mu.
+        ==> lim_(n-->oo) integral_E f_n dif mu >= theta integral_E phi dif mu.
     $
 ]
 
@@ -118,7 +116,7 @@
     5. _Аддитивность_. Пусть $f, g >= 0$ измеримые. Тогда
         $ integral_E (f + g) dif mu = integral_E f dif mu + integral_E g dif mu. $
 
-    6. _Однородность_. $alpha in R_(>= 0)$, $f >= 0$ измеримая. Тогда
+    6. _Однородность_. $alpha in RR_(>= 0)$, $f >= 0$ измеримая. Тогда
         $ integral_E (alpha f) dif mu = alpha integral_E f dif mu. $
 ]
 
