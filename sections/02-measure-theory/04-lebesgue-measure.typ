@@ -161,7 +161,7 @@
 ]
 #proof[
     1. Случай 1: $e subset P subset Cl P subset G$, $P$ --- ячейка.
-    $Cl P$ --- компакт, а $norm(Phi'(x))$ непрерывна на $Cl P$, поэтому $norm(Phi'(x))$ ограничена на $Cl P$. Пусть $norm(Phi'(x)) <= M space forall x in Cl P$, поэтому если $x, y in Cl P$, то $norm(Phi(x) - Phi(y)) = norm(Phi(xi)) norm(x - y) <= M norm(x - y)$. Покроем $e$ кубическими ячейками $Q_j$ так, что $sum lambda Q_j < eps$ и пусть $h_j$ длина стороны $Q_j$. $x, y in Q_j ==> norm(x - y) <= sqrt(m) dot h_j ==> norm(Phi(x) - Phi(y)) <= M sqrt(m) dot h_j ==> Phi(Q_j)$ содержится в шаре радиуса $M sqrt(m) h_j$.
+    $Cl P$ --- компакт, а $norm(Phi'(x))$ непрерывна на $Cl P$, поэтому $norm(Phi'(x))$ ограничена на $Cl P$. Пусть $norm(Phi'(x)) <= M space forall x in Cl P$, поэтому если $x, y in Cl P$, то $norm(Phi(x) - Phi(y)) = norm(Phi'(xi)) norm(x - y) <= M norm(x - y)$. Покроем $e$ кубическими ячейками $Q_j$ так, что $sum lambda Q_j < eps$ и пусть $h_j$ длина стороны $Q_j$. $x, y in Q_j ==> norm(x - y) <= sqrt(m) dot h_j ==> norm(Phi(x) - Phi(y)) <= M sqrt(m) dot h_j ==> Phi(Q_j)$ содержится в шаре радиуса $M sqrt(m) h_j$.
 
     Тогда $Phi(Q_j)$ накрылось кубиком со стороной $M sqrt(m) h_j$.
 
