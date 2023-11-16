@@ -69,12 +69,12 @@
     
     3. 
         $
-            P'_k := P sect P_k in Pp, space P = Union_(k=1)^n P_k' = usb_(k=1)^n usb_(j=1)^(m_k)Q_(k j), \
-            "где" \
-            Q_(k j) subset P_k' subset P_k, space Q_(k j) in Pp. \
-            "Тогда" \
+            P'_k := P sect P_k in Pp, space P <= Union_(k=1)^n P_k' = usb_(k=1)^n usb_(j=1)^(m_k)Q_(k j),
+        $ 
+        где $Q_(k j) subset P_k' subset P_k, space Q_(k j) in Pp$. Тогда:
+        $
             usb_(j=1)^(m_k) Q_(k j) subset P_k ==>_(#[по 2.]) sum_(j=1)^(m_k)mu Q_(k j) <= mu P_k. \
-            mu P = sum_(k=1)^n sum_(j=1)^(m_k) mu Q_(k j) <= sum_(k =1)^n mu P_k
+            mu P <= sum_(k=1)^n sum_(j=1)^(m_k) mu Q_(k j) <= sum_(k =1)^n mu P_k
         $
 ]
 
@@ -167,10 +167,8 @@
 #proof[
     - "$<==$" $P = usb_(k=1)^oo P_k$ тогда из счетной полуаддитивности следует, что $mu P <= sum_(k=1)^oo mu P_k$. А из объема следует усиленная монотонность  $==> mu P >= sum_(k=1)^oo mu P_k$
 
-    - "$==>$": $P subset Union_(k=1)^oo P_k space space P_k' = P sect P_k ==> P = Union_(k=1)^oo P_k' ==>$
-    $ ==> P = usb_(k=1)^oo usb_(j=1)^(m_k) Q_(k j)$, где $Q_(k j) in P$ и $Q_(k j) subset P_k' subset P_k $
-    $ usb_(j=1)^(m_k) Q_(k j) subset P_k ==> sum_(j=1)^(m_k)mu Q_j <= mu P_k space #[из усиленной монотонности объема]$
-    $ mu P = sum_(k=1)^oo sum_(j=1)^(m_k) mu Q_(k j) <= sum_(k=1)^oo mu P_k $
+    - "$==>$": $P subset Union_(k=1)^oo P_k$ Пусть $P'_k = P sect P_k$, и тогда $ P <= Union_(k=1)^oo P'_k ==> P <= usb_(k=1)^oo usb_(j=1)^(m_k) Q_(k j), $ где $Q_(k j) in P$ и $Q_(k j) subset P'_k subset P_k$. Тогда имеем $usb_(j=1)^(m_k) Q_(k j) subset P_k ==> sum_(j=1)^(m_k)mu Q_j <= mu P_k$ из усиленной монотонности объема, и
+    $ mu P <= sum_(k=1)^oo sum_(j=1)^(m_k) mu Q_(k j) <= sum_(k=1)^oo mu P_k. $
 ]
 
 #follow[
@@ -187,7 +185,7 @@
     - "$==>$": $B_n := A_n without A_(n-1), space A_0 = nothing$
         $ Union_(k=1)^oo A_n = usb_(k=1)^oo B_k, space #[так как $A_n = usb_(k=1)^n B_k$] $
         $ mu(Union_(k=1)^oo A_k) = mu(usb_(k=1)^oo B_k) = sum_(k=1)^oo mu B_k = sum_(k=1)^oo underbrace(mu(A_k without A_(k-1)), mu A_k - mu A_(k-1)) $
-        Если $mu A_k < +oo$, то $mu(Union_(k=1)^oo A_k) = lim_(n-->oo)sum_(k=1)^n (mu A_k - mu A_(k-1)) = lim mu A_n$
+        Если $mu A_k < +oo$, то $mu(Union_(k=1)^oo A_k) = lim_(n->oo)sum_(k=1)^n (mu A_k - mu A_(k-1)) = lim mu A_n$
         Если $mu A_n = +oo$, то $mu A_k = +oo space forall k >= n$ и $mu(Union A_k) = +oo$
 
     - "$<==$": Пусть $C = usb_(k = 1)^oo C_k$. Надо доказать, что $mu C = sum_(k = 1)^oo mu C_k$. Пусть $A_n := usb_(k = 1)^n C_k$.
@@ -199,8 +197,8 @@
 #th[
     $mu$ --- объем на $sigma$-алгебре $Aa$ подмножеств $X$, $mu X < +oo$. Тогда следующие условия равносильны:
     1. $mu$ --- мера
-    2. (непрерывность сверху) $A_1 supset A_2 supset A_3 supset ... ==> mu(sect.big_(n=1)^oo A_n) = lim_(n-->oo)mu A_n$
-    3. (непрерывность сверху на пустом множестве) Если $A_1 supset A_2 supset A_3 supset ...$ и $sect.big_(n=1)^oo A_n = nothing$, то $lim_(n-->oo)mu A_n = 0$
+    2. (непрерывность сверху) $A_1 supset A_2 supset A_3 supset ... ==> mu(sect.big_(n=1)^oo A_n) = lim_(n->oo)mu A_n$
+    3. (непрерывность сверху на пустом множестве) Если $A_1 supset A_2 supset A_3 supset ...$ и $sect.big_(n=1)^oo A_n = nothing$, то $lim_(n->oo)mu A_n = 0$
 ]
 
 #proof[
