@@ -9,7 +9,7 @@
 ]
 
 #def[
-    Пусть $f_n, f: E --> overline(RR)$ сходится к $f$ _почти везде по мере $mu$_, если $exists e subset E$, такое, что $mu e = 0$ и $f(x) = lim_(n -> oo) f_n (x)$ для любого $E without e$.
+    Пусть $f_n, f: E --> overline(RR)$. $f_n$ сходится к $f$ _почти везде по мере $mu$_, если $exists e subset E$, такое, что $mu e = 0$ и $f(x) = lim_(n -> oo) f_n (x)$ для любого $E without e$.
 ]
 
 #denote[
@@ -73,7 +73,7 @@
 ]
 
 #proof[
-    $mu E{abs(f_n - f) >= 1/k} --> 0$. Берем $n_k > n_(k - 1)$ так, что $ mu underbrace(E{abs(f_n_k - f) >= 1/k}, := A_k) <= 1/2^k $
+    $forall eps > 0 space mu E{abs(f_n - f) >= eps} -->_(n-->oo) 0$. Берем $n_k > n_(k - 1)$ так, что $ mu underbrace(E{abs(f_n_k - f) >= 1/k}, := A_k) <= 1/2^k $
 
     Пусть $B_n := Union_(k = n + 1)^oo A_k$. $mu B_n <= sum_(k = n+1)^oo mu A_k <= 1/2^n$. Положим $B := sect.big_(n = 1)^oo B_n$. Тогда $ mu B <= mu B_n <= 1/2^n --> 0 ==> mu B = 0. $
 
