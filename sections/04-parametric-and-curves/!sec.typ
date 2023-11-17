@@ -5,4 +5,4 @@
 
 #include "01-parametric-integral.typ"
 #include "02-improper-integral.typ"
-
+#include "03-euler-integrals.typ"
