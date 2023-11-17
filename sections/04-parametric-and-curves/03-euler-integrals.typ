@@ -4,9 +4,9 @@
 
 #def[
 
-  $Gamma(p) = integral_0^(+oo) x^(p-1) e^(-x) dif x$, p > 0
+  $Gamma(p) = integral_0^(+oo) x^(p-1) e^(-x) dif x$, $p > 0$
 
-  $Beta(p, q) = integral_0^1 x^(p-1) (1-x)^(q - 1) dif x$, p, q > 0
+  $Beta(p, q) = integral_0^1 x^(p-1) (1-x)^(q - 1) dif x$, $p, q > 0$
 ]
 
 #notice[
@@ -14,7 +14,7 @@
 
   Гамма:
 
-  В нуле $x^(p-1)e^-x tilde 1/x^(1-p)$ - сходится т. к. $1 - p < 0$
+  В нуле $x^(p-1)e^(-x) tilde 1/x^(1-p)$ - сходится т. к. $1 - p < 0$
   
   На бесконечности $x^(p-1)e^-x/2 --> 0$
 
