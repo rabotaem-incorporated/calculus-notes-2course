@@ -167,7 +167,7 @@
 #proof[
     - "$<==$" $P = usb_(k=1)^oo P_k$ тогда из счетной полуаддитивности следует, что $mu P <= sum_(k=1)^oo mu P_k$. А из объема следует усиленная монотонность  $==> mu P >= sum_(k=1)^oo mu P_k$
 
-    - "$==>$": $P subset Union_(k=1)^oo P_k$ Пусть $P'_k = P sect P_k$, и тогда $ P <= Union_(k=1)^oo P'_k ==> P <= usb_(k=1)^oo usb_(j=1)^(m_k) Q_(k j), $ где $Q_(k j) in P$ и $Q_(k j) subset P'_k subset P_k$. Тогда имеем $usb_(j=1)^(m_k) Q_(k j) subset P_k ==> sum_(j=1)^(m_k)mu Q_j <= mu P_k$ из усиленной монотонности объема, и
+    - "$==>$": $P subset Union_(k=1)^oo P_k$ Пусть $P'_k = P sect P_k$, и тогда $ P subset Union_(k=1)^oo P'_k ==> P subset usb_(k=1)^oo usb_(j=1)^(m_k) Q_(k j), $ где $Q_(k j) in P$ и $Q_(k j) subset P'_k subset P_k$. Тогда имеем $usb_(j=1)^(m_k) Q_(k j) subset P_k ==> sum_(j=1)^(m_k)mu Q_j <= mu P_k$ из усиленной монотонности объема, и
     $ mu P <= sum_(k=1)^oo sum_(j=1)^(m_k) mu Q_(k j) <= sum_(k=1)^oo mu P_k. $
 ]
 

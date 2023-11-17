@@ -118,10 +118,10 @@
 #notice[Можно ли продолжить на более широкую $sigma$-алгебру? Можно, но непонятно зачем.]
 
 #def[
-    $mu$ --- мера на $Pp$. $mu$ --- $sigma$-конечная мера, если существуют $P_k in Pp:$ $mu P_k < +oo$ и $X = Union_(k=1)^oo P_k$
+    $mu$ --- мера на $Pp$. $mu$ --- _$sigma$-конечная_ мера, если существуют $P_k in Pp:$ $mu P_k < +oo$ и $X = Union_(k=1)^oo P_k$
 ]
 
-#notice[Можно ли по-другому продолжить $mu$ на $sigma$-алгебру $mu^*$-измеримых множеств? Если $mu$ --- $sigma$-конечная, то нет.]
+#notice[Можно ли по-другому продолжить $mu$ на $sigma$-алгебру $mu^*$-измеримых множеств? Если $mu$ --- $sigma$-конечная, то нет. Доказательство далее.]
 
 #notice[Обязательно ли полная мера должна быть задана на $sigma$-алгебре $mu^*$-измеримых множеств? Если исходная $mu$ --- $sigma$-конечная мера, то да. Доказательство сложное.]
 
@@ -160,7 +160,7 @@
 
 #proof[
     Пусть $A in Aa$ и $A subset Union_(n = 1)^oo A_n$, где $A_n in Pp$.
-    $ nu A <= sum_(k=1)^oo nu A_k = sum_(k=1)^oo mu A_k ==> nu A <= inf{sum_(n=1)^oo mu A_n: A_n in Pp, A subset Union A_n} = mu A ==> nu A <= mu A $
+    $ nu A <= sum_(k=1)^oo nu A_k = sum_(k=1)^oo mu A_k ==> nu A <= inf{sum_(n=1)^oo mu A_n: A_n in Pp, A subset Union A_n} = mu A ==> nu A <= mu A. $
     Возьмем $P in Pp$.
 
     $nu(P sect A) + nu(P without A) = nu P = mu P = mu(P sect A) + mu(P without A)$
