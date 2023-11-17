@@ -69,7 +69,7 @@
     
     3. 
         $
-            P'_k := P sect P_k in Pp, space P <= Union_(k=1)^n P_k' = usb_(k=1)^n usb_(j=1)^(m_k)Q_(k j),
+            P'_k := P sect P_k in Pp, space P subset Union_(k=1)^n P_k' = usb_(k=1)^n usb_(j=1)^(m_k)Q_(k j),
         $ 
         где $Q_(k j) subset P_k' subset P_k, space Q_(k j) in Pp$. Тогда:
         $

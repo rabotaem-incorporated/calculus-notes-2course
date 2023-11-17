@@ -81,7 +81,7 @@
   1. Ограниченные в $RR^n$ и их дополнения --- алгебра, но не $sigma$-алгебра.
   2. $2^X$ --- и алгебра, и $sigma$-алгебра.
   3. _Индуцированная алгебра_ ($sigma$-алгебра): \ 
-    $Aa subset 2^X$ --- алгебра, $Y in X$, $Bb := {A sect Y bar A in Aa}$ --- алгебра подмножеств в $Y$.
+    $Aa subset 2^X$ --- алгебра, $Y subset X$, $Bb := {A sect Y bar A in Aa}$ --- алгебра подмножеств в $Y$.
     #proof[
 
       $x in B <==> x = x' sect Y, x' in A ==> Y without x =  Y without (x' sect Y) = Y without x' = (Y without x') sect Y, (Y without x') in A$
