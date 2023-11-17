@@ -122,7 +122,7 @@
 ]
 
 #def[
-  $Rr$ --- кольцо подмножеств $X$, если $A, B in Rr ==> A union B, A sect B, A without B in Rr$.
+  $Rr$ --- _кольцо_ подмножеств $X$, если $A, B in Rr ==> A union B, A sect B, A without B in Rr$.
   Пустые кольца не рассматриваются.
 ]
 #notice[
@@ -132,7 +132,7 @@
 ]
 
 #def[
-  $Pp$ --- полукольцо подмножеств $X$, если 
+  $Pp$ --- _полукольцо_ подмножеств $X$, если 
     1. $nothing in Pp$
     2. $A, B in Pp ==> A sect B in Pp$
     3. $A, B in Pp ==> exists Q_1, ..., Q_m in Pp$ такие, что $A without B = union.sq.big_(j=1)^m Q_j$
@@ -212,7 +212,7 @@
 #proof[
   $ 
     A_n &:= [a_1 + 1/n, b_1] times [a_2 + 1/n, b_2] times ... times [a_m + 1/n, b_m] \
-    U_n &:= (a_1, b_1 + 1/n) times (a_2, b_2 + 1/n) times ... times [a_m, b_m + 1/n] \ 
+    U_n &:= (a_1, b_1 + 1/n) times (a_2, b_2 + 1/n) times ... times (a_m, b_m + 1/n) \ 
   $
 ]
 

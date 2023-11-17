@@ -8,7 +8,7 @@
 
 #follow(plural: true)[
     1. Если $f_n >= 0$, то $INT(sum_(n = 1)^oo f_n) = sum_(n = 1)^oo INT(f_n)$.
-    2. Если $sum_(n = 1)^oo INT(abs(f)) < +oo$, то $sum_(n = 1)^oo f_n (x)$ абсолютно сходится при почти всех $x in E$.
+    2. Если $sum_(n = 1)^oo INT(abs(f_n)) < +oo$, то $sum_(n = 1)^oo f_n (x)$ абсолютно сходится при почти всех $x in E$.
 ]
 
 #proof[
