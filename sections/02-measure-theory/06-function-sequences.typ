@@ -12,10 +12,6 @@
     Пусть $f_n, f: E --> overline(RR)$. $f_n$ сходится к $f$ _почти везде по мере $mu$_, если $exists e subset E$, такое, что $mu e = 0$ и $f(x) = lim_(n -> oo) f_n (x)$ для любого $E without e$.
 ]
 
-#denote[
-    $ Ll(E, mu) = {f: E --> overline(RR) "измеримые" : mu E {f = plus.minus oo} = 0} $
-]
-
 #def[
     $f_n, f: E --> overline(RR)$. $f_n$ сходится к $f$ по мере $mu$, если $ forall eps > 0 space mu E {abs(f_n - f) > eps} -->_(n -> oo) 0. $
 ]
@@ -37,6 +33,10 @@
     2. Так как $E{f != g} = Union_(n = 1)^oo E{abs(f - g) > 1/n}$, достаточно доказать, что $mu E {abs(f - g) > 1/n} = 0$. 
         $ forall k quad E{abs(f - g) > 1/n} subset E{abs(f_k - f) > 1/(2n)} union E{abs(f_k - g) > 1/(2n)}. $
         А $mu E{abs(f_k - f) > 1/(2n)} -->_(k->oo) 0$. Значит $mu E{abs(f - g) > 1/n} = 0$. Получили что $mu E{f != g} = 0$.
+]
+
+#denote[
+    $ Ll(E, mu) = {f: E --> overline(RR) "измеримые" : mu E {f = plus.minus oo} = 0} $
 ]
 
 #th(name: "Лебега")[

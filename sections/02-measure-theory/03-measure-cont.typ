@@ -28,7 +28,7 @@
 ]
 
 #proof[
-    $nu(A sect usb_(k = 1)^n E_k) = nu(usb_(k = 1)^n (A sect E_k)) = nu(underbrace(usb_(k = 1)^n (A sect E_k) without E_n, usb_(k = 1)^(n - 1) A sect E_k)) + nu(underbrace(usb_(k = 1)^n (A sect E_k) sect E_n, A sect E_n)).$
+    $ nu(A sect usb_(k = 1)^n E_k) = nu(usb_(k = 1)^n (A sect E_k)) = nu underbrace((usb_(k = 1)^n (A sect E_k) without E_n), usb_(k = 1)^(n - 1) A sect E_k) + nu underbrace((usb_(k = 1)^n (A sect E_k) sect E_n), A sect E_n). $
 ]
 
 #th(name: "Каратеодори")[

@@ -125,7 +125,7 @@
 
     2. Про компакты: давайте рассмотрим $K_n := [-n, n]^m sect F$, где $F$ --- замкнутое. Тогда это компакт. $K_1 subset K_2 subset ...$ и $Union_(n=1)^oo K_n = F ==>_("непрерывность меры" \ "снизу") lambda K_n --> lambda F$.
 
-    3. Пусть $lambda E < +oo$. Найдется $tilde(K)_n subset E$, такое, что $lambda tilde(K)_n + 1/n > lambda E$. $Union_(n=1)^oo tilde(K)_n subset E$. $lambda E >= lambda(Union_(n=1)^oo tilde(K)_n) >= lambda tilde(K)_n > lambda E - 1/n ==> lambda(Union tilde(K)_n) = lambda E ==> lambda(underbrace(E without Union tilde(K)_n, e)) = 0$
+    3. Пусть $lambda E < +oo$. Найдется $tilde(K)_n subset E$, такое, что $lambda tilde(K)_n + 1/n > lambda E$. $Union_(n=1)^oo tilde(K)_n subset E$. $ lambda E >= lambda(Union_(n=1)^oo tilde(K)_n) >= lambda tilde(K)_n > lambda E - 1/n ==> lambda(Union tilde(K)_n) = lambda E ==> lambda underbrace((E without Union tilde(K)_n), e) = 0. $
 
         Пусть $lambda E = +oo$. Тогда $E = usb_(n = 1)^oo E_n$, где $lambda E_n < +oo$, $E_n = sum_(j = 1)^n K_(n j) union e$, $e = Union_(n = 1)^oo e_n$, $E = Union_(k = 1)^oo Union_(j = 1)^oo K_(n j) union e_n$ ($lambda e = 0$). $E = Union_(n=1)^oo Union_(j=1)^oo K_(n j) union e$.
 ]
@@ -135,7 +135,7 @@
 ]
 
 #proof[
-    $mu E := lambda (E + v)$ --- новая мера, где $v$ --- вектор, на который мы сдвигаем. Тогда $mu$ и $lambda$ совпадают на ячейках, а по единственности продолжения меры, $mu = lambda$. Отмечу, что они определились на одних и тех же множествах: в принципе интуитивно, но не очевидно. Чуть позже появится более общя теорема, которая это объяснит.
+    $mu E := lambda (E + v)$ --- новая мера, где $v$ --- вектор, на который мы сдвигаем. Тогда $mu$ и $lambda$ совпадают на ячейках, а по единственности продолжения меры, $mu = lambda$. Отмечу, что они определились на одних и тех же множествах: в принципе интуитивно, но не очевидно. Чуть позже появится более общая теорема, которая это объяснит.
 ]
 
 #th[
