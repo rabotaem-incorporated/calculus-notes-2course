@@ -8,14 +8,14 @@
 
 #follow(plural: true)[
     1. Если $f_n >= 0$, то $INT(sum_(n = 1)^oo f_n) = sum_(n = 1)^oo INT(f_n)$.
-    2. Если $sum_(n = 1)^oo INT(abs(f)) < +oo$, то $sum_(n = 1)^oo f_n (x)$ абсолютно сходится при почти везде $x in E$.
+    2. Если $sum_(n = 1)^oo INT(abs(f)) < +oo$, то $sum_(n = 1)^oo f_n (x)$ абсолютно сходится при почти всех $x in E$.
 ]
 
 #proof[
     1. Пусть $S_n := sum_(n = 1)^oo f_n (x)$, тогда $0 <= S_1 <= S_2 <= ...$. $S_n --> S := sum_(k = 1)^n f_k$. По теореме Леви 
         $ underbrace(sum_(k = 1)^n INT(f_k), --> sum_(k = 1)^oo INT(f_k)) = INT(sum_(k = 1)^n f_k) = INT(S_n) --> INT(S) $
     
-    2. $INT(sum_(n = 1)^oo abs(f_n)) = sum_(n = 1)^oo INT(abs(f_n)) < +oo$. Обозначим $tilde(S) = sum_(n = 1)^oo abs(f_n)$. Оно почти везде конечно. Значит $sum_(n = 1)^oo abs(f_n)$ сходится при почти везде $x in E$, то есть $sum_(n = 1)^oo f_n (x)$ абсолюбтно сходится при почти везде $x in E$.
+    2. $INT(sum_(n = 1)^oo abs(f_n)) = sum_(n = 1)^oo INT(abs(f_n)) < +oo$. Обозначим $tilde(S) = sum_(n = 1)^oo abs(f_n)$. Оно почти везде конечно. Значит $sum_(n = 1)^oo abs(f_n)$ сходится при почти всех $x in E$, то есть $sum_(n = 1)^oo f_n (x)$ абсолюбтно сходится при почти везде $x in E$.
 ]
 
 #lemma(name: "Фату")[
@@ -41,7 +41,7 @@
 
 #proof[
     $ f_n <= f ==> INT(f_n) <= INT(f) ==> limsup INT(f_n) <= INT(f). $
-    Применим теорему Фату:
+    Применим лемму Фату:
     $ INT(f) = INT(liminf f_n) <= liminf INT(f_n) <= limsup INT(f_n) <= INT(f). $
     Слева и справа одно и тоже, поэтому везде равенства.
     $ liminf INT(f_n) = limsup INT(f_n) = INT(f). $
@@ -50,7 +50,7 @@
 #th(name: "Лебега о предельном переходе (о мажорируемой сходимости)")[
     Пусть $abs(f_n) <= F$, а $F$ суммируема на $E$, и $f_n --> f$ почти везде. Тогда $lim INT(f_n) = INT(f)$. Более того, $INT(abs(f_n - f)) --> 0$.
     
-    $F$ называется _суммируемая мажоранта_.
+    Такая $F$ называется _суммируемой мажорантой_.
 ]
 
 #proof[
@@ -58,7 +58,7 @@
     $
         INT(2F) - INT(abs(f_n - f)) = INT(h_n) --> INT(2F).
     $
-    Отсюда $INT(abs(f_n - f)) --> 0$ (при сокращении использовали суммируемость). В частности, $ abs(INT(f_n) - INT(f)) = abs(INT(f_n - f)) <= INT(abs(f_n - f)) --> 0. $
+    Отсюда $INT(abs(f_n - f)) --> 0$ (при сокращении использовали суммируемость). В частности, $ abs(INT(f_n) - INT(f)) = abs(INT((f_n - f))) <= INT(abs(f_n - f)) --> 0. $
 ]
 
 #exercise[

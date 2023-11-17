@@ -7,15 +7,18 @@
 
 #proof[
     Надо проверить счетную полуаддитивность: $ (a, b] subset Union_(n = 1)^oo (a_n, b_n] ==> lambda_m (a, b] <= sum_(n = 1)^oo lambda_m (a_n, b_n], $
-    где $a, b, a_n, b_n in RR^m$. Возьмем $eps > 0$ и 
-    $[a', b] subset (a, b]$ так, чтобы $lambda_m [a', b] > lambda_m (a, b] - eps$.
+    где $a, b, a_n, b_n in RR^m$. 
 
-    Возьмем $(a_n, b'_n) supset (a_n, b_n]$ и $lambda_m (a_n, b'_n) < lambda_m (a_n, b_n] + eps / 2^n$. $[a', b] subset (a, b] subset Union_(n = 1)^oo (a_n, b_n] subset Union_(n = 1)^oo (a_n, b'_n)$.
+    Возьмем $eps > 0$ и $[a', b] subset (a, b]$ так, чтобы $lambda_m (a', b] > lambda_m (a, b] - eps$.
+    
+    Возьмем $(a_n, b'_n) supset (a_n, b_n]$ так, чтобы $lambda_m (a_n, b'_n] < lambda_m (a_n, b_n] + eps / 2^n$. 
+    
+    $[a', b] subset (a, b] subset Union_(n = 1)^oo (a_n, b_n] subset Union_(n = 1)^oo (a_n, b'_n)$.
 
-    У нас написано какое-то покрытие компакта. Выберем конечное подпокрытие, $[a', b] subset Union_(i=1)^N (a_n_i, b'_n_i)$.
+    У нас написано какое-то покрытие компакта. Выберем конечное подпокрытие, $(a', b] subset [a', b] subset Union_(i=1)^N (a_n_i, b'_n_i) subset Union_(i=1)^N (a_n_i, b'_n_i]$.
 
     $
-        lambda_m (a, b] - eps < lambda_m [a', b] <= sum_(i = 1)^N lambda_m (a_n_i, b'_n_i) < \ < sum_(i = 1)^N (lambda_m (a_n_i, b_n_i] + eps / 2^(n_i)) < sum_(n = 1)^oo lambda_m (a_n, b_n] + eps.
+        lambda_m (a, b] - eps < lambda_m (a', b] <= sum_(i = 1)^N lambda_m (a_n_i, b'_n_i] < \ < sum_(i = 1)^N (lambda_m (a_n_i, b_n_i] + eps / 2^(n_i)) < sum_(n = 1)^oo lambda_m (a_n, b_n] + eps.
     $
 
     Значит $lambda_m (a, b] < 2 eps + sum_(n = 1)^oo lambda_m (a_n, b_n]$. Устремим $eps$ к нулю и получим требуемое.
@@ -37,7 +40,7 @@
     4. Всякое измеримое множество --- это дизъюнктное объединение счетного числа множеств конечной меры.
     5. Пусть $E subset RR^m$. Если $forall eps > 0 space exists "измеримые множества" A_eps, B_eps$, такие, что $A_eps subset E subset B_eps$ и $lambda(B_eps without A_eps) < eps$, то $E$ измеримо.
         _Это свойство верно для любой меры на $sigma$-алгебре, не только для меры Лебега._
-    6. Пусть $E in RR^m$. Если $forall eps > 0$, найдется $B_eps supset E$, такое, что $lambda B_eps < eps$, то $E$ измеримо, и $lambda E = 0$.
+    6. Пусть $E subset RR^m$. Если $forall eps > 0$, найдется $B_eps supset E$, такое, что $lambda B_eps < eps$, то $E$ измеримо, и $lambda E = 0$.
     7. Счетное объединение множеств нулевой меры имеет меру 0.
     8. Счетное множество имеет нулевую меру.
     9. Множество нулевой меры имеет пустую внутренность.
@@ -50,7 +53,7 @@
 #proof[
     1. $Ll_m supset Bb(Pp^m) = Bb^m$, а $Bb^m$ содержит все открытые множества. Если $G$ --- непустое открытое, то $exists a in G ==> exists overline(B)_r(a) subset G$. А еще $lambda_m G >= lambda_m ("кубическая ячейка") > 0$, и эта ячейка лежит в найденном $overline(B)_r(a)$.
     
-    2. Если есть одна точка, то можем взять ячейку со стороной $epsilon$, тогда $lambda(dot) <= lambda("ячейка со стороной " epsilon) = epsilon^n$.
+    2. Если есть одна точка, то можем взять ячейку со стороной $epsilon$, тогда $ lambda(dot) <= lambda("ячейка со стороной " epsilon) = epsilon^n. $
     
     3. Очевидно.
     
@@ -58,7 +61,7 @@
 
     5. $A := Union_(n=1)^oo A_(1/n)$ и $B := Sect_(n=1)^oo B_(1/n) ==> A subset E subset B$. 
     $ B without A subset B_(1/n) without A_(1/n) ==> lambda(B without A) <= lambda(B_(1/n) without A_(1/n)) < 1/n ==> lambda(B without A) = 0 $
-    $ E without A subset B without A ==>^("полнота") E without A space #[--- измеримо] space ==> E = (E without A)union.sq A space #[--- измеримо] $.
+    $ E without A subset B without A ==>^("полнота") E without A space #[--- измеримо] space ==> E = (E without A)union.sq A space #[--- измеримо]. $
 
     6. $A_eps = nothing$, подставляем А-шки в предыдущее свойство --- фиксируем результат. Если $E subset B_eps ==> lambda E <= lambda B_eps < eps$.
 
@@ -79,7 +82,7 @@
 ]
 
 #notice[
-    1. Существуют неизмеримые множества. Более того любое множество положительной меры содержит неизмеримое подмножество.
+    1. Существуют неизмеримые множества. Более того, любое множество положительной меры содержит неизмеримое подмножество.
 
     2. Существуют несчетные множества нулевой меры. Например, при $m >= 2$ подойдет гипер-плоскость. При $m = 1$ подходит канторово множество (это про отрезок из которого выкидывают середину, и потом из оставшихся отрезков выкидывают середины и т.д. рекурсивно).
 
@@ -96,7 +99,7 @@
 
 #proof[
     Пусть $lambda E < +oo$. Знаем, что $ lambda E = inf {sum_(k = 1)^oo lambda P_k : P_k #[--- ячейки] and E subset Union_(k = 1)^oo P_k}. $
-    Возьмем такое покрытие, что $E subset Union_(n=1)^oo (a_n, b_n]$, что $sum_(n=1)^oo lambda (a_n, b_n] < lambda E + eps$. Возьмем $(a_n, b'_n) supset (a_n, b_n]$, т.ч. $lambda (a_n, b'_n) < lambda (a_n, b_n] + eps/(2^n) $. Пусть $G = Union_(n=1)^oo (a_n, b'_n)$ --- открытое $G supset E$. $lambda G <= sum_(n=1)^oo lambda (a_n, b'_n) <= sum_(n=1)^oo (lambda (a_n, b_n] + eps/(2^n)) = eps + sum_(n=1)^oo lambda (a_n, b_n] < 2eps + lambda E$. Поэтому $lambda (G without E) = lambda G - lambda E < 2 eps$.
+    Возьмем такое покрытие $E subset Union_(n=1)^oo (a_n, b_n]$, что $sum_(n=1)^oo lambda (a_n, b_n] < lambda E + eps$. Возьмем $(a_n, b'_n) supset (a_n, b_n]$, т.ч. $lambda (a_n, b'_n) < lambda (a_n, b_n] + eps/(2^n) $. Пусть $G = Union_(n=1)^oo (a_n, b'_n)$ --- открытое $G supset E$. $lambda G <= sum_(n=1)^oo lambda (a_n, b'_n) <= sum_(n=1)^oo (lambda (a_n, b_n] + eps/(2^n)) = eps + sum_(n=1)^oo lambda (a_n, b_n] < 2eps + lambda E$. Поэтому $lambda (G without E) = lambda G - lambda E < 2 eps$.
 
     Пусть $lambda E = +oo$. Тогда $E = usb_(n = 1)^oo E_n$, где $lambda E_n < +oo$. Возьмем открытое $G_n supset E_n$, такое, что $lambda (G_n without E_n) < eps / 2^n$. Тогда $G := Union_(n = 1)^oo G_n$ подходит.
 
@@ -150,9 +153,6 @@
 
     - Случай 3 ($k = 0$): $RR^m = usb_(k=1)^oo$ сдвиги $Q$, поэтому $mu RR^m = 0 ==> mu = 0 dot lambda$.
 ]
-#notice[
-    Для просто диффериенцируемых отображений (обобщение сдвига) это неверно.
-]
 
 #th[
     Пусть $G subset RR^m$ --- открытое, $Phi: G --> RR^m$ непрерывно диффериенцируемо.
@@ -169,9 +169,12 @@
 
     $lambda("кубик со стороной" 2 M sqrt(m) h_j) = (2 M sqrt(m) h_j)^m = (2M sqrt(m))^m lambda Q_j$. Тогда сумма мер кубиков равна $sum (2M sqrt(m))^m lambda Q_j < (2 M sqrt(m))^m eps$, значит $Phi(e)$ измеримо и $lambda(Phi(e)) = 0$.
 
-    Случай 2: $e subset G$, $F = usb_(k=1)^oo P_k$, такие, что $P_k in Pp_(QQ)^m$ и $P_k subset Cl P_k subset G$. $e = usb_(k=1)^oo (P_k sect e), space P_k sect e subset P_k ==>_("сл. 1") lambda(P_k sect e) = 0 ==> lambda(underbrace(usb(P_k sect e), = e)) = 0$
+    Случай 2: $e subset G$, $G = usb_(k=1)^oo P_k$, такие, что $P_k in Pp_(QQ)^m$ и $P_k subset Cl P_k subset G$. $e = usb_(k=1)^oo (P_k sect e), space P_k sect e subset P_k ==>_("сл. 1") lambda(P_k sect e) = 0 ==> lambda(underbrace(usb(P_k sect e), = e)) = 0$
 
     2. $E = e union Union_(n=1)^oo K_n$, где $K_n$ --- компакт и $lambda e = 0$. Поэтому $Phi(E) = underbrace(Phi(e), "измеримо") union Union_(n=1)^oo Phi(K_n)$, последнее --- компакты, поэтому измеримы.
+]
+#notice[
+    Для просто диффериенцируемых отображений (обобщение сдвига) это неверно.
 ]
 
 #th[
