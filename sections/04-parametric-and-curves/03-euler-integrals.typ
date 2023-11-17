@@ -16,7 +16,7 @@
 
   В нуле $x^(p-1)e^(-x) tilde 1/x^(1-p)$ - сходится т. к. $1 - p < 0$
   
-  На бесконечности $x^(p-1)e^-x/2 --> 0$
+  На бесконечности $x^(p-1)e^(-x/2) --> 0$
 
   Бета: 
   
@@ -39,7 +39,7 @@
   Gamma(n + 1/2) = (2n-1)!!/2^n sqrt(pi)
   $
   + $
-  Gamma(p) in C^(oo)(RR), Gamma^((n))(p) = integral_0^(+oo) x^(p-1) ln^n(x) e^(-x) dif x
+  Gamma(p) in C^(oo)(RR), Gamma^((n))(p) = integral_0^(+oo) x^(p-1) ln^n (x) e^(-x) dif x
   $
   + $Gamma(p)$ строго выпукла
   + $Gamma(p) -->_(p-->+oo) +oo$ и $Gamma(p) tilde_(p-->0) 1/p$
