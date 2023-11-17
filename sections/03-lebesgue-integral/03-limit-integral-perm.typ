@@ -12,7 +12,7 @@
 ]
 
 #proof[
-    1. Пусть $S_n := sum_(n = 1)^oo f_n (x)$, тогда $0 <= S_1 <= S_2 <= ...$. $S_n --> S := sum_(k = 1)^n f_k$. По теореме Леви 
+    1. Пусть $S_n := sum_(n = 1)^n f_n$, тогда $0 <= S_1 <= S_2 <= ...$. $S_n --> S := sum_(k = 1)^oo f_k$. По теореме Леви 
         $ underbrace(sum_(k = 1)^n INT(f_k), --> sum_(k = 1)^oo INT(f_k)) = INT(sum_(k = 1)^n f_k) = INT(S_n) --> INT(S) $
     
     2. $INT(sum_(n = 1)^oo abs(f_n)) = sum_(n = 1)^oo INT(abs(f_n)) < +oo$. Обозначим $tilde(S) = sum_(n = 1)^oo abs(f_n)$. Оно почти везде конечно. Значит $sum_(n = 1)^oo abs(f_n)$ сходится при почти всех $x in E$, то есть $sum_(n = 1)^oo f_n (x)$ абсолюбтно сходится при почти везде $x in E$.
