@@ -9,7 +9,7 @@
 ]
 
 #def[
-    $nu$ -- мера на $Aa$, тогда $nu$ --- полная, если $forall A in Aa$ и $forall B subset A$ и $nu A = 0$, то $B in Aa$
+    $mu$ -- мера на $Aa$, тогда $mu$ --- полная, если $forall A in Aa$ и $forall B subset A$ и $mu A = 0$, то $B in Aa$
 ]
 #notice[$mu B = 0$.]
 
