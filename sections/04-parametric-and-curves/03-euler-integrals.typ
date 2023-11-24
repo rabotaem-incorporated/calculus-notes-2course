@@ -208,7 +208,7 @@
 
 #examples[
   + $
-  product = 1 dot 4 dot 7 dot ... dot (3n + 1) = 3^(n+1) dot 1/3 dot (1 + 1/3) dot ... dot (n + 1/3) tilde (3^(n+1) n^(1/3) n!)/Gamma(1/3)
+  product_(k = 0)^n (3k + 1) = 1 dot 4 dot 7 dot ... dot (3n + 1) = 3^(n+1) dot 1/3 dot (1 + 1/3) dot ... dot (n + 1/3) tilde (3^(n+1) n^(1/3) n!)/Gamma(1/3)
   $
 
   + $
