@@ -9,7 +9,7 @@
 ]
 
 #notice[
-  $Gamma(a + k) tilde_(k -> oo) k^a Gamma(k)$, следовательео $a^overline(k) tilde_(k -> +oo) Gamma(k)/Gamma(a) k^a$
+  $Gamma(a + k) tilde_(k -> oo) k^a Gamma(k)$, следовательно $a^overline(k) tilde_(k -> +oo) Gamma(k)/Gamma(a) k^a$
 ]
 
 #example[
@@ -53,7 +53,7 @@ $
 
   2. $ ln(1-x) = -sum_(k = 1)^oo (x^k)/(k) = -x dot sum_(k = 0)^oo (x^k)/(k + 1) = -x hyperg(1, 1; 2; x). $
   
-  3. $ ln (1+x)/(1-x) = ln(1 + x) - ln(1 - x) = x sum_(k = 0)^oo ((-x)^k)/(k + 1) + x sum_(k = 0)^oo (x^k)/(k + 1) = 2x sum_(k = 0)^oo (x^2k)/(2x + 1) = 2x hyperg(1/2, 1; 3/2; x^2). $
+  3. $ ln (1+x)/(1-x) = ln(1 + x) - ln(1 - x) = x sum_(k = 0)^oo ((-x)^k)/(k + 1) + x sum_(k = 0)^oo (x^k)/(k + 1) = 2x sum_(k = 0)^oo (x^2k)/(2k + 1) = 2x hyperg(1/2, 1; 3/2; x^2). $
   
   4. $ arcsin x = x hyperg(1/2, 1/2; 3/2; x^2). $
   
