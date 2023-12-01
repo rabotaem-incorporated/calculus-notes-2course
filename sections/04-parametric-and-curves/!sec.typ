@@ -8,3 +8,4 @@
 #include "03-euler-integrals.typ"
 #include "04-hypergeometric-function.typ"
 #include "05-line-integrals.typ"
+#include "06-closed-and-exact-diff-forms.typ"
