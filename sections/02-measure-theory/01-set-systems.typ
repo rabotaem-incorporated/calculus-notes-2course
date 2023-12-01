@@ -89,8 +89,18 @@
       $x in B, y in B <==> ... ==> x sect y = (Y sect x') sect (Y sect y') = Y sect (x' sect y'), (x' sect y') in A$
     ]
   4. Пусть $Aa_alpha$ --- алгебра/$sigma$-алгебра подмножеств в $X$. Тогда $sect.big_(alpha in I) Aa_alpha$ --- алгебра ($sigma$-алгебра) подмножеств в $X$.
-  5. Пусть $A$ и $B$ --- множества. Наименьшая алгебра, содержащая $A$ и $B$ - все объединения подмножеств ${A \\ B, B \\ A, A sect B, X \\ (A union B)}$, всего $2^4 = 16$ множеств.
-    #TODO[Ебануть сюда ахуенную картинку с четырьмя ебейшими атомами] 
+  5. Пусть $A$ и $B$ --- множества. Наименьшая алгебра, содержащая $A$ и $B$ - все объединения подмножеств ${A without B, B without A, A sect B, X without (A union B)}$, всего $2^4 = 16$ множеств.
+  #figure(grid(columns: 8, gutter: 0.3cm, ..for atom in range(16) {
+    let plot = cetz.canvas(length: 0.25cm, {
+      import cetz.draw: *
+      let c = luma(90%)
+      rect((-3.5, -2.5), (3.5, 2.5), fill: if atom < 8 {c} else {blue.lighten(50%)})
+      rect((-3, -2), (1, 1), fill: if calc.rem(atom, 8) < 4 {c} else {red.lighten(50%)})
+      rect((-2, -1), (3, 2), fill: if calc.rem(atom, 4) < 2 {c} else {green.lighten(50%)})
+      rect((-2, -1), (1, 1), fill: if calc.rem(atom, 2) < 1 {c} else {yellow.lighten(50%)})
+    })
+    (plot,)
+  }))
 ]
 
 #let Ee = $cal(E)$

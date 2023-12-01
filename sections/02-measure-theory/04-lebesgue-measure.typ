@@ -121,7 +121,6 @@
 
 #proof[
     1. Давайте возьмем $X without E$ и по нему открытое $G$, которое накрывает $X without E$, такое, что $eps > lambda(underbrace(G without (X without E), E without (X without G)))$. Положим $F = X without G$. Оно подходит.
-    #TODO[картиночка той самой прослойки]
 
     2. Про компакты: давайте рассмотрим $K_n := [-n, n]^m sect F$, где $F$ --- замкнутое. Тогда это компакт. $K_1 subset K_2 subset ...$ и $Union_(n=1)^oo K_n = F ==>_("непрерывность меры" \ "снизу") lambda K_n --> lambda F$.
 

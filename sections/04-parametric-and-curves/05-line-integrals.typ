@@ -157,8 +157,61 @@
 ]
 
 #proof[
-  Рассмотрим кривую, которая соединяет $a$ и $b$. Для каждой точки на кривой, заведем шарик $B_(r(t)) (gamma(t)) in Omega$. Тогда носитель кривой $gamma[a, b]$ покрывается этими шариками. Так как носитель --- компакт, покроем его конечным количеством шариков. Занумеруем шарики, и пойдем последовательно от первого шарика до последнего. Мы можем так сделать: в рамках каждого шарика будем идти до точки на пересечении границы и следующего шарика. Ломанная может получиться самопересекающиейся, но из нее можно убрать все петли. Короче, доделывается, зуб даю.
-  #TODO[картиночка] 
+  Рассмотрим кривую, которая соединяет $a$ и $b$. Для каждой точки на кривой, заведем шарик $B_(r(t)) (gamma(t)) in Omega$. Тогда носитель кривой $gamma[a, b]$ покрывается этими шариками. Так как носитель --- компакт, покроем его конечным количеством шариков. 
+  
+  #figure(cetz.canvas(length: 0.6cm, {
+    import cetz.draw: *
+    catmull((0, 0), (3, 2), (6, 6), (8, 1), (4, -2), close: true, tension: 0.5)
+    place-anchors(
+      name: "p",
+      bezier-through((2, 0), (3, 0), (6, 5), stroke: red + 2pt),
+      ..for i in range(21) { ((name: str(i), pos: i/20),) },
+    )
+    circle("p.0", radius: 0.15, stroke: none, fill: blue)
+    circle("p.0", radius: 1, stroke: (paint: blue, dash: "dashed"))
+    circle("p.3", radius: 0.15, stroke: none, fill: blue)
+    circle("p.3", radius: 0.7, stroke: (paint: blue, dash: "dashed"))
+    circle("p.9", radius: 0.15, stroke: none, fill: blue)
+    circle("p.9", radius: 1.1, stroke: (paint: blue, dash: "dashed"))
+    circle("p.14", radius: 0.15, stroke: none, fill: blue)
+    circle("p.14", radius: 1, stroke: (paint: blue, dash: "dashed"))
+    circle("p.16", radius: 0.15, stroke: none, fill: blue)
+    circle("p.16", radius: 0.7, stroke: (paint: blue, dash: "dashed"))
+    circle("p.18", radius: 0.15, stroke: none, fill: blue)
+    circle("p.18", radius: 1.1, stroke: (paint: blue, dash: "dashed"))
+    circle("p.20", radius: 0.15, stroke: none, fill: blue)
+    circle("p.20", radius: 0.7, stroke: (paint: blue, dash: "dashed"))
+  }))
+
+  Занумеруем шарики, и пойдем последовательно от первого шарика до последнего. Мы можем так сделать: в рамках каждого шарика будем идти до точки на пересечении границы и следующего шарика. Ломанная может получиться самопересекающиейся, но из нее можно убрать все петли. Короче, доделывается, зуб даю.
+  #figure(cetz.canvas(length: 1cm, {
+    import cetz.draw: *
+    catmull((0, 0), (3, 2), (6, 6), (8, 1), (4, -2), close: true, tension: 0.5)
+    place-anchors(
+      name: "p",
+      bezier-through((2, 0), (3, 0), (6, 5), stroke: red + 2pt),
+      ..for i in range(21) { ((name: str(i), pos: i/20),) },
+    )
+    line(
+      ..for i in range(20, step: 2) {
+        ("p." + str(i), (horizontal: (), vertical: "p." + str(i + 2)))
+      }, "p.20", 
+      stroke: green + 3pt)
+    circle("p.0", radius: 0.15, stroke: none, fill: blue)
+    circle("p.0", radius: 1, stroke: (paint: blue, dash: "dashed"))
+    circle("p.3", radius: 0.15, stroke: none, fill: blue)
+    circle("p.3", radius: 0.7, stroke: (paint: blue, dash: "dashed"))
+    circle("p.9", radius: 0.15, stroke: none, fill: blue)
+    circle("p.9", radius: 1.1, stroke: (paint: blue, dash: "dashed"))
+    circle("p.14", radius: 0.15, stroke: none, fill: blue)
+    circle("p.14", radius: 1, stroke: (paint: blue, dash: "dashed"))
+    circle("p.16", radius: 0.15, stroke: none, fill: blue)
+    circle("p.16", radius: 0.7, stroke: (paint: blue, dash: "dashed"))
+    circle("p.18", radius: 0.15, stroke: none, fill: blue)
+    circle("p.18", radius: 1.1, stroke: (paint: blue, dash: "dashed"))
+    circle("p.20", radius: 0.15, stroke: none, fill: blue)
+    circle("p.20", radius: 0.7, stroke: (paint: blue, dash: "dashed"))
+  }))
 ]
 
 #th[
@@ -175,7 +228,33 @@
   - "$2 ==> 3$": вообще очев: если для любой кривой, то для ломанной тем более.
   - "$3 ==> 1$": зафиксируем $a in Omega$ и $forall x in Omega$ проведем из $a$ в $x$ ломанную $gamma$ за звеньями параллельными осям. Она есть по лемме.
     Рассмотрим $F(x) := integral_gamma omega$. Этот интеграл не зависит от выбора $gamma$, так как если к одной кривой добавить в конец вторую перевернутую, получится ломанная из $a$ в $a$. Она, может быть, самопересекается, но если порезать ее точками пересечения (их конечно), получаться интеграмы по замкнутым несамопересекающемся ломанным, которые, по $3)$, равны 0. Ну значит интегралы тоже равны.
-    #TODO[картинка (уже не люблю кривые...)]
+    
+    #figure(
+      cetz.canvas(length: 0.6cm, {
+        import cetz.draw: *
+        catmull((0, 0), (3, 2), (6, 6), (8, 1), (4, -2), close: true, tension: 0.5)
+        place-anchors(
+          name: "p",
+          bezier-through((2, 0), (3, 0), (6, 5), stroke: red + 2pt),
+          ..for i in range(21) { ((name: str(i), pos: i/20),) },
+        )
+
+        line(
+          ..for i in range(20, step: 5) {
+            ("p." + str(i), (horizontal: (), vertical: "p." + str(i + 5)))
+          }, "p.20", 
+          mark: (end: ">"),
+          stroke: green + 2pt
+        )
+
+        line(
+          ..for i in range(20, step: 4) {
+            ("p." + str(i), (vertical: (), horizontal: "p." + str(i + 4)))
+          }, "p.20",
+          mark: (start: ">"),
+          stroke: blue + 2pt
+        )
+      }))
 
     Проверим, что $f$ подходит. 
     $ 
@@ -192,7 +271,7 @@
 ]
 
 #def[
-  $Omega subset RR^2$ --- элементарная область, если $Omega$ можно представить в виде $ Omega &= {(x, y) : a < x < b "и" phi(x) < y < psi(x)} \ &= {(x, y): c < y < d "и" alpha(y) < x < beta(y)}. $
+  $Omega subset RR^2$ --- элементарная область, если $Omega$ можно представить в виде $ Omega &= {(x, y) : a < x < b and phi(x) < y < psi(x)} \ &= {(x, y): c < y < d and alpha(y) < x < beta(y)}. $
 
   #TODO[картинка]
 ]

@@ -98,8 +98,6 @@
     Тогда $lambda$ --- объем на $Pp times Qq$.
 ]
 
-#show "картиночка": "картин0чка"
-
 #proof[
     Нужно проверить свойства объема:
     1. $lambda nothing = 0$
@@ -107,12 +105,90 @@
 
     Первое свойство очевидно.
 
-    Докажем второе, для этого рассмотрим частный случай, когда $P = usb_(i=1)^n P_i, space Q = usb_(j = 1)^m Q_j, space P, P_i in Pp, space Q, Q_j in Qq$, тогда $P times Q = usb_(i=1)^n usb_(j=1)^m P_i times Q_j$ и 
-    #TODO[картиночка]
+    Докажем второе, для этого рассмотрим *частный случай*, когда $P = usb_(i=1)^n P_i, space Q = usb_(j = 1)^m Q_j, space P, P_i in Pp, space Q, Q_j in Qq$, тогда $P times Q = usb_(i=1)^n usb_(j=1)^m P_i times Q_j$ и 
+    #figure(cetz.canvas({
+        import cetz.draw: *
+        import cetz.decorations: *
+        line((-1, -0.5), (7.5, -0.5), stroke: 1pt + gray)
+        line((0, -0.5), (3, -0.5), stroke: 3pt + blue)
+        line((3, -0.5), (5, -0.5), stroke: 3pt + red)
+        line((5, -0.5), (7, -0.5), stroke: 3pt + green)
+        line((-0.5, -1), (-0.5, 4.5), stroke: 1pt + gray)
+        line((-0.5, 0), (-0.5, 3), stroke: 4pt + green)
+        line((-0.5, 3), (-0.5, 4), stroke: 3pt + red)
+        
+        brace((3, -0.5), (0, -0.5), amplitude: 0.3, name: "br1")
+        brace((5, -0.5), (3, -0.5), amplitude: 0.3, name: "br2")
+        brace((7, -0.5), (5, -0.5), amplitude: 0.3, name: "br3")
+        brace((-0.5, 0), (-0.5, 3), amplitude: 0.3, name: "br4")
+        brace((-0.5, 3), (-0.5, 4), amplitude: 0.3, name: "br5")
+        content((rel: (0, -0.4), to: "br1.center"), $P_1$)
+        content((rel: (0, -0.4), to: "br2.center"), $P_2$)
+        content((rel: (0, -0.4), to: "br3.center"), $P_3$)
+        content((rel: (-0.5, 0), to: "br4.center"), $Q_1$)
+        content((rel: (-0.5, 0), to: "br5.center"), $Q_2$)
+        
+        line((0, -1), (0, 4.5), stroke: (paint: gray, dash: "dashed"))
+        line((3, -1), (3, 4.5), stroke: (paint: gray, dash: "dashed"))
+        line((5, -1), (5, 4.5), stroke: (paint: gray, dash: "dashed"))
+        line((7, -1), (7, 4.5), stroke: (paint: gray, dash: "dashed"))
+        line((-1, 0), (7.5, 0), stroke: (paint: gray, dash: "dashed"))
+        line((-1, 3), (7.5, 3), stroke: (paint: gray, dash: "dashed"))
+        line((-1, 4), (7.5, 4), stroke: (paint: gray, dash: "dashed"))
+
+        rect((0, 0), (3, 3), fill: blue.lighten(50%))
+        rect((3, 0), (5, 3), fill: red.lighten(50%))
+        rect((5, 0), (7, 3), fill: green.lighten(50%))
+        rect((0, 3), (3, 4), fill: purple.lighten(50%))
+        rect((3, 3), (5, 4), fill: yellow.lighten(50%))
+        rect((5, 3), (7, 4), fill: orange.lighten(50%))
+    }))
     $
         lambda (P times Q) = mu P dot nu Q = sum_(i=1)^n mu P_i dot sum_(j=1)^m nu Q_j = sum_(i=1)^n sum_(j = 1)^m mu P_i dot nu Q_j = sum_(i=1)^n sum_(j = 1)^m lambda(P_i times Q_j)
     $
-    Общий случай: $P times Q = usb_(k=1)^n P_k times Q_k$
+
+    *Общий случай*: $P times Q = usb_(k=1)^n P_k times Q_k$
+    #figure(cetz.canvas({
+        import cetz.draw: *
+        import cetz.decorations: *
+        line((-1, -0.5), (7.5, -0.5), stroke: 1pt + gray)
+        line((0, -0.5), (3, -0.5), stroke: 3pt + blue)
+        line((3, -0.5), (6, -0.5), stroke: 3pt + red)
+        line((6, -0.5), (7, -0.5), stroke: 3pt + green)
+        line((-0.5, -1), (-0.5, 4.5), stroke: 1pt + gray)
+        line((-0.5, 0), (-0.5, 2), stroke: 4pt + green)
+        line((-0.5, 2), (-0.5, 4), stroke: 4pt + blue)
+        line((-0.5, 4), (-0.5, 5), stroke: 3pt + red)
+        
+        brace((3, -0.5), (0, -0.5), amplitude: 0.3, name: "br1")
+        brace((6, -0.5), (3, -0.5), amplitude: 0.3, name: "br2")
+        brace((7, -0.5), (6, -0.5), amplitude: 0.3, name: "br3")
+        brace((-0.5, 0), (-0.5, 2), amplitude: 0.3, name: "br4")
+        brace((-0.5, 2), (-0.5, 4), amplitude: 0.3, name: "br5")
+        brace((-0.5, 4), (-0.5, 5), amplitude: 0.3, name: "br6")
+        content((rel: (0, -0.4), to: "br1.center"), $P'_1$)
+        content((rel: (0, -0.4), to: "br2.center"), $P'_2$)
+        content((rel: (0, -0.4), to: "br3.center"), $P'_3$)
+        content((rel: (-0.5, 0), to: "br4.center"), $Q'_1$)
+        content((rel: (-0.5, 0), to: "br5.center"), $Q'_2$)
+        content((rel: (-0.5, 0), to: "br6.center"), $Q'_3$)
+        
+        line((0, -1), (0, 4.5), stroke: (paint: gray, dash: "dashed"))
+        line((3, -1), (3, 4.5), stroke: (paint: gray, dash: "dashed"))
+        line((5, -1), (5, 4.5), stroke: (paint: gray, dash: "dashed"))
+        line((6, -1), (6, 4.5), stroke: (paint: gray, dash: "dashed"))
+        line((7, -1), (7, 4.5), stroke: (paint: gray, dash: "dashed"))
+        line((-1, 0), (7.5, 0), stroke: (paint: gray, dash: "dashed"))
+        line((-1, 2), (7.5, 2), stroke: (paint: gray, dash: "dashed"))
+        line((-1, 3), (7.5, 3), stroke: (paint: gray, dash: "dashed"))
+        line((-1, 4), (7.5, 4), stroke: (paint: gray, dash: "dashed"))
+
+        rect((0, 0), (3, 4), fill: blue.lighten(50%))
+        rect((0, 4), (6, 5), fill: red.lighten(50%))
+        rect((6, 2), (7, 5), fill: green.lighten(50%))
+        rect((3, 0), (7, 2), fill: yellow.lighten(50%))
+        rect((3, 2), (6, 4), fill: orange.lighten(50%))
+    }))
  
     Знаем, что $P, Q, P_k, Q_k$ представляются в виде конечного объединения элементов из соответствующих полуколец и их можно попересекать, а значит найдутся такие $P'_i, Q'_j$, что
     $
@@ -123,7 +199,6 @@
     Это разбиение попадает под разобранный случай 
 
     $ lambda(P times Q) = sum_(i=1)^N sum_(j=1)^M lambda(P'_i times Q'_j) =^"группировка слагаемых" sum_(k=1)^n lambda (P_k times Q_k) $
-    #TODO[картиночка]
 ]
 
 #follow[

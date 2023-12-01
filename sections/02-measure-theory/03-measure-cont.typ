@@ -16,7 +16,6 @@
 #def[
     $nu$ --- субмера. Множество $E$ --- $nu$-измеримое, если $forall A$
     $ nu A = nu(A sect E) + nu(A without E) $
-    #TODO[рисуночек]
 ]
 
 #notice[
@@ -140,11 +139,6 @@
     Возьмем $C$ из теоремы, $C in Bb(Pp)$. $mu(C without A) = mu C - mu A = 0$. Применим теорему к множеству $C without A$. Найдется $e_1 supset C without A$, такое что $e_1 in Bb(Pp)$ и $mu e_1 = mu(C without A) = 0$.
 
     Рассмотрим $B := C without e_1 in Bb(Pp)$. Тогда $B subset A$. Рассмотрим $e = A without B$. Это то что надо: $e subset C without B subset e_1$. Тогда $mu e <= mu e_1 = 0$. Значит $mu e = 0$. 
-]
-
-#notice[
-    Если $mu$ --- $sigma$-конечная мера и $A$ --- $mu$-измеримое множество, то $A = B union.sq e$, где $B in Bb(Pp)$ и $mu e = 0$.
-    #TODO[это треш а не теорема :)]
 ]
 
 #proof[
