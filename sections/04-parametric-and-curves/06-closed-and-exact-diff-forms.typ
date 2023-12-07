@@ -27,12 +27,12 @@
 ]
 
 #proof[
-  Доказательство будет только для $n = 2$. Достаточно проверить, что $integral_gamma omega = 0$ для любой $gamma$ --- замкнутой, несамопересекающейся кривой (можно и ломанной).
+  Доказательство будет только для $n = 2$. Достаточно проверить, что $integral_gamma omega = 0$ для любой $gamma$ --- замкнутой, несамопересекающейся кривой (можно и ломанной). $gamma = diff Gamma$
   
   $
-    integral_gamma omega = integral_gamma P dif x + integral_gamma Q dif y = integral_("внутри" gamma) ((diff Q)/(diff x) - (diff P)/(diff y)) dif lambda_2 = 0.
+    integral_gamma omega = integral_gamma P dif x + Q dif y = integral_(Gamma) ((diff Q)/(diff x) - (diff P)/(diff y)) dif lambda_2 = 0.
   $
-  Чтобы внутри $gamma$ можно было применять формулу Грина, нужно, чтобы все ограниченное множество легло бы в $Omega$, то есть чтобы в $Omega$ не было "дырок". Поэтому мы требуем выпуклость $Omega$.
+  Чтобы внутри $gamma$ можно было применять формулу Грина, нужно, чтобы $Gamma subset Omega$, то есть чтобы в $Omega$ не было "дырок". Поэтому мы требуем выпуклость $Omega$.
 
   #TODO[не поверите, картиночка]
 ]

@@ -19,7 +19,7 @@
   $
   где $gamma$ --- какая-то параметризация $s$.
 
-  Напомню, что норма производной равна $sqrt((gamma'_1(t))^2 + ... + (gamma'_n(t))^2)$.
+  Напомню, что норма производной равна $sqrt((gamma'_1 (t))^2 + ... + (gamma'_n (t))^2)$.
 ]
 
 #props[
@@ -36,7 +36,7 @@
   1. Пусть $gamma = tilde(gamma) compose tau$.
   
     $
-      integral_tilde(gamma) t dif s = integral_c^d f(tilde(gamma)(t)) norm(tilde(gamma)'(t)) dif t =^(t = tau(u)) = integral_a^b f(tilde(gamma)(tau(u))) norm(tilde(gamma)'(tau(u))) dot underbrace(tau'(u), >0) dif u = \
+      integral_tilde(gamma) t dif s = integral_c^d f(tilde(gamma)(t)) norm(tilde(gamma)'(t)) dif t =^(t = tau(u)) integral_a^b f(tilde(gamma)(tau(u))) norm(tilde(gamma)'(tau(u))) dot underbrace(tau'(u), >0) dif u = \
       = integral_a^b f(underbrace(tilde(gamma)(tau(u)), tilde(gamma) compose tau = gamma)) norm(underbrace(tau'(u) dot tilde(gamma)'(tau(u)), gamma ')) dif u = integral_a^b f(gamma(u)) norm(gamma') dif u = integral_gamma f dif s.
     $
   
@@ -93,12 +93,12 @@
 ]
 
 #proof[
-  1. $ integral_tilde(gamma) omega = integral_c^d sum_(k = 1)^n f_k (tilde(gamma)(t)) tilde(gamma)'_k (t) dif t = integral_a^b sum_(k = 1)^n f_k (tilde(gamma)(tau(u))) tilde(gamma)'_k (tau(u)) tau'(u) dif u = integral_a^b sum_(k = 1)^n f_k (gamma(u)) gamma'_k (u) dif u. $
+  1. $ integral_tilde(gamma) omega = integral_c^d sum_(k = 1)^n f_k (tilde(gamma)(t)) tilde(gamma)'_k (t) dif t = integral_a^b sum_(k = 1)^n f_k (tilde(gamma)(tau(u))) tilde(gamma)'_k (tau(u)) tau'(u) dif u \ = integral_a^b sum_(k = 1)^n f_k (gamma(u)) gamma'_k (u) dif u. $
   
   2. Аналогично.
 
-  3. $gamma'(t)$ --- касательный вектор в точке $gamma(t)$, $arrow(sigma)(t) = gamma'(t) / norm(gamma'(t))$.
-    $ integral_gamma dotp(vf, vsigma) dif s = integral_a^b sum_(k = 1)^n f_k (sigma(t)) dot (sigma'_k (t))/norm(gamma'(t)) dot norm(gamma'(t)) dif t = integral_gamma omega. $
+  3. $gamma'(t)$ --- касательный вектор в точке $gamma(t)$, $arrow(sigma)(t) = (gamma'(t)) / norm(gamma'(t))$.
+    $ integral_gamma dotp(vf, vsigma) dif s = integral_a^b sum_(k = 1)^n f_k (gamma(t)) dot (gamma'_k (t))/norm(gamma'(t)) dot norm(gamma'(t)) dif t = integral_gamma omega. $
   
   4. Тривиально получается по определению.
 
@@ -183,7 +183,7 @@
     circle("p.20", radius: 0.7, stroke: (paint: blue, dash: "dashed"))
   }))
 
-  Занумеруем шарики, и пойдем последовательно от первого шарика до последнего. Мы можем так сделать: в рамках каждого шарика будем идти до точки на пересечении границы и следующего шарика. Ломанная может получиться самопересекающиейся, но из нее можно убрать все петли. Короче, доделывается, зуб даю.
+  Занумеруем шарики, и пойдем последовательно от первого шарика до последнего. Мы можем так сделать: в рамках каждого шарика будем идти до точки на пересечении границы и следующего шарика. Ломаная может получиться самопересекающиейся, но из нее можно убрать все петли. Короче, доделывается, зуб даю.
   #figure(cetz.canvas(length: 1cm, {
     import cetz.draw: *
     catmull((0, 0), (3, 2), (6, 6), (8, 1), (4, -2), close: true, tension: 0.5)
@@ -220,14 +220,14 @@
   Тогда следующие условия равносильны:
   1. $omega$ имеет первообразную.
   2. $integral_gamma omega = 0$, для любой замкнутой кривой $gamma$.
-  3. $integral_gamma omega = 0$, для любой замкнутой несамопересекающейся ломанной, все звенья которой, параллельны осям координат.
+  3. $integral_gamma omega = 0$, для любой замкнутой несамопересекающейся ломаной, все звенья которой, параллельны осям координат.
 ]
 
 #proof[
   - "$1 ==> 2$": очевидно по предыдущей теореме
-  - "$2 ==> 3$": вообще очев: если для любой кривой, то для ломанной тем более.
-  - "$3 ==> 1$": зафиксируем $a in Omega$ и $forall x in Omega$ проведем из $a$ в $x$ ломанную $gamma$ за звеньями параллельными осям. Она есть по лемме.
-    Рассмотрим $F(x) := integral_gamma omega$. Этот интеграл не зависит от выбора $gamma$, так как если к одной кривой добавить в конец вторую перевернутую, получится ломанная из $a$ в $a$. Она, может быть, самопересекается, но если порезать ее точками пересечения (их конечно), получаться интеграмы по замкнутым несамопересекающемся ломанным, которые, по $3)$, равны 0. Ну значит интегралы тоже равны.
+  - "$2 ==> 3$": вообще очев: если для любой кривой, то для ломаной тем более.
+  - "$3 ==> 1$": зафиксируем $a in Omega$ и $forall x in Omega$ проведем из $a$ в $x$ ломаную $gamma$ за звеньями параллельными осям. Она есть по лемме.
+    Рассмотрим $F(x) := integral_gamma omega$. Этот интеграл не зависит от выбора $gamma$, так как если к одной кривой добавить в конец вторую перевернутую, получится ломаная из $a$ в $a$. Она, может быть, самопересекается, но если порезать ее точками пересечения (их конечно), получаться интегралы по замкнутым несамопересекающемся ломаным, которые, по $3)$, равны 0. Ну значит интегралы тоже равны.
     
     #figure(
       cetz.canvas(length: 0.6cm, {
@@ -258,11 +258,11 @@
 
     Проверим, что $f$ подходит. 
     $ 
-      (diff F)/(diff x_1) (x) = lim_(h -> 0) (F(x_1 + t, x_2, ..., x_n) - F(x_1, ..., x_n)) / t = lim_(t -> 0) 1/t integral_[x, (x_1 + t, ..., x_n)] omega.
+      (diff F)/(diff x_1) (x) = lim_(t -> 0) (F(x_1 + t, x_2, ..., x_n) - F(x_1, ..., x_n)) / t = lim_(t -> 0) 1/t integral_[x, (x_1 + t, ..., x_n)] omega.
     $
     Рассмотрим интеграл:
     $
-      integral_[...] omega = integral_0^t sum_(k = 1)^n f_k (gamma(tau)) underbrace(gamma'(tau), [k = 1]) dif tau = integral_0^t f_1(x_1 + tau, x_2, ..., x_n) dif t.
+      integral_[...] omega = integral_0^t sum_(k = 1)^n f_k (gamma(tau)) underbrace(gamma'_k (tau), [k = 1]) dif tau = integral_0^t f_1(x_1 + tau, x_2, ..., x_n) dif t.
     $
     Значит,
     $
