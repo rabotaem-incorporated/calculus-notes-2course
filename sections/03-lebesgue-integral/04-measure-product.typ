@@ -131,7 +131,7 @@
 
     То есть мы поняли, что для любого $C in Bb(Pp)$, $C_x in Bb$ и $phi(x) = nu C_x$ измерима.
 
-    *Шаг 2.* Рассмотрим $C in Bb(Pp)$. Докажем, что $m C = integral_X phi dif mu$. Рассмотрим на $Bb(Pp)$ функцию множеств $E --> integral_X nu E_x dif mu(x)$. Докажем, что это мера на $Bb(Pp)$: $usb_(j = 1)^oo E_j --> integral_X nu (usb_(j = 1)^oo E_j)_x dif mu(x) = integral_X sum_(j = 1)^oo nu(E_j)_x dif mu(x) = sum_(j = 1)^oo integral_X nu(E_j)_x dif mu(x)$. На $Pp$ $m$ и эта мера совпадают. По теореме о единственности продолжения меры, они совпадают на $Bb(Pp)$.
+    *Шаг 2.* Рассмотрим $C in Bb(Pp)$. Докажем, что $m C = integral_X phi dif mu$. Рассмотрим на $Bb(Pp)$ функцию множеств $E maps integral_X nu E_x dif mu(x)$. Докажем, что это мера на $Bb(Pp)$: $usb_(j = 1)^oo E_j maps integral_X nu (usb_(j = 1)^oo E_j)_x dif mu(x) = integral_X sum_(j = 1)^oo nu(E_j)_x dif mu(x) = sum_(j = 1)^oo integral_X nu(E_j)_x dif mu(x)$. На $Pp$, $m$ и эта мера совпадают. По теореме о единственности продолжения меры, они совпадают на $Bb(Pp)$.
 
     *Шаг 3.* $C in Aa times.circle Bb$, $m C = 0$. Тогда существует $tilde(C) in Bb(Pp)$ такое, что $m tilde(C) = 0$ и $tilde(C) supset C$ (у нас была теорема в главе про продолжение меры, которая говорит, что такое множество всегда найдется). Значит $0 = m tilde(C) = integral_X nu tilde(C)_x dif mu(x) ==> nu tilde(C)_x = 0$ при почти всех $x in X$. У нас есть включение $tilde(C)_x supset C_x$, поэтому из-за полноты $nu$, $C_x in Bb$ при почти всех $x in X$ и $nu C_x = 0$ почти везде. Значит $m C = 0 = integral_X nu C_x dif mu(x)$ и $phi(x) = nu C_x$ измерима в широком смысле.
 
@@ -199,7 +199,7 @@
 ]
 
 #proof[
-    Берем $phi_n >= 0$ --- простые. $phi_n arrow.tr f$. $Pp_(phi_n) (E)$ измеримы.
+    Берем $phi_n >= 0$ --- простые. $phi_n arrow.tr f$. $Pp_(phi_n) (E)$ измерим. Зажмем $Pp_f (E)$ между двумя множествами равной меры:
     $
         Pp_f (E) without Gamma_f (E) subset Union_(n = 1)^oo Pp_(phi_n) (E) subset Pp_f (E) subset Union_(n = 1)^oo Pp_(phi_n) (E) union Gamma_f.
     $

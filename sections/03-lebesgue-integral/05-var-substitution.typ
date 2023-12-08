@@ -10,7 +10,7 @@
 ]
 
 #th(name: "замена переменной в интеграле по мере Лебега")[
-    $Omega subset RR^m$ открытое. $Phi: Omega --> tilde(Omega)$ диффеоморфизм. $f: tilde(Omega) --> overline(RR)$, $f >= 0$ измерима (или суммируема). Тогда $ integral_tilde(Omega) f dif lambda_m = integral_Omega f(Phi(x)) abs(Jj_Phi (x)) dif lambda_m (x), $
+    $Omega subset RR^m$ открытое. $Phi: Omega --> tilde(Omega)$ диффеоморфизм. $f: tilde(Omega) --> overline(RR)$, $f >= 0$ измерима (или суммируема). Тогда $ integral_tilde(Omega) f dif lambda_m (x) = integral_Omega f(Phi(x)) abs(Jj_Phi (x)) dif lambda_m (x), $
     где $Jj_phi(x) = det Phi' (x)$ --- якобиан.
 ]
 
@@ -62,7 +62,7 @@
 ]
 
 #proof[
-    1. $f = bb(1)_A$. Формула замены переменной говорит, что $ integral_tilde(Omega) bb(1)_A dif lambda_m = lambda_m A = integral_(Phi^(-1) (A)) abs(Jj_Phi) dif lambda_m = integral_Omega underbrace(bb(1)_(Phi^(-1) (A)), bb(1)_A compose Phi) dif lambda_m = integral_Omega (bb(1)_A compose Phi) dot abs(Jj_Phi) dif lambda_m. $
+    1. $f = bb(1)_A$. Из теоремы выше, $ integral_tilde(Omega) bb(1)_A dif lambda_m = lambda_m A = integral_(Phi^(-1) (A)) abs(Jj_Phi) dif lambda_m = integral_Omega underbrace(bb(1)_(Phi^(-1) (A)), bb(1)_A compose Phi) dif lambda_m = integral_Omega (bb(1)_A compose Phi) dot abs(Jj_Phi) dif lambda_m. $
 
     2. $f$ --- простая: верно по линейности.
 
@@ -81,7 +81,7 @@
 
     *Шаг 2.* Если теорема верна для диффеоморфизмов $Phi$ и $Psi$, то она верна и для $Phi compose Psi$. Пусть $ Omega -->^Phi Omegat -->^Psi Omegatt, A subset Omegatt $
     Тогда
-    $ lambda A = integral_(Psi^-1(A)) abs(Jj_psi) dif lambda =^((*)) integral_(Phi^-1(Psi^-1(A))) (abs(Jj_Psi) compose Phi) abs(Jj_Phi) dif lambda = \ integral_(Phi^-1(Psi^-1(A))) (abs(Jj_Psi) compose Phi) abs(Jj_Phi) dif lambda = integral_(Phi^-1(Psi^-1(A))) abs(det Psi'(Phi)) abs(Phi') dif lambda = \ integral_(Phi^-1(Psi^-1(A))) abs(det (Psi'(Phi) Phi')) dif lambda = integral_(Phi^-1(Psi^-1(A))) abs(det (Psi compose Phi)') dif lambda = integral_(Phi^-1(Psi^-1(A))) abs(Jj_(Phi compose Psi)) dif lambda. $
+    $ lambda A = integral_(Psi^-1(A)) abs(Jj_psi) dif lambda =^((*)) integral_(Phi^-1(Psi^-1(A))) (abs(Jj_Psi) compose Phi) abs(Jj_Phi) dif lambda = integral_(Phi^-1(Psi^-1(A))) abs(det Psi'(Phi)) abs(Phi') dif lambda = \ integral_(Phi^-1(Psi^-1(A))) abs(det (Psi'(Phi) Phi')) dif lambda = integral_(Phi^-1(Psi^-1(A))) abs(det (Psi compose Phi)') dif lambda = integral_(Phi^-1(Psi^-1(A))) abs(Jj_(Phi compose Psi)) dif lambda. $
     Переход $(*)$ верен по теореме о замене переменной, которой, как мы выяснили, здесь можно пользоватся.
 
     *Шаг 3.* Пусть $m = 1$. $ integral_[a, b] abs(phi') dif lambda = abs(phi(a) - phi(b)) = lambda [phi(a), phi(b)]. $ Это формула Ньютона-Лейбница. 
@@ -93,7 +93,7 @@
 
     *Шаг 4.* Теперь осталось доказать теорему для диффеоморфизмов из леммы. Тогда по частям мы соберем теорему.
 
-    $Phi: Omega --> Omegat$ диффеоморфизм, оставляющий на месте первые $m - 1$ координату. Пусть $(y, t)$, где $y in RR^(m - 1)$, $t in RR$ --- аргументы $Phi$. Тогда $Phi(y, t) = (y, phi(y, t))$.
+    $Phi: Omega --> Omegat$ диффеоморфизм, оставляющий на месте первые $m - 1$ координаты. Пусть $(y, t)$, где $y in RR^(m - 1)$, $t in RR$ --- аргументы $Phi$. Тогда $Phi(y, t) = (y, phi(y, t))$.
     $ lambda_m Phi(A) =^"Кавальери" integral_(RR^(m - 1)) lambda_1 (Phi (A))_y dif lambda_(m - 1) (y). $
     Посмотрим на сечения поближе: $ (Phi(A))_y = {s in RR: (y, s) in Phi(A)} = phi(y, A_y) $
     так как для некоторого $t$ можно записать $s = phi(y, t)$.
@@ -101,7 +101,7 @@
     $
         integral_(RR^(m - 1)) lambda_1 (Phi (A))_y dif lambda_(m - 1) (y) = integral_(RR^(m - 1)) lambda_1 (phi(y, A_y)) dif lambda_(m - 1) (y) = \ integral_(RR^(m - 1)) integral_(A_y) abs(phi'_t (y, t)) dif lambda_1 (t) dif lambda_(m - 1) (y).
     $
-    В последнем переходе мы воспользовались предыдущим шагом. Мера $lambda_1$ равняется внутреннему интегралу, так как для одномерного случая мы уже это знаем. Посмотрим на $Phi'$:
+    В последнем переходе мы воспользовались предыдущим шагом: мера $lambda_1$ равняется внутреннему интегралу, так как для одномерного случая мы уже это знаем. Посмотрим на $Phi'$:
     $
         Phi' = mat(E, 0; phi'_(y_1) ... phi'_(y_(m - 1)), phi'_t).
     $
