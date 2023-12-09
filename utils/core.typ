@@ -241,7 +241,8 @@
 #let def = make_theorem("Определение", color: def_color)
 #let prop = make_theorem("Свойство", th_type_plural: "Свойства", color: oth_color)
 #let props = prop.with(plural: true)
-#let notice = make_theorem("Замечание", highlight_color: proof_color)
+#let notice = make_theorem("Замечание", highlight_color: proof_color,
+  th_type_plural: "Замечания")
 #let remind = make_theorem("Напоминание", highlight_color: proof_color)
 #let example = make_theorem("Пример", th_type_plural: "Примеры", 
     highlight_color: def_color.lighten(25%), glues_to: (

@@ -11,5 +11,6 @@
 #include "sections/02-measure-theory/!sec.typ"
 #include "sections/03-lebesgue-integral/!sec.typ"
 #include "sections/04-parametric-and-curves/!sec.typ"
+#include "sections/05-complex-functions/!sec.typ"
 
 #include "appendix.typ"
