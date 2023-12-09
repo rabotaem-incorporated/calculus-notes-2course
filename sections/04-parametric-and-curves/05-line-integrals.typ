@@ -273,7 +273,88 @@
 #def[
   $Omega subset RR^2$ --- элементарная область, если $Omega$ можно представить в виде $ Omega &= {(x, y) : a < x < b and phi(x) < y < psi(x)} \ &= {(x, y): c < y < d and alpha(y) < x < beta(y)}. $
 
-  #TODO[картинка]
+  #grid(columns: (1fr, 1fr, 1fr), figure(
+    supplement: none,
+    caption: [Удовлетворяет первому условию],
+    cetz.canvas(length: 0.9cm, {
+      let std-line = line
+      import cetz.draw: *
+      line((-0.5, 0), (5.5, 0), mark: (end: ">"))
+      content((rel: (0.2, 0)), $x$)
+      line((0, -0.5), (0, 5.5), mark: (end: ">"))
+      content((rel: (0, 0.3)), $y$)
+
+      line((1, 5.5), (1, -0.5), stroke: (paint: gray, dash: "dashed"))
+      content((rel: (0.2, 0.3)), $a$)
+      line((4, 5.5), (4, -0.5), stroke: (paint: gray, dash: "dashed"))
+      content((rel: (0.2, 0.3)), $b$)
+      merge-path({
+        line((1, 0.5), (1, 4))
+        bezier-through((1, 4), (2, 3), (3, 5))
+        bezier-through((3, 5), (3.5, 4.5), (4, 3))
+        line((4, 3), (4, 1))
+        bezier-through((4, 1), (3, 2), (1, 0.5))
+      }, stroke: blue + 2pt, fill: pattern(
+        size: (3pt, 3pt),
+        place(std-line(start: (-10%, -10%), end: (110%, 110%), stroke: blue + 0.5pt))
+      ), close: true)
+    })
+  ), figure(
+    supplement: none,
+    caption: [Удовлетворяет второму условию],
+    cetz.canvas(length: 0.9cm, {
+      let std-line = line
+      import cetz.draw: *
+      line((-0.5, 0), (5.5, 0), mark: (end: ">"))
+      content((rel: (0.2, 0)), $x$)
+      line((0, -0.5), (0, 5.5), mark: (end: ">"))
+      content((rel: (0, 0.3)), $y$)
+
+      line((5.5, 1), (-0.5, 1), stroke: (paint: gray, dash: "dashed"))
+      content((rel: (0.3, 0.2)), $c$)
+      line((5.5, 4), (-0.5, 4), stroke: (paint: gray, dash: "dashed"))
+      content((rel: (0.3, 0.2)), $d$)
+      merge-path({
+        line((1, 1), (5, 1))
+        bezier-through((5, 1), (3, 3), (4, 4))
+        line((4, 4), (0.5, 4))
+        bezier-through((0.5, 4), (0.5, 2), (1, 1))
+      }, stroke: blue + 2pt, fill: pattern(
+        size: (3pt, 3pt),
+        place(std-line(start: (-10%, -10%), end: (110%, 110%), stroke: blue + 0.5pt))
+      ), close: true)
+    })
+  ),figure(
+    supplement: none,
+    caption: [Удовлетворяет обоим условиям],
+    cetz.canvas(length: 0.9cm, {
+      let std-line = line
+      import cetz.draw: *
+      line((-0.5, 0), (5.5, 0), mark: (end: ">"))
+      content((rel: (0.2, 0)), $x$)
+      line((0, -0.5), (0, 5.5), mark: (end: ">"))
+      content((rel: (0, 0.3)), $y$)
+
+      line((1, 5.5), (1, -0.5), stroke: (paint: gray, dash: "dashed"))
+      content((rel: (0.2, 0.3)), $a$)
+      line((4, 5.5), (4, -0.5), stroke: (paint: gray, dash: "dashed"))
+      content((rel: (0.2, 0.3)), $b$)
+      line((5.5, 1), (-0.5, 1), stroke: (paint: gray, dash: "dashed"))
+      content((rel: (0.3, 0.2)), $c$)
+      line((5.5, 4), (-0.5, 4), stroke: (paint: gray, dash: "dashed"))
+      content((rel: (0.3, 0.2)), $d$)
+      merge-path({
+        line((1, 1), (4, 1))
+        bezier-through((4, 1), (3, 1.5), (2.5, 2.5))
+        bezier-through((2.5, 2.5), (2, 3), (1.5, 4))
+        line((1.5, 4), (1, 4))
+        line((1, 4), (1, 1))
+      }, stroke: blue + 2pt, fill: pattern(
+        size: (3pt, 3pt),
+        place(std-line(start: (-10%, -10%), end: (110%, 110%), stroke: blue + 0.5pt))
+      ), close: true)
+    })
+  ))
 ]
 
 #th(name: "формула Грина")[
