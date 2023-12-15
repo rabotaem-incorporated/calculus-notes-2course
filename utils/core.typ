@@ -190,8 +190,7 @@
       ] else [
         *#th_type.*
       ]
-      #sym.space.hair #content
-      #box()<end-of-last-th>
+      #sym.space.hair #box()<end-of-last-th> #content
     ]
 
     #let th_block = block.with(

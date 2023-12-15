@@ -270,6 +270,15 @@
     $
 ]
 
+#let pfill = pattern(
+  size: (3pt, 3pt),
+  place(line(
+    start: (0%, 0%), 
+    end: (100%, 100%), 
+    stroke: (paint: blue, thickness: 0.5pt, cap: "square", join: "miter")
+  ))
+)
+
 #def[
   $Omega subset RR^2$ --- элементарная область, если $Omega$ можно представить в виде $ Omega &= {(x, y) : a < x < b and phi(x) < y < psi(x)} \ &= {(x, y): c < y < d and alpha(y) < x < beta(y)}. $
 
@@ -277,7 +286,6 @@
     supplement: none,
     caption: [Удовлетворяет первому условию],
     cetz.canvas(length: 0.9cm, {
-      let std-line = line
       import cetz.draw: *
       line((-0.5, 0), (5.5, 0), mark: (end: ">"))
       content((rel: (0.2, 0)), $x$)
@@ -294,10 +302,7 @@
         bezier-through((3, 5), (3.5, 4.5), (4, 3))
         line((4, 3), (4, 1))
         bezier-through((4, 1), (3, 2), (1, 0.5))
-      }, stroke: blue + 2pt, fill: pattern(
-        size: (3pt, 3pt),
-        place(std-line(start: (-10%, -10%), end: (110%, 110%), stroke: blue + 0.5pt))
-      ), close: true)
+      }, stroke: blue + 2pt, fill: pfill, close: true)
     })
   ), figure(
     supplement: none,
@@ -319,10 +324,7 @@
         bezier-through((5, 1), (3, 3), (4, 4))
         line((4, 4), (0.5, 4))
         bezier-through((0.5, 4), (0.5, 2), (1, 1))
-      }, stroke: blue + 2pt, fill: pattern(
-        size: (3pt, 3pt),
-        place(std-line(start: (-10%, -10%), end: (110%, 110%), stroke: blue + 0.5pt))
-      ), close: true)
+      }, stroke: blue + 2pt, fill: pfill, close: true)
     })
   ),figure(
     supplement: none,
@@ -349,10 +351,7 @@
         bezier-through((2.5, 2.5), (2, 3), (1.5, 4))
         line((1.5, 4), (1, 4))
         line((1, 4), (1, 1))
-      }, stroke: blue + 2pt, fill: pattern(
-        size: (3pt, 3pt),
-        place(std-line(start: (-10%, -10%), end: (110%, 110%), stroke: blue + 0.5pt))
-      ), close: true)
+      }, stroke: blue + 2pt, fill: pfill, close: true)
     })
   ))
 ]
@@ -360,9 +359,69 @@
 #th(name: "формула Грина")[
   $Omega subset RR^2$ --- ограниченая на плоскости область, граница которой, представляет собой конечное объединение непересекующихся простых кусочно гладких замкнутых кривых. $P, Q: Cl Omega --> RR$ --- непрерывные, такие, что $(diff P)/(diff y)$ и $(diff Q)/(diff x)$ непрерывны на $Cl Omega$. Тогда
   $ integral_Omega ((diff Q)/(diff x) - (diff P)/(diff y)) dif lambda_2 = integral_(diff Omega) (P dif x + Q dif y), $
-  где $diff Omega$ --- границы, причем направления кривых выбраны так, что область интегрирования всегда лежит слева от границы.
+  где $diff Omega$ --- границы, причем направления кривых выбраны так, что область интегрирования всегда лежит слева от границы:
 
-  #TODO[картинка, пипец как нужна]
+  #figure(
+    cetz.canvas(length: 0.6cm, {
+      let std-line = line
+      import cetz.draw: *
+
+      let no-fill = th_color.lighten(90%)
+      let pfill = pattern(
+        size: (3pt, 3pt),
+        place(std-line(
+          start: (0%, 0%), 
+          end: (100%, 100%), 
+          stroke: (paint: blue, thickness: 0.5pt, cap: "square", join: "miter")
+        ))
+      )
+
+      content((4.4, 0), text(blue, size: 2em, $Omega$))
+
+      set-style(mark: (fill: blue), stroke: blue)
+      place-marks(
+        catmull(
+          (0, -2), (8, -1), (6, 4), (2, 3), 
+          close: true, fill: pfill,
+        ),
+        ..for i in range(7) {
+          ((mark: ">", size: 0.2, pos: i / 7), )
+        }
+      )
+      
+      set-style(mark: (fill: green), stroke: green)
+      place-marks(
+        catmull(
+          (1, -1), (3, 0), (3.5, -1), (2, -2),
+          close: true, fill: no-fill
+        ),
+        ..for i in range(5) {
+          ((mark: ">", size: 0.2, pos: i / 5), )
+        }
+      )
+
+      place-marks(
+        catmull(
+          (4, 2), (3, 1), (2, 2), (3, 3),
+          close: true, fill: no-fill
+        ),
+        ..for i in range(7) {
+          ((mark: ">", size: 0.2, pos: i / 7), )
+        }
+      )
+      
+      place-marks(
+        catmull(
+          (5, 2.5), (6, 0), (6.6, 1.5), (5.5, 3),
+          close: true, fill: no-fill
+        ),
+        ..for i in range(7) {
+          ((mark: ">", size: 0.2, pos: i / 7), )
+        }
+      )
+    })
+  )
+  
 ]
 
 #proof[
@@ -372,7 +431,35 @@
 
   *Шаг 1*. $Omega$ --- элементарная область.
   $ integral_Omega (diff P)/(diff y) dif lambda_2 = integral_a^b integral_(phi(x))^(psi(x)) (diff P)/(diff y) (x, y) dif y dif x = integral_a^b (P(x, psi(x)) - P(x, phi(x))) dif x. $
-  С другой стороны, $integral_(diff Omega) P dif x$ равен сумме интегралов по четырем границам элементарность области (сверху, снизу, справа, слева). Правый интеграл равен $integral_phi(b)^psi(b) P(gamma(t)) gamma'_1 (t) dif t = 0$, так как производная равна 0. Аналогично интеграл слева. Снизу интеграл равен $integral_a^b P(t, phi(t)) dif t$, а сверху $integral_b^a P(t, psi(t)) dif t$, а в сумме они дают $integral_a^b P(t, phi(t)) dif t - integral_a^b P(t, psi(t)) dif t$. Получили что хотели, даже знаки получились разными.
+  С другой стороны, $integral_(diff Omega) P dif x$ равен сумме интегралов по четырем границам элементарность области (сверху, снизу, справа, слева):
+  $ integral_(diff Omega) P dif x = integral_"I" + integral_"II" + integral_"III" + integral_"IV". $
+  
+  #figure[
+    #cetz.canvas({
+      import cetz.draw: *
+
+      line((1, 3.5), (1, 0), stroke: (paint: gray, dash: "dashed"))
+      content((rel: (0.2, 0.3)), $a$)
+      line((4, 3.5), (4, 0), stroke: (paint: gray, dash: "dashed"))
+      content((rel: (0.2, 0.3)), $b$)
+
+      merge-path({
+        line((1, 0.5), (1, 3))
+        bezier-through((1, 3), (2, 3.2), (4, 3))
+        line((4, 3), (4, 1))
+        bezier-through((4, 1), (3, 0.6), (1, 0.5))
+      }, stroke: blue + 2pt, fill: pfill, close: true)
+    
+    content((2.5, 0.35))[I]
+    content((4.3, 2))[II]
+    content((2.5, 3.4))[III]
+    content((0.7, 1.75))[IV]
+    content((4.3, 1), $phi$)
+    content((4.3, 3), $psi$)
+    })
+  ]
+
+  Правый интеграл равен $integral_"II" = integral_phi(b)^psi(b) P(gamma(t)) gamma'_1 (t) dif t = 0$, так как производная равна 0. Аналогично интеграл слева $integral_"IV" = 0$. Снизу интеграл равен $integral_"I" = integral_a^b P(t, phi(t)) dif t$, а сверху $integral_"III" = integral_b^a P(t, psi(t)) dif t$, а в сумме они дают $integral_a^b P(t, phi(t)) dif t - integral_a^b P(t, psi(t)) dif t$. Получили что хотели, даже знаки получились разными.
 
   *Шаг 2*. Если область $Omega$ по кривой $gamma$ разрезали на $Omega_1$ и $Omega_2$, и формула была верна в $Omega_1$ и $Omega_2$, то она была верна и в $Omega$.
     $ -integral_(diff Omega_i) P dif x = integral_(Omega_i) (diff P)/(diff y) dif lambda_2 ==> -integral_(diff Omega) P dif x = -integral_(diff Omega_1 union diff Omega_2) P dif x = integral_(Omega_1 union Omega_2) (diff P)/(diff y) dif lambda_2 = integral_Omega (diff P)/(diff y) dif lambda_2. $

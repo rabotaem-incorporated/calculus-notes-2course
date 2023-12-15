@@ -52,6 +52,7 @@
 #let Int = math.op("Int")
 #let Cl = math.op("Cl")
 #let const = math.op("const")
+#let Ind = math.op("Ind")
 
 // letters
 #let Aa = math.cal($A$)
