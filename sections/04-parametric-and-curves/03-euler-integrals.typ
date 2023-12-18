@@ -103,7 +103,7 @@
 
 #proof[
   $
-  Gamma(p) Gamma(q) = integral_0^(+oo) integral_0^(+oo) x^(p-1) y^(q - 1) e^(-x - y) dif x dif y =^(u = x + y) integral_0^(+oo) integral_y^(+oo) (u-y)^(p-1) y^(q - 1) e^(-u) dif u dif y = \ integral_0^(+oo) integral_0^u (u-y)^(p-1) y^(q-1) dif y dif u =^(y = v u) integral_0^(+oo) integral_0^1 (u- u v)^(p-1) (u v)^(q-1) e^(-u) u dif v dif u = \ integral_0^(+oo) u^(p+q-1) e^(-u) integral_0^1 (1-v)^(p-1) v^(q-1) dif v dif u = Beta(p, q) Gamma(p + q)
+  Gamma(p) Gamma(q) = integral_0^(+oo) integral_0^(+oo) x^(p-1) y^(q - 1) e^(-x - y) dif x dif y =^(u = x + y) integral_0^(+oo) integral_y^(+oo) (u-y)^(p-1) y^(q - 1) e^(-u) dif u dif y = \ integral_0^(+oo) integral_0^u (u-y)^(p-1) y^(q-1) e^(-u) dif y dif u =^(y = v u) integral_0^(+oo) integral_0^1 (u- u v)^(p-1) (u v)^(q-1) e^(-u) u dif v dif u = \ integral_0^(+oo) u^(p+q-1) e^(-u) integral_0^1 (1-v)^(p-1) v^(q-1) dif v dif u = Beta(p, q) Gamma(p + q)
   $
 ]
 
