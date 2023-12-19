@@ -25,7 +25,7 @@
 ]
 
 #th(name: "ответ на вопрос 1")[
-  Пусть $t_0$ --- предельная точка. Суммируемая $f$ такова, что $f(x, t) -->_(t -> t_0) g(x)$ во всех $x in X$. Существует $Phi: X --> overline(RR)$ суммируема, и окрестность $U_(t_0)$ такая, что $abs(f(x, t)) <= Phi(x)$ для любого $x$ и $t in U_(t_0)$. Тогда $ lim_(t -> t_0) integral_X f(x, t) dif mu(x) = integral_X g dif mu. $
+  Пусть $t_0$ --- предельная точка. Суммируемая $f$ такова, что $f(x, t) -->_(t -> t_0) g(x)$ во всех $x in X$. Существует $Phi: X --> overline(RR)$ суммируемая, и окрестность $U_(t_0)$ такая, что $abs(f(x, t)) <= Phi(x)$ для любого $x$ и $t in U_(t_0)$. Тогда $ lim_(t -> t_0) integral_X f(x, t) dif mu(x) = integral_X g dif mu. $
 ]
 
 #proof[
@@ -41,7 +41,7 @@
 #let converges = sym.arrows.rr
 
 #def[
-  Говорят, что $f(x, t) arrows.rr_(t -> t_0) g(x)$ или _$f$ равномерно сходится к $g$ на $X$ в точке $t_0$_ если
+  Говорят, что $f(x, t) arrows.rr_(t -> t_0) g(x)$, или _$f$ равномерно сходится к $g$ на $X$ в точке $t_0$_ если
   $ forall eps > 0 space exists delta > 0 space forall x in X space forall t != t_0 space rho(t, t_0) < delta ==> abs(f(x, t) - g(x)) < eps. $
 ]
 
@@ -50,7 +50,7 @@
 ]
 
 #follow[
-  Пусть $mu X <= +oo$ и $f(x, t) converges_(t -> t_0) g(x)$ (где $f$ суммируема) равномерно на $X$. Тогда $g$ суммируема, и $ lim_(t -> t_0) integral_X f(x, t) dif mu(x) = integral_X g dif mu. $
+  Пусть $mu X < +oo$ и $f(x, t) converges_(t -> t_0) g(x)$ (где $f$ суммируема) равномерно на $X$. Тогда $g$ суммируема, и $ lim_(t -> t_0) integral_X f(x, t) dif mu(x) = integral_X g dif mu. $
 ]
 
 #proof[
@@ -126,7 +126,7 @@
 ]
 
 #follow[
-  Пусть $mu X < +oo$, $T subset RR$ --- промежуток, $X$ --- компакт. Пусть $f in C(X times T)$ и $f'_t in C(X times T)$. Тогда $F in C^1 (T)$ и $F' (t) = integral_X f'_t (x, t) dif mu_(x)$
+  Пусть $mu X < +oo$, $T subset RR$ --- промежуток, $X$ --- компакт. Пусть $f in C(X times T)$ и $f'_t in C(X times T)$. Тогда $F in C^1 (T)$ и $F' (t) = integral_X f'_t (x, t) dif mu_(x)$.
 ]
 
 #proof[
@@ -154,7 +154,7 @@
 ]
 
 #example[
-  Посчитаем $F(t) = integral_0^(+oo) e^(-x^2) cos(x t) d x$. В лоб посчитать это не получится с нашими текущими знаниями, поэтому продифференцируем, и что-то пойдем. Для начала в лоб,
+  Посчитаем $F(t) = integral_0^(+oo) e^(-x^2) cos(x t) d x$. В лоб посчитать это не получится с нашими текущими знаниями, поэтому продифференцируем, и что-то поймем. Для начала в лоб,
   $ F'_t (t) = -integral_0^(+oo) e^(-x^2) x sin(x t) d x. $
   Правда, чтобы так делать, нужно локальное условие Лебега. Оно есть: $x e^(-x^2)$ суммируема, и не меньше подынтегральной функции. Кстати, так как под интегралом непрерывная функция, то $F'_t$ непрерывна.
 

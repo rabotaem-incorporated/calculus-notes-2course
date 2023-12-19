@@ -464,6 +464,18 @@
   *Шаг 2*. Если область $Omega$ по кривой $gamma$ разрезали на $Omega_1$ и $Omega_2$, и формула была верна в $Omega_1$ и $Omega_2$, то она была верна и в $Omega$.
     $ -integral_(diff Omega_i) P dif x = integral_(Omega_i) (diff P)/(diff y) dif lambda_2 ==> -integral_(diff Omega) P dif x = -integral_(diff Omega_1 union diff Omega_2) P dif x = integral_(Omega_1 union Omega_2) (diff P)/(diff y) dif lambda_2 = integral_Omega (diff P)/(diff y) dif lambda_2. $
 
+  #figure[
+    #cetz.canvas({
+      import cetz.draw: *
+      place-anchors(name: "Omega", catmull((0, 0), (2, -0.5), (3, 0.5), (4, 0), (5, 1.5), (4, 3), (2, 2.5), close: true), (name: "a", pos: 0.25), (name: "b", pos: 0.7))
+      merge-path({
+        bezier("Omega.a", "Omega.b", (1.0, 1.5))
+      })
+    })
+  ]
+
+  #TODO[доделать картинку]
+
   *Шаг 3*. Формула верна для конечного объединения элементраных областей. Это индукция.
 
   *Шаг 4*. Любая область из формулировки так получается. Проверять не будем. В любом случае на практике интегралы так представляются точно.
