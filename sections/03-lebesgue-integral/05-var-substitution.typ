@@ -62,7 +62,7 @@
 ]
 
 #proof[
-    1. $f = bb(1)_A$. Из теоремы выше, $ integral_tilde(Omega) bb(1)_A dif lambda_m = lambda_m A = integral_(Phi^(-1) (A)) abs(Jj_Phi) dif lambda_m = integral_Omega underbrace(bb(1)_(Phi^(-1) (A)), bb(1)_A compose Phi) dif lambda_m = integral_Omega (bb(1)_A compose Phi) dot abs(Jj_Phi) dif lambda_m. $
+    1. $f = bb(1)_A$. Из теоремы выше, $ integral_tilde(Omega) bb(1)_A dif lambda_m = lambda_m A = integral_(Phi^(-1) (A)) abs(Jj_Phi) dif lambda_m = integral_Omega underbrace(bb(1)_(Phi^(-1) (A)), bb(1)_A compose Phi) abs(Jj_Phi) dif lambda_m = integral_Omega (bb(1)_A compose Phi) dot abs(Jj_Phi) dif lambda_m. $
 
     2. $f$ --- простая: верно по линейности.
 

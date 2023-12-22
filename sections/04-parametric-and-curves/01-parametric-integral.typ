@@ -136,7 +136,7 @@
 #let anyinterval(..smth) = $lr(angle.l #{smth.pos().join(",")} angle.r)$
 
 #th(name: "формула Лейбница")[
-  Пусть $f: anyinterval(a, b) times anyinterval(c, d) --> RR$, пусть $f, f'_t in C(anyinterval(a, b) times anyinterval(c, d))$. Пусть $phi, psi: anyinterval(c, d) --> anyinterval(a, b)$ непрерывно дифференрируемые. Тогда если
+  Пусть $f: anyinterval(a, b) times anyinterval(c, d) --> RR$, пусть $f, f'_t in C(anyinterval(a, b) times anyinterval(c, d))$. Пусть $phi, psi: anyinterval(c, d) --> anyinterval(a, b)$ [непрерывно]#footnote[коля, проверь ссылки] дифференрируемые. Тогда если
   $
     F(t) := integral_(phi(t))^(psi(t)) f(x, t) dif x in C^1(anyinterval(c, d)), 
   $
