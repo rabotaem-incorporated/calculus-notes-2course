@@ -14,7 +14,7 @@
 ]
 
 #def[
-  Пусть $f in H(Omega)$, $g in H(tilde(Omega))$. _$g$ --- продолжение, по цепочке областей_, если существуют области $Omega_0 = Omega$, $Omega_1$, $Omega_2$, ..., $Omega_n = tilde(Omega)$, такие, что $f_0 equiv f$, $f_1 in H(Omega_1)$, $f_2 in H(Omega_2)$, ..., $f_(n - 1) in H(Omega_(n - 1))$, $f_n = g$ и $f_k$ --- непосредственное аналитическое продолжение $f_(k - 1)$.
+  Пусть $f in H(Omega)$, $g in H(tilde(Omega))$. _$g$ --- аналитическое продолжение по цепочке областей_, если существуют области $Omega_0 = Omega$, $Omega_1$, $Omega_2$, ..., $Omega_n = tilde(Omega)$, такие, что $f_0 equiv f$, $f_1 in H(Omega_1)$, $f_2 in H(Omega_2)$, ..., $f_(n - 1) in H(Omega_(n - 1))$, $f_n = g$ и $f_k$ --- непосредственное аналитическое продолжение $f_(k - 1)$.
 
   #TODO[картинка]
 ]
