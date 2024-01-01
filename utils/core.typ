@@ -175,7 +175,7 @@
     }
 
     let th_content = {
-      if label != none {
+      if label != none and config.debug {
         place(
           top + left, dx: -0.2cm, dy: -0.25cm,
           text(highlight_color.darken(20%), size: 0.7em, raw(label))
