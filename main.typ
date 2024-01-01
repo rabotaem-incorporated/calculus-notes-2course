@@ -7,6 +7,8 @@
   info: "СПБГУ МКН, Современное программирование, 2023-2024",
 )
 
+#include "reminders.typ"
+
 #include "sections/01-leftovers/!sec.typ"
 #include "sections/02-measure-theory/!sec.typ"
 #include "sections/03-lebesgue-integral/!sec.typ"

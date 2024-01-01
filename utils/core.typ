@@ -146,8 +146,9 @@
     highlight_color = color.lighten(25%)
   }
 
-  (name: none, plural: false, content, glue: false) => par[
-    #locate(loc => {
+  let typ-label = label
+  (name: none, label: none, plural: false, content, glue: false) => {
+    locate(loc => {
       let lt = last_theorem.at(loc)
       // [Value: #lt]
       let th_label = query(selector(<end-of-last-th>).before(loc), loc)
@@ -166,19 +167,27 @@
       }
     })
 
-    #last_theorem.update(th_type)
+    last_theorem.update(th_type)
 
-    #let th_type = th_type
-    #if plural and th_type_plural != none {
+    let th_type = th_type
+    if plural and th_type_plural != none {
       th_type = th_type_plural
     }
 
-    #let th_content = [
-      #if name != none [
+    let th_content = {
+      if label != none {
+        place(
+          top + left, dx: -0.2cm, dy: -0.25cm,
+          text(highlight_color.darken(20%), size: 0.7em, raw(label))
+        )
+      }
+      if name != none [
         #let name_string = if type(name) == "string" { 
           name 
-        } else { 
+        } else if "text" in name.fields() {
           name.text
+        } else {
+          ""
         }
 
         #if name_string.starts-with(regex("(об |о |О |Об )")) [
@@ -190,10 +199,11 @@
       ] else [
         *#th_type.*
       ]
-      #sym.space.hair #box()<end-of-last-th> #content
-    ]
+      
+      [#sym.space.hair #box()<end-of-last-th> #content]
+    }
 
-    #let th_block = block.with(
+    let th_block = block.with(
       outset: .4em,
       inset: .4em,
       width: 100%,
@@ -210,9 +220,54 @@
       },
     )
 
-    #th_block(th_content)
-  ]
+    if label != none {
+      [
+        #{
+          metadata(highlight_color)
+          th_block(th_content)
+        }
+        #typ-label("_THEOREM_" + label)
+      ]
+    } else {
+      th_block(th_content)
+    }
+  }
 }
+
+#let sublabel(lbl) = {
+  if config.debug {
+    place(text(red, size: 0.6em, raw(lbl)))
+  }
+  [#[]#label("_THEOREM_SUBLABEL_" + lbl)]
+}
+
+#let rf(..args) = super(locate(loc => {
+  let lbl = args.pos().at(0)
+  let sublabel = args.pos().at(1, default: none)
+  let lbl = label("_THEOREM_" + lbl)
+  let label-instance = query(lbl, loc).first()
+  let color = label-instance.children.first().value
+  if sublabel != none {
+    let sublabel = query(
+      selector(label("_THEOREM_SUBLABEL_" + sublabel))
+        .after(label-instance.location()),
+      loc
+    ).at(0, default: none)
+    if sublabel != none {
+      link(
+        sublabel.location(),
+        box(circle(radius: 2pt, stroke: none, fill: color))
+      )
+    } else {
+      place(dx: 0pt, dy: 0pt, rect(width: 100%, height: 100%, fill: red))
+    }
+  } else {
+    link(
+      lbl,
+      box(circle(radius: 2pt, stroke: none, fill: color))
+    )
+  }
+}))
 
 #let TODO(content) = rect(
   stroke: red + 2pt,

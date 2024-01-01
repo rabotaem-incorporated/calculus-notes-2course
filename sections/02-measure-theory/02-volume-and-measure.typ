@@ -2,13 +2,15 @@
 
 == Объем и мера
 
-#def[
+#def(label: "def-measure")[
     $Pp$ --- полукольцо подмножеств в $X$. $mu: Pp --> [0; +oo]$.
     
+    #sublabel("volume")
     - $mu$ --- _объем_, если:
         1. $mu nothing = 0$
         2. $P_1, ..., P_n in Pp; quad union.sq.big_(k = 1)^n P_k in Pp ==> mu (union.sq.big_(k = 1)^n P_k) = sum_(k = 1)^n mu P_k$
 
+    #sublabel("measure")
     - $mu$ -- _мера_, если:
         1. $mu nothing = 0$ #h(1fr) $(1^*)$
         2. $P_1, P_2, ... in Pp; quad union.sq.big_(k = 1)^oo P_k in Pp ==> mu (union.sq.big_(k = 1)^oo P_k) = sum_(k = 1)^oo mu P_k$ #h(1fr) $(2^*)$
@@ -36,16 +38,21 @@
     Отметим, что 5 не является мерой.
 ]
 
-#th(name: "свойства объема")[
+#th(name: "свойства объема", label: "volume-props")[
     #set enum(numbering: x => if x != 228 { numbering("1)", x) } else { "2')" } )
     
     $Pp$ --- полукольцо подмножества $X, mu$ --- объем на $Pp$. Тогда
+    
+    #sublabel("monotonous")
     1. Монотонность: eсли $P' subset P$, то $mu P' <= mu P$
     
+    #sublabel("monotonous'")
     2. Усиленная монотонность: если $union.sq.big_(k=1)^n P_k subset P$, то $sum_(k=1)^n mu P_k <= mu P$
     
+    #sublabel("monotonous''")
     228. #hide[Усиленная монотонность: ] если $union.sq.big_(k=1)^oo P_k subset P$, то $sum_(k=1)^oo mu P_k <= mu P$
     
+    #sublabel("semiadditive")
     3. Полуаддитивность: eсли $P subset union.big_(k=1)^n P_k$, то $mu P <= sum_(k=1)^n mu P_k$
 ]
 
@@ -55,30 +62,36 @@
 
 #proof[
     #set enum(numbering: x => if x != 228 { numbering("1)", x) } else { "2')" } )
+
+    1. Очевидно.
     
-    2. $P without union.sq.big_(k=1)^n P_k = union.sq.big_(j=1)^m Q_j$ для некоторых $Q_j in Pp$, поэтому 
+    2. $P without union.sq.big_(k=1)^n P_k =^rf("semiring-disjoint-union") union.sq.big_(j=1)^m Q_j$ для некоторых $Q_j in Pp$, поэтому 
     $
         P &= union.sq.big_(k=1)^n P_k union.sq union.sq.big_(j=1)^m Q_j
-        ==> \ mu P &= sum_(k=1)^n mu P_k + sum_(j = 1)^m mu Q_j >= sum_(k=1)^n mu P_k. 
+        ==> \ mu P &= sum_(k=1)^n mu P_k + sum_(j = 1)^m mu Q_j >=^rf("volume-props", "monotonous") sum_(k=1)^n mu P_k. 
     $
 
     228. 
         $
-            union.sq.big_(k=1)^n P_k subset union.sq.big_(k=1)^oo P_k subset P  ==> mu P >= sum_(k=1)^n mu P_k --> sum_(k=1)^oo mu P_k
+            union.sq.big_(k=1)^n P_k subset union.sq.big_(k=1)^oo P_k subset P ==>
+            mu P >=^rf("volume-props", "monotonous'") sum_(k=1)^n mu P_k --> sum_(k=1)^oo mu P_k
         $
     
     3. 
         $
-            P'_k := P sect P_k in Pp, space P subset Union_(k=1)^n P_k' = usb_(k=1)^n usb_(j=1)^(m_k)Q_(k j),
+            P'_k := P sect P_k in Pp, space P subset Union_(k=1)^n P_k' =^rf("semiring-disjoint-union") 
+            usb_(k=1)^n usb_(j=1)^(m_k)Q_(k j),
         $ 
         где $Q_(k j) subset P_k' subset P_k, space Q_(k j) in Pp$. Тогда:
         $
-            usb_(j=1)^(m_k) Q_(k j) subset P_k ==>_(#[по 2.]) sum_(j=1)^(m_k)mu Q_(k j) <= mu P_k. \
+            usb_(j=1)^(m_k) Q_(k j) subset P_k 
+            ==>_(#[по 2.])^#rf("volume-props", "monotonous'") 
+            sum_(j=1)^(m_k)mu Q_(k j) <= mu P_k. \
             mu P <= sum_(k=1)^n sum_(j=1)^(m_k) mu Q_(k j) <= sum_(k =1)^n mu P_k
         $
 ]
 
-#notice[
+#notice(label: "semiring-subtract-volume")[
     1. Пусть $Rr$ --- кольцо, $mu$ --- объем на $Rr$. $A subset B in Rr$, $mu A < +oo$. Тогда $mu(B without A) = mu B - mu A$.
 ]
 
@@ -88,18 +101,18 @@
     $
 ]
 
-#th(name: "Декартово произведение объемов")[
+#th(name: "Декартово произведение объемов", label: "cartesian-prod-volume")[
     $Pp$ --- полукольцо подмножеств в $X$, $Qq$ --- полукольцо подмножеств в $Y$. $mu$ --- объем на $Pp$, $nu$ --- объем на $Qq$.
     $
         lambda: Pp times Qq &--> [0, +oo] \
         lambda(P times Q) &= mu P dot nu Q,
     $
     причем мы считаем, что $0 dot (+oo) = (+oo) dot 0 = 0$.
-    Тогда $lambda$ --- объем на $Pp times Qq$.
+    Тогда $lambda$ --- объем на $Pp times Qq$#rf("cartesian-semiring-prod").
 ]
 
 #proof[
-    Нужно проверить свойства объема:
+    Нужно проверить свойства объема#rf("def-measure", "volume"):
     1. $lambda nothing = 0$
     2. $P_1, ..., P_n in Pp; quad union.sq.big_(k = 1)^n P_k in Pp ==> lambda (union.sq.big_(k = 1)^n P_k) = sum_(k = 1)^n lambda P_k$
 
@@ -216,6 +229,7 @@
     5. $X$ --- произвольное, $X supset T = {t_1, t_2, ...}$ --- не более чем счетное. $w_1, w_2, ... >= 0$. Пусть $display(mu A = sum_(t_i in A) w_i)$. Это мера.
 ]
 
+/*
 #proof[(Чего-то)
 
     Докажем, что $A = usb_(k = 1)^oo A_k ==> mu A = sum^oo_(k = 1) mu A_k$
@@ -233,43 +247,68 @@
 
     Значит $S = S'$
 ]
+*/
 
-#th[
+#th(label: "measure-semiadditive")[
     $mu: Pp --> [0; +oo]$ объем на полукольце $Pp$. Тогда $mu #[--- мера] <==> #[если] P, P_1, P_2, ... in Pp$, такие что $P subset Union_(k=1)^oo P_k$, то
     $mu P <= sum_(k=1)^oo mu P_k$. Это свойство называется _счетная полуаддитивность_.
 ]
 
 #proof[
-    - "$<==$" $P = usb_(k=1)^oo P_k$ тогда из счетной полуаддитивности следует, что $mu P <= sum_(k=1)^oo mu P_k$. А из объема следует усиленная монотонность  $==> mu P >= sum_(k=1)^oo mu P_k$
+    - "$<==$" 
+        $P = usb_(k=1)^oo P_k$ тогда из счетной полуаддитивности следует, что $mu P <= sum_(k=1)^oo mu P_k$.
+        А из объема следует усиленная монотонность#rf("volume-props", "monotonous''")  $==> mu P >= sum_(k=1)^oo mu P_k$.
 
-    - "$==>$": $P subset Union_(k=1)^oo P_k$ Пусть $P'_k = P sect P_k$, и тогда $ P subset Union_(k=1)^oo P'_k ==> P subset usb_(k=1)^oo usb_(j=1)^(m_k) Q_(k j), $ где $Q_(k j) in P$ и $Q_(k j) subset P'_k subset P_k$. Тогда имеем $usb_(j=1)^(m_k) Q_(k j) subset P_k ==> sum_(j=1)^(m_k)mu Q_j <= mu P_k$ из усиленной монотонности объема, и
-    $ mu P <= sum_(k=1)^oo sum_(j=1)^(m_k) mu Q_(k j) <= sum_(k=1)^oo mu P_k. $
+    - "$==>$": $P subset Union_(k=1)^oo P_k$. 
+        Пусть $P'_k = P sect P_k$, и тогда $ P subset Union_(k=1)^oo P'_k ==>^rf("semiring-disjoint-union") P subset usb_(k=1)^oo usb_(j=1)^(m_k) Q_(k j), $ где $Q_(k j) in P$ и $Q_(k j) subset P'_k subset P_k$. Тогда имеем $usb_(j=1)^(m_k) Q_(k j) subset P_k ==> sum_(j=1)^(m_k)mu Q_j <= mu P_k$ из усиленной монотонности объема#rf("volume-props", "monotonous''"), и
+        $ 
+            mu P <=^rf("volume-props", "monotonous")
+            sum_(k=1)^oo sum_(j=1)^(m_k) mu Q_(k j) <=^rf("volume-props", "monotonous''")
+            sum_(k=1)^oo mu P_k.
+        $
 ]
 
-#follow[
+#follow(label: "union-zero-measure")[
     Пусть $mu$ --- мера на $sigma$-алгебре. Тогда счетное объединение множеств нулевой меры $mu$ имеет нулевую меру. 
 ]
+
 #proof[
-    $ mu(Union_(k=1)^oo P_k) <= sum_(k = 1)^oo mu P_k = 0, "если" forall k space mu P_k = 0 $
+    $ 
+        mu(Union_(k=1)^oo P_k) <=^rf("measure-semiadditive")
+        sum_(k = 1)^oo mu P_k = 0, "если" forall k space mu P_k = 0 
+    $
 ]
-#th[
+
+#th(label: "bottom-up-continious")[
     Пусть $mu$ --- объем на $sigma$-алебре. Тогда $mu$ --- мера тогда и только тогда, когда $A_1 subset A_2 subset ... in Aa ==> mu(Union_(k=1)^oo A_k) = lim_(n -> oo) mu A_n$. Это свойство называется _непрерывность снизу_.
 ]
 
 #proof[
     - "$==>$": $B_n := A_n without A_(n-1), space A_0 = nothing$
-        $ Union_(k=1)^oo A_n = usb_(k=1)^oo B_k, space #[так как $A_n = usb_(k=1)^n B_k$] $
-        $ mu(Union_(k=1)^oo A_k) = mu(usb_(k=1)^oo B_k) = sum_(k=1)^oo mu B_k = sum_(k=1)^oo underbrace(mu(A_k without A_(k-1)), mu A_k - mu A_(k-1)) $
-        Если $mu A_k < +oo$, то $mu(Union_(k=1)^oo A_k) = lim_(n->oo)sum_(k=1)^n (mu A_k - mu A_(k-1)) = lim mu A_n$
-        Если $mu A_n = +oo$, то $mu A_k = +oo space forall k >= n$ и $mu(Union A_k) = +oo$
-
-    - "$<==$": Пусть $C = usb_(k = 1)^oo C_k$. Надо доказать, что $mu C = sum_(k = 1)^oo mu C_k$. Пусть $A_n := usb_(k = 1)^n C_k$.
         $ 
-            mu A_n = sum_(k = 1)^n mu C_k ==> mu C = mu(Union_(n = 1)^oo A_n) = lim_(n->oo) mu A_n = sum_(k = 1)^oo mu C_k 
+            Union_(k=1)^oo A_n = usb_(k=1)^oo B_k, space #[так как $A_n = usb_(k=1)^n B_k$]
+        $
+        $
+            mu(Union_(k=1)^oo A_k) =
+            mu(usb_(k=1)^oo B_k) =^rf("def-measure", "measure")
+            sum_(k=1)^oo mu B_k =
+            sum_(k=1)^oo underbrace(mu(A_k without A_(k-1)), mu A_k - mu A_(k-1)#[#rf("semiring-subtract-volume")])
+        $
+        Если $mu A_k < +oo$, то 
+        $ mu(Union_(k=1)^oo A_k) = lim_(n->oo)sum_(k=1)^n (mu A_k - mu A_(k-1)) = lim mu A_n. $
+        Если $mu A_n = +oo$, то $mu A_k = +oo space forall k >= n$ и $mu(Union A_k) = +oo$.
+
+    - "$<==$": Пусть $C = usb_(k = 1)^oo C_k$. Надо доказать, что $mu C =^#rf("def-measure", "measure") sum_(k = 1)^oo mu C_k$. Пусть $A_n := usb_(k = 1)^n C_k$.
+        $ 
+            mu A_n =^rf("def-measure", "volume")
+            sum_(k = 1)^n mu C_k ==>
+            mu C =^(A_n -> C) mu(Union_(n = 1)^oo A_n) =^"непр.\nснизу"
+            lim_(n->oo) mu A_n =^"сумма\nряда"
+            sum_(k = 1)^oo mu C_k.
         $
 ]
 
-#th[
+#th(label: "top-down-continoius")[
     $mu$ --- объем на $sigma$-алгебре $Aa$ подмножеств $X$, $mu X < +oo$. Тогда следующие условия равносильны:
     1. $mu$ --- мера
     2. (непрерывность сверху) $A_1 supset A_2 supset A_3 supset ... ==> mu(sect.big_(n=1)^oo A_n) = lim_(n->oo)mu A_n$
@@ -280,11 +319,21 @@
     - $2) => 3)$ --- тривиально. 
     - $1) => 2)$: $B_n = A_1 without A_n$. $nothing = B_1 subset B_2 subset B_3 subset ...$.
     $
-        mu A_1 - mu (sect.big_(n = 1)^oo A_n) = mu(A_1 without sect.big_(n = 1)^oo A_n) = mu(Union_(n = 1)^oo B_n) = \ #h(3cm) lim_(n -> oo) mu B_n = lim_(n -> oo) (mu A_1 - mu A_n) = mu A_1 - lim mu A_n.
+        mu A_1 - mu (sect.big_(n = 1)^oo A_n) =
+        mu(A_1 without sect.big_(n = 1)^oo A_n) =
+        mu(Union_(n = 1)^oo B_n) =^rf("bottom-up-continious")
+        \ #h(3cm) =
+        lim_(n -> oo) mu B_n =
+        lim_(n -> oo) (mu A_1 - mu A_n) =
+        mu A_1 - lim mu A_n.
     $
-    - $3) => 1)$: Пусть $A = usb_(k = 1)^oo C_k$. Рассмотрим $A_n = usb_(k = n)^oo C_k$. Так как $A_1 supset A_2 supset A_3 supset ...$ и $sect.big_(n = 1)^oo A_n = nothing$, $mu A_n --> 0$. 
+    - $3) => 1)$: 
+        Пусть $A = usb_(k = 1)^oo C_k$.
+        Рассмотрим $A_n = usb_(k = n)^oo C_k$.
+        Так как $A_1 supset A_2 supset A_3 supset ...$ и $sect.big_(n = 1)^oo A_n = nothing$, $mu A_n --> 0$.
     $ 
-        A = usb_(k = 1)^(n - 1) C_k union.sq A_n ==> mu A = sum_(k = 1)^(n - 1) mu C_k + mu A_n --> sum_(k = 1)^oo mu C_k.
+        A = (usb_(k = 1)^(n - 1) C_k) union.sq A_n ==>
+        mu A = (sum_(k = 1)^(n - 1) mu C_k) + mu A_n --> sum_(k = 1)^oo mu C_k.
     $
 ]
 

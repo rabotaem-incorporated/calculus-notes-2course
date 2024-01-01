@@ -21,7 +21,7 @@
   $
 ]
 
-#def[
+#def(label: "def-sigma-delta-props")[
   $Aa$ --- семейство подмножеств множества $X$. Будем говорить, что множество имеет свойства:
   
   - $(sigma_0)$, если $A, B in Aa$, то $A union B in Aa$
@@ -33,13 +33,18 @@
   - $(delta)$, если $A_n in Aa space forall n in NN$, то $sect.big_(n = 1)^oo A_n in Aa$
 ]
 
-#def[
+#def(label: "def-symm-system")[
   $Aa$ --- симметричная система, если $A in Aa ==> X without A in Aa.$
 ]
 
 #pr[
   Пусть $Aa$ симметричная система множеств. Тогда
-  $ (sigma_0) <==> (delta_0) space #[и] space (sigma) <==> (delta). $
+  $ 
+    (sigma_0) <==>^rf("def-sigma-delta-props") (delta_0) 
+    space 
+    #[и] space 
+    (sigma) <==>^rf("def-sigma-delta-props") (delta). 
+  $
 ]
 #proof[
 
@@ -54,15 +59,15 @@
   $
 ]
 
-#def[
-  Система множеств $Aa$ называется _Алгеброй_, если $Aa$ --- симметричная система и $(sigma_0)$, $(delta_0)$ и $nothing in Aa$, то есть если $A, B in Aa$, то $X without A$, $A union B$ и $A sect B$ лежат в системе $Aa$.
+#def(label: "def-algebra")[
+  Система множеств $Aa$ называется _Алгеброй_, если $Aa$ --- симметричная система#rf("def-symm-system") и $(sigma_0)$, $(delta_0)$#rf("def-sigma-delta-props") и $nothing in Aa$, то есть если $A, B in Aa$, то $X without A$, $A union B$ и $A sect B$ лежат в системе $Aa$.
 ]
 
-#def[
+#def(label: "def-salgebra")[
   $Aa$ -- $sigma$-алгебра, если $Aa$ -- алгебра и $(sigma), (delta) in Aa$
 ]
 
-#props[
+#props(label: "sigma-algebra-props")[
   1. Если $Aa$ --- $sigma$-алгебра, то $Aa$ --- алгбера.
 
   2. Если $Aa$ --- алгебра, то $X in Aa$.
@@ -107,7 +112,7 @@
 #let Rr = $cal(R)$
 
 
-#th[
+#th(label: "borel-set")[
   $Ee$ --- система подмножеств $X$.
   Тогда сущесвует наименьшая по включению $sigma$-алгебора подмножеств в $X$, содержащая $Ee$.
 ]
@@ -117,11 +122,11 @@
   $ ==> sect.big_(alpha in I) Aa_alpha space #[--- $sigma$-алегбра и она содержит $Ee$] $
 ]
 
-#def[
-  Такая $sigma$-алгебра называется _Борелевской оболочкой множества $Ee$_. Обозначается $Bb(Ee)$.
+#def(glue: true)[
+  Такая#rf("borel-set") $sigma$-алгебра называется _Борелевской оболочкой множества $Ee$_. Обозначается $Bb(Ee)$.
 ]
 
-#def[
+#def(label: "borel-algebra")[
   Минимальная $sigma$-алгебра, содержащая все открытые множества в $RR^n$ называется _Борелевской $sigma$-алгеброй_. Обозначается $Bb^n$.
 ]
 
@@ -131,7 +136,7 @@
   // дохуя и пиздец дохуя
 ]
 
-#def[
+#def(label: "def-ring")[
   $Rr$ --- _кольцо_ подмножеств $X$, если $A, B in Rr ==> A union B, A sect B, A without B in Rr$.
   Пустые кольца не рассматриваются.
 ]
@@ -141,7 +146,7 @@
   Если $X$ лежит в $Rr$, то $Rr$ --- алгебра.
 ]
 
-#def[
+#def(label: "def-semiring")[
   $Pp$ --- _полукольцо_ подмножеств $X$, если 
     1. $nothing in Pp$
     2. $A, B in Pp ==> A sect B in Pp$
@@ -153,7 +158,7 @@
   2. $Aa := { lr((a, b]) bar a, b in QQ }$
 ]
 
-#lemma[
+#lemma(label: "lem-disjoint-union")[
   $union.big A_n = union.sq.big (A_n without union.big_(k = 1)^(n - 1) A_k)$
 ]
 
@@ -167,7 +172,7 @@
   - "$subset$": Берем все $x in union.big A_n$. Пусть $m$ --- наименьший номер, для которого $x in A_m$. Тогда $x in B_m$.
 ]
 
-#th[
+#th(label: "semiring-disjoint-union")[
   $Pp$ --- полукольцо, $P_1, P_2, ... in Pp$. Тогда
   1. $display(P without union.big_(j = 1)^n P_j = union.sq.big_(i = 0)^m Q_i)$ для некоторых $Q_i in Pp$.
   
@@ -188,7 +193,7 @@
 
 #let Qq = $cal(Q)$
 
-#th(name: [декартово произведение полуколец])[
+#th(name: [декартово произведение полуколец], label: "cartesian-semiring-prod")[
   $Pp$ --- полукольцо подмножества $X$, $Qq$ --- полукольцо подмножества $Y$.
   $ Pp times Qq = {A times B: A in Pp, B in Qq} space #[--- полукольцо подмножеств в $X times Y$]. $
 ]
@@ -200,7 +205,7 @@
   $ (A_1 times B_1) without (A_2 times B_2) = A_1 times (B_1 without B_2) union.sq (A_1 without A_2) times (B_1 sect B_2) =\ union.sq.big_(j=1)^m A_1 times Q_j union.sq union.sq.big_(i = 1)^n (P_i times (B_1 sect B_2)) in Pp times Qq $
 ]
 
-#def[
+#def(label: "def-cell")[
   Пусть $a, b in RR^m$. _Открытым параллелепипедом_ $(a, b)$ называется 
   $
     (a_1, b_1) times (a_2, b_2) times ... times (a_m, b_m).
@@ -215,7 +220,7 @@
   $
 ]
 
-#pr[
+#pr(label: "cell-through-cuboid")[
   Непустая ячейка представляется в виде пересечения убывающей последовательности вложенных открытых параллелепипедов и в виде объединения возрастающей последовательности вложенных замкнутых параллелепипедов.
 ]
 
@@ -232,10 +237,10 @@
     $
 ]
 
-#th[
+#th(label: "cells-semiring")[
   $Pp^m$ и $Pp_(QQ)^m$ --- полукольца
 ]
-#th[
+#th(label: "open-through-cell")[
   Всякое непустое открытое множество $G subset RR^m$ представляется в виде дизъюнктного объединения счетного числа ячеек, которые вместе с замыканием содержатся в $G$. Более того, ячейки можно брать с рациональными координатами.
 ]
 
@@ -253,11 +258,11 @@
   Это счетное объединение, поскольку все ячейки имеют рациональные координаты, а значит, его можно переделать в дизъюнктное не испортив ячеек.
 ]
 
-#follow[
+#follow(label: "borel-set-over-cells")[
   Борелевская оболочка ячеек $Bb(Pp^m) = Bb(Pp_(QQ)^m) = Bb^m$
 ]
 #proof[
-  1. Знаем, что $Pp^m supset Pp_(QQ)^m ==> Bb(Pp^m) supset Pp_(QQ)^m ==> Bb(Pp^m) supset Bb(Pp_(QQ)^m)$ (Из-за минимальности)
-  2. Любое открытое множество --- счетное объединение ячеек с рациональными координатами вершин, поэтому открытые множества лежат в $Bb(Pp_(QQ)^m) ==> Bb^m subset Bb(Pp_(QQ)^m)$
-  3. Знаем, что ячейка --- счетное пересечение открытых множеств, значит, что все ячейки содержаться в $Bb^m ==> Bb(Pp^m) subset Bb^m$
+  1. Знаем, что $Pp^m supset Pp_(QQ)^m ==> Bb(Pp^m) supset Pp_(QQ)^m ==> Bb(Pp^m) supset Bb(Pp_(QQ)^m)$ (Из-за минимальности#rf("borel-set"))
+  2. Любое открытое множество --- счетное объединение ячеек с рациональными координатами вершин#rf("open-through-cell"), поэтому открытые множества лежат в $Bb(Pp_(QQ)^m) ==> Bb^m subset Bb(Pp_(QQ)^m)$
+  3. Знаем, что ячейка --- счетное пересечение открытых множеств#rf("cell-through-cuboid"), значит, что все ячейки содержаться в $Bb^m ==> Bb(Pp^m) subset Bb^m$.
 ]
