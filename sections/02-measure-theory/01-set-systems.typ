@@ -231,7 +231,7 @@
   $
 ]
 
-#denote[
+#denote(label: "def-R-cells")[
   $
     Pp^m := { "ячейки в" RR^m } supset Pp^m_QQ := { #block[ячейки в $RR^m$ у которых все \ координаты всех вершин рациональны] }
     $

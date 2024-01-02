@@ -8,7 +8,7 @@
     3. $nu(Union_(n=1)^oo A_n) <= sum_(n=1)^oo nu A_n$ (счетная полуаддитивность).
 ]
 
-#def(label: "full-measure")[
+#def(label: "def-complete-measure")[
     $mu$ -- мера на $Aa$, тогда $mu$ --- полная, если $forall A in Aa$ и $forall B subset A$ и $mu A = 0$, то $B in Aa$.
 ]
 
@@ -32,7 +32,7 @@
 ]
 
 #th(name: "Каратеодори", label: "caratheodory")[
-    Если $nu$ --- субмера#rf("def-submeasure"), то $nu$-измеримые#rf("def-measurable") множества образуют $sigma$-алгебру#rf("def-salgebra") $Aa$ и сужение $nu$ на $Aa$ --- полная мера#rf("full-measure").
+    Если $nu$ --- субмера#rf("def-submeasure"), то $nu$-измеримые#rf("def-measurable") множества образуют $sigma$-алгебру#rf("def-salgebra") $Aa$ и сужение $nu$ на $Aa$ --- полная мера#rf("def-complete-measure").
 ]
 #proof[
     Положим $Aa = {A | A "является" nu"-измеримым"}$.
@@ -183,7 +183,7 @@
 ]
 */
 
-#th(name: "единственность продолжения")[
+#th(name: "единственность продолжения", label: "standard-continuation-unique")[
     Пусть $mu$ --- стандартное продолжение#rf("def-standard-continuation")
     меры на $sigma$-алгебру $Aa$ с полукольца $Pp$,
     $mu$ --- $sigma$-конечная#rf("def-sfinite") мера.
