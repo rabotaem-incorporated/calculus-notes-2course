@@ -109,7 +109,6 @@
     9. Если $Int A$ --- не пустое, то $A supset Int A ==> lambda A >=^rf("volume-props", "monotonous") lambda Int A >^rf("lmeasure-props", "open-measure-positive") 0$, так как $Int A$ открыто.
     
     10. $0 = lambda e =^rf("lmeasure-through-inf") inf {sum_(n = 1)^oo lambda P_n : P_n in Pp_QQ^m and e in Union_(n = 1)^oo P_n}$. Выберем такие $P_n$, что $sum_(n=1)^oo lambda P_n < eps$. Рассмотрим $P_n$. У нее длины сторон --- рациональные числа. Нарежем на кубики со стороной $1 / "НОК всех знаменателей"$.
-        #TODO[Кажется, тут ошибка: мы же покрываем счетным количеством ячеек, с чего бы НОКу быть конечным?]
 
     11. Рассмотрим $A_n := (-n; n]^m sect H_j(c)$. Тогда $H_j(c) = Union_(n = 1)^oo A_n$. Достаточно проверить#rf("bottom-up-continious"), что $lambda A_n = 0$. $ A_n subset (-n; n] times (-n; n] ...  times (-n; n] times (c - eps, c] times ... times (-n; n] $
         Тогда $lambda A_n <= (2n)^(m - 1) eps ==>^("св-во 6") lambda A_n = 0$.
