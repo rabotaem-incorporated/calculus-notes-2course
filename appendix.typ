@@ -29,48 +29,22 @@
 #if config.enable-ticket-references [
     == Ссылки на билеты <ticket-reference>
 
-    #if config.enable-chapters-from-sem3 [
-        === Первого семестра
+    #locate(loc => enum(
+        numbering: "1.",
+        ..query(selector(<ticket>).before(<tickets-div>), loc)
+            .sorted(key: ticket-name-label => {
+                counter("ticket").at(ticket-name-label.location()).first()
+            }).map(ticket-name-label => {
+                let ticket-location = ticket-name-label.location()
 
-        #locate(loc => enum(
-            numbering: "1.",
-            ..query(selector(<ticket>).before(<tickets-div>), loc)
-                .sorted(key: ticket-name-label => {
-                    counter("ticket").at(ticket-name-label.location()).first()
-                }).map(ticket-name-label => {
-                    let ticket-location = ticket-name-label.location()
-
-                    enum.item(
-                        counter("ticket").at(ticket-location).first(),
-                        [
-                            #link(ticket-location, ticket-name-label.body)
-                            #box(width: 1fr, repeat[.])
-                            #link(ticket-location)[#ticket-location.page()]
-                        ]
-                    )
-                })
-        ))
-    ]
-    #if config.enable-chapters-from-sem4 [
-        === Второго семестра
-
-        #locate(loc => enum(
-            numbering: "1.",
-            ..query(selector(<ticket>).after(<tickets-div>), loc)
-                .sorted(key: ticket-name-label => {
-                    counter("ticket").at(ticket-name-label.location()).first()
-                }).map(ticket-name-label => {
-                    let ticket-location = ticket-name-label.location()
-
-                    enum.item(
-                        counter("ticket").at(ticket-location).first(),
-                        [
-                            #link(ticket-location, ticket-name-label.body)
-                            #box(width: 1fr, repeat[.])
-                            #link(ticket-location)[#ticket-location.page()]
-                        ]
-                    )
-                })
-        ))
-    ]
+                enum.item(
+                    counter("ticket").at(ticket-location).first(),
+                    [
+                        #link(ticket-location, ticket-name-label.body)
+                        #box(width: 1fr, repeat[.])
+                        #link(ticket-location)[#ticket-location.page()]
+                    ]
+                )
+            })
+    ))
 ]

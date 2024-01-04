@@ -2,14 +2,9 @@ import sys
 from dataclasses import dataclass, fields
 import subprocess
 
-version_file_suffix = sys.argv[1]
-
 
 @dataclass
 class Config:
-    enable_chapters_from_sem3: bool = True
-    enable_chapters_from_sem4: bool = True
-    enable_unfinished_chapters: bool = True
     enable_ticket_references: bool = False
     monochrome: bool = False
     debug: bool = False
@@ -29,77 +24,18 @@ class Config:
 
 
 targets = {
-    "notes-all": Config(
-        enable_chapters_from_sem3=True,
-        enable_chapters_from_sem4=True,
-        enable_unfinished_chapters=True,
-        enable_ticket_references=False,
-        monochrome=False,
+    "calculus-default": Config(
+        
     ),
-
-    # "notes-all-with-tickets": Config(
-    #     enable_chapters_from_sem3=True,
-    #     enable_chapters_from_sem4=True,
-    #     enable_unfinished_chapters=True,
-    #     enable_ticket_references=True,
-    #     monochrome=False,
-    # ),
-
-    # "notes-all-with-tickets-monochrome": Config(
-    #     enable_chapters_from_sem3=True,
-    #     enable_chapters_from_sem4=True,
-    #     enable_unfinished_chapters=True,
-    #     enable_ticket_references=True,
-    #     monochrome=True,
-    # ),
-
-    "notes-sem3": Config(
-        enable_chapters_from_sem3=True,
-        enable_chapters_from_sem4=False,
-        enable_unfinished_chapters=True,
-        enable_ticket_references=False,
-        monochrome=False,
+    "calculus-no-references": Config(
+        references=False
     ),
-
-    # "notes-sem3-with-tickets": Config(
-    #     enable_chapters_from_sem3=True,
-    #     enable_chapters_from_sem4=False,
-    #     enable_unfinished_chapters=True,
-    #     enable_ticket_references=True,
-    #     monochrome=False,
-    # ),
-
-    # "notes-sem3-with-tickets-monochrome": Config(
-    #     enable_chapters_from_sem3=True,
-    #     enable_chapters_from_sem4=False,
-    #     enable_unfinished_chapters=True,
-    #     enable_ticket_references=True,
-    #     monochrome=True,
-    # ),
-
-    # "notes-sem4": Config(
-    #     enable_chapters_from_sem3=False,
-    #     enable_chapters_from_sem4=True,
-    #     enable_unfinished_chapters=True,
-    #     enable_ticket_references=False,
-    #     monochrome=False,
-    # ),
-
-    # "notes-sem4-with-tickets": Config(
-    #     enable_chapters_from_sem3=False,
-    #     enable_chapters_from_sem4=True,
-    #     enable_unfinished_chapters=True,
-    #     enable_ticket_references=True,
-    #     monochrome=False,
-    # ),
-
-    # "notes-sem4-with-tickets-monochrome": Config(
-    #     enable_chapters_from_sem3=False,
-    #     enable_chapters_from_sem4=True,
-    #     enable_unfinished_chapters=True,
-    #     enable_ticket_references=True,
-    #     monochrome=True,
-    # ),
+    "calculus-debug": Config(
+        debug=True,
+    ),
+    "calculus-monochrome": Config(
+        monochrome=True,
+    ),
 }
 
 any_failed = False
