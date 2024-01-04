@@ -81,15 +81,12 @@
 
     *Шаг 2.* Если теорема верна для диффеоморфизмов $Phi$ и $Psi$, то она верна и для $Phi compose Psi$. Пусть $ Omega -->^Phi Omegat -->^Psi Omegatt, A subset Omegatt $
     Тогда
-    $ lambda A = integral_(Psi^-1(A)) abs(Jj_psi) dif lambda =^((*)) integral_(Phi^-1(Psi^-1(A))) (abs(Jj_Psi) compose Phi) abs(Jj_Phi) dif lambda = integral_(Phi^-1(Psi^-1(A))) abs(det Psi'(Phi)) abs(Phi') dif lambda = \ integral_(Phi^-1(Psi^-1(A))) abs(det (Psi'(Phi) Phi')) dif lambda = integral_(Phi^-1(Psi^-1(A))) abs(det (Psi compose Phi)') dif lambda = integral_(Phi^-1(Psi^-1(A))) abs(Jj_(Phi compose Psi)) dif lambda. $
+    $ lambda A = integral_(Psi^-1(A)) abs(Jj_psi) dif lambda =^((*)) integral_(Phi^-1(Psi^-1(A))) (abs(Jj_Psi) compose Phi) abs(Jj_Phi) dif lambda = integral_(Phi^-1(Psi^-1(A))) abs(det Psi'(Phi)) abs(det Phi') dif lambda = \ integral_(Phi^-1(Psi^-1(A))) abs(det (Psi'(Phi) Phi')) dif lambda = integral_(Phi^-1(Psi^-1(A))) abs(det (Psi compose Phi)') dif lambda = integral_(Phi^-1(Psi^-1(A))) abs(Jj_(Phi compose Psi)) dif lambda. $
     Переход $(*)$ верен по теореме о замене переменной, которой, как мы выяснили, здесь можно пользоватся.
 
-    *Шаг 3.* Пусть $m = 1$. $ integral_[a, b] abs(phi') dif lambda = abs(phi(a) - phi(b)) = lambda [phi(a), phi(b)]. $ Это формула Ньютона-Лейбница. 
+    *Шаг 3.* Пусть $m = 1$. $ integral_(a, b] abs(phi') dif lambda_1 = abs(phi(a) - phi(b)) = lambda_1 (phi(a), phi(b)]. $ Это формула Ньютона-Лейбница. 
 
-    Теперь посмотрим на функцию на ячейке.
-    $ integral_(a, b] abs(phi') dif lambda = lim_(n -> oo) integral_[a + 1/n, b] abs(phi') dif lambda = lim_(n -> oo) lambda [phi(a + 1/n), phi(b)] = lambda (phi(a), phi(b)]. $
-
-    Теперь определим $nu A = integral_(phi^(-1)_A) abs(phi') dif lambda$ --- мера, которая на ячейках совпадает с $lambda$. Значит $nu = lambda$ по единственности продолжения. Значит и для всех остальных измеримых множеств формула работает.
+    Определим $nu A = integral_(phi^(-1)(A)) abs(phi') dif lambda_1$ --- мера, которая на ячейках совпадает с $lambda_1$. Значит $nu = lambda_1$ по единственности продолжения. Значит и для всех остальных измеримых множеств формула работает.
 
     *Шаг 4.* Теперь осталось доказать теорему для диффеоморфизмов из леммы. Тогда по частям мы соберем теорему.
 
