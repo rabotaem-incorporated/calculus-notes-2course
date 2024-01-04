@@ -14,7 +14,7 @@
 #proof[
     ${A in Aa: mu A < +oo}$ и ${B in Bb : nu B < +oo}$ --- полукольца (и даже просто кольца). Декартово произведение полуколец --- полукольцо, поэтому $Pp$ --- полукольцо.
 
-    Так как можно сказать, что $X = usb_n X_n$ и $Y = usb_k Y_k$, $mu X_n < +oo, nu Y_k < +oo$, то $X times Y = usb_(k, n) X_n times Y_k$, и $m_0 (X_n times Y_k) < +oo$. Отсюда следует $sigma$-конечность. Осталось проверить, что $m_0$ --- мера. Проверим, что если $A times B = P = usb_(k = 1)^oo P_k = usb_(k = 1)^oo A_k times B_k $, то $m_0 P = sum_(k = 1)^oo m_0 P_k.$
+    Так как можно сказать, что $X = usb X_n$ и $Y = usb Y_k$, $mu X_n < +oo, nu Y_k < +oo$, то $X times Y = usb X_n times Y_k$, и $m_0 (X_n times Y_k) < +oo$. Отсюда следует $sigma$-конечность. Осталось проверить, что $m_0$ --- мера. Проверим, что если $A times B = P = usb_(k = 1)^oo P_k = usb_(k = 1)^oo A_k times B_k $, то $m_0 P = sum_(k = 1)^oo m_0 P_k.$
 
     Мы знаем, что $ bb(1)_A dot bb(1)_B = bb(1)_P = sum_(k = 1)^oo bb(1)_(P_k) = sum_(k = 1)^oo bb(1)_(A_k) dot bb(1)_(B_k).$
 
@@ -46,7 +46,7 @@
 ]
 
 #proof[
-    1. $A = usb_(k = 1)^oo A_k$, $mu A_k < +oo$, $B = usb_(n = 1)^oo B_n$, $nu B_n < +oo$. $A times B = usb_(n, k = 1)^oo A_k times B_k$, $nu B_n < +oo$, $A_k times B_n in Pp$.
+    1. $A = usb_(k = 1)^oo A_k$, $mu A_k < +oo$, $B = usb_(n = 1)^oo B_n$, $nu B_n < +oo$. $A times B = usb_(n, k = 1)^oo A_k times B_k$, $mu A_k dot nu B_n < +oo$, $A_k times B_n in Pp$.
 
     2. $Y = usb_(n = 1)^oo Y_n$, $nu Y_n < +oo$. $m(e times Y_k) = 0$. $e times Y = usb_(k = 1)^oo e times Y_k$.
 ]
