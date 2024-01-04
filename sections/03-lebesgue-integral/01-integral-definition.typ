@@ -49,7 +49,7 @@
     4. Аналогично и тривиально.
 ]
 
-#def(label: "def-integral-pos")[
+#def(label: "def-integral-mfn")[
     Пусть $f >= 0$ --- измеримая. _Интегралом Лебега_ называется
     $
         integral_E f dif mu = sup {integral_E phi dif mu : 0 <= phi <= f, phi #[--- простая#rf("def-simple-fn")]}
@@ -72,7 +72,7 @@
     Для неотрицательных $f$ определения совпадают.
 ]
 
-#props(name: "интеграла от неотрицательных функций", label: "integral-pos-props")[
+#props(name: "интеграла от неотрицательных функций", label: "mfn-props")[
     1. #sublabel("inequality")
         $0 <= f <= g$ измеримые, тогда $ integral_E f dif mu <= integral_E g dif mu. $
 
@@ -87,13 +87,13 @@
 ]
 
 #proof[
-    1. Все подходящие в супремум функции для $f$#rf("def-integral-pos"), есть и в супремуме функции для $g$.
+    1. Все подходящие в супремум функции для $f$#rf("def-integral-mfn"), есть и в супремуме функции для $g$.
 
-    2. Интеграл любой простой функции $0$ (очевидно из определения#rf("def-integral-simple")), значит в супремуме#rf("def-integral-pos") множество только из нулей.
+    2. Интеграл любой простой функции $0$ (очевидно из определения#rf("def-integral-simple")), значит в супремуме#rf("def-integral-mfn") множество только из нулей.
 
-    3. Если $0 <= phi <= bb(1)_E f$, то такая функция подойдет для супремума#rf("def-integral-pos") интеграла слева тоже, поэтому знак $>=$ есть. Если $0 <= phi <= f$, то $0 <= bb(1)_E phi <= bb(1)_E f$, отсюда неравенство в другую сторону.
+    3. Если $0 <= phi <= bb(1)_E f$, то такая функция подойдет для супремума#rf("def-integral-mfn") интеграла слева тоже, поэтому знак $>=$ есть. Если $0 <= phi <= f$, то $0 <= bb(1)_E phi <= bb(1)_E f$, отсюда неравенство в другую сторону.
 
-    4. $ integral_A f dif mu =^rf("integral-pos-props", "indicator-extension") integral_B bb(1)_A f dif mu <=^rf("integral-pos-props", "inequality") integral_B f dif mu. $
+    4. $ integral_A f dif mu =^rf("mfn-props", "indicator-extension") integral_B bb(1)_A f dif mu <=^rf("mfn-props", "inequality") integral_B f dif mu. $
 ]
 
 #th(name: "Беппо Леви", label: "levy")[
@@ -101,17 +101,17 @@
 ]
 
 #proof[
-    $f_n <= f_(n + 1)$, значит#rf("integral-pos-props", "inequality") $integral_E f_n dif mu <= integral_E f_(n + 1) dif mu$. Тогда существует $lim integral_E f_n dif mu =: L$. $f_n <= f$, поэтому $integral_E f_n dif mu <= integral_E f dif mu ==> L <= integral_E f dif mu.$ Одно неравенство доказали.
+    $f_n <= f_(n + 1)$, значит#rf("mfn-props", "inequality") $integral_E f_n dif mu <= integral_E f_(n + 1) dif mu$. Тогда существует $lim integral_E f_n dif mu =: L$. $f_n <= f$, поэтому $integral_E f_n dif mu <= integral_E f dif mu ==> L <= integral_E f dif mu.$ Одно неравенство доказали.
 
-    Надо доказать, что $L >= integral_E f dif mu =^rf("def-integral-pos") sup { integral_E phi dif mu bar 0 <= phi <= f, phi #[--- простая] }$. Достаточно доказать, что $L$ --- верхняя граница, то есть что $L >= integral_E phi dif mu$, где $phi$ --- простая $0 <= phi <= f$.
+    Надо доказать, что $L >= integral_E f dif mu =^rf("def-integral-mfn") sup { integral_E phi dif mu bar 0 <= phi <= f, phi #[--- простая] }$. Достаточно доказать, что $L$ --- верхняя граница, то есть что $L >= integral_E phi dif mu$, где $phi$ --- простая $0 <= phi <= f$.
 
     Возьмем $theta in (0, 1)$ и докажем, что $L >= theta integral_E phi dif mu =^rf("integral-simple-props", "uniform") integral_E (theta phi) dif mu$, потом перейдем к пределу. Пусть $E_n := E{f_n >= theta phi}$. Это растущая последовательность, $E_1 subset E_2 subset E_3 subset ...$ и $Union_(n = 1)^oo E_n = E$ (это следует из поточечной сходимости $f_n$ к $f >= theta phi$). 
     
     По непрерывности меры снизу#rf("bottom-up-continious"), $forall A - "измеримое" mu (A sect E_n) -->_(n-->oo) mu (A sect E)$, а значит
     
     $
-        integral_E f_n dif mu >=^rf("integral-pos-props", "subset-domain-le")
-        integral_(E_n) f_n dif mu >=^rf("integral-pos-props", "inequality")
+        integral_E f_n dif mu >=^rf("mfn-props", "subset-domain-le")
+        integral_(E_n) f_n dif mu >=^rf("mfn-props", "inequality")
         integral_(E_n) theta phi dif mu =^rf("integral-simple-props", "uniform")
         theta integral_(E_n) phi dif mu 
         =^rf("def-integral-simple") \ =^rf("def-integral-simple")
@@ -122,7 +122,7 @@
     $
 ]
 
-#props(label: "integral-pos-props'")[
+#props(label: "mfn-props'")[
     5. #sublabel("add") _Аддитивность_. Пусть $f, g >= 0$ измеримые. Тогда
         $ integral_E (f + g) dif mu = integral_E f dif mu + integral_E g dif mu. $
 
@@ -145,14 +145,14 @@
     $
 ]
 
-#props(label: "integral-pos-props''")[
+#props(label: "mfn-props''")[
     7. #sublabel("set-additive") _Аддитивность по множеству_. Пусть $f >= 0$ Тогда $ integral_A f dif mu + integral_B f dif mu = integral_(A union.sq B) f dif mu. $
 
     8. #sublabel("nonzero") Если $mu E > 0$ и $f > 0$ на $E$ то $integral_E f dif mu > 0$.
 ]
 
 #proof[
-    7. $bb(1)_A f + bb(1)_B f = bb(1)_(A union.sq B) f$. Выразим интегралы из условия через произведение на характеристическую функцию, все получится по аддитивности#rf("integral-pos-props'", "add").
+    7. $bb(1)_A f + bb(1)_B f = bb(1)_(A union.sq B) f$. Выразим интегралы из условия через произведение на характеристическую функцию, все получится по аддитивности#rf("mfn-props'", "add").
 
     8. $E_n := E{f >= 1/n}$. $E_1 subset E_2 subset ...$
         
@@ -161,8 +161,8 @@
             mu E_n --> mu E > 0 ==>
             mu E_n > 0 "при больших" n
             ==> \ ==>
-            integral_E f dif mu >=^rf("integral-pos-props", "subset-domain-le")
-            integral_(E_n) f dif mu >=^rf("integral-pos-props", "inequality")
+            integral_E f dif mu >=^rf("mfn-props", "subset-domain-le")
+            integral_(E_n) f dif mu >=^rf("mfn-props", "inequality")
             integral_(E_n) 1/n dif mu =^rf("integral-simple-props", "const")
             1/n mu E_n > 0.
         $
@@ -173,7 +173,7 @@
     
     Пусть $f >= 0$. Тогда проверим, что
     $ integral_E f dif mu = sum_(t_i in E) f(t_i) w_i. $
-    Напомню, $integral_E f dif mu =^rf("def-integral-pos") sup{integral_E phi dif mu : 0 <= phi <= f, phi #[--- простая]}$.
+    Напомню, $integral_E f dif mu =^rf("def-integral-mfn") sup{integral_E phi dif mu : 0 <= phi <= f, phi #[--- простая]}$.
 
     - Шаг 1. $f = bb(1)_A$. $ integral_E bb(1)_A dif mu = mu(E sect A) = sum_(t_i in E sect A) w_i = sum_(t_i in E) f(t_i) w_i. $
 
@@ -215,8 +215,8 @@
 
 #proof[
     $
-        integral_E f^p dif mu >=^rf("integral-pos-props", "subset-domain-le")
-        integral_(E{f >= t}) f^p dif mu >=^rf("integral-pos-props", "inequality")
+        integral_E f^p dif mu >=^rf("mfn-props", "subset-domain-le")
+        integral_(E{f >= t}) f^p dif mu >=^rf("mfn-props", "inequality")
         integral_(E{f >= t}) t^p dif mu =^rf("integral-simple-props", "const")
         t^p mu E{f >= t}.
     $
@@ -236,11 +236,11 @@
     1. $E{f = plus.minus oo} subset E {abs(f) >= n}$.
         $ mu E{abs(f) >= n} <=_"Чебышев"^rf("chebyshev-inequality") 1/n integral_E abs(f) dif mu -->_(n->oo) 0. $
 
-    2. Если $mu E{abs(f) > 0} > 0$, то интеграл положительный#rf("integral-pos-props''", "nonzero"), значит $mu E{abs(f) > 0} = 0$.
+    2. Если $mu E{abs(f) > 0} > 0$, то интеграл положительный#rf("mfn-props''", "nonzero"), значит $mu E{abs(f) > 0} = 0$.
 
     3. $
-        integral_B f dif mu =^rf("integral-pos-props'", "set-additive") integral_A f dif mu +
-        underbrace(integral_(B without A) f dif mu, 0^rf("integral-pos-props", "zero-domain-zero")).
+        integral_B f dif mu =^rf("mfn-props'", "set-additive") integral_A f dif mu +
+        underbrace(integral_(B without A) f dif mu, 0^rf("mfn-props", "zero-domain-zero")).
     $
 
     4. Пусть#rf("def-ae") $e subset E$ такое, что $mu e = 0$ и $f = g$ на $E without e$.

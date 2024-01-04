@@ -1,4 +1,4 @@
-#import "utils/core.typ": notes
+#import "utils/core.typ": *
 
 #show: notes.with(
   name: "Конспект лекций по математическому анализу за III семестр",
@@ -6,6 +6,8 @@
   lector: "Храбров Александр Игоревич",
   info: "СПБГУ МКН, Современное программирование, 2023-2024",
 )
+
+#show: show-references
 
 #include "reminders.typ"
 
