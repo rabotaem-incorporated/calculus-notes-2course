@@ -103,7 +103,7 @@
     Тогда
     1. $E$ --- симметричная система.
         $ (X times Y without E)_x = Y without E_x in Bb. $
-        $ nu((X times Y) without E)_x = underbrace(nu Y_x, const < +oo) - nu E_x #[--- измеримая]. $ 
+        $ nu((X times Y) without E)_x = underbrace(nu Y, const < +oo) - nu E_x #[--- измеримая]. $ 
     
     2. $E_j in Ee. space E_1 subset E_2 subset ... ==> Union_(j = 1)^oo E_j in Ee$
     
