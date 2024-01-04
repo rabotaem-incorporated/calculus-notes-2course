@@ -3,4 +3,5 @@
 #let enable-unfinished-chapters = false
 #let enable-ticket-references = false
 #let monochrome = false
-#let debug = true
+#let debug = false
+#let references = false

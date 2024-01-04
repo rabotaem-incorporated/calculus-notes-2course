@@ -241,33 +241,37 @@
   [#[]#label("_THEOREM_SUBLABEL_" + lbl)]
 }
 
-#let rf(..args) = super(locate(loc => {
-  let lbl = args.pos().at(0)
-  let sublabel = args.pos().at(1, default: none)
-  let lbl = label("_THEOREM_" + lbl)
-  let label-instance = query(lbl, loc).first()
-  let color = label-instance.children.first().value
-  if sublabel != none {
-    let sublabel = query(
-      selector(label("_THEOREM_SUBLABEL_" + sublabel))
-        .after(label-instance.location()),
-      loc
-    ).at(0, default: none)
+#let rf(..args) = if config.references {
+  super(locate(loc => {
+    let lbl = args.pos().at(0)
+    let sublabel = args.pos().at(1, default: none)
+    let lbl = label("_THEOREM_" + lbl)
+    let label-instance = query(lbl, loc).first()
+    let color = label-instance.children.first().value
     if sublabel != none {
+      let sublabel = query(
+        selector(label("_THEOREM_SUBLABEL_" + sublabel))
+          .after(label-instance.location()),
+        loc
+      ).at(0, default: none)
+      if sublabel != none {
+        link(
+          sublabel.location(),
+          box(circle(radius: 2pt, stroke: none, fill: color))
+        )
+      } else {
+        place(dx: 0pt, dy: 0pt, rect(width: 100%, height: 100%, fill: red))
+      }
+    } else {
       link(
-        sublabel.location(),
+        lbl,
         box(circle(radius: 2pt, stroke: none, fill: color))
       )
-    } else {
-      place(dx: 0pt, dy: 0pt, rect(width: 100%, height: 100%, fill: red))
     }
-  } else {
-    link(
-      lbl,
-      box(circle(radius: 2pt, stroke: none, fill: color))
-    )
-  }
-}))
+  }))
+} else {
+  none
+}
 
 #let TODO(content) = rect(
   stroke: red + 2pt,

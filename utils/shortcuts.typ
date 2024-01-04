@@ -19,11 +19,11 @@
 #let limsup = $limits(overline(lim))$
 #let liminf = $limits(underline(lim))$
 #let INT(f, E: $E$, mu: $mu$) = $ integral_#E #f dif #mu $
+#let newline(cont) = $#cont \ #cont$
 
 // set fix
 #let nothing = math.diameter
 #let emptyset = math.diameter
-
 
 // operators
 #let sgn = math.op("sgn")
