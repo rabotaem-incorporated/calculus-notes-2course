@@ -3,28 +3,40 @@
 == Перестановки предела и интеграла
 
 #th(name: "Леви (напоминание)")[
-    Пусть $0 <= f_1 <= f_2 <= f_3 <= ...$ и $f_n --> f$ почти везде. Тогда $lim INT(f_n) = INT(f)$.
+    Пусть $0 <= f_1 <= f_2 <= f_3 <= ...$ и $f_n --> f$ почти везде. Тогда $lim INT(f_n) = INT(f)$#rf("levy").
 ]
 
-#follow(plural: true)[
+#follow(plural: true, label: "integral-sum-perm-mfn")[
     1. Если $f_n >= 0$, то $INT(sum_(n = 1)^oo f_n) = sum_(n = 1)^oo INT(f_n)$.
-    2. Если $sum_(n = 1)^oo INT(abs(f_n)) < +oo$, то $sum_(n = 1)^oo f_n (x)$ абсолютно сходится при почти всех $x in E$.
+    2. #sublabel("abs-converge")
+        Если $sum_(n = 1)^oo INT(abs(f_n)) < +oo$, то $sum_(n = 1)^oo f_n (x)$ абсолютно сходится при почти всех $x in E$.
 ]
 
 #proof[
-    1. Пусть $S_n := sum_(n = 1)^n f_n$, тогда $0 <= S_1 <= S_2 <= ...$. $S_n --> S := sum_(k = 1)^oo f_k$. По теореме Леви 
-        $ underbrace(sum_(k = 1)^n INT(f_k), --> sum_(k = 1)^oo INT(f_k)) = INT(sum_(k = 1)^n f_k) = INT(S_n) --> INT(S) $
+    1. Пусть $S_n := sum_(n = 1)^n f_n$, тогда $0 <= S_1 <= S_2 <= ...$. $S_n --> S := sum_(k = 1)^oo f_k$. По теореме Леви#rf("levy")
+        $ underbrace(sum_(k = 1)^n INT(f_k), -->^rf("levy") sum_(k = 1)^oo INT(f_k)) =^rf("mfn-props", "add") INT(sum_(k = 1)^n f_k) = INT(S_n) --> INT(S) $
     
-    2. $INT(sum_(n = 1)^oo abs(f_n)) = sum_(n = 1)^oo INT(abs(f_n)) < +oo$. Обозначим $tilde(S) = sum_(n = 1)^oo abs(f_n)$. Оно почти везде конечно. Значит $sum_(n = 1)^oo abs(f_n)$ сходится при почти всех $x in E$, то есть $sum_(n = 1)^oo f_n (x)$ абсолюбтно сходится при почти везде $x in E$.
+    2. $INT(sum_(n = 1)^oo abs(f_n)) =^rf("integral-sum-perm-mfn") sum_(n = 1)^oo INT(abs(f_n)) < +oo$.
+        Обозначим $tilde(S) := sum_(n = 1)^oo abs(f_n)$.
+        Оно почти везде конечно.
+        Значит $sum_(n = 1)^oo abs(f_n)$ сходится при почти всех $x in E$, то есть $sum_(n = 1)^oo f_n (x)$ абсолюбтно сходится при почти всех $x in E$.
 ]
 
-#lemma(name: "Фату")[
+#lemma(name: "Фату", label: "fatou")[
     Пусть $f_n >= 0$. Тогда
     $ liminf INT(f_n) >= INT(liminf f_n) $
 ]
 
 #proof[
-    Пусть $g_n := inf_(k >= n) f_k$. Тогда $0 <= g_1 <= g_2 <= ...$ и $liminf f_n = lim g_n$, значит $ INT(liminf f_n) = INT(lim g_n) =^"т. Леви" lim INT(g_n) = liminf INT(g_n) <= liminf INT(f_n). $
+    Пусть $g_n := inf_(k >= n) f_k$.
+    Тогда $0 <= g_1 <= g_2 <= ...$ и $liminf f_n = lim g_n$, значит
+    $ 
+        INT(liminf f_n) =
+        INT(lim g_n) =_"т. Леви"^rf("levy")
+        lim INT(g_n) =
+        liminf INT(g_n) <=^rf("mfn-props", "inequality")
+        liminf INT(f_n).
+    $
 ]
 
 #notice[
@@ -35,38 +47,41 @@
     так как $f_n --> 0$ почти везде.
 ]
 
-#th(name: "Усиленный вариант теоремы Леви")[
+#th(name: "Усиленный вариант теоремы Леви", label: "levy+")[
     Пусть $f_n >= 0$, $f_n --> f$ почти везде, и $f_n <= f$. Тогда $lim INT(f_n) = INT(f)$.
 ]
 
 #proof[
-    $ f_n <= f ==> INT(f_n) <= INT(f) ==> limsup INT(f_n) <= INT(f). $
+    $ 
+        f_n <= f ==>^rf("mfn-props", "inequality")
+        INT(f_n) <= INT(f) ==> limsup INT(f_n) <= INT(f).
+    $
     Применим лемму Фату:
-    $ INT(f) = INT(liminf f_n) <= liminf INT(f_n) <= limsup INT(f_n) <= INT(f). $
+    $ INT(f) = INT(liminf f_n) <=^rf("fatou") liminf INT(f_n) <= limsup INT(f_n) <= INT(f). $
     Слева и справа одно и тоже, поэтому везде равенства.
     $ liminf INT(f_n) = limsup INT(f_n) = INT(f). $
 ]
 
-#th(name: "Лебега о предельном переходе (о мажорируемой сходимости)")[
+#th(name: "Лебега о предельном переходе (о мажорируемой сходимости)", label: "lebesgue-limit")[
     Пусть $abs(f_n) <= F$, а $F$ суммируема на $E$, и $f_n --> f$ почти везде. Тогда $lim INT(f_n) = INT(f)$. Более того, $INT(abs(f_n - f)) --> 0$.
     
     Такая $F$ называется _суммируемой мажорантой_.
 ]
 
 #proof[
-    Пусть $h_n := 2F - abs(f_n - f) <= 2F$. Тогда $h_n --> 2F$ почти везде. $h_n >= 2F - abs(f_n) - abs(f) >= 0$. По усилинному варианту теоремы Леви,
+    Пусть $h_n := 2F - abs(f_n - f) <= 2F$. Тогда $h_n --> 2F$ почти везде. $h_n >= 2F - abs(f_n) - abs(f) >= 0$. По усилинному варианту теоремы Леви#rf("levy+"),
     $
-        INT(2F) - INT(abs(f_n - f)) = INT(h_n) --> INT(2F).
+        INT(2F) - INT(abs(f_n - f)) =^rf("mfn-props", "add") INT(h_n) -->^rf("ae-props", "eq-integral-eq") INT(2F).
     $
-    Отсюда $INT(abs(f_n - f)) --> 0$ (при сокращении использовали суммируемость). В частности, $ abs(INT(f_n) - INT(f)) = abs(INT((f_n - f))) <= INT(abs(f_n - f)) --> 0. $
+    Отсюда $INT(abs(f_n - f)) --> 0$ (при сокращении использовали суммируемость#rf("inf-arithmetic")). В частности, $ abs(INT(f_n) - INT(f)) =^rf("sfn-props", "linear") abs(INT((f_n - f))) <=^rf("sfn-props", "abs-bound") INT(abs(f_n - f)) --> 0. $
 ]
 
 #exercise[
     Сверху есть замечание про $f_n = n bb(1)_[0, 1/n]$. Показать, что у такой функции нет суммируемой мажоранты.
 ]
 
-#th[
-    Если $f in C[a, b]$, то интегралы Римана и Лебега (по мере Лебега) совпадают.
+#th(label: "reimann-eq-lebesgue-on-continious")[
+    Если $f in C[a, b]$, то интегралы Римана и Лебега#rf("def-integral") (по мере Лебега) совпадают.
 ]
 
 #proof[
@@ -81,10 +96,10 @@
     $
         g^*(x) = max_(t in [x_(k - 1), x_k]) f(t) "если" x in [x_(k - 1), x_k) ==> S^* = integral_[a, b] g^* dif lambda.
     $
-    $g_* <= f <= g^*$ почти везде, поэтому $ integral_a^b f dif x <-- S_* = integral_[a, b] g_* dif lambda <= integral_[a, b] f dif lambda <= integral_[a, b] g^* dif lambda = S^* --> integral_a^b f dif x $
+    $g_* <= f <= g^*$ почти везде, поэтому $ integral_a^b f dif x <-- S_* = integral_[a, b] g_* dif lambda <=^rf("sfn-props", "inequality") integral_[a, b] f dif lambda <=^rf("sfn-props", "inequality") integral_[a, b] g^* dif lambda = S^* --> integral_a^b f dif x $
 ]
 
-#th[
+#th(label: "reimann-eq-lebesgue")[
     Если $f: [a, b] --> RR$ ограничена и интегрируема по Риману на $[a, b]$, то она измерима, и интегралы совпадают: $integral_a^b f(x) dif mu = integral_[a, b] f dif lambda$.
 ]
 
@@ -92,7 +107,7 @@
     Доказательства не будет: у нас недостаточно свойств интеграла Римана. Ну и правильно, ну его, этот интеграл Римана, пойду лучше поем.
 ]
 
-#th(name: "критерий Лебега для интегрируемости по Риману")[
+#th(name: "критерий Лебега для интегрируемости по Риману", label: "lebesgue-criteria")[
     $f: [a, b] --> RR$ ограничена. Тогда $f$ интегрируема по Риману на $[a, b]$ тогда и только тогда, когда множество точек разрыва имеет нулевую меру Лебега.
 ]
 

@@ -50,7 +50,7 @@
     + #sublabel("continious") Пусть $E in Ll^m$ и $f in C(RR^m)$. Тогда $f$ измерима относильно меры Лебега. Это получается из того, что $f^(-1)((-oo, a))$ --- открыт, значит лежит в $Bb^m subset Ll^m$. Значит функция измерима.
 ]
 
-#props(label: "mfn-props")[
+#props(label: "non-integral-mfn-props")[
     1. #sublabel("domain-measurable")
         Если $f: E --> overline(RR)$ измерима#rf("def-mfn"), то $E$ --- измеримо.
     2. #sublabel("restriction-mfn")
@@ -87,7 +87,7 @@
     7. По определению#rf("def-mfn"), $E{f <= a} = Union E_n {f <= a}$.
 
     8. $ g(x) = cases(f(x)\, quad & "если" x in E\,,0\, & "иначе".) $
-        Так как $E$ измерима#rf("mfn-props", "domain-measurable"), эта функция тоже#rf("mfn-props", "union-mfn").
+        Так как $E$ измерима#rf("non-integral-mfn-props", "domain-measurable"), эта функция тоже#rf("non-integral-mfn-props", "union-mfn").
 ]
 
 #th(label: "inf-sup-lim-mfn")[
@@ -143,7 +143,7 @@
 #proof[
     1. $f, g: E --> overline(RR)$ измеримы. Если значения функций конечны, то $phi(x, y) = x + y$. Можно рассмотреть#rf("compose-mfn") композицию $phi (f, g)$. Аналогично с умножением. Вопрос только с бесконечностями (в теореме#rf("compose-mfn") обе функции действую в $RR$).
 
-        Если какие-то функции, режем функцию на части#rf("mfn-props", "union-mfn"): $E{f = -oo}$, $E{-oo < f < 0}$, $E{f = 0}$, $E{0 < f < +oo}$, $E{f = +oo}$, аналогично для $g$. Тогда на пересечении где есть хотя бы одна бесконечность, всегда получается константа#rf("mfns", "const"). На остальных кусках применяем рассуждение выше.
+        Если какие-то функции, режем функцию на части#rf("non-integral-mfn-props", "union-mfn"): $E{f = -oo}$, $E{-oo < f < 0}$, $E{f = 0}$, $E{0 < f < +oo}$, $E{f = +oo}$, аналогично для $g$. Тогда на пересечении где есть хотя бы одна бесконечность, всегда получается константа#rf("mfns", "const"). На остальных кусках применяем рассуждение выше.
     
     2. Просто одномерный частный случай теоремы#rf("compose-mfn").
 
@@ -199,7 +199,7 @@
 #proof[
     Пусть $Delta_k := [k/n, (k + 1)/n)$ при $k = 0, 1, ..., n^2 - 1$, $Delta_(n^2) := [n, +oo]$. То есть мы разрезали $[0, +oo]$ на $n^2 + 1$ кусков.
 
-    Рассмотрим $A_k := f^(-1) (Delta_k)$ --- измеримые#rf("mfn-props", "preimage-segment-measurable"). Тогда пусть $phi_n$ на $A_k$ равняется $k/n$. Это простая функция. 
+    Рассмотрим $A_k := f^(-1) (Delta_k)$ --- измеримые#rf("non-integral-mfn-props", "preimage-segment-measurable"). Тогда пусть $phi_n$ на $A_k$ равняется $k/n$. Это простая функция. 
     
     Докажем, что предел получится получится правильный: $lim phi_n (x) = f(x)$: 
     - Если $f(x) = +oo$, то $x in f^(-1)([n, +oo])$. Значит $phi_n (x) = n$.

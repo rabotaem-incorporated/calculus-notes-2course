@@ -252,21 +252,26 @@
       let lbl = args.pos().at(0)
       let sublabel = args.pos().at(1, default: none)
       let lbl = label("_THEOREM_" + lbl)
-      let label-instance = query(lbl, loc).first()
+      let label-instance = query(lbl, loc)
+      if label-instance.len() != 1 {
+        panic("Label " + str(lbl) + " have been seen " + str(label-instance.len()) + " times")
+      }
+      label-instance = label-instance.first()
       let color = label-instance.children.first().value
       if sublabel != none {
-        let sublabel = query(
+        let sublabels = query(
           selector(label("_THEOREM_SUBLABEL_" + sublabel))
             .after(label-instance.location()),
           loc
-        ).at(0, default: none)
-        if sublabel != none {
+        )
+        if sublabels.len() != 0 {
+          sublabel = sublabels.first()
           link(
             sublabel.location(),
             box(circle(radius: 2pt, stroke: none, fill: color))
           )
         } else {
-          place(dx: 0pt, dy: 0pt, rect(width: 100%, height: 100%, fill: red))
+          panic("couldn't find sublabel " + str(lbl) + ":" + str(sublabel))
         }
       } else {
         link(
