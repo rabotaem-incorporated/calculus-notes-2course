@@ -23,7 +23,7 @@
 $
 
 #def[
-  _Гипергеометрический ряд_ $a_1, a_2, ..., a_m$, $b_1, ..., b_n in CC$, где $b_j != 0, -1, -2, ...$:
+  _Гипергеометрический ряд_ $a_1, ..., a_m$, $b_1, ..., b_n in CC$, где $b_j != 0, -1, -2, ...$:
   $
     hyperg(m: m, n: n, a_1, ..., a_m; b_1, ..., b_n; z) := sum_(k = 0)^oo (a_1^overline(k) ... a_m^overline(k))/(b_1^overline(k) ... b_n^overline(k)) (z^k)/(k!)
   $
@@ -59,7 +59,7 @@ $
   
   5. $ arctan x = x hyperg(1/2, 1; 3/2; -x^2). $
   
-  6. $ K(x) = integral_0^1 (dif t)/(sqrt(1-t^2)(1 - x^2 dot t^2)) = hyperg(1/2, 1/2; 1; x). $
+  6. $ K(x) = integral_0^1 (dif t)/(sqrt(1-t^2)(1 - x^2 t^2)) = hyperg(1/2, 1/2; 1; x). $
     Эта функция называется _эллиптическим интегралом первого рода_.
 ]
 
@@ -94,7 +94,7 @@ $
   $ 1/(1 - x t)^a = sum_(k = 0)^oo (x t)^k/(k!) a^overline(k). $
   Подставим это в интеграл:
   $
-    integral_0^1 (t^(b - 1) (1 - t)^(c - b - 1))/(1 - x t)^a dif t = integral_0^1 sum_(k = 0)^oo t^(k + b - 1) dot (1-t)^(c - b - 1) dot (x^k)/(k!) a^overline(k) dif t =^* \ =^* sum_(k = 0)^oo integral_0^1 t^(k + b - 1) dot (1-t)^(c - b - 1) dot (x^k)/(k!) a^overline(k) dif t = sum_(k = 0)^oo (x^k)/(k!) a^overline(k) dot underbrace(integral_0^1 t^(k + b - 1) dot (1-t)^(c - b - 1) dif t, B(k + b, c - b) = (Gamma(b + k)Gamma(c - b))/(Gamma(c + k))) = \ = Gamma(c - b) sum_(k = 0)^oo (a^overline(k) Gamma(b + k))/Gamma(c + k) dot (x^k)/(k!) = Gamma(c)/(Gamma(b)Gamma(c - b)) integral_0^1 (t^(b - 1) (1 - t)^(c - b - 1))/(1 - x t)^a dif t.
+    integral_0^1 (t^(b - 1) (1 - t)^(c - b - 1))/(1 - x t)^a dif t = integral_0^1 sum_(k = 0)^oo t^(k + b - 1) dot (1-t)^(c - b - 1) dot (x^k)/(k!) a^overline(k) dif t =^* \ =^* sum_(k = 0)^oo integral_0^1 t^(k + b - 1) dot (1-t)^(c - b - 1) dot (x^k)/(k!) a^overline(k) dif t = sum_(k = 0)^oo (x^k)/(k!) a^overline(k) dot underbrace(integral_0^1 t^(k + b - 1) dot (1-t)^(c - b - 1) dif t, B(k + b, c - b) = (Gamma(b + k)Gamma(c - b))/(Gamma(c + k))) = \ = Gamma(c - b) sum_(k = 0)^oo (a^overline(k) Gamma(b + k))/Gamma(c + k) dot (x^k)/(k!) = (Gamma(c - b) Gamma(b))/Gamma(c) sum_(k = 0)^oo (a^overline(k) b^overline(k))/c^overline(k) dot (x^k)/(k!)
   $
   Почему можно менять местами интеграл и сумму в $*$? Что такое сумма? Это интеграл по дискретной мере. Можно применить теорему Фубини, если покажем, что интегралы по мере Лебега сходятся абсолютно. Посмотрим, и получится.
 ]
@@ -112,9 +112,9 @@ $
   $
   А значит
   $
-    hyperg(a, b; c; 1) = lim_(x -> 1-) hyperg(a, b; c; x) = lim_(x -> 1-) Gamma(c)/(Gamma(b) Gamma(c - b)) integral_0^1 (t^(b - 1) (1 - t)^(c - b - 1))/(1 - x t)^a dif t =^* \ =^* integral_0^1 lim_(x -> 1-) Gamma(c)/(Gamma(b) Gamma(c - b)) (t^(b - 1) (1 - t)^(c - b - 1))/(1 - x t)^a dif t = Gamma(c)/(Gamma(b) Gamma(c - b)) integral_0^1 t^(b - 1) (1 - t)^(c - a - b - 1) dif t = \ = Gamma(c)/(Gamma(b) Gamma(c - b)) Beta(b, c - a - b) = (Gamma(b) Gamma(c - a - b))/(Gamma(c - b)).
+    hyperg(a, b; c; 1) = lim_(x -> 1-) hyperg(a, b; c; x) = lim_(x -> 1-) Gamma(c)/(Gamma(b) Gamma(c - b)) integral_0^1 (t^(b - 1) (1 - t)^(c - b - 1))/(1 - x t)^a dif t =^* \ =^* integral_0^1 lim_(x -> 1-) Gamma(c)/(Gamma(b) Gamma(c - b)) (t^(b - 1) (1 - t)^(c - b - 1))/(1 - x t)^a dif t = Gamma(c)/(Gamma(b) Gamma(c - b)) integral_0^1 t^(b - 1) (1 - t)^(c - a - b - 1) dif t = \ = Gamma(c)/(Gamma(b) Gamma(c - b)) Beta(b, c - a - b) = (Gamma(c) Gamma(c - a - b))/(Gamma(c - b) Gamma(c - a)).
   $
-  Почему в $*$ можно менять местами предел с интегралом? Оказывается, что $t^(b - 1) (1 - t)^(c - a - b - 1)$ --- суммируемая мажоранта при $a > 0$, а $t^b (1 - t)^(c - b - 1)$ --- суммируемая мажоранта при $a <= 0$ (упражнение на внимательность). Поэтому можно применить теорему Лебега о мажорированной сходимости.
+  Почему в $*$ можно менять местами предел с интегралом? Оказывается, что $t^(b - 1) (1 - t)^(c - a - b - 1)$ --- суммируемая мажоранта при $a > 0$, а $t^(b-1) (1 - t)^(c - b - 1)$ --- суммируемая мажоранта при $a <= 0$ (упражнение на внимательность). Поэтому можно применить теорему Лебега о мажорированной сходимости.
 ]
 
 #th(name: "преобразование Пфаффа")[

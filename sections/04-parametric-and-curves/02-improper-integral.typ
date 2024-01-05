@@ -41,7 +41,7 @@
   $
   Оценим последний интеграл:
   $
-    abs(integral_b^(+oo) e^(-t x) f(x) dif x) = abs(integral_b^(+oo) t g(x) e^(-t x) dif x) <= t integral_b^(+oo) abs(underbrace(g(x), < eps)) e^(-t x) dif x <= \ <= eps t integral_b^(+oo) e^(-t x) dif x = lr(eps cancel(t) dot (e^(-t x) / (-cancel(t))) |)_(x = b)^(x = +oo) = eps dot e^(-b x) < eps.
+    abs(integral_b^(+oo) e^(-t x) f(x) dif x) = abs(integral_b^(+oo) t g(x) e^(-t x) dif x) <= t integral_b^(+oo) abs(underbrace(g(x), < eps)) e^(-t x) dif x <= \ <= eps t integral_b^(+oo) e^(-t x) dif x = lr(eps cancel(t) dot (e^(-t x) / (-cancel(t))) |)_(x = b)^(x = +oo) = eps dot e^(-b t) < eps.
   $
   А еще,
   $

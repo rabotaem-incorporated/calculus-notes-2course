@@ -55,7 +55,7 @@
     $C subset X times Y$. Обозначим
     $
         C_x &= {y in Y: (x, y) in C},\
-        C_y &= {x in X: (x, y) in C}.
+        C^y &= {x in X: (x, y) in C}.
     $
     Это _сечения_ множества $C$.
 ]
@@ -101,7 +101,7 @@
     *Шаг 1.* Пусть $X$ и $Y$ конечной меры, $Pp = {A times B : A in Aa, B in Bb}$, $Ee$ --- система подмножеств в $X times Y$ такая что $E in Ee <==> forall x in X space E_x in Bb$ и $phi(x) = nu E_x$ --- измеримая.
 
     Тогда
-    1. $E$ --- симметричная система.
+    1. $Ee$ --- симметричная система.
         $ (X times Y without E)_x = Y without E_x in Bb. $
         $ nu((X times Y) without E)_x = underbrace(nu Y, const < +oo) - nu E_x #[--- измеримая]. $ 
     
@@ -131,7 +131,7 @@
 
     То есть мы поняли, что для любого $C in Bb(Pp)$, $C_x in Bb$ и $phi(x) = nu C_x$ измерима.
 
-    *Шаг 2.* Рассмотрим $C in Bb(Pp)$. Докажем, что $m C = integral_X phi dif mu$. Рассмотрим на $Bb(Pp)$ функцию множеств $E maps integral_X nu E_x dif mu(x)$. Докажем, что это мера на $Bb(Pp)$: $usb_(j = 1)^oo E_j maps integral_X nu (usb_(j = 1)^oo E_j)_x dif mu(x) = integral_X sum_(j = 1)^oo nu(E_j)_x dif mu(x) = sum_(j = 1)^oo integral_X nu(E_j)_x dif mu(x)$. На $Pp$, $m$ и эта мера совпадают. По теореме о единственности продолжения меры, они совпадают на $Bb(Pp)$.
+    *Шаг 2.* Рассмотрим $C in Bb(Pp)$. Докажем, что $m C = integral_X phi dif mu$. Рассмотрим на $Bb(Pp)$ функцию множеств $E maps integral_X nu E_x dif mu(x)$. Докажем, что это --- мера на $Bb(Pp)$: $usb_(j = 1)^oo E_j maps integral_X nu (usb_(j = 1)^oo E_j)_x dif mu(x) = integral_X sum_(j = 1)^oo nu(E_j)_x dif mu(x) = sum_(j = 1)^oo integral_X nu(E_j)_x dif mu(x)$. На $Pp$, $m$ и эта мера совпадают. По теореме о единственности продолжения меры, они совпадают на $Bb(Pp)$.
 
     *Шаг 3.* $C in Aa times.circle Bb$, $m C = 0$. Тогда существует $tilde(C) in Bb(Pp)$ такое, что $m tilde(C) = 0$ и $tilde(C) supset C$ (у нас была теорема в главе про продолжение меры, которая говорит, что такое множество всегда найдется). Значит $0 = m tilde(C) = integral_X nu tilde(C)_x dif mu(x) ==> nu tilde(C)_x = 0$ при почти всех $x in X$. У нас есть включение $tilde(C)_x supset C_x$, поэтому из-за полноты $nu$, $C_x in Bb$ при почти всех $x in X$ и $nu C_x = 0$ почти везде. Значит $m C = 0 = integral_X nu C_x dif mu(x)$ и $phi(x) = nu C_x$ измерима в широком смысле.
 

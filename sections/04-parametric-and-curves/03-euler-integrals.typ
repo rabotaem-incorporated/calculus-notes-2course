@@ -49,7 +49,7 @@
 ]
 
 #proof[
-  + $Gamma(p + 1) = integral_0^(+oo) x^p e^(-x) dif x = x^p e^(-x) |_(x=0)^(x=+oo) + integral_0^(+oo) p x^(p-1) e^(-x) = p Gamma(p)$
+  + $Gamma(p + 1) = integral_0^(+oo) x^p e^(-x) dif x = -x^p e^(-x) |_(x=0)^(x=+oo) + integral_0^(+oo) p x^(p-1) e^(-x) = p Gamma(p)$
   + $Gamma(1) = integral_0^(+oo) e^(-x) dif x = 1$
   + $Gamma(1/2) = integral_0^(+oo) x^(-1/2) e^(-x) =^(y = sqrt(x)) 2 integral_0^ (+oo) e^(-y^2) = sqrt(pi)$
   + 1 + 3
@@ -147,7 +147,7 @@
   Хотим перейти к пределу
 
   $
-  y^(a-1) (1-y/t)^(t-1) 1_[0, t] -->_(t-->+oo) y^(a-1) e^(-y)
+  y^(a-1) (1-y/t)^(t-1) bb(1)_[0, t] -->_(t-->+oo) y^(a-1) e^(-y)
   $ - суммируемая мажоранта
 
   Значит $
