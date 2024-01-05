@@ -118,7 +118,7 @@
 #proof[
   Пишем в лоб определение производной. Рассмотрим 
   $ (F(t_0 + h) - F(t_0)) / h = 1/h (integral_X f(x, t_0 + h) dif mu(x) - integral_X f(x, t_0) dif mu(x)) = \ = integral_X underbrace((f(x, t_0 + h) - f(x, t_0))/h, := g(x, h)) dif mu(x). $
-  Надо понять, когда $integral_X g(x, h) dif mu(x) -->_(h -> 0) integral_X f'_t(x, t_0) dif mu(x)$. Мы знаем, что $g(x, h) -->_(h -> 0) f'_t(x, t_0)$, а когда можно переходить к интегралам? Когда выполняется Локальное условие Лебега для $g$ при $h$ близких к $0$. Проверяем его.
+  Надо понять, когда $integral_X g(x, h) dif mu(x) -->_(h -> 0) integral_X f'_t (x, t_0) dif mu(x)$. Мы знаем, что $g(x, h) -->_(h -> 0) f'_t(x, t_0)$, а когда можно переходить к интегралам? Когда выполняется Локальное условие Лебега для $g$ при $h$ близких к $0$. Проверяем его.
   $ 
     g(x, h) = (f(x, t_0 + h) - f(x, t_0)) / h = f'_t (x, t_0 + theta h),
   $
@@ -144,8 +144,6 @@
   $
     F'(t) = integral_(phi(t))^(psi(t)) f'_t (x, t) dif x + f(psi(t), t) psi'(t) - f(phi(t), t) phi'(t).
   $
-
-  Храбров сказал что это база какая-то. Надо это знать и уметь применять.
 ]
 #proof[
   Пусть $g(alpha, beta, t) := integral_alpha^beta f(x, t) dif x$, где $alpha, beta in anyinterval(a, b)$, и $t in anyinterval(c, d)$. Тогда $g'_t (alpha, beta, t) = integral_alpha^beta f'_t (x, t) dif x$ из следствия, $g'_beta (alpha, beta, t) = f(beta, t)$, и $g'_alpha (alpha, beta, t) = -f(alpha, t)$. Все три производные непрерывны. Значит $g$ --- дифференцируемая, а $F(t) = g(phi(t), psi(t), t)$, то есть тоже дифференцируемая. Запишем производную композиции:

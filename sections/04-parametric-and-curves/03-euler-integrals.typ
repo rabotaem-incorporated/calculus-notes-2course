@@ -14,15 +14,15 @@
 
   Гамма:
 
-  В нуле $x^(p-1)e^(-x) tilde 1/x^(1-p)$ - сходится т. к. $1 - p < 0$
+  В нуле: $x^(p-1)e^(-x) tilde x^(p-1)$ - сходится т. к. $p - 1 > -1$
   
-  На бесконечности $x^(p-1)e^(-x/2) --> 0$
+  На бесконечности: $x^(p-1)e^(-x/2) --> 0$
 
   Бета: 
   
-  В нуле: $x^(p-1)(1-x)^(q-1) tilde 1/x^(1-p)$
+  В нуле: $x^(p-1)(1-x)^(q-1) tilde x^(p - 1)$
 
-  В единице $tilde 1/(1-x)^(1 - q)$
+  В единице: $x^(p-1)(1-x)^(q-1) tilde (1-x)^(q - 1)$
 ]
 
 #props[($Gamma$)
@@ -51,20 +51,20 @@
 #proof[
   + $Gamma(p + 1) = integral_0^(+oo) x^p e^(-x) dif x = x^p e^(-x) |_(x=0)^(x=+oo) + integral_0^(+oo) p x^(p-1) e^(-x) = p Gamma(p)$
   + $Gamma(1) = integral_0^(+oo) e^(-x) dif x = 1$
-  + $Gamma(1/2) = integral_0^(+oo) x^(-1/2) e^(-x) =^(y = sqrt(x)) integral_0^ (+oo) e^(-y^2) = sqrt(pi)$
+  + $Gamma(1/2) = integral_0^(+oo) x^(-1/2) e^(-x) =^(y = sqrt(x)) 2 integral_0^ (+oo) e^(-y^2) = sqrt(pi)$
   + 1 + 3
   + По индукции:
   Нужно проверить локальное условие лебега:
 
   $0 < alpha < p < beta$
 
-  На бесконечности: $ln(x) < x ==> x^(p-1) ln^n(x) e^(-x) <= x^(beta + n - 1) e^-x$
+  На бесконечности: $ln(x) < x ==> x^(p-1) ln^n (x) e^(-x) <= x^(beta + n - 1) e^(-x)$
 
   В нуле: $x^eps ln(x) -->_(x-->0+) 0$
 
   $|ln(x)| <= c x^(-eps)$
 
-  $x^(p - 1) ln^n(x) e^(-x) <= c^n x^(alpha - n eps - 1), space alpha - n eps - 1 > -1 ==>$ есть сходимость
+  $x^(p - 1) ln^n (x) e^(-x) <= c^n x^(alpha - n eps - 1), space alpha - n eps - 1 > -1 ==>$ есть сходимость
 
   $==>$ можно дифференцировать под знаком интеграла, формулу проверяйте сами
 
@@ -88,7 +88,7 @@
 
 #proof[
   + $
-  Beta(p, q) = integral_0^1 x^(p-1) (1-x)^(q-1) dif x =^(y = 1-x) integral_1^0 y^(q-1) (1-y)^(p-1) dif y = Beta(q, p)
+  Beta(p, q) = integral_0^1 x^(p-1) (1-x)^(q-1) dif x =^(y = 1-x) -integral_1^0 y^(q-1) (1-y)^(p-1) dif y = Beta(q, p)
   $
   + $
   Beta(p, q) = integral_0^1 x^(p-1) (1-x)^(q-1) dif x =^(x = t/(t + 1)) integral_0^(+oo) (t/(t+1))^(p-1) (1/(t + 1))^(q - 1) (dif t)/((1 + t)^2)
@@ -163,7 +163,7 @@
   $
 
   $
-  abs(integral_0^t y^(a-1) (1-(y/t))^t dif y - Gamma(a)) <= integral_t^(+oo) y^(a-1) e^(-y) dif y + integral_0^t y^(a-1) abs((1-y/t)^t - e^(-y)) dif y <=\ integral_t^(+oo) y e^(-y) dif y + integral_0^1 abs((1-y/t)^t - e^(-y)) + integral_1^t y abs((1-y/t)^t - e^(-y)) --> 0
+  abs(integral_0^t y^(a-1) (1-(y/t))^t dif y - Gamma(a)) <= integral_t^(+oo) y^(a-1) e^(-y) dif y + integral_0^t y^(a-1) abs((1-y/t)^t - e^(-y)) dif y <=\ integral_t^(+oo) y e^(-y) dif y + integral_0^1 abs((1-y/t)^t - e^(-y)) dif y + integral_1^t y abs((1-y/t)^t - e^(-y)) dif y--> 0
   $
 ]
 
@@ -176,7 +176,7 @@
 
   $
   Gamma(p) = Gamma(n + a) tilde Gamma(n)n^a = n! n^(a-1) tilde sqrt(2 pi n) (n/e)^n n^(a-1) tilde^? sqrt((2pi)/(n + a)) e^(-n - a) (n + a)^(n + a) \
-  (e^(-a) (n+a)^(n+a) 1/sqrt(n + a)) /(n^n sqrt(n) n^a 1/n) tilde e^(-a) ((n+a)/n)^(n + a) tilde e^(-a) (a + a/n)^n tilde 1
+  (e^(-a) (n+a)^(n+a) 1/sqrt(n + a)) /(n^n sqrt(n) n^a 1/n) tilde e^(-a) ((n+a)/n)^(n + a) tilde e^(-a) (1 + a/n)^n tilde 1
   $
 ]
 
@@ -215,7 +215,7 @@
   integral_0^(+oo) e^(-x^p) dif x, p > 0 = ^(y = x^p) integral_0^(+oo) 1/p y^(1/p - 1) e^y dif y = 1/p Gamma(1/p) = Gamma(1 + 1/p)
   $
   + $
-  integral_0^(pi/2) sin^(p-1) x cos&(q - 1) x dif x = 1/2 integral_0^1 x^((p-2)/2) (1-x)^((q-2)/2) dif y = 1/2 Beta(p/2, q/2)
+  integral_0^(pi/2) sin^(p-1) x cos^(q - 1) x dif x = 1/2 integral_0^1 x^((p-2)/2) (1-x)^((q-2)/2) dif y = 1/2 Beta(p/2, q/2)
   $
   В частности $
   integral_0^(pi/2) sin^(p-1) x dif x = 1/2 Beta(p/2, 1/2) = 1/2 (Gamma(p/2)sqrt(pi))/Gamma((p + 1)/2)
@@ -223,8 +223,8 @@
 
   4. $V_n (r)$ - объем $n$-мерного шара радиуса $r$
   $
-  V_n (r) = r^n C_n - "объем шара радиума 1" \
+  V_n (r) = r^n C_n - "объем шара радиуса 1" \
   C_n = integral_(-1)^1 V_(n-1) (sqrt(1-x^2)) dif x = 2 integral_0^1 (1-x^2)^((n-1)/2) C_(n-1) dif x =^(x = sin phi) \ 2 C_(n-1) integral_0^(pi/2) cos^n (phi) dif phi = C_(n-1) (Gamma((n+1)/2)sqrt(pi))/Gamma((n + 2)/2) \
-  C_n = C_1 pi^(n-1)/2 Gamma(3/2)/Gamma((n+2)/2) = pi^(n/2)/Gamma(n/2+1) 
+  C_n = C_1 (pi^((n-1)/2) Gamma(3/2))/Gamma((n+2)/2) = pi^(n/2)/Gamma(n/2+1) 
   $
 ]
