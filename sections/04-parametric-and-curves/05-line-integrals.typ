@@ -40,7 +40,7 @@
       = integral_a^b f(underbrace(tilde(gamma)(tau(u)), tilde(gamma) compose tau = gamma)) norm(underbrace(tau'(u) dot tilde(gamma)'(tau(u)), gamma ')) dif u = integral_a^b f(gamma(u)) norm(gamma') dif u = integral_gamma f dif s.
     $
   
-  2. Тоже самое.
+  2. То же самое.
 
   3. Ну да, это и правда формула длины гладкой кривой.
 
