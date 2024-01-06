@@ -130,7 +130,7 @@
   $
   Gamma(2p)/(Gamma(p) Gamma(p)) dot 1/2^(2p - 1) =^? Gamma(p + 1/2)/(Gamma(p) Gamma(1/2)) <==>\
   1/(2^(2p - 1) Beta(p, p)) = 1/Beta(p, 1/2) \
-  Beta(p, p) = integral_0^1 (x(1-x))^(p-1) = 2 integral_0^(1/2) =^(y = 1/2 - x) 2 integral_0^(1/2) (1/2 - y^2)^(p-1) dif y =^(z = 2y) \ integral_0^1(1/4 - 1/4z^2)^(p-1) dif z =^(t = z^2) 1/(2^(2p-1)) integral_0^1 (1-t)^(p-1) t^(1/2 - 1) dif t = Beta(p, 1/2)/2^(2p - 1)
+  Beta(p, p) = integral_0^1 (x(1-x))^(p-1) = 2 integral_0^(1/2) =^(y = 1/2 - x) 2 integral_0^(1/2) (1/4 - y^2)^(p-1) dif y =^(z = 2y) \ integral_0^1(1/4 - 1/4z^2)^(p-1) dif z =^(t = z^2) 1/(2^(2p-1)) integral_0^1 (1-t)^(p-1) t^(1/2 - 1) dif t = Beta(p, 1/2)/2^(2p - 1)
   $
 ]
 
