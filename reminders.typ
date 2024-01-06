@@ -40,6 +40,13 @@
   $ n! tilde n^n e^(-n) sqrt(2pi n) $
 ]
 
+#th(name: "формула длины кривой", label: "curve-length")[
+  Пусть $y$ --- гладная кривая в $RR^d$, а $gamma(t): [a, b] --> RR^d$ --- ее параметризация. Тогда
+  $
+    l(y) = integral_a^b norm(gamma'(t)) dif t.
+  $
+]
+
 #th(name: "признак Даламбера", label: "d'alembert")[
   Пусть $a_n > 0$. Тогда
   - Если $a_(n+1)/a_n <= d < 1$, то $sum a_n$ сходится.
