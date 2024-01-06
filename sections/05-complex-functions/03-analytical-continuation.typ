@@ -2,7 +2,7 @@
 
 == Аналитическое продолжение
 
-#def[
+#def(label: "def-analitical-continuation")[
   Пусть $f in H(Omega)$, $g in H(tilde(Omega))$. $Delta$ --- компонента связности $Omega sect tilde(Omega)$. Если $f(z) = g(z)$ на $Delta$, то $g$ --- _непосредсвенное аналитическое продолжение $f$ на $tilde(Omega)}$ через $Delta$_.
 
   #TODO[картинка]
@@ -24,7 +24,7 @@
   2. Все промежуточные области можно сделать кругами. Рассмотрим для этого кривую из одной области в другую, покроем эту кривую кругами, и выберем конечное подпокрытие.
 ]
 
-#example[
+#example(label: "gamma-continuation")[
   $Gamma$-функция. Пусть $Gamma(z) := integral_0^(+oo) t^(z - 1) e^(-t) dif t$. Знаем $t^z := e^(z ln t)$, $ abs(t^z) = abs(e^(z ln t)) = e^(ln t dot Re z) = t^(Re z). $
   Значит под интегралом стоит штука, которая по модулю ограничена $t^(Re z - 1) e^(-t)$, а при $Re z > 0$, интеграл абсолютно сходится. Значит $Gamma in H(Re z > 0)$, ведь $Gamma'(z) = integral_0^(+oo) t^(z - 1) ln(t) e^(-t) dif t$, так как $abs(t^(z - 1) ln t e^(-t)) = t^(Re z - 1) abs(ln t) e^(-t)$.
 
