@@ -163,7 +163,7 @@
   $
 
   $
-  abs(integral_0^t y^(a-1) (1-(y/t))^t dif y - Gamma(a)) <= integral_t^(+oo) y^(a-1) e^(-y) dif y + integral_0^t y^(a-1) abs((1-y/t)^t - e^(-y)) dif y <=\ integral_t^(+oo) y e^(-y) dif y + integral_0^1 abs((1-y/t)^t - e^(-y)) dif y + integral_1^t y abs((1-y/t)^t - e^(-y)) dif y--> 0
+  abs(integral_0^t y^(a-1) (1-(y/t))^(t-1) dif y - Gamma(a)) <= integral_t^(+oo) y^(a-1) e^(-y) dif y + integral_0^t y^(a-1) abs((1-y/t)^(t-1) - e^(-y)) dif y <=\ integral_t^(+oo) y e^(-y) dif y + integral_0^1 abs((1-y/t)^(t-1) - e^(-y)) dif y + integral_1^t y abs((1-y/t)^(t-1) - e^(-y)) dif y--> 0
   $
 ]
 
