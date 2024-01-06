@@ -36,6 +36,10 @@
   Если $f in C[a, b]$, то $Phi(x) = integral_a^x f dif x$ --- первообразная $f$.
 ]
 
+#th(name: "формула Стирлинга", label: "stirling")[
+  $ n! tilde n^n e^(-n) sqrt(2pi n) $
+]
+
 #th(name: "о связи частных производных и дифференцируемости", label: "diff-through-partial-derivatives")[
   Пусть $f: E --> RR$, $E subset RR^n$, $a in Int f$, все частные производные существуют в окрестности $a$, и в точке $a$ непрерывны. Тогда $f$ дифференцируема в точке $a$.
 ]
