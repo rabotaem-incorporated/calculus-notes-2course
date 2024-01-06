@@ -98,7 +98,7 @@
 ]
 
 #proof[
-  $ (diff Im f)/(diff x) = -(diff Re f)/(diff y) = 0 &==> Re f = const \ (diff Im f)/(diff y) = (diff Re f)/(diff x) = 0 &==> Im f = const $
+  $ cases((diff Im f)/(diff x) = -(diff Re f)/(diff y) = 0 , (diff Im f)/(diff y) = (diff Re f)/(diff x) = 0) ==> Im f = const $
 ]
 
 #th(name: "Коши")[
@@ -107,7 +107,7 @@
 
 #proof[
 
-  *Первое докальательство*, для случая, когда $(diff f)/(diff x)$ и $(diff f)/(diff y)$ непрерывно. Знаем, что замкнутость и непрерывность частной производной влечет локальную точность. Проверим замкнутость. 
+  *Первое докальательство*, для случая, когда $(diff f)/(diff x)$ и $(diff f)/(diff y)$ непрерывны. Знаем, что замкнутость и непрерывность частной производной влечет локальную точность. Проверим замкнутость. 
   $ f(z) dif z = f(z) dif x + i f(z) dif y. $
   Надо проверить, что $(diff f)/(diff y) = (diff (i f))/(diff x) = i (diff f)/(diff x)$. Это верно из $(diff f)/(diff cj(z)) = 0$.
 
@@ -115,17 +115,13 @@
 
   #TODO[картиночка]
 
-  *Второе доказальство*, без ограничений на $f$. Возьмем круг $U subset Omega$. Надо доказать, что $integral_P omega = 0$ для любого прямоугольника $P$ из $U$. От противного. Пусть нашелся такой $P$, где $integral_P omega != 0$. Назовем этот интеграл $alpha(P)$. Разрежем его на 4 части, как на картинке. Тогда $alpha(P) = alpha(P') + alpha(P'') + alpha(P''') + alpha(P'''')$, значит $abs(alpha(P)) <= abs(alpha(P')) + abs(alpha(P'')) + abs(alpha(P''')) + abs(alpha(P''''))$. Пусть $P_1$ такой из $P'$, $P''$, $P'''$, $P''''$, что $sum(alpha(P_1)) >= 1/4 abs(alpha(P))$. Аналогично построим последовательность прямоугольников $P supset P_1 supset P_2 supset ...$. $alpha(P_n) >= 1/(4^n) abs(alpha(P))$ и есть $z_0$ лежащая во всех прямоугольниках. $f$ --- голоморфна в $z_0$,
+  *Второе доказальство*, без ограничений на $f$. Возьмем круг $U subset Omega$. Надо доказать, что $integral_P omega = 0$ для любого прямоугольника $P$ из $U$. От противного. Пусть нашелся такой $P$, где $integral_P omega != 0$. Назовем этот интеграл $alpha(P)$. Разрежем его на 4 части, как на картинке. Тогда $alpha(P) = alpha(P') + alpha(P'') + alpha(P''') + alpha(P'''')$, значит $abs(alpha(P)) <= abs(alpha(P')) + abs(alpha(P'')) + abs(alpha(P''')) + abs(alpha(P''''))$. Пусть $P_1$ такой из $P'$, $P''$, $P'''$, $P''''$, что $sum(alpha(P_1)) >= 1/4 abs(alpha(P))$. Аналогично построим последовательность прямоугольников $P supset P_1 supset P_2 supset ...$, $alpha(P_n) >= 1/(4^n) abs(alpha(P))$ и есть $z_0$ лежащая во всех прямоугольниках. $f$ --- голоморфна в $z_0$,
   $ f(z) = f(z_0) + f'(z_0) (z - z_0) + abs(z - z_0) dot beta(z - z_0), $
   где $lim_(z->z_0) beta(z - z_0) = 0$. Тогда
   $ abs(alpha(P_n)) = abs(integral_(P_n) f(z) dif z) = abs(integral_(P_n) f(z_0) dif z + integral_(P_n) f'(z_0) (z - z_0) dif z + integral_(P_n) abs(z - z_0) beta(z - z_0) dif z). $
   Первый интеграл --- интеграл константы по замкнутому контуру, то есть $0$, второй тоже 0, если сослаться на первое доказательство. Значит,
   $
-    abs(alpha(P_n)) = abs(integral_(P_n) abs(z - z_0) beta(z - z_0) dif z) <= "периметр" P_n dot max ... <= \ <= "периметр"^2 P_n dot max_(z in P_n) abs(beta(z - z_0)) = 1/(4^n) "периметр"^2 P dot max_(z in P_n) abs(beta(z - z_0)).
-  $
-  Имеем,
-  $
-    0 < abs(alpha(P_n)) <= underbrace(("периметр" P)^2, const) dot underbrace(max_(z in P) abs(beta(z - z_0)), --> 0) --> 0.
+    4^n abs(alpha(P_n)) = 4^n abs(integral_(P_n) abs(z - z_0) beta(z - z_0) dif z) <= 4^n "периметр" P_n dot max ... <= \ <= 4^n "периметр"^2 P_n dot max_(z in P_n) abs(beta(z - z_0)) = "периметр"^2 P dot max_(z in P_n) abs(beta(z - z_0)) --> 0.
   $
   Противоречие.
 ]
@@ -161,12 +157,12 @@
 
   Если точка не лежит в $Delta$, то проведем рассуждения также, как в доказательстве теореме Коши. Интересен только случай, когда точка лежит на $Delta$.
 
-  Если $P$ непересекает $Delta$, то все как в предыдущей теореме. Иначе, разрежем прямоугольник по $Delta$, как на картинке. Остался случай, когда одна из сторон прямоугольника лежит в $Delta$.
+  Если $P$ не пересекает $Delta$, то все как в предыдущей теореме. Иначе, разрежем прямоугольник по $Delta$, как на картинке. Остался случай, когда одна из сторон прямоугольника лежит в $Delta$.
 
-  Отойдем от $Delta$ на $eps$, "отодвинув" сторону $P$ от нее. Получится прямоугольник $P_eps$. Мы знаем, что $integral_(P_eps) f(z) dif z = 0$. На сколько будет отличаться интеграл?
+  Отойдем от $Delta$ на $eps$, "отодвинув" сторону $P$ от нее. Получится прямоугольник $P_eps$. Мы знаем, что $integral_(P_eps) f(z) dif z = 0$. На сколько будут отличаться интегралы?
   $
-    integral_P f(z) dif z - integral_(P_eps) f(z) dif z = integral_[b, b + i eps] f(z) dif z + integral[a + i eps, a] f(z) dif z + integral_[a, b] (f(z) - f(z + i eps)) dif z ==> \
-    abs(integral_P f(z) dif z - integral_(P_eps) f(z) dif z) <= abs(integral_[b, b + i eps] f(z) dif z) + abs(integral[a + i eps, a] f(z) dif z) + abs(integral_[a, b] (f(z) - f(z + i eps)) dif z)
+    integral_P f(z) dif z - integral_(P_eps) f(z) dif z = integral_[b, b + i eps] f(z) dif z + integral_[a + i eps, a] f(z) dif z + integral_[a, b] (f(z) - f(z + i eps)) dif z ==> \
+    abs(integral_P f(z) dif z - integral_(P_eps) f(z) dif z) <= abs(integral_[b, b + i eps] f(z) dif z) + abs(integral_[a + i eps, a] f(z) dif z) + abs(integral_[a, b] (f(z) - f(z + i eps)) dif z)
   $
 
   Так как $f in C(Omega)$, существует $M$ такая, что $abs(f(z)) <= M$ для любого $z$ в прямоугольнике $P$ (на компакте).
@@ -218,10 +214,10 @@
 ]
 
 #proof[
-  Берем параметризацию $gamma$ в полярных координатах, $z(t) = r(t) e^(i phi(z))$. Распишем дифференциал через параметризацию: $ dif z = r'(t) e^(i phi(t)) + r(t) i phi' e^(i phi(t)) dif t, $
+  Берем параметризацию $gamma$ в полярных координатах, $z(t) = r(t) e^(i phi(t))$. Распишем дифференциал через параметризацию: $ dif z = r'(t) e^(i phi(t)) + r(t) i phi' e^(i phi(t)) dif t, $
   и интегрируем по ней:
   $
-    integral_gamma (dif z)/z = integral_a^b (r'(t) e^(i phi(t)) + r(t) i phi'(t) e^(i phi(t)))/(r(t) - e^(i phi(t))) dif t = \ = integral_a^b ((r'(t))/(r(t)) + i phi'(t)) dif t = underbrace(ln r(b) - ln r(a), 0) + i (phi(b) - phi(a)) = 2 pi i dot Ind(gamma, 0).
+    integral_gamma (dif z)/z = integral_a^b (r'(t) e^(i phi(t)) + r(t) i phi'(t) e^(i phi(t)))/(r(t) e^(i phi(t))) dif t = \ = integral_a^b ((r'(t))/(r(t)) + i phi'(t)) dif t = underbrace(ln r(b) - ln r(a), 0) + i (phi(b) - phi(a)) = 2 pi i dot Ind(gamma, 0).
   $
   $r(b) = r(a)$, так как кривая замкнутая. Индекс возникает по определению.
 ]

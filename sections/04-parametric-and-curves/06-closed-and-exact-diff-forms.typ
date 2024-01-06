@@ -48,7 +48,7 @@
 #notice[
   В лемме выпуклость существенна. 
   
-  $Omega = RR^2 without {(0, 0)}$, а $omega = (x dif y - y dif x) / (x^2 _ y^2)$, $P = - y / (x^2 + y^2)$, $Q = x / (x^2 + y^2)$
+  $Omega = RR^2 without {(0, 0)}$, а $omega = (x dif y - y dif x) / (x^2 + y^2)$, $P = - y / (x^2 + y^2)$, $Q = x / (x^2 + y^2)$
   
   Тогда $(diff P)/(diff y) = - ((x^2 + y^2) - 2 y^2)/(x^2 + y^2)^2 = (y^2 - x^2)/(x^2 + y^2)^2 = (diff Q)/(diff x)$. Значит замкнутость есть.
   Проинтегрируем по единичной окружности $gamma$. $integral_gamma omega = integral_0^(2 pi) (cos t (sin t)' - sin t (cos t)') dif t = integral_0^2pi dif t = 2 pi != 0$.
