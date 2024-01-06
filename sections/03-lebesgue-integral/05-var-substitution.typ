@@ -338,11 +338,11 @@
     Выкинем из интегралов слева и справа эти множества нулевой меры. Интегралы не изменятся.
 ]
 
-#example[
+#example(label: "gaussian-integral")[
     Полярные координаты: $(r, t) ~~> (r cos t, r sin t)$, преобразовывающие "полосу" в плоскость без прямой.
 
     Тогда $ vec(r, t) -->^Phi vec(r cos t, r sin t), Phi' = mat(cos t, -r sin t; sin t, r cos t) ==> Jj_Phi = det Phi' = r cos^2 t + r sin^2 t = r. $
-    Записываем формулу замены переменной (теорема Фубини позволяет записать интеграл по двумерному множеству как двойной):
+    Записываем формулу замены переменной#rf("substitution") (теорема Фубини#rf("fubini") позволяет записать интеграл по двумерному множеству как двойной):
     $
         integral_(RR^2) f dif lambda_2 = integral_([0, +oo)) integral_([0, 2pi]) r f (r cos t, r sin t) dif lambda_1 (t) dif lambda_1 (r). 
     $
