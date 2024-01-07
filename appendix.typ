@@ -24,6 +24,10 @@
         box(width: 1fr, repeat[.])
         link(el.location())[#el.location().page()]
     }))
+
+    if todos.len() == 0 [
+        Ура! Долгов нет!
+    ]
 })
 
 #if config.enable-ticket-references [

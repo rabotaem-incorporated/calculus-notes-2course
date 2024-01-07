@@ -253,8 +253,16 @@
     Если $nu$ имеет плотность относительно $mu$, то $mu e = 0 ==> nu e = 0$.
 ]
 
+#let absolutely-continious-sign = text(size: 0.5em, box(
+    path(
+        stroke: 0.6pt,
+        ((1em, 1em), (1em, 1.5em)),
+        ((1em, 0em), (-1em, 1.5em))
+    )
+))
+
 #def(label: "abs-continious-measure")[
-    Пусть $mu$ и $nu$ --- меры, заданные на одной $sigma$-алгебре $Aa$. $nu$ _абсолютно непрерывна_ относительно $mu$, если $mu e = 0 ==> nu e = 0$. Обозначается $nu << mu$ или $nu lt.curly mu$ (но не такой значок, а с кружочком слева, хз, в typst такого нет). #TODO[починить значок]
+    Пусть $mu$ и $nu$ --- меры, заданные на одной $sigma$-алгебре $Aa$. $nu$ _абсолютно непрерывна_ относительно $mu$, если $mu e = 0 ==> nu e = 0$. Обозначается $nu << mu$ или $nu #absolutely-continious-sign mu$.
 ]
 
 #th(label: "integrals-eq-ae-sfn-eq")[

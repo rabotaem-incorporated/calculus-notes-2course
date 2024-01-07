@@ -509,7 +509,7 @@
   Мы докажем вторую, первая аналогична. 
 
   *Шаг 1: $Omega$ --- элементарная область#rf("def-primitive-region")*.
-  $ integral_Omega (diff P)/(diff y) dif lambda_2 = integral_a^b integral_(phi(x))^(psi(x)) (diff P)/(diff y) (x, y) dif y dif x = integral_a^b (P(x, psi(x)) - P(x, phi(x))) dif x. $
+  $ integral_Omega (diff P)/(diff y) dif lambda_2 =^rf("fubini") integral_a^b integral_(phi(x))^(psi(x)) (diff P)/(diff y) (x, y) dif y dif x = integral_a^b (P(x, psi(x)) - P(x, phi(x))) dif x. $
   С другой стороны, $integral_(diff Omega) P dif x$ равен сумме интегралов по четырем границам элементарной области (сверху, снизу, справа, слева):
   $ integral_(diff Omega) P dif x = integral_"I" + integral_"II" + integral_"III" + integral_"IV". $
   
