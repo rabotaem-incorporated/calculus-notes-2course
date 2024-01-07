@@ -11,7 +11,7 @@
 
 #th(name: "замена переменной в интеграле по мере Лебега", label: "substitution")[
     $Omega subset RR^m$ открытое. $Phi: Omega --> tilde(Omega)$ диффеоморфизм. $f: tilde(Omega) --> overline(RR)$, $f >= 0$ измерима (или суммируема). Тогда $ integral_tilde(Omega) f dif lambda_m (x) = integral_Omega f(Phi(x)) abs(Jj_Phi (x)) dif lambda_m (x), $
-    где $Jj_phi(x) = det Phi' (x)$ --- якобиан.
+    где $Jj_Phi(x) = det Phi' (x)$ --- якобиан.
 ]
 
 #example(name: "авторский, не бейте если не нравится", label: "substitution-example")[
