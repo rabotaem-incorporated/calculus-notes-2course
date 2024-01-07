@@ -139,7 +139,7 @@
     $
       f(z) dif z = f(z) dif x + i f(z) dif y ==> (diff F)/(diff x) = f and (diff F)/(diff y) = i f.
     $
-    То есть $(diff F)/(diff x) = i (diff F)/(diff y)$, значит производная голоморфна в окрестности, и $F' = (diff F)/(diff x) = f$.
+    То есть $(diff F)/(diff x) = i (diff F)/(diff y)$, значит первообразная голоморфна в окрестности, и $F' = (diff F)/(diff x) = f$.
 ]
 
 #notice[
