@@ -347,7 +347,7 @@
 ]
 
 #example[
-    $mu = nu = lambda_1$, $X = Y = [-1, 1]$, $f(x, y) = (x^2 - y^2)/(x^2 + y^2)^2$. Тогда $ phi(x) = integral_[-1, 1] (x^2 - y^2)/(x^2 + y^2)^2 dif y = lr(y / (x^2 - y^2) bar)_(y=-1)^(y=1) = 2 / (x^2 + 1). $
+    $mu = nu = lambda_1$, $X = Y = [-1, 1]$, $f(x, y) = (x^2 - y^2)/(x^2 + y^2)^2$. Тогда $ phi(x) = integral_[-1, 1] (x^2 - y^2)/(x^2 + y^2)^2 dif y = lr(y / (x^2 + y^2) bar)_(y=-1)^(y=1) = 2 / (x^2 + 1). $
     Это суммируемая функция.
     $
         integral_[-1, 1] phi(x) dif x = integral_(-1)^1 2 / (x^2 + 1) dif x = lr( 2 arctan x bar)_(-1)^1 = pi.
