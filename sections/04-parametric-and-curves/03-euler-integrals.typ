@@ -351,8 +351,8 @@
     lim_(n -> +oo) (2 sqrt(n) dot (2n)!!)/(2n + 1)!! 
     newline(==>)
     Gamma(1/2) =^rf("gamma-props", "1/2") sqrt(pi) = lim_(n -> +oo) (2 sqrt(n) dot (2n)!!)/(2n + 1)!! =
-    lim_(n -> +oo) (2n)!!/(2n - 1)!! dot (2sqrt(n))/(2n + 1) =
-    lim_(n -> +oo) (2n)!!/(2n - 1)!! dot 2/(sqrt(2n + 1)) newline(==>)
+    lim_(n -> +oo) (2n)!!/(2n - 1)!! dot (2sqrt(n))/(2n + 1) = \
+    lim_(n -> +oo) (2n)!!/(2n - 1)!! dot sqrt(2)/sqrt(2n+1) dot sqrt((2n)/(2n+1)) ==>
     lim_(n -> +oo) (2n)!!/(2n - 1)!! dot 1/(sqrt(2n + 1)) = sqrt(pi/2).
   $
 ]
