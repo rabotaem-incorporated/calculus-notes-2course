@@ -254,7 +254,11 @@
       let lbl = label("_THEOREM_" + lbl)
       let label-instance = query(lbl, loc)
       if label-instance.len() != 1 {
-        panic("Label " + str(lbl) + " have been seen " + str(label-instance.len()) + " times")
+        if config.strict-refs {
+          panic("Label " + str(lbl) + " have been seen " + str(label-instance.len()) + " times")
+        } else {
+          return none
+        }
       }
       label-instance = label-instance.first()
       let color = label-instance.children.first().value

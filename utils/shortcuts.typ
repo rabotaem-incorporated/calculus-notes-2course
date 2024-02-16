@@ -53,6 +53,8 @@
 #let Cl = math.op("Cl")
 #let const = math.op("const")
 #let Ind = math.op("Ind")
+#let Ln = math.op("Ln")
+#let Arg = math.op("Arg")
 
 // letters
 #let Aa = math.cal($A$)
