@@ -61,7 +61,7 @@
     $
     Параметризуем $z = rho e^(i t)$, $dif z = rho e^(i t) dot i dif t$:
     $
-        integral_0^(2pi) sum_(k = -oo)^oo c^k rho^k e^(i k t) 1/(rho^(n + 1) e^(i (n + 1) t)) i rho e^(i t) dif t =
+        integral_0^(2pi) sum_(k = -oo)^oo overbrace(c_k rho^k e^(i k t), f(z)) 1/underbrace(rho^(n + 1) e^(i (n + 1) t), z^(n + 1)) i rho e^(i t) dif t =
         i integral_0^(2pi) sum_(k = -oo)^(oo) = c_k rho^(k - n) e^((k - n) i t) dif t newline(=^*) i sum_(k = -oo)^oo c_k rho^(k - n) integral_0^(2pi) e^(i (k - n) t) dif t.
     $
     Чему равен здесь интеграл?
@@ -72,6 +72,13 @@
         )
     $
     Почему в $*$ можно менять местами интеграл и сумму? Мы выбрали $rho$ строго внутри кольца, поэтому для любого $rho$ и у главной, и у правильной части есть равномерная сходимость.
+
+    Значит,
+    $
+        integral_(abs(z) = rho) (f(z))/(z^(n + 1)) dif z =
+        2pi i c_k.
+    $
+    То есть если коэффициенты есть, то любые коэффициенты выражаются через наш интеграл. Значит, они определены однозначно.
 ]
 
 #th(name: "Лорана")[
@@ -79,12 +86,12 @@
 ]
 
 #proof[
-    Возьмем $r < r_1 < r_2 < R_2 < R_1 < R$. Возьмем множество $r_1 <= abs(z) <= R_1$ --- компакт, и точку в нем, $r_2 < abs(z) < R_2$. Напишем по границе множества интегральную формулу Коши:
+    Возьмем $r < r_1 < r_2 < R_2 < R_1 < R$. Возьмем множество $r_1 <= abs(z) <= R_1$ --- компакт, и точку в его внутренности, $r_2 < abs(z) < R_2$. Напишем по границе множества интегральную формулу Коши:
     $
         f(z) = 1/(2 pi i) integral_(diff k) f(zeta) / (zeta - z) dif zeta = 1/(2 pi i) integral_(abs(zeta) = R_1) f(zeta) / (zeta - z) dif zeta - 1/(2pi i) integral_(abs(zeta) = r_1) f(zeta) / (zeta - z) dif zeta.
     $
 
-    Считаем по отдельности. Распишем
+    Считаем по отдельности интегралы, начнем с первого. Распишем знаменатель как ряд:
     $
         1/(zeta - z) = 1/zeta dot 1/(1 - z/zeta) = 1/zeta sum_(n = 0)^oo (z/zeta)^n = sum_(n = 0)^oo z^n / (zeta^(n + 1)).
     $
@@ -110,4 +117,5 @@
     $
         integral_(abs(zeta) = r_1) f(zeta)/(zeta - z) dif zeta = -integral_(abs(zeta) = r_1) f(zeta) -sum_(n = 1)^oo zeta^(n - 1)/z^n dif zeta = sum_(n = 1)^oo 1/(z^n) underbrace(integral_(abs(zeta) = r_1) f(zeta) zeta^(n - 1) dif zeta, "какие-то коэффициенты").
     $
+    Получаем разложение в ряд.
 ]

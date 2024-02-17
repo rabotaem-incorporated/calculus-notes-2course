@@ -8,5 +8,7 @@
   include "02-uniqueness.typ"
   include "03-analytical-continuation.typ"
 }
-#include "04-logarithm.typ"
-#include "05-laurent-series.typ"
+#if config.sem4 {
+  include "04-logarithm.typ"
+  include "05-laurent-series.typ"
+}
