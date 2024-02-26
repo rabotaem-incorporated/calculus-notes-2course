@@ -21,7 +21,7 @@
 
 #proof[
     1. $R$ --- радиус сходимости правильной части. Что с главной частью?
-        $ sum_(m - 1)^oo c_(-m) (1/z)^m = sum_(m = 1)^oo c_(-m) w^m. $
+        $ sum_(m = 1)^oo c_(-m) (1/z)^m = sum_(m = 1)^oo c_(-m) w^m. $
         Это ряд, у которого есть радиус сходимости $tilde(R)$. Если $abs(w) < tilde(R)$, то ряд расходится, что есть если $abs(1/z) < tilde(R)$, или $abs(z) > 1/tilde(R)$. Аналогично, при $abs(w) > tilde(R)$ --- ряд расходится. $r = 1/tilde(R)$.
 
         Возмжно, $r$ получилось больше $R$. Тогда положим $r = R$, чтобы выло верно неравенство из свойства.
@@ -62,7 +62,7 @@
     Параметризуем $z = rho e^(i t)$, $dif z = rho e^(i t) dot i dif t$:
     $
         integral_0^(2pi) sum_(k = -oo)^oo overbrace(c_k rho^k e^(i k t), f(z)) 1/underbrace(rho^(n + 1) e^(i (n + 1) t), z^(n + 1)) i rho e^(i t) dif t =
-        i integral_0^(2pi) sum_(k = -oo)^(oo) = c_k rho^(k - n) e^((k - n) i t) dif t newline(=^*) i sum_(k = -oo)^oo c_k rho^(k - n) integral_0^(2pi) e^(i (k - n) t) dif t.
+        i integral_0^(2pi) sum_(k = -oo)^(oo) c_k rho^(k - n) e^((k - n) i t) dif t newline(=^*) i sum_(k = -oo)^oo c_k rho^(k - n) integral_0^(2pi) e^(i (k - n) t) dif t.
     $
     Чему равен здесь интеграл?
     $
@@ -76,7 +76,7 @@
     Значит,
     $
         integral_(abs(z) = rho) (f(z))/(z^(n + 1)) dif z =
-        2pi i c_k.
+        2pi i c_n.
     $
     То есть если коэффициенты есть, то любые коэффициенты выражаются через наш интеграл. Значит, они определены однозначно.
 ]
@@ -98,8 +98,8 @@
     Тогда
     $
         integral_(abs(zeta) = R_1) f(zeta) / (zeta - z) dif zeta =
-        integral_(abs(zeta) = R_1) z^n f(zeta) dot (sum_(n_0)^oo 1/(zeta^(n + 1))) dif z =^*
-        sum_(n_0)^oo z^n underbrace(integral_(abs(zeta) = R_1) f(zeta)/(zeta^(n + 1)) dif z, := c_n) =
+        integral_(abs(zeta) = R_1) z^n f(zeta) dot (sum_(n = 0)^oo 1/(zeta^(n + 1))) dif z =^*
+        sum_(n = 0)^oo z^n underbrace(integral_(abs(zeta) = R_1) f(zeta)/(zeta^(n + 1)) dif z, := c_n) =
         sum_(n = 0)^oo c_n z^n.
     $
     Как обычно, надо объснить, почему можно переставлять в $*$ сумму с интегралом. Докажем равномерную сходимость. $f in H(r < abs(z) < R)$, значит $f in C(r_1 <= abs(z) <= R_1)$, то есть $f$ ограничена в кольце. $r_1 <= abs(z) <= R_1$, значит $abs(f(zeta)) <= M$ для каждого $zeta$. Тогда
