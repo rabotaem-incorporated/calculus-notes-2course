@@ -11,4 +11,5 @@
 #if config.sem4 {
   include "04-logarithm.typ"
   include "05-laurent-series.typ"
+  include "06-residues.typ"
 }
