@@ -126,8 +126,6 @@
 ]
 
 #proof[
-    #TODO[картинка]
-
     Окружаем особые точки кругами $B_r (a)$, так как $overline(B)_r (a) subset K$ и $overline(B)_r (a) sect overline(B)_r (b) = nothing$ для различных особых точек $f$. $tilde(K) := K without Union B_r (a)$ --- компакт, как замкнутое подмножество компакта, и $f$ голоморфна в $Omega without tilde(K)$. Тогда по теореме Коши
     $
         0 = integral_(diff tilde(K)) f(z) dif z = integral_(diff K) f(z) dif z - sum_(a in Int K \ "особая") integral_(abs(z - a) = r) f(z) dif z.
@@ -210,7 +208,6 @@
     $
         integral_(Gamma_R) f(z) dif z = 2 pi i res f.
     $
-    #TODO[картинка]
     Какие у этой функции особые точки? Это те, в которых обнуляется знаменатель, то есть $z^(2n) = -1$, или $z = e^(i phi)$, где $2 n phi = pi + 2 pi k$. Среди них нам нужны лишь те, что лежат в верхней полуплоскости. Это
     $
         a_k = e^(i phi_k), "где" phi_k = (pi + 2 pi k)/(2n), "при" k = 0, 1, ..., n - 1.
