@@ -42,7 +42,7 @@
 ]
 
 #proof[
-  Рассмотрим каждую точку $a$ области $Omega$. Берем $U_a in Omega$. $U_a$ --- выпуклаsя. Из леммы Пуанкаре#rf("poincare"), а $U_a$ есть первообразная#rf("def-form-antiderivative"). Это и есть локальная точность#rf("def-closed-exact-form").
+  Рассмотрим каждую точку $a$ области $Omega$. Берем $U_a in Omega$. $U_a$ --- выпуклая. Из леммы Пуанкаре#rf("poincare"), а $U_a$ есть первообразная#rf("def-form-antiderivative"). Это и есть локальная точность#rf("def-closed-exact-form").
 ]
 
 #notice[

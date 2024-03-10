@@ -216,7 +216,7 @@
 
 #proof[
   1. Очевидно из теоремы#rf("curve-integral-2-from-antiderivative").
-  2. Пусть $F$ и $tilde(F)$ --- первообразные#rf("def-form-antiderivative") в $Omega$#rf("def-region"). Зафиксируем $a$, будем менять $b$. Для каждой пары точек рассмотрим на путь из $a$ в $b$. Тогда 
+  2. Пусть $F$ и $tilde(F)$ --- первообразные#rf("def-form-antiderivative") в $Omega$#rf("def-region"). Зафиксируем $a$, будем менять $b$. Для каждой пары точек рассмотрим путь из $a$ в $b$. Тогда 
     $ integral_gamma omega = F(b) - F(a) = tilde(F)(b) - tilde(F)(a) ==> tilde(F)(b) = F(b) + underbrace((tilde(F)(a) - F(a)), const). $
 ]
 

@@ -3,7 +3,7 @@
 == Аналитическое продолжение
 
 #def(label: "def-analitical-continuation")[
-  Пусть $f in H(Omega)$, $g in H(tilde(Omega))$. $Delta$ --- компонента связности $Omega sect tilde(Omega)$. Если $f(z) = g(z)$ на $Delta$, то $g$ --- _непосредсвенное аналитическое продолжение $f$ на $tilde(Omega)}$ через $Delta$_.
+  Пусть $f in H(Omega)$, $g in H(tilde(Omega))$. $Delta$ --- компонента связности $Omega sect tilde(Omega)$. Если $f(z) = g(z)$ на $Delta$, то $g$ --- _непосредсвенное аналитическое продолжение $f$ на $tilde(Omega)$ через $Delta$_.
 
   #figure(
     image("../../images/direct-analytical-continuation.svg", width: 10cm),

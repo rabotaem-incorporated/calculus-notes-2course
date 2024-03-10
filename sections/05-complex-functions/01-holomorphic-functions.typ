@@ -96,7 +96,7 @@
 ]
 
 #denote[
-  $f in H(Omega)$ значит, что $f: Omega --> CC$ и голоморфна во всех точках.
+  $f in H(Omega)$ значит, что $f: Omega --> CC$ голоморфна во всех точках.
 ]
 
 #follow(label: "hfn-real-const-const")[
@@ -142,10 +142,10 @@
     let y2 = (y1 + y3) / 2
     line((x1, y2), (x3, y2), stroke: (dash: "dashed"))
     line((x2, y1), (x2, y3), stroke: (dash: "dashed"))
-    content((to: "P", rel: (0.5, 0.4)), $P_1$)
-    content((to: "P", rel: (0.5, -0.4)), $P_2$)
-    content((to: "P", rel: (-0.5, 0.4)), $P_3$)
-    content((to: "P", rel: (-0.5, -0.4)), $P_4$)
+    content((to: "P", rel: (0.5, 0.4)), $P'$)
+    content((to: "P", rel: (0.5, -0.4)), $P''$)
+    content((to: "P", rel: (-0.5, 0.4)), $P'''$)
+    content((to: "P", rel: (-0.5, -0.4)), $P''''$)
   }))
 
   *Второе доказальство*, без ограничений на $f$. Возьмем круг $U subset Omega$. Надо доказать, что $integral_P omega = 0$ для любого прямоугольника $P$ из $U$. От противного. Пусть нашелся такой $P$, где $integral_P omega != 0$. Назовем этот интеграл $alpha(P)$. Разрежем его на 4 равные части, как на картинке. Тогда $ alpha(P) = alpha(P') + alpha(P'') + alpha(P''') + alpha(P''''), $ значит $ abs(alpha(P)) <= abs(alpha(P')) + abs(alpha(P'')) + abs(alpha(P''')) + abs(alpha(P'''')). $ Пусть $P_1$ такой из $P'$, $P''$, $P'''$, $P''''$, что $alpha(P_1) >= 1/4 abs(alpha(P))$. Аналогично построим последовательность прямоугольников $P supset P_1 supset P_2 supset ...$, $alpha(P_n) >= 1/(4^n) abs(alpha(P))$. Тогда по теореме о вложенных отрезках, найдется $z_0$ лежащая во всех прямоугольниках. $f$ --- голоморфна в $z_0$,
