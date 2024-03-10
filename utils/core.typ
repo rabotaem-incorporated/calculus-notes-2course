@@ -5,7 +5,7 @@
 
 #let clabel(name) = {
   [
-    $$#label(name)
+    $zws$#label(name)
   ]
 }
 
