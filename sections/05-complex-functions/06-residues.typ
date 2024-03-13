@@ -171,7 +171,9 @@
     $
         integral_(abs(z) = 4) z^2/(e^z + 1) dif z = 2 pi i sum res.
     $
-    Где у этой функции особые точки? Когда $e^z + 1 = 0$, то есть в $z = pi i + 2 pi i k$. Какие из этих точек попали в кольцо $abs(z) < 4$? Только $z = pi i$ и $z = -pi i$. Тогда
+    Где у этой функции особые точки? Когда $e^z + 1 = 0$, то есть в $z = pi i + 2 pi i k$. Какие из этих точек попали в кольцо $abs(z) < 4$? Только $z = pi i$ и $z = -pi i$.
+    #figure[#image("../../images/integral-contour-1.svg", width: 7cm)]
+    Тогда
     $
         integral_(abs(z) = 4) z^2/(e^z + 1) dif z =
         2 pi i (res_(z = pi i) + res_(z = -pi i)).
