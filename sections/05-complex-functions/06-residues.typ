@@ -551,40 +551,45 @@
 #proof[
     Пусть 
     $
-        I_n = integral_(abs(xi) = R_n) f(xi)/(xi - z) dif xi = 2 pi i sum res.
+        I_n = integral_(abs(zeta) = R_n) f(zeta)/(zeta - z) dif zeta = 2 pi i sum res f(zeta)/(zeta - z).
     $
     Докажем следующее:
     $
-        res_(xi = a_k) f(xi)/(xi - z) = res_(xi = a_k) (G_k (xi))/(xi - z) = -G_k (xi).
+        res_(zeta = a_k) f(zeta)/(zeta - z) = res_(zeta = a_k) (G_k (zeta))/(zeta - z) = -G_k (zeta).
     $
     Поймем,
     $
-        integral_(abs(xi) = R) (G_k (xi))/(xi - z) dif xi = 2pi i (res_(xi = z) (G_k (xi))/(xi - z) + res_(xi = a_k) (G_k (xi))/(xi - z)) = -G_k (z),
+        integral_(abs(zeta) = R) (G_k (zeta))/(zeta - z) dif zeta = 2pi i (res_(zeta = z) (G_k (zeta))/(zeta - z) + res_(zeta = a_k) (G_k (zeta))/(zeta - z)),
     $
-    потому что у этой функции особые точки, это особые точки $G_k$, и $z$ (и эти точки не совпадают). Первый вычет это значение в $z$, то есть $G_k (z)$. Оценим интеграл,
+    потому что у этой функции особые точки --- это особые точки $G_k$, и $z$ (и эти точки не совпадают). Первый вычет это значение в $z$, то есть $G_k (z)$. Оценим интеграл,
     $
-        abs(integral_(abs(xi) = R) (G_k (xi))/(xi - z) dif xi) <=
-        2pi R max_(abs(xi) = R) abs((G_k (xi))/(xi - z)) = 2 pi R dot O(1/R^2) --> 0.
+        abs(integral_(abs(zeta) = R) (G_k (zeta))/(zeta - z) dif zeta) <=
+        2pi R max_(abs(zeta) = R) abs((G_k (zeta))/(zeta - z)) = 2 pi R dot O(1/R^2) --> 0.
     $
     Значит
     $
-        -G_k (z) = res_(xi = a_k) (G_k (xi))/(xi - z).
+        -G_k (z) = res_(zeta = a_k) (G_k (zeta))/(zeta - z).
     $
     Ну а 
     $
-        (f (xi) - G_k (xi))/(xi - z)
+        (f (zeta) - G_k (zeta))/(zeta - z)
     $
-    имеет устранимую особую точку в $a_k$, потому что $f - G_k$ голоморфна в окрестности $a_k$, и $xi - z$ не обращается в нуль. Значит
+    имеет устранимую особую точку в $a_k$, потому что $f - G_k$ голоморфна в окрестности $a_k$, и $zeta - z$ не обращается в нуль. Значит
     $
-        res_(xi = a_k) f(xi)/(xi - z) = res_(xi = a_k) (G_k (xi))/(xi - z).
+        res_(zeta = a_k) f(zeta)/(zeta - z) = res_(zeta = a_k) (G_k (zeta))/(zeta - z).
     $
-    Наконец,
+    Доказали промежуточные равенства. Наконец,
     $
-        0 <-- I_n = 2 pi i sum res = 2 pi i (f(z) - sum_(k: abs(a_k) < R_n) G_k (z)) ==> f(z) = lim_(n -> oo) sum_(k: abs(a_k) < R_n) G_k (z).
+        0 <-- I_n =
+        2 pi i sum res f(zeta)/(zeta - z) =
+        2 pi i (res_(zeta = z) f(zeta)/(zeta - z) + sum_(k: abs(a_k) < R_n) res_(zeta = a_k) f(zeta)/(zeta - z))
+        newline(=) 
+        2 pi i (f(z) - sum_(k: abs(a_k) < R_n) G_k (z)) ==>
+        f(z) = lim_(n -> oo) sum_(k: abs(a_k) < R_n) G_k (z).
     $
     Почему $I_n$ стремится к 0? Потому что
     $
-        abs(I_n) <= 2 pi R_n max_(abs(xi) = R_n) abs(f(xi)/(xi - z)) <= 2 pi R_n M_(R_n)/(R_n - abs(z)) --> 0.
+        abs(I_n) <= 2 pi R_n max_(abs(zeta) = R_n) abs(f(zeta)/(zeta - z)) <= 2 pi R_n M_(R_n)/(R_n - abs(z)) --> 0.
     $
 ]
 
@@ -625,8 +630,7 @@
     $
         G_0 (z) = a/z + b/z^2 = 1/z^2,
     $
-    потому что 
-    #TODO[написать эссе на 5 страниц о том, почему здесь $a = 0$, а $b = 1$]
+    (разложите в ряд Лорана до второго члена и поймите).
     Мы поняли, что 
     $
         (ctg z)/z = 1/(z^2) + sum_(k = 1)^oo (1/(pi k) dot 1/(z - pi k) + 1/(-pi k) dot 1/(z + pi k)) = 1/z^2 + sum_(k = 1)^oo 2/(z^2 - pi^2 k^2).
