@@ -203,7 +203,9 @@
     Только прямая --- странный контур, --- поэтому мы посчитаем интеграл по полуокружности, а потом перейдем к пределу.
     
     Пусть $ Gamma_R = [-R; R] union underbrace((diff B_R (0) sect {z: Im z > 0}), C_R). $
-
+    #figure[
+        #image("../../images/integral-contour-2.svg", width: 8cm)
+    ]
     Тогда
     $
         integral_(Gamma_R) f(z) dif z = 2 pi i res f.
@@ -256,6 +258,9 @@
         f(t e^(i alpha)) = 1/(1 + t^(2n) e^(2n i alpha)) = 1/(1 + t^(2n))
     $ 
     при $e^(2pi i alpha) = 1$, то есть, например, при $alpha = pi / n$. Тогда особая точка в этой области всего одна: $z = e^(i pi/(2 n))$.
+    #figure[
+        #image("../../images/integral-contour-3.svg", width: 8cm)
+    ]
     $
         integral_(Gamma_R) f(z) dif z = 2 pi i res f.
     $
