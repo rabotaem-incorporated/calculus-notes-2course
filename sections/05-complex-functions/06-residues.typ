@@ -305,6 +305,9 @@
         2 R_n dot M_(R_n) dot integral_0^(pi/2) e^(-lambda R_n sin t) dif t
     $
     так как функция под интегралом симметрична относительно $pi / 2$. Оценим синус снизу как $(2t) / pi$, то есть отрезочком между $(0, 0)$ и $(pi/2, 1)$:
+    #figure[
+        #image("../../images/sine-approx.svg", width: 8cm)
+    ]
     $
         abs(integral_(C_(R_n)) f(z) e^(i lambda z) dif z) <=
         2 R_n dot M_(R_n) dot integral_0^(pi/2) e^(-lambda R_n sin t) dif t <=
