@@ -251,7 +251,7 @@
 
     Пусть теперь мы считаем интеграл по контуру сектора окружности величины $alpha$, то есть
     $
-        Gamma_R = [0; R] union [0; R dot e^(i alpha)] union underbrace({R dot e^(i phi): 0 <= phi <= alpha}, C_R).
+        Gamma_R = text(#green, [0; R]) union text(#blue, underbrace({R dot e^(i phi): 0 <= phi <= alpha}, C_R)) union text(#purple, [R dot e^(i alpha); 0]).
     $
     Найдем такое $alpha$, что на отрезке $[0; R dot e^(i alpha)]$ функция $f$ совпадает с $1/(1 + x^(2n))$:
     $
@@ -339,6 +339,9 @@
         Gamma_R = [-R; R] union C_R,
     $
     где $C_R$ --- верхняя полуоружность.
+    #figure[
+        #image("../../images/integral-contour-4.svg", width: 7cm)
+    ]
 
     Особая точка в полуокружности одна: $z = i$, и это полюс первого порядка, поэтому
     $
@@ -439,9 +442,15 @@
     $
     Посмотрим на следующую область
     $
-        Gamma_(R, eps) = [-R; -eps] union [eps; R] union underbrace({z: abs(z) = R, 0 < arg(z) < pi}, C_R) union underbrace({z: abs(z) = eps, 0 < arg(z) < pi}, C_eps).
+        Gamma_(R, eps) =
+            text(#green, [-R; -eps]) union
+            text(#blue, underbrace({z: abs(z) = eps, 0 < arg(z) < pi}, C_eps)) union
+            text(#purple, [eps; R]) union
+            text(#orange, underbrace({z: abs(z) = R, 0 < arg(z) < pi}, C_R)).
     $
-    #TODO[картинка]
+    #figure[
+        #image("../../images/integral-contour-5.svg", width: 10cm)
+    ]
     Тогда
     $
         integral_(Gamma, eps) e^(i z)/z dif z = 0,
