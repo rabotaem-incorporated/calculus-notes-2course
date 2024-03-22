@@ -34,9 +34,6 @@ targets = {
     "calculus-no-references": Config(
         references=False
     ),
-    "calculus-debug": Config(
-        debug=True,
-    ),
     "calculus-monochrome": Config(
         monochrome=True,
     ),
@@ -45,10 +42,6 @@ targets = {
     ),
     "calculus-no-references-sem3": Config(
         references=False,
-        sem4=False,
-    ),
-    "calculus-debug-sem3": Config(
-        debug=True,
         sem4=False,
     ),
     "calculus-monochrome-sem3": Config(
@@ -61,11 +54,6 @@ targets = {
     ),
     "calculus-no-references-sem4": Config(
         references=False,
-        sem3=False,
-        reminders=False,
-    ),
-    "calculus-debug-sem4": Config(
-        debug=True,
         sem3=False,
         reminders=False,
     ),

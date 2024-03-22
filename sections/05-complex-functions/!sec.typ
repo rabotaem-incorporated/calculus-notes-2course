@@ -13,4 +13,5 @@
   include "05-laurent-series.typ"
   include "06-residues.typ"
   include "07-conformal-maps.typ"
+  include "08-generating-functions.typ"
 }
