@@ -335,8 +335,6 @@
   )
 )
 
-#let proof-left-to-the-reader = proof.with[Доказательство остается читателю в качестве упражнения. <todo-like> ]
-
 #import "shortcuts.typ": *
 
 #let ticket(name, step-fn: none, post-step-fn: none) = if config.enable-ticket-references {
