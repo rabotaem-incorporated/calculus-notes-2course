@@ -49,10 +49,10 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - name: Gather PDF files in the directory
         run: |
-          mkdir -p to_send/calculus/v${{ env.date }}-${{ env.sha }}
-          cp *.pdf to_send/calculus/v${{ env.date }}-${{ env.sha }}
-          mkdir -p to_send/calculus/latest
-          cp *.pdf to_send/calculus/latest
+          mkdir -p to_send/${{ vars.FTP_FOLDER }}/v${{ env.date }}-${{ env.sha }}
+          cp *.pdf to_send/${{ vars.FTP_FOLDER }}/v${{ env.date }}-${{ env.sha }}
+          mkdir -p to_send/${{ vars.FTP_FOLDER }}/latest
+          cp *.pdf to_send/${{ vars.FTP_FOLDER }}/latest
       - name: Upload files to FTP server
         uses: sebastianpopp/ftp-action@v2.0.0
         with:
