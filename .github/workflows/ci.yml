@@ -47,3 +47,21 @@ jobs:
           tag_name: ${{ steps.tag_version.outputs.new_tag }}
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Gather PDF files in the directory
+        run: mkdir to_send && mv *.pdf to_send/
+      - name: Upload files to FTP server
+        uses: genietim/ftp-action@releases/v4
+        with:
+          host: ${{ secrets.FTP_SERVER_HOST }}
+          user: ${{ secrets.FTP_SERVER_USER }}
+          password: ${{ secrets.FTP_SERVER_PASSWORD }}
+          localDir: "to_send"
+          remoteDir: "/notes/calculus/v${{ env.date }}-${{ env.sha }}"
+      - name: Upload files to FTP server again but now into latest folder too
+        uses: genietim/ftp-action@releases/v4
+        with:
+          host: ${{ secrets.FTP_SERVER_HOST }}
+          user: ${{ secrets.FTP_SERVER_USER }}
+          password: ${{ secrets.FTP_SERVER_PASSWORD }}
+          localDir: "to_send"
+          remoteDir: "/notes/calculus/!lastest"
