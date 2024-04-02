@@ -60,4 +60,4 @@ jobs:
           user: ${{ secrets.FTP_SERVER_USER }}
           password: ${{ secrets.FTP_SERVER_PASSWORD }}
           localDir: "to_send"
-          remoteDir: "/notes"
+          remoteDir: "/files/notes"
