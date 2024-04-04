@@ -1,7 +1,17 @@
 #import "utils/core.typ": *
 
 #show: notes.with(
-  name: "Конспект лекций по математическому анализу за II курс",
+  name: "Конспект лекций по математическому анализу за " + {
+    if config.sem3 and config.sem4 {
+      "II курс"
+    } else if config.sem3 {
+      "III семестр"
+    } else if config.sem4 {
+      "IV семестр"
+    } else {
+      panic("empty conspect")
+    }
+  },
   short-name: "Математический анализ",
   lector: "Храбров Александр Игоревич",
   info: "СПБГУ МКН, Современное программирование, 2023-2024",

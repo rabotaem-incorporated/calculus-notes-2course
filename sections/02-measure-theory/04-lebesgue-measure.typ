@@ -135,7 +135,7 @@
 ]
 
 #th(name: "регулярность меры Лебега", label: "lmeasure-regular")[
-    Пусть $E$ --- измеримое. Тогда $forall eps > 0$ сущесвует открытое $G$ такое, что $E subset G$ и $lambda(G without E) < eps$.
+    Пусть $E$ --- измеримое. Тогда $forall eps > 0$ существует открытое $G$ такое, что $E subset G$ и $lambda(G without E) < eps$.
 ]
 
 #proof[
@@ -200,7 +200,7 @@
 #th(label: "shift-invariant-is-lmeasure")[
     Пусть $mu$ --- мера, заданная на $Ll^m$#rf("def-lmeasure") и такая, что:
         1. $mu$ инварианта относительно сдвига.
-        2. $mu$ конечна на ячейках#rf("def-cell") (или более сильно, $mu$ конечна на органиченных измеримых множествах).
+        2. $mu$ конечна на ячейках#rf("def-cell") (или более сильно, $mu$ конечна на ограниченных измеримых множествах).
     Тогда $exists k in [0, +oo)$, такое, что $mu = k lambda$ (то есть $mu E = k lambda E space forall E in Ll^m$).
 ]
 #proof[
@@ -260,7 +260,7 @@
     Пусть $T: RR^m --> RR^m$ --- линейное отображение, тогда $lambda(T(E)) = abs(det(T)) dot lambda E$
 ]
 #proof[
-    $mu E := lambda(T(E))$ --- инвариантна относительно сдвигов, по той же причине что и в предыдущей теореме, и конечна на органиченных множествах, поэтому#rf("shift-invariant-is-lmeasure") $mu = k lambda$, где $k = lambda(T((0, 1]^m)) = abs(det T).$
+    $mu E := lambda(T(E))$ --- инвариантна относительно сдвигов, по той же причине что и в предыдущей теореме, и конечна на ограниченных множествах, поэтому#rf("shift-invariant-is-lmeasure") $mu = k lambda$, где $k = lambda(T((0, 1]^m)) = abs(det T).$
 ]
 
 #pr(name: "Существование неизмеримое множества", label: "unmeasurable-exist")[

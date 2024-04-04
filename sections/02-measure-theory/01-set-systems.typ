@@ -60,7 +60,7 @@
 ]
 
 #def(label: "def-algebra")[
-  Система множеств $Aa$ называется _Алгеброй_, если $Aa$ --- симметричная система#rf("def-symm-system") и $(sigma_0)$, $(delta_0)$#rf("def-sigma-delta-props") и $nothing in Aa$, то есть если $A, B in Aa$, то $X without A$, $A union B$ и $A sect B$ лежат в системе $Aa$.
+  Система множеств $Aa$ называется _Алгеброй_, если $Aa$ --- симметричная система#rf("def-symm-system") и $(sigma_0)$, $(delta_0)$#rf("def-sigma-delta-props") и $nothing in Aa$, то есть если $A, B in Aa$, то $X without A$, $X without B$, $A union B$ и $A sect B$ лежат в системе $Aa$.
 ]
 
 #def(label: "def-salgebra")[
@@ -114,12 +114,12 @@
 
 #th(label: "borel-set")[
   $Ee$ --- система подмножеств $X$.
-  Тогда сущесвует наименьшая по включению $sigma$-алгебора подмножеств в $X$, содержащая $Ee$.
+  Тогда существует наименьшая по включению $sigma$-алгебра подмножеств в $X$, содержащая $Ee$.
 ]
 
 #proof[
   Рассмотрим всевозможные $sigma$-алгебры $Aa_alpha supset Ee$
-  $ ==> sect.big_(alpha in I) Aa_alpha space #[--- $sigma$-алегбра и она содержит $Ee$] $
+  $ ==> sect.big_(alpha in I) Aa_alpha space #[--- $sigma$-алгебра и она содержит $Ee$] $
 ]
 
 #def(glue: true)[
@@ -165,7 +165,7 @@
 #proof[
   Пусть $B_n := A_n without union.big_(k = 1)^(n - 1) A_k subset A_n$. Если $i < j$, то 
   $
-    B_j sect A_i != without nothing ==> B_j sect B_j = nothing. 
+    B_j sect A_i = nothing ==> B_j sect B_i = nothing. 
   $
   Значит $B_j$ --- дизъюнктны.
   - "$supset$": $A_n supset B_n$
@@ -202,7 +202,7 @@
   $nothing in Pp times Qq$
   Пусть $A_1 times B_1$ и $A_2 times B_2 in Pp times Qq$. Тогда $ (A_1 times B_1) sect (A_2 times B_2) = (A_1 sect A_2) times (B_1 sect B_2) in Pp times Qq. $
 
-  $ (A_1 times B_1) without (A_2 times B_2) = A_1 times (B_1 without B_2) union.sq (A_1 without A_2) times (B_1 sect B_2) =\ union.sq.big_(j=1)^m A_1 times Q_j union.sq union.sq.big_(i = 1)^n (P_i times (B_1 sect B_2)) in Pp times Qq $
+  $ (A_1 times B_1) without (A_2 times B_2) = A_1 times (B_1 without B_2) union.sq (A_1 without A_2) times (B_1 sect B_2) =\ union.sq.big_(j=1)^m underbrace(A_1 times Q_j, in Pp times Qq) union.sq union.sq.big_(i = 1)^n (underbrace(P_i times (B_1 sect B_2), in Pp times Qq)) $
 ]
 
 #def(label: "def-cell")[

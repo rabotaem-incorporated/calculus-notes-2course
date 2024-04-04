@@ -58,7 +58,6 @@
             >=_(#[счетная \ полуадд.])^rf("measure-semiadditive") 
             nu(A sect E) + nu(A without E).
         $
-        По замечанию#rf("def-measurable'"), $E union F$ $nu$-измеримы.
     6. В определении#rf("def-salgebra") $sigma$-алгебры надо доказать для любого объединения, а не только для дизъюнктного. Но мы знаем, что в полукольце любое объединение можно переделать в дизъюнктное#rf("semiring-disjoint-union"). Значит $Aa$ --- $sigma$-алгебра.
     7. Остается доказать, что сужение $nu$ на $Aa$ --- это мера. Подставим $A = X$ в замечание 2#rf("measurable-union") и получим, что $nu$ --- это объем#rf("def-measure", "volume") на $Aa$. Объем и счетная полуаддитивность#rf("measure-semiadditive") --- мера.
 ]
@@ -68,7 +67,7 @@
     $
         mu^* A := inf { sum_(k = 1)^oo mu P_k : P_k in Pp and A subset Union_(k = 1)^oo P_k }.
     $
-    Если такого покрытия не сущесвует, считаем $mu^* A = +oo$.
+    Если такого покрытия не существует, считаем $mu^* A = +oo$.
 ]
 
 #notice[
@@ -120,7 +119,7 @@
     $
     2. $A in.not Pp$. Eсли $mu^* A = +oo$, то очевидно, поэтому считаем, что конечно.
         
-        Берем покрытие $A subset Union_(k=1)^oo P_k space P_k in Pp$ и $sum_(k=1)^oo mu P_k < mu^* A + epsilon$. Знаем, что $mu P_k >= mu^* (P_k sect E) + mu^*(P_k without E)$#rf("def-measurable'") (уже в полукольце), поэтому
+        Берем покрытие $A subset Union_(k=1)^oo P_k, space P_k in Pp$ и $sum_(k=1)^oo mu P_k < mu^* A + epsilon$. Знаем, что $mu P_k >= mu^* (P_k sect E) + mu^*(P_k without E)$#rf("def-measurable'") (уже в полукольце), поэтому
         $
             epsilon + mu^* A >
             sum_(k=1)^oo mu P_k >=
