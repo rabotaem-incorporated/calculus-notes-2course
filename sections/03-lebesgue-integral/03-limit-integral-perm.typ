@@ -14,12 +14,12 @@
 
 #proof[
     1. Пусть $S_n := sum_(n = 1)^n f_n$, тогда $0 <= S_1 <= S_2 <= ...$. $S_n --> S := sum_(k = 1)^oo f_k$. По теореме Леви#rf("levy")
-        $ underbrace(sum_(k = 1)^n INT(f_k), -->^rf("levy") sum_(k = 1)^oo INT(f_k)) =^rf("mfn-props", "add") INT(sum_(k = 1)^n f_k) = INT(S_n) --> INT(S) $
+        $ underbrace(sum_(k = 1)^n INT(f_k), --> sum_(k = 1)^oo INT(f_k)) =^rf("mfn-props", "add") INT(sum_(k = 1)^n f_k) = INT(S_n) -->^rf("levy") INT(S) $
     
     2. $INT(sum_(n = 1)^oo abs(f_n)) =^rf("integral-sum-perm-mfn") sum_(n = 1)^oo INT(abs(f_n)) < +oo$.
         Обозначим $tilde(S) := sum_(n = 1)^oo abs(f_n)$.
         Оно почти везде конечно.
-        Значит $sum_(n = 1)^oo abs(f_n)$ сходится при почти всех $x in E$, то есть $sum_(n = 1)^oo f_n (x)$ абсолюбтно сходится при почти всех $x in E$.
+        Значит $sum_(n = 1)^oo abs(f_n)$ сходится при почти всех $x in E$, то есть $sum_(n = 1)^oo f_n (x)$ абсолютно сходится при почти всех $x in E$.
 ]
 
 #lemma(name: "Фату", label: "fatou")[
@@ -69,7 +69,7 @@
 ]
 
 #proof[
-    Пусть $h_n := 2F - abs(f_n - f) <= 2F$. Тогда $h_n --> 2F$ почти везде. $h_n >= 2F - abs(f_n) - abs(f) >= 0$. По усилинному варианту теоремы Леви#rf("levy+"),
+    Пусть $h_n := 2F - abs(f_n - f) <= 2F$. Тогда $h_n --> 2F$ почти везде. $h_n >= 2F - abs(f_n) - abs(f) >= 0$. По усиленному варианту теоремы Леви#rf("levy+"),
     $
         INT(2F) - INT(abs(f_n - f)) =^rf("mfn-props", "add") INT(h_n) -->^rf("ae-props", "eq-integral-eq") INT(2F).
     $

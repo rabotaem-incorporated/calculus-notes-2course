@@ -19,7 +19,7 @@
         Если измеримое $A subset B$ и $f$ суммируема на $B$, то $f$ суммируема на $A$.
 
     4. #sublabel("bounded-sfn")
-        Ограниченая функция суммируема на множестве конечной меры.
+        Ограниченная функция суммируема на множестве конечной меры.
 
     5. #sublabel("inequality")
         Если $f$ и $g$ суммируемы и $f <= g$, то 
@@ -44,7 +44,7 @@
         _Аддитивность по множеству_.
         Если $E = Union_(k = 1)^n E_k$, $f$ суммируема на $E_k$ при $k = 1, ... n$,
         то $f$ суммируема на $E$.
-        В случае, когда объединение дизъюнуктно,
+        В случае, когда объединение дизъюнктно,
         $
             integral_E dif mu = integral_(E_1) f dif mu + ... + integral_(E_n) f dif mu.
         $
@@ -138,9 +138,9 @@
 ]
 
 #proof[
-    1. $abs(f) <= abs(Re f) + abs(Im f)$ и $0 <= Re f, Im f <= abs(f)$#rf("def-csfn")#rf("sfn-props", "abs-finite").
+    1. $abs(f) <= abs(Re f) + abs(Im f)$ и $0 <= Re f_(plus.minus), Im f_(plus.minus) <= abs(f)$#rf("def-csfn")#rf("sfn-props", "abs-finite").
 
-    2. По сути все очевидно, кроме комплексной линейности#rf("sfn-props", "linear"), где мы можем вынести не только положительное или отрицательное вещественное число, но и комплесное. Докажем его для $c = i$.
+    2. По сути все очевидно, кроме комплексной линейности#rf("sfn-props", "linear"), где мы можем вынести не только положительное или отрицательное вещественное число, но и комплексное. Докажем его для $c = i$.
         $ IE (i f) dif mu =^rf("def-integral-c") -IE Im f dif mu + i IE Re f dif mu =^rf("def-integral-c") i IE f dif mu. $
 ]
 
@@ -157,11 +157,11 @@
         abs(INT(f)) =
         e^(i alpha) INT(f) =^rf("sfn-props", "uniform")
         INT(e^(i alpha) f) =^rf("def-integral-c")
-        INT(Re (e^(i alpha) f)) + i underbrace(INT(Im(e^(i alpha) f)), = 0) 
+        INT(Re (e^(i alpha) f)) + i underbrace(INT(Im(e^(i alpha) f)), = 0 #[т.к. $|INT(f)| in RR$]) 
         newline(=)
         INT(Re(e^(i alpha) f)) <=^rf("sfn-props", "inequality")
         INT(abs(Re(e^(i alpha) f))) <=^rf("sfn-props", "inequality")
-        INT(abs(e^(i alpha) f)) = INT(abs(f)).
+        INT(underbrace(abs(e^(i alpha) f), = abs(e^(i alpha)) dot abs(f) = 1 dot abs(f))) = INT(abs(f)).
     $
 ]
 
@@ -222,10 +222,10 @@
 ]
 
 #proof[
-    $ INT(abs(f)) =^rf("def-integral-mfn") sup{INT(phi): 0 <= phi <= abs(f) "простая"} $
+    $ INT(abs(f)) =^rf("def-integral-mfn") sup{INT(phi): 0 <= phi <= abs(f), phi - "простая"} $
     Рассмотрим такую простую $phi$, что $0 <= phi <= abs(f)$ и $INT(phi) > INT(abs(f)) - eps$. Здесь мы пользуемся суммируемостью $f$.
 
-    $phi$ простая, значит ограниченая. Пусть $phi <= C$. Возьмем $delta = eps / C$. Пусть $e subset E$ такое, что $mu e < eps / C$. Тогда 
+    $phi$ простая, значит ограниченная. Пусть $phi <= C$. Возьмем $delta = eps / C$. Пусть $e subset E$ такое, что $mu e < eps / C$. Тогда 
     $ 
         INT(E: e, abs(f)) =^rf("sfn-props", "add")
         INT(E: e, phi) + INT(E: e, underbrace((abs(f) - phi), >= 0)) 
@@ -246,7 +246,7 @@
 ]
 
 #def(label: "def-density")[
-    $mu$ и $nu$ --- меры, заданные на $sigma$-алгебре $Aa$. $w >= 0$ измеримая. $w$ --- _плотность меры $nu$ относитально меры $mu$_, если $nu A = INT(E: A, w)$ для любого $A in Aa$.
+    $mu$ и $nu$ --- меры, заданные на $sigma$-алгебре $Aa$. $w >= 0$ измеримая. $w$ --- _плотность меры $nu$ относительно меры $mu$_, если $nu A = INT(E: A, w)$ для любого $A in Aa$.
 ]
 
 #notice(label: "density-zero-measure-zero")[
@@ -287,7 +287,7 @@
         INT(E: A, w_1) = nu A = INT(E: A, w_2) ==> INT(E: X, w_1) = nu X < +oo. $ 
     и она определена однозначно почти везде по теореме#rf("integrals-eq-ae-sfn-eq").
     
-    Если $nu X = +oo$, нарежем $X$ на счетное количетство кусочков конечной меры#rf("def-sfinite") и применим предыдущее. Если $w_1$ и $w_2$ две плотности, то $mu X_n {w_1 != w_2} = 0$, и их счетное объединение тоже имеет нулевую меру.
+    Если $nu X = +oo$, нарежем $X$ на счетное количество кусочков конечной меры#rf("def-sfinite") и применим предыдущее. Если $w_1$ и $w_2$ две плотности, то $mu X_n {w_1 != w_2} = 0$, и их счетное объединение тоже имеет нулевую меру.
 ]
 
 #th(name: "об интегрировании по мере, имееющей плотность", label: "density-integration")[

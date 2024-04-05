@@ -40,7 +40,6 @@
 
 #th(name: "свойства объема", label: "volume-props")[
     #set enum(numbering: x => if x != 228 { numbering("1)", x) } else { "2')" } )
-    
     $Pp$ --- полукольцо подмножества $X, mu$ --- объем на $Pp$. Тогда
     
     #sublabel("monotonous")

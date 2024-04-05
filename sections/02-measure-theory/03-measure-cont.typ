@@ -55,7 +55,7 @@
             sum_(k=1)^n nu(A sect E_k) + nu(A without usb_(k=1)^n E_k) >= \ >=
             sum_(k=1)^n nu(A sect E_k) + nu(A without E) -->
             sum_(k=1)^oo nu(A sect E_k) + nu(A without E)
-            >=_(#[счетная \ полуадд.])^rf("measure-semiadditive") 
+            >=_(#[счетная \ полуадд.])^rf("def-measurable") 
             nu(A sect E) + nu(A without E).
         $
     6. В определении#rf("def-salgebra") $sigma$-алгебры надо доказать для любого объединения, а не только для дизъюнктного. Но мы знаем, что в полукольце любое объединение можно переделать в дизъюнктное#rf("semiring-disjoint-union"). Значит $Aa$ --- $sigma$-алгебра.
@@ -131,7 +131,7 @@
 
 #notice[Далее мы не будем разделять "меру" и "продолжение меры".]
 
-#notice[$mu A = inf {sum_(k = 1)^oo mu P_k : A subset Union_(k = 1)^oo P_k and P_k in Pp}$.]
+#notice[$mu A = inf {sum_(k = 1)^oo mu P_k : P_k in Pp and A subset Union_(k = 1)^oo P_k}$.]
 
 #notice[Если применить стандартное продолжение к стандартному продолжению, не получится ничего нового.]
 
@@ -154,7 +154,7 @@
 
 #proof[
     По определению#rf("def-external-measure"),
-    $ mu^* A = inf{sum_(k=1)^oo mu P_k: P_k in P space #[и] space A subset Union_(k=1)^oo P_k}. $
+    $ mu^* A = inf{sum_(k=1)^oo mu P_k: P_k in P space and space A subset Union_(k=1)^oo P_k}. $
     Возьмем такие $B_(n k)$,
     что $B_(n k) in Pp, A subset Union_(k=1)^oo B_(n k)$ и
     $
@@ -195,11 +195,11 @@
         nu A <= sum_(k=1)^oo nu A_k =^"совпадение\nна полукольце"
         sum_(k=1)^oo mu A_k ==>\ ==>
         nu A <=
-        inf{sum_(n=1)^oo mu A_n: A_n in Pp, A subset Union A_n} =^rf("def-external-measure")
+        inf{sum_(n=1)^oo mu A_n: A_n in Pp and A subset Union A_n} =^rf("def-external-measure")
         mu A ==>
         nu A <= mu A. 
     $
-    Возьмем $P in Pp$. Из написанного выше, справедливы следующие неравентсва:
+    Возьмем $P in Pp$. Из написанного выше, справедливы следующие неравенства:
     - $nu(P sect A) + nu(P without A) = nu P = mu P = mu(P sect A) + mu(P without A)$
     - $nu(P sect A) <= mu(P sect A)$
     - $nu(P without A) <= mu(P without A)$

@@ -51,7 +51,7 @@
 ]
 
 #proof[
-    1. $A = usb_(k = 1)^oo A_k$, $mu A_k < +oo$, $B = usb_(n = 1)^oo B_n$, $nu B_n < +oo$. $A times B = usb_(n, k = 1)^oo A_k times B_k$, $mu A_k dot nu B_n < +oo$, $A_k times B_n in Pp$.
+    1. $A = usb_(k = 1)^oo A_k$, $mu A_k < +oo$, $B = usb_(n = 1)^oo B_n$, $nu B_n < +oo$. $A times B = usb_(n, k = 1)^oo A_k times B_n$, $mu A_k dot nu B_n < +oo$, $A_k times B_n in Pp$.
 
     2. $Y = usb_(n = 1)^oo Y_n$, $nu Y_n < +oo$. $m(e times Y_k) = 0$. $e times Y = usb_(k = 1)^oo e times Y_k ==> m(e times Y) = 0$.
 ]
@@ -99,13 +99,12 @@
 ]
 
 #proof[
-    good luck and godspeed
 
     *Шаг 1.* Пусть $X$ и $Y$ конечной меры, $Pp = {A times B : A in Aa, B in Bb}$, $Ee$ --- система подмножеств в $X times Y$ такая что $E in Ee <==> forall x in X space E_x in Bb$ и $phi(x) = nu E_x$ --- измеримая.
 
     Тогда
     1. $Ee$ --- симметричная система#rf("def-symm-system").
-        $ (X times Y without E)_x = Y without E_x in Bb. \
+        $ ((X times Y) without E)_x = Y without E_x in Bb. \
             nu((X times Y) without E)_x = underbrace(nu Y, < +oo) - nu E_x space #[--- измерима как функция от $x$].
         $
         Значит $X times Y without E in Ee$.
@@ -195,7 +194,7 @@
     $
         Gamma_f (E) := {(x, y) in E times RR : y = f(x)}.
     $
-    Отметим, что если функция принимает значение $plus.minus oo$, то соответсвующая точка не принадлежит графику.
+    Отметим, что если функция принимает значение $plus.minus oo$, то соответствующая точка не принадлежит графику.
 ]
 
 #lemma(label: "graph-measure-zero")[
@@ -256,7 +255,7 @@
 #proof[
     - "$==>$": лемма#rf("subgraph-measurable").
     
-    - "$<==$": Примерим принцип Кавальери#rf("cavalieri") для $Pp_f$.
+    - "$<==$": Применим принцип Кавальери#rf("cavalieri") для $Pp_f$.
         $
             (Pp_f)_x = cases(delim: "[", [0, +oo]\, & "если" f(x) = +oo, [0, f(x)]\, & "если" f(x) < +oo).
         $
@@ -283,11 +282,11 @@
 
     3. $ integral_(X times Y) f dif m = m C = integral_X phi dif mu. $
 
-    *Шаг 2*. Если $f >= 0$ простая, то $f = sum_(k = 1)^n c_k bb(1)_(C_k)$, $C_k$ дизъюнктнты:
+    *Шаг 2*. Если $f >= 0$ простая, то $f = sum_(k = 1)^n c_k bb(1)_(C_k)$, $C_k$ дизъюнктны:
     $ integral_(X times Y) f dif mu = sum_(k = 1)^n c_k m C_k = sum_(k = 1)^n c_k integral_X (integral_Y bb(1)_(C_k) (x, y) dif nu(y)) dif mu(x) = integral_X (integral_Y f(x, y) dif nu(y)) dif mu(x) $
 
     *Шаг 3*. 
-    1. Если $f >= 0$ измеримая. Рассмотрим#rf("simple-approx") $psi_n --> f$ поточечно, $0 <= psi_1 <= psi_2 <= ...$. Можно записать неравенство для сечений: $0 <= (psi_1)_x <= (psi_2)_x <= ...$, значит $(psi_n)_x --> f_x$ поточетно. А поточечный предел измеримых функций измерим#rf("inf-sup-lim-mfn").
+    1. Если $f >= 0$ измеримая. Рассмотрим#rf("simple-approx") $psi_n --> f$ поточечно, $0 <= psi_1 <= psi_2 <= ...$. Можно записать неравенство для сечений: $0 <= (psi_1)_x <= (psi_2)_x <= ...$, значит $(psi_n)_x --> f_x$ поточечно. А поточечный предел измеримых функций измерим#rf("inf-sup-lim-mfn").
 
     2. $phi_n (x) := integral_Y (psi_n)_x dif nu$ измерима в широком смысле и по теореме Леви#rf("levy") сходится к $integral_Y f_x dif nu$.
 
@@ -306,7 +305,7 @@
 ]
 
 #proof[
-    1. $f = f_+ - f_-$, $f_x = (f_+)_x - (f_-)_x$ суммируема при причти всех $x$, так как#rf("sfn-props", "abs-bound"):
+    1. $f = f_+ - f_-$, $f_x = (f_+)_x - (f_-)_x$ суммируема при почти всех $x$, так как#rf("sfn-props", "abs-bound"):
         $
             +oo > integral_(X times Y) abs(f) dif m =^rf("tonelli")
             integral_X integral_Y abs(f(x, y)) dif nu(y) dif mu(x) ==>
@@ -391,7 +390,7 @@
 ]
 
 #follow(label: "integral-through-lebesgue-set-measure'")[
-    В условии теоремы можно записать стогий знак.
+    В условии теоремы можно записать строгий знак.
 
     $(X, Aa, mu)$ --- пространство с $sigma$-конечной мерой. Тогда $integral_E abs(f) dif mu = integral_0^(+oo) mu E{abs(f) > t} dif t$.
 ]
@@ -412,5 +411,5 @@
     $
         integral_0^(+oo) g(t^(1/p)) dif t = integral_0^(+oo) p s^(p - 1) g(s) dif s.
     $
-    Формально говоря, мы ее не доказывали для ненеприрывных функций, ну и ладно. Скоро появится более общая теорема#rf("substitution"), которая покроет и этот случай.
+    Формально говоря, мы ее не доказывали для ненепрерывных функций, ну и ладно. Скоро появится более общая теорема#rf("substitution"), которая покроет и этот случай.
 ]

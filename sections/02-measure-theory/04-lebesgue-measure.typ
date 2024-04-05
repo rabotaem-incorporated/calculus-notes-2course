@@ -68,7 +68,7 @@
     10. #sublabel("zero-cube-cover-eps-bounded")
         Если $e$ --- множество нулевой меры, то $forall eps$ существуют такие кубические ячейки $Q_j$, что $e subset Union_(j=1)^oo Q_j$ и $sum_(j=1)^oo lambda Q_j < eps$.
     11. #sublabel("plane-zero")
-        Пусть $m >= 2$, $H_j (c) = {x in RR^m : x_j = c}$ --- $(m - 1)$---мерная гиперплоскость. Тогда $lambda_m H_j(c) = 0$.
+        Пусть $m >= 2$, $H_j (c) = {x in RR^m : x_j = c}$ --- $(m - 1)$---мерная гиперплоскость. Тогда $lambda_m H_j (c) = 0$.
     12. #sublabel("plane-union-subset-zero")
         Любое множество, содержащееся в счетном объединении таких плоскостей, имеет нулевую меру.
     13. #sublabel("measure-cell")
@@ -110,7 +110,7 @@
     
     10. $0 = lambda e =^rf("lmeasure-through-inf") inf {sum_(n = 1)^oo lambda P_n : P_n in Pp_QQ^m and e in Union_(n = 1)^oo P_n}$. Выберем такие $P_n$, что $sum_(n=1)^oo lambda P_n < eps$. Рассмотрим $P_n$. У нее длины сторон --- рациональные числа. Нарежем на кубики со стороной $1 / "НОК всех знаменателей"$.
 
-    11. Рассмотрим $A_n := (-n; n]^m sect H_j(c)$. Тогда $H_j(c) = Union_(n = 1)^oo A_n$. Достаточно проверить#rf("bottom-up-continious"), что $lambda A_n = 0$. $ A_n subset (-n; n] times (-n; n] ...  times (-n; n] times (c - eps, c] times ... times (-n; n] $
+    11. Рассмотрим $A_n := (-n; n]^m sect H_j (c)$. Тогда $H_j (c) = Union_(n = 1)^oo A_n$. Достаточно проверить#rf("bottom-up-continious"), что $lambda A_n = 0$. $ A_n subset (-n; n] times (-n; n] ...  times (-n; n] times (c - eps, c] times ... times (-n; n] $
         Тогда $lambda A_n <= (2n)^(m - 1) eps ==>^("св-во 6") lambda A_n = 0$.
 
     12. Свойство 11)#rf("lmeasure-props", "plane-zero")
@@ -146,7 +146,7 @@
 
     Возьмем такое покрытие $E subset Union_(n=1)^oo (a_n, b_n]$, что $sum_(n=1)^oo lambda (a_n, b_n] < lambda E + eps$.
     Возьмем $(a_n, b'_n) supset (a_n, b_n]$, т.ч. $lambda (a_n, b'_n) < lambda (a_n, b_n] + eps/(2^n) $.
-    Пусть $G = Union_(n=1)^oo (a_n, b'_n)$ --- открытое $G supset E$.
+    Пусть $G = Union_(n=1)^oo (a_n, b'_n)$ --- открытое, $G supset E$.
     $lambda G <=^rf("volume-props", "monotonous''") sum_(n=1)^oo lambda (a_n, b'_n) <= sum_(n=1)^oo (lambda (a_n, b_n] + eps/(2^n)) = eps + sum_(n=1)^oo lambda (a_n, b_n] < 2eps + lambda E$.
     Поэтому $lambda (G without E) = lambda G - lambda E < 2 eps$.
 
@@ -186,7 +186,7 @@
             ==>
             lambda (underbrace(E without Union tilde(K)_n, e)) = 0. $
 
-        Пусть $lambda E = +oo$. Тогда#rf("def-sfinite")#rf("def-lmeasure") $E = usb_(n = 1)^oo E_n$, где $lambda E_n < +oo$, $E_n = sum_(j = 1)^n K_(n j) union e$, $e = Union_(n = 1)^oo e_n$, $E = Union_(k = 1)^oo Union_(j = 1)^oo K_(n j) union e_n$ ($lambda e =^rf("lmeasure-props", "union-of-zero-zero") 0$). $E = Union_(n=1)^oo Union_(j=1)^oo K_(n j) union e$.
+        Пусть $lambda E = +oo$. Тогда#rf("def-sfinite")#rf("def-lmeasure") $E = usb_(n = 1)^oo E_n$, где $lambda E_n < +oo$, $E_n = Union_(j = 1)^oo K_(n j) union e_n$, $e = Union_(n = 1)^oo e_n$, $E = Union_(n = 1)^oo Union_(j = 1)^oo K_(n j) union e_n$ ($lambda e =^rf("lmeasure-props", "union-of-zero-zero") 0$). $E = Union_(n=1)^oo Union_(j=1)^oo K_(n j) union e$.
 ]
 
 #th(label: "lmeasure-shift-invariant")[
@@ -220,7 +220,7 @@
 ]
 #proof[
     1. *Случай 1*: $e subset P subset Cl P subset G$, $P$ --- ячейка.
-        $Cl P$ --- компакт, а $norm(Phi'(x))$ непрерывна на $Cl P$, поэтому $norm(Phi'(x))$ ограничена на $Cl P$. Пусть $norm(Phi'(x)) <= M space forall x in Cl P$, поэтому если $x, y in Cl P$, то#rf("lagrange") $norm(Phi(x) - Phi(y)) = norm(Phi'(xi)) norm(x - y) <= M norm(x - y)$. Покроем#rf("lmeasure-props", "zero-cube-cover-eps-bounded") $e$ кубическими ячейками $Q_j$ так, что $sum lambda Q_j < eps$ и пусть $h_j$ длина стороны $Q_j$. $
+        $Cl P$ --- компакт, а $norm(Phi'(x))$ непрерывна на $Cl P$, поэтому $norm(Phi'(x))$ ограничена на $Cl P$. Пусть $norm(Phi'(x)) <= M space forall x in Cl P$, поэтому если $x, y in Cl P$, то#rf("lagrange") $norm(Phi(x) - Phi(y)) <= norm(Phi'(xi)) norm(x - y) <= M norm(x - y)$. Покроем#rf("lmeasure-props", "zero-cube-cover-eps-bounded") $e$ кубическими ячейками $Q_j$ так, что $sum lambda Q_j < eps$ и пусть $h_j$ длина стороны $Q_j$. $
             x, y in Q_j ==>
             norm(x - y) <= sqrt(m) dot h_j ==>
             norm(Phi(x) - Phi(y)) <= M sqrt(m) dot h_j ==> \ ==>
@@ -237,7 +237,7 @@
             lambda("кубик со стороной" 2 M sqrt(m) h_j) =^#rf("volume-examples", "stdvol") (2 M sqrt(m) h_j)^m = (2M sqrt(m))^m lambda Q_j.
         $ Тогда сумма мер кубиков равна $sum (2M sqrt(m))^m lambda Q_j < (2 M sqrt(m))^m eps$, значит#rf("lmeasure-props", "eps-bounded-measurable") $Phi(e)$ измеримо и $lambda(Phi(e)) = 0$.
 
-        *Случай 2*: $e subset G$, $G = usb_(k=1)^oo P_k$, такие, что $P_k in Pp_(QQ)^m$ и $P_k subset Cl P_k subset G$. $ e = usb_(k=1)^oo (P_k sect e), space P_k sect e subset P_k ==>_("сл. 1") lambda(P_k sect e) = 0 ==> lambda(underbrace(usb(P_k sect e), = e)) = 0. $
+        *Случай 2*: $e subset G$, $G = usb_(k=1)^oo P_k$, такие, что $P_k in Pp_(QQ)^m$ и $P_k subset Cl P_k subset G$. $ e = usb_(k=1)^oo (P_k sect e), space P_k sect e subset P_k ==>_("сл. 1") lambda(Phi(P_k sect e)) = 0 ==> lambda(Phi(underbrace(usb(P_k sect e), e))) = 0. $
 
     2. $E = e union Union_(n=1)^oo K_n$, где $K_n$ --- компакт и $lambda e = 0$. Поэтому $Phi(E) = underbrace(Phi(e), "измеримо") union Union_(n=1)^oo Phi(K_n)$, последнее --- компакты#rf("continious-image-compact"), поэтому измеримы#rf("lmeasure-props", "closed-measurable").
 ]
@@ -253,7 +253,7 @@
     Пусть $U: RR^m --> RR^m$ --- поворот (линейное отображение), пусть $mu E := lambda(U(E))$, $E in Ll^m$
     - $mu$ конечна#rf("lmeasure-props", "bounded-finite") на ограниченных множествах, так как ограниченые множества переходят в ограниченные.
     - $mu$ инвариантна относительно сдвигов#rf("lmeasure-shift-invariant") $forall v in RR^m$, так как можно повернуть, сдвинуть (возможно, на другой вектор, после отображения), и повернуть обратно.
-    - $mu(E + v) = lambda (U(E + v)) = lambda(U(E) + U(v)) =^rf("lmeasure-shift-invariant") lambda(U(E)) = mu E$, поэтому#rf("shift-invariant-is-lmeasure") $mu = k lambda$, но единичный шар переходит в себя при повороте, поэтому на нем $mu = lambda ==> k = 1$.
+    - $mu(E + v) = lambda (U(E + v)) = lambda(U(E) + U(v)) =^rf("lmeasure-shift-invariant") lambda(U(E)) = mu E$, поэтому#rf("shift-invariant-is-lmeasure") $mu = k lambda$, но единичный шар переходит в себя при повороте (движение сохраняет расстояние между точками), поэтому на нем $mu = lambda ==> k = 1$.
 ]
 
 #th(name: "Об изменении меры Лебега при линейном отображении", label: "lin-map-lmeasure")[
@@ -263,7 +263,7 @@
     $mu E := lambda(T(E))$ --- инвариантна относительно сдвигов, по той же причине что и в предыдущей теореме, и конечна на ограниченных множествах, поэтому#rf("shift-invariant-is-lmeasure") $mu = k lambda$, где $k = lambda(T((0, 1]^m)) = abs(det T).$
 ]
 
-#pr(name: "Существование неизмеримое множества", label: "unmeasurable-exist")[
+#pr(name: "Существование неизмеримого множества", label: "unmeasurable-exist")[
     Рассмотрим $lambda$ на $RR$. Будем говорить, что $x sim y$ если $x - y in QQ$. Это отношение эквивалентности, $RR$ разбивается на классы. Выберем по одному элементу из каждого класса, который попадает в $[0, 1)$. $A$ --- множество выбранных элементов. Тогда $A$ неизмеримо.
 ]
 
