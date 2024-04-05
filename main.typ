@@ -34,7 +34,7 @@
 #include "sections/05-complex-functions/!sec.typ"
 
 #if config.sem4 {
-  
+  include "sections/06-fourier-series/!sec.typ"
 }
 
 #include "appendix.typ"

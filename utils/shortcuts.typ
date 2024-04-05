@@ -56,6 +56,7 @@
 #let Ln = math.op("Ln")
 #let Arg = math.op("Arg")
 #let res = math.op("res", limits: true)
+#let esssup = math.op("ess sup", limits: true)
 
 // letters
 #let Aa = math.cal($A$)
