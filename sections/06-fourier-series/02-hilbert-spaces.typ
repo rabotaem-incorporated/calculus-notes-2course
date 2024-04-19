@@ -56,7 +56,7 @@
   $
   Оценим квадрат нормы разности:
   $
-    norm(S_n - S_m)^2 = norm(sum_(k = m+1)^n x_k)^2 = dotp(sum_(k=m+1)^n x_k, sum_(j=m+1)^n x_j) = sum_(j,k=m+1)^n underbrace(dotp(x_k, x_j), 0 "если" k != k) = sum_(k = m+1)^n norm(x_k)^2 = C_n - C_m.
+    norm(S_n - S_m)^2 = norm(sum_(k = m+1)^n x_k)^2 = dotp(sum_(k=m+1)^n x_k, sum_(j=m+1)^n x_j) newline(=) sum_(j,k=m+1)^n underbrace(dotp(x_k, x_j), 0 "если" k != k) = sum_(k = m+1)^n norm(x_k)^2 = C_n - C_m.
   $
   Получается, $S_n$ фундаментальна тогда и только тогда, когда $C_n$ фундаментальна. Это как раз равносильно тому, что $S_n$ сходится тогда и только тогда, когда $C_n$ сходится. Более того,
   $
@@ -116,7 +116,7 @@
   2. $1$, $cos t$, $sin t$, $cos 2t$, $sin 2t$, ... --- ортогональная система в#footnote[по умолчанию считаем, что пространство Лебега построено по мере Лебега] $L^2 [0, 2pi]$.
   3. $e^(i n t)$, $n in ZZ$ --- ортогональная система в $L^2 [0, 2pi]$:
     $
-      dotp(e^(i n t), e^(i m t)) = integral_0^(2pi) e^(i n t) + cj(e^(i m t)) dif t = integral_0^(2pi) e^(i (n - m) t) dif t = cases(2pi "при" n = m, 0 "иначе").
+      dotp(e^(i n t), e^(i m t)) = integral_0^(2pi) e^(i n t) dot cj(e^(i m t)) dif t = integral_0^(2pi) e^(i (n - m) t) dif t = cases(2pi "при" n = m, 0 "иначе").
     $
   4. $1$, $cos t$, $cos 2t$, $cos 3t$, ... --- ортогональная система в $L^2 [0, pi]$.
   5. $sin t$, $sin 2t$, $sin 3t$, ... --- ортогональная система в $L^2 [0, pi]$.
@@ -139,7 +139,7 @@
   $
   называется _коэффициентом Фурье_ вектора $x$ по системе $e_1$, $e_2$, ....
   
-  Ряд $sum_(n=1)^oo c_n(x) e_n$ назовем _рядом Фурье_ для вектора $x$ по системе $e_1$, $e_2$, .... Мы пока ничего не знаем про его свойства, например про то, сходится ли он вообще.
+  Ряд $sum_(n=1)^oo c_n (x) e_n$ назовем _рядом Фурье_ для вектора $x$ по системе $e_1$, $e_2$, .... Мы пока ничего не знаем про его свойства, например про то, сходится ли он вообще.
 ]
 
 #notice(plural: true)[
@@ -157,7 +157,7 @@
 #proof[
   1. $z = x - S_n$. Достаточно доказать, что $z perp e_k$ для всех $k = 1, ..., n$.
     $
-      dotp(z, e_k) = dotp(x - sum_(j=1)^n c_j (x) e_j, e_k) = dotp(x, e_k) - sum_(j=1)^n c_j (x) underbrace(dotp(e_j, e_k), 0 "если" k != j) = dotp(x, e_K) - c_k (x) norm(e_k)^2.
+      dotp(z, e_k) = dotp(x - sum_(j=1)^n c_j (x) e_j, e_k) = dotp(x, e_k) - sum_(j=1)^n c_j (x) underbrace(dotp(e_j, e_k), 0 "если" k != j) = dotp(x, e_k) - c_k (x) norm(e_k)^2.
     $
   2. $x - y = underbrace(S_n - y, in Ll_n) + underbrace(z, perp Ll_n)$. Значи это сумма двух ортогональных векторов, а тогда
     $
