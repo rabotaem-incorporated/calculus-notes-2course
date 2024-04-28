@@ -116,7 +116,7 @@
     integral_E abs(f)^p dif mu =
     integral_E abs(f)^p norm(1)_s dif mu newline(<=)
     (integral_E (abs(f)^p)^r dif mu)^(1/r) dot (integral_E 1^s dif mu)^(1/s) =
-    (integral_E abs(f)^q dif mu) dot (mu E)^(1 - p/q).
+    (integral_E abs(f)^q dif mu)^(p/q) dot (mu E)^(1 - p/q).
   $
 
   Отсюда получаем требуемое.
@@ -270,13 +270,13 @@
     $
     Надо доказать, что $norm(g - g_h)_p < eps$ при малых $h$. Доказываем,
     $
-      norm(g - g_h)_p^p = integral_RR^d abs(g (x) - g (x + h))^p dif mu (x).
+      norm(g - g_h)_p^p = integral_(RR^d) abs(g (x) - g (x + h))^p dif mu (x).
     $
     Так как $g$ --- финитная, то $g = 0$ вне шара $B_R (0)$, а так как $g_h$ --- просто немного сдвинутая $g$, она тоже равна нулю вне $B_(R + 1) (0)$. Тогда
     $
       norm(g - g_h)_p^p =
-      integral_RR^d abs(g (x) - g (x + h))^p dif mu (x) =
-      integral_(B_R (0)) abs(g (x) - g (x + h))^p dif mu (x) newline(<=)
+      integral_(RR^d) abs(g (x) - g (x + h))^p dif mu (x) =
+      integral_(B_(R+1) (0)) abs(g (x) - g (x + h))^p dif mu (x) newline(<=)
       lambda B_(R + 1) (0) dot underbrace(sup_(x in B_(R + 1) (0)) abs(g(x) - g(x + h)), --> 0).
     $
 ]
