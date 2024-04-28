@@ -115,15 +115,16 @@
 ]
 
 #notice[
-  $A_0 (f, x) = 1/pi integral_(-pi)^pi f(x - t) dif t$.
+  $A_0 (f, x) = 1/(2pi) integral_(-pi)^pi f(x - t) dif t$.
 
   Здесь аргумент может вылезти за пределы $[-pi, pi]$. Чтобы больше не мучиться с этим, положим $f$ периодической с периодом $2pi$. В любом случае, раньше мы рассматривали $f: [-pi, pi] --> CC$, замкнув ее до периодической функции, мы ничего не потеряли. Ну, кроме, возможно, точки на границе отрезка, но на нее плевать: так как мы рассматриваем классы эквивалентности с точностью до равенства почти везде, можем положить значение там чем угодно. 
 
   При $k > 0$,
   $
     A_k (f, x) = &1/pi integral_(-pi)^pi f(x - t) cos (k t) dif t newline(=)
-    & 1/pi integral_(-pi)^pi (f(t) cos (k t) cos (k x) + f(t) sin (k t) sin (k x)) dif t newline(=)
-    &1/pi integral_(-pi)^(pi) f(t) cos k (x - t) dif t.
+    &1/pi integral_(-pi)^(pi) f(t) cos (k (x - t)) dif t newline(=)
+    & 1/pi integral_(-pi)^pi (f(t) cos (k t) cos (k x) + f(t) sin (k t) sin (k x)) dif t.
+    
   $
 ]
 
@@ -322,7 +323,7 @@
   $
   Надо доказать, что $integral_delta^pi ... --> 0$. Действительно,
   $
-    integral_delta^pi (sin (n + 1/2) t)/(sin t/2) (f(x + t) + f(x - t)) dif t --> oo
+    integral_delta^pi (sin (n + 1/2) t)/(sin t/2) (f(x + t) + f(x - t)) dif t -->_(n-->oo) 0
   $
   по лемме Римана-Лебега.
 ]
