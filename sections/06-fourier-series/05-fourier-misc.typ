@@ -21,7 +21,7 @@
   
   3. $c_k (f * g) = 2pi c_k (f) c_k (g)$.
 
-  4. $l in L_(2pi)^p$, $g in L_(2pi)^q$, и $1/p + 1/q$. Тогда $f * g = C_(2pi)$, и $norm(f * g)_oo <= norm(f)_p norm(g)_q$.
+  4. $f in L_(2pi)^p$, $g in L_(2pi)^q$, и $1/p + 1/q = 1$. Тогда $f * g in C_(2pi)$, и $norm(f * g)_oo <= norm(f)_p norm(g)_q$.
 
   5. Если $1 <= p <= +oo$, то $norm(f * g)_p <= norm(f)_1 norm(g)_p$.
 ]
@@ -53,7 +53,7 @@
     $
       abs(h(x + y) - h(x)) =
       abs(integral_(-pi)^pi (f(x + y - t) - f(x - t)) g(t) dif t) newline(<=)
-      integral_(-pi)^pi abs(f(x + y - t) - f(x - t)) abs(g(t)) dif t <=^"Гельдер"
+      integral_(-pi)^pi abs(f(x + y - t) - f(x - t)) abs(g(t)) dif t newline(<=^"Гельдер")
       underbrace((integral_(-pi)^pi abs(f(x + y - t) - f(x - t))^p dif t)^(1/p), (integral_(-pi)^pi abs(f(y + t) - f(t))^p dif t)^(1/p)) underbrace((integral_(-pi)^pi abs(g(t))^q dif t)^(1/q), norm(g)_q) newline(=)
       (integral_(-pi)^pi abs(f(y + t) - f(t))^p dif t)^(1/p) dot norm(g)_q =
       norm(f_y - f)_p dot norm(g)_q -->_(y -> 0) 0
@@ -82,10 +82,10 @@
   Пусть $D$ --- множество параметров, $h_0$ --- предельная точка $D$ (в примерах, $D = NN$, $h_0 = oo$). $K_h$ --- _аппроксимативная единица_, если
   1. $K_h in L_(2pi)^1$ и $integral_(-pi)^pi K_h (t) dif t = 1$ для любого $h in D$.
   2. $norm(K_h)_1 <= M$ для любого $h in D$.
-  3. $integral_([-pi, pi] without (-delta, delta)) abs(K_h (t)) dif t --> (h -> h_0) 0$ для любого $delta in (0, pi)$.
+  3. $integral_([-pi, pi] without (-delta, delta)) abs(K_h (t)) dif t -->_(h -> h_0) 0$ для любого $delta in (0, pi)$.
 
-  $K_h$ называется _усилинной аппроксимативной единицей_, если также есть свойство
-  4. $esssup_(t in [-pi, pi] without (-delta, delta)) abs(K_h (t)) -->_(h -> h_0) 0$ для любого $delta in (0, pi)$.
+  $K_h$ называется _усиленной аппроксимативной единицей_, если также есть свойство
+  4. $esssup_([-pi, pi] without (-delta, delta)) abs(K_h (t)) -->_(h -> h_0) 0$ для любого $delta in (0, pi)$.
   Это свойство сильнее свойства $3$.
 ]
 
@@ -106,7 +106,7 @@
 #proof[
   Для начала распишем:
     $
-      f * K_h(x) - f(x) =
+      f * K_h (x) - f(x) =
       integral_(-pi)^(pi) f(x - t) K_h (t) dif t - integral_(-pi)^pi f(x) K_h (t) dif t =
       integral_(-pi)^pi (f(x - t) - f(x)) K_h (t) dif t.
     $
