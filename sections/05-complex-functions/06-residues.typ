@@ -572,7 +572,7 @@
     $
     Докажем следующее:
     $
-        res_(zeta = a_k) f(zeta)/(zeta - z) = res_(zeta = a_k) (G_k (zeta))/(zeta - z) = -G_k (zeta).
+        res_(zeta = a_k) f(zeta)/(zeta - z) = res_(zeta = a_k) (f(zeta) - G_k (zeta))/(zeta - z) + res_(zeta = a_k) (G_k (zeta))/(zeta - z) =^? -G_k (zeta).
     $
     Поймем,
     $
@@ -591,9 +591,9 @@
     $
         (f (zeta) - G_k (zeta))/(zeta - z)
     $
-    имеет устранимую особую точку в $a_k$, потому что $f - G_k$ голоморфна в окрестности $a_k$, и $zeta - z$ не обращается в нуль. Значит
+    имеет устранимую особую точку в $a_k$, потому что $f - G_k$ голоморфна в окрестности $a_k$, и $zeta - z$ не обращается в нуль, из-за чего её вычет равен $0$. Значит
     $
-        res_(zeta = a_k) f(zeta)/(zeta - z) = res_(zeta = a_k) (G_k (zeta))/(zeta - z).
+        res_(zeta = a_k) f(zeta)/(zeta - z) = -G_k (zeta).
     $
     Доказали промежуточные равенства. Наконец,
     $
