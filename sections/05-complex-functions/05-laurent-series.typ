@@ -121,7 +121,7 @@
     $
     Аналогично считаем интеграл, меняем его местами с суммой по аналогичным причинам.
     $
-        integral_(abs(zeta) = r_1) f(zeta)/(zeta - z) dif zeta = -integral_(abs(zeta) = r_1) -f(zeta) sum_(n = 1)^oo zeta^(n - 1)/z^n dif zeta = sum_(n = 1)^oo 1/(z^n) underbrace(integral_(abs(zeta) = r_1) -f(zeta) zeta^(n - 1) dif zeta, "какие-то коэффициенты").
+        integral_(abs(zeta) = r_1) f(zeta)/(zeta - z) dif zeta = Аintegral_(abs(zeta) = r_1) -f(zeta) sum_(n = 1)^oo zeta^(n - 1)/z^n dif zeta = sum_(n = 1)^oo 1/(z^n) underbrace(integral_(abs(zeta) = r_1) -f(zeta) zeta^(n - 1) dif zeta, "какие-то коэффициенты").
     $
     Получаем разложение в ряд.
 ]
@@ -141,7 +141,7 @@
     Пусть 
     $
         g(z) = sum_(n = 0)^oo a_n z^n, \
-        h(z) = sum_(n = 1)^oo a_(-n) z^n.
+        h(z) = sum_(n = 1)^oo a_(-n) (1/z)^n.
     $
     Тогда $g$ сходится в кольце $r < abs(z) < R$, а значит и в $abs(z) < R$ (нет проблем со сходимостью около нуля), а значит $g in H(abs(z) < R)$. Тоже самое для $h$: она сходится при $abs(z) > r$, а значит голоморфна при $abs(z) > R$.
 
@@ -180,7 +180,7 @@
     + $f(z) = (e^z - 1)/z$ то же самое.
     + $f(z) = (cos z)/z$ имеет полюс в нуле.
     + $f(z) = tg(z)$ имеет полюсы в точках $pi/2 + pi n$.
-    + $f(z) = e^(1/z)$ имеет существенно особую точку в нуле, так как если $z_n = 1/(2pi i n)$, то $f(1/(1 pi i n)) = e^(2pi i n) = 1$, а если $z_n = 1/(2pi i n + pi)$, то $f(1/(1 pi i n + pi)) = e^(2pi i n + pi) = -1$.
+    + $f(z) = e^(1/z)$ имеет существенно особую точку в нуле, так как если $z_n = 1/(2pi i n)$, то $f(z_n) = e^(2pi i n) = 1$, а если $z_n = 1/(2pi i n + pi)$, то $f(z_n) = e^(2pi i n + pi) = -1$.
 ]
 
 #th(name: "характеристика устранимой особой точки")[
