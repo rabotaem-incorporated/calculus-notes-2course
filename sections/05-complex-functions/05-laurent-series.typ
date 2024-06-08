@@ -61,7 +61,7 @@
     $
     Параметризуем $z = rho e^(i t)$, $dif z = rho e^(i t) dot i dif t$:
     $
-        integral_0^(2pi) sum_(k = -oo)^oo overbrace(c_k rho^k e^(i k t), f(z)) 1/underbrace(rho^(n + 1) e^(i (k + 1) t), z^(n + 1)) i rho e^(i t) dif t =
+        integral_0^(2pi) sum_(k = -oo)^oo overbrace(c_k rho^k e^(i k t), f(z)) 1/underbrace(rho^(n + 1) e^(i (n + 1) t), z^(n + 1)) i rho e^(i t) dif t =
         i integral_0^(2pi) sum_(k = -oo)^(oo) c_k rho^(k - n) e^((k - n) i t) dif t newline(=^*) i sum_(k = -oo)^oo c_k rho^(k - n) integral_0^(2pi) e^(i (k - n) t) dif t.
     $
     Так как мы выбрали $rho$ строго внутри кольца, для любого $rho$ и у главной, и у правильной части есть равномерная сходимость, а значит в $*$ можно менять местами интеграл и сумму.
@@ -141,7 +141,7 @@
     Пусть 
     $
         g(z) = sum_(n = 0)^oo a_n z^n, \
-        h(z) = sum_(n = 1)^oo a_(-n) z^n.
+        h(z) = sum_(n = 1)^oo a_(-n) z^(-n).
     $
     Тогда $g$ сходится в кольце $r < abs(z) < R$, а значит и в $abs(z) < R$ (нет проблем со сходимостью около нуля), а значит $g in H(abs(z) < R)$. Тоже самое для $h$: она сходится при $abs(z) > r$, а значит голоморфна при $abs(z) > R$.
 
