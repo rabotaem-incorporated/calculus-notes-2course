@@ -453,7 +453,7 @@
     ]
     Тогда
     $
-        integral_(Gamma, eps) e^(i z)/z dif z = 0,
+        integral_(Gamma_(R, eps)) e^(i z)/z dif z = 0,
     $
     так как внутри этого контура нет особых точек.
 
