@@ -81,7 +81,7 @@
 #example(name: "диагонализация степенных рядов")[
     Пусть имеется
     $ 
-        F(z, w) = sum_(n,m = 1)^oo a_(n m) z^n w^m,
+        F(z, w) = sum_(n,m = 0)^oo a_(n m) z^n w^m,
     $
     который сходится при $abs(z) < R$ и $abs(w) < R$. Хотим придумать производящую функцию для диагонали $a_(n n)$, то есть $sum_(n = 0)^oo a_(n n) z^n$.
 
@@ -101,7 +101,7 @@
     Здесь мы рассмотрели маленькое $r$ ($0 < r < R$, $abs(w)/r = abs(w/z) = R$), поэтому, так как мы внутри круга сходимости, есть равномерная сходимость:
     $
         1/(2pi i) integral_(abs(z) = r) sum_(m, n = 0)^oo a_(n m) w^m z^(n - m - 1) dif z =
-        1/(2pi i) sum_(m, n = 0)^oo underbrace(integral_(abs(z) = r) a_(n m) w^m z^(n - m - 1), 0 "при" n != m\, 2pi i "при" n = m) dif z =
+        1/(2pi i) sum_(m, n = 0)^oo a_(n m) w^m underbrace(integral_(abs(z) = r) z^(n - m - 1), 0 "при" n != m\, 2pi i "при" n = m) dif z =
         sum_(m = 0)^oo a_(m m) w^m.
     $
 
@@ -120,12 +120,12 @@
         sum res =
         res (1 - sqrt(1 - 4w))/2 =
         lr(1/(-z^2 + z - w)' |)_(z = (1 - sqrt(1 - 4w))/2) =
-        lr(1/(-2z + 1)' |)_(z = (1 - sqrt(1 - 4w))/2) =
+        lr(1/(-2z + 1) |)_(z = (1 - sqrt(1 - 4w))/2) =
         1/sqrt(1 - 4w).
     $
     Получается,
     $
-        sum_(n = 0)^oo C_(2n)^n z^n = 1/sqrt(1 - 4w).
+        sum_(n = 0)^oo C_(2n)^n w^n = 1/sqrt(1 - 4w).
     $
 ]
 
