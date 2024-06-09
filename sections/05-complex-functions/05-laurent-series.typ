@@ -121,7 +121,7 @@
     $
     Аналогично считаем интеграл, меняем его местами с суммой по аналогичным причинам.
     $
-        integral_(abs(zeta) = r_1) f(zeta)/(zeta - z) dif zeta = -integral_(abs(zeta) = r_1) -f(zeta) sum_(n = 1)^oo zeta^(n - 1)/z^n dif zeta = sum_(n = 1)^oo 1/(z^n) underbrace(integral_(abs(zeta) = r_1) -f(zeta) zeta^(n - 1) dif zeta, := c_(-n)).
+        integral_(abs(zeta) = r_1) f(zeta)/(zeta - z) dif zeta = -integral_(abs(zeta) = r_1) -f(zeta) sum_(n = 1)^oo zeta^(n - 1)/z^n dif zeta = sum_(n = 1)^oo 1/(z^n) underbrace(integral_(abs(zeta) = r_1) -f(zeta) zeta^(n - 1) dif zeta, := -c_(-n)).
     $
     Получаем разложение в ряд.
 ]
