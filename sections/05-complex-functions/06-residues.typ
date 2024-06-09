@@ -316,7 +316,7 @@
     Такой интеграл берется:
     $
         2 R_n dot M_(R_n) dot integral_0^(pi/2) e^(-2 lambda R_n t / pi) dif t =
-        lr(2 R_n M_(R_n) e^(-lambda R_n (2t) / n)/(-lambda R_n 2/pi) |)_(t = 0)^(t = pi/2) =
+        lr(2 R_n M_(R_n) e^(-lambda R_n (2t) / pi)/(-lambda R_n 2/pi) |)_(t = 0)^(t = pi/2) =
         M_(R_n) (pi/lambda - pi/lambda e^(-lambda R_n)) --> 0.
     $
 ]
