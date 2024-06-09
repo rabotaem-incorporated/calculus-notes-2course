@@ -11,7 +11,7 @@ class Config:
     references: bool = True
     sem3: bool = True
     sem4: bool = True
-    strict_refs: bool = False
+    strict_refs: bool = True
     reminders: bool = True
 
     def write_to_file(self, file):
@@ -28,40 +28,40 @@ class Config:
 
 
 targets = {
-    "calculus-default": Config(
+    "calculus": Config(
         
     ),
-    "calculus-no-references": Config(
-        references=False
-    ),
-    "calculus-monochrome": Config(
-        monochrome=True,
-    ),
-    "calculus-default-sem3": Config(
+    # "calculus-no-references": Config(
+    #     references=False
+    # ),
+    # "calculus-monochrome": Config(
+    #     monochrome=True,
+    # ),
+    "calculus-sem3": Config(
         sem4=False,
     ),
-    "calculus-no-references-sem3": Config(
-        references=False,
-        sem4=False,
-    ),
-    "calculus-monochrome-sem3": Config(
-        monochrome=True,
-        sem4=False,
-    ),
-    "calculus-default-sem4": Config(
+    # "calculus-no-references-sem3": Config(
+    #     references=False,
+    #     sem4=False,
+    # ),
+    # "calculus-monochrome-sem3": Config(
+    #     monochrome=True,
+    #     sem4=False,
+    # ),
+    "calculus-sem4": Config(
         sem3=False,
         reminders=False,
     ),
-    "calculus-no-references-sem4": Config(
-        references=False,
-        sem3=False,
-        reminders=False,
-    ),
-    "calculus-monochrome-sem4": Config(
-        monochrome=True,
-        sem3=False,
-        reminders=False,
-    ),
+    # "calculus-no-references-sem4": Config(
+    #     references=False,
+    #     sem3=False,
+    #     reminders=False,
+    # ),
+    # "calculus-monochrome-sem4": Config(
+    #     monochrome=True,
+    #     sem3=False,
+    #     reminders=False,
+    # ),
 }
 
 any_failed = False

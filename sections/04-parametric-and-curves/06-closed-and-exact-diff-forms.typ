@@ -178,7 +178,7 @@
 ]
 
 #def(label: "def-pinned-homotopic-paths")[
-  Пусть $Gamma$ --- область. $gamma_0, gamma_1: [a, b] --> Omega$ и $gamma_0 (a) = gamma_1 (a)$, $gamma_0 (b) = gamma_1 (b)$. $gamma_0$ и $gamma_1$ называются _гомотопными путями с неподвижными концами_, если существует $gamma: [a, b] times [0, 1] --> Omega$, непрерывная, такая, что 
+  Пусть $Omega$ --- область. $gamma_0, gamma_1: [a, b] --> Omega$ и $gamma_0 (a) = gamma_1 (a)$, $gamma_0 (b) = gamma_1 (b)$. $gamma_0$ и $gamma_1$ называются _гомотопными путями с неподвижными концами_, если существует $gamma: [a, b] times [0, 1] --> Omega$, непрерывная, такая, что 
   $
     forall t space cases(gamma_0 (t) = gamma (t, 0), gamma_1 (t) = gamma (t, 1)) #h(1cm) and #h(1cm)
     forall u space cases(gamma (a, u) = gamma_0 (a), gamma (b, u) = gamma_0 (b)).
@@ -242,7 +242,7 @@
 ]
 
 #def(label: "def-closed-homotopic-paths")[
-  Пусть $Gamma$ --- область. $gamma_0, gamma_1: [a, b] --> Omega$ и $gamma_0 (a) = gamma_0 (b)$, $gamma_1 (a) = gamma_1 (b)$.
+  Пусть $Omega$ --- область. $gamma_0, gamma_1: [a, b] --> Omega$ и $gamma_0 (a) = gamma_0 (b)$, $gamma_1 (a) = gamma_1 (b)$.
 
   Назовем $gamma_0$, $gamma_1$ _гомотопными путями с замкнутыми концами_, если найдется $gamma: [a, b] times [0, 1] --> Omega$ непрерывная, такая, что
   $
