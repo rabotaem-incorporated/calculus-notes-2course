@@ -266,7 +266,7 @@
     $
     Интеграл есть
     $
-        integral_(Gamma_R) f(z) dif z = integral_0^R f(x) dif x + integral_(C_R) f(z) dif z + integral_(R dot e^(i pi/2))^0 f(z) dif z.
+        integral_(Gamma_R) f(z) dif z = integral_0^R f(x) dif x + integral_(C_R) f(z) dif z + integral_(R dot e^(i pi/n))^0 f(z) dif z.
     $
     Первый интеграл сходится к $I$, второй интеграл сходится к 0, как мы показали в предыдущем решении, а третий интеграл сходится к $I dot -e^((pi i)/n)$, так как мы просто подставляем $z = t e^(i pi/n)$ в интеграл и разворачиваем отрезок. Через вычеты, интеграл равен
     $
