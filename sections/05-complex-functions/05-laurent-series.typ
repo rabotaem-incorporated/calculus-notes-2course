@@ -122,7 +122,7 @@
     Аналогично считаем интеграл, меняем его местами с суммой по аналогичным причинам.
     $
 
-    integral_(abs(zeta) = r_1) f(zeta)/(zeta - z) dif zeta = integral_(abs(zeta) = r_1) -f(zeta) sum_(n = 1)^oo zeta^(n - 1)/z^n dif zeta = sum_(n = 1)^oo 1/(z^n) underbrace(integral_(abs(zeta) = r_1) -f(zeta) zeta^(n - 1) dif zeta, "какие-то коэффициенты").
+    integral_(abs(zeta) = r_1) f(zeta)/(zeta - z) dif zeta = integral_(abs(zeta) = r_1) -f(zeta) sum_(n = 1)^oo zeta^(n - 1)/z^n dif zeta = sum_(n = 1)^oo 1/(z^n) underbrace(integral_(abs(zeta) = r_1) -f(zeta) zeta^(n - 1) dif zeta, -c_(-n)).
 
     $
     Получаем разложение в ряд.
@@ -182,7 +182,7 @@
     + $f(z) = (e^z - 1)/z$ то же самое.
     + $f(z) = (cos z)/z$ имеет полюс в нуле.
     + $f(z) = tg(z)$ имеет полюсы в точках $pi/2 + pi n$.
-    + $f(z) = e^(1/z)$ имеет существенно особую точку в нуле, так как если $z_n = 1/(2pi i n)$, то $f(z_n) = e^(2pi i n) = 1$, а если $z_n = 1/(2pi i n + pi i)$, то $f(z_n) = e^(2pi i n + pi) = -1$.
+    + $f(z) = e^(1/z)$ имеет существенно особую точку в нуле, так как если $z_n = 1/(2pi i n)$, то $f(z_n) = e^(2pi i n) = 1$, а если $z_n = 1/(2pi i n + pi i)$, то $f(z_n) = e^(2pi i n + pi i) = -1$.
 ]
 
 #th(name: "характеристика устранимой особой точки")[
