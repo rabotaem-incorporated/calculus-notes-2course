@@ -860,10 +860,14 @@
     Проверим условие теоремы Руше в правом полукруге с центром в нуле.
     #TODO[картинка]
 
-    Положим $f = z - lambda$, $g(z) = e^(-z)$. На мнимой оси $ abs(f(i z)) = abs(i y - lambda) = sqrt(y^2 + lambda^2) > lambda > 1. $
+    Положим $f = z - lambda$, $g(z) = e^(-z)$. На мнимой оси 
+    $ 
+        abs(f(i y)) = abs(i y - lambda) = sqrt(y^2 + lambda^2) > lambda > 1,
+        abs(g(i y)) = abs(e^(-i y)) = 1.
+    $
     На половинке окружности
     $
-        abs(f(R e^(i t))) = abs(R e^(i t) + lambda) >= R - lambda,\
+        abs(f(R e^(i t))) = abs(R e^(i t) - lambda) >= R - lambda,\
         abs(g(R e^(i t))) = abs(e^(-R e^(i t))) = abs(e^(-R cos t - i R sin t)) = e^(-R cos t) <= 1.
     $
     Если $R > lambda + 1$, то нужное неравенство верно. Значит, по теореме Руше, количество нулей у $f + g$ равно количеству нулей в $f$, то есть 1. 
