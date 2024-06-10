@@ -95,11 +95,11 @@
 #proof[
     По определению знаем $res_(z = oo) f = -c_(-1)$. Ряд Лорана для устранимой точки $oo$ выглядит как
     $
-        f(z) = sum_(n = -oo)^0 c_n z^n = A + sum_(n = 1)^oo c_n/z^n.
+        f(z) = sum_(n = -oo)^0 c_n z^n = A + sum_(n = 1)^oo c_(-n)/z^n.
     $
     Тогда
     $
-        z dot (A - f(z)) = -sum_(n = 1)^oo c_n/(z^n) dot z = -sum_(n = 1)^oo c_n/z^(n - 1) --> -c_(-1).
+        z dot (A - f(z)) = -sum_(n = 1)^oo c_(-n)/(z^n) dot z = -sum_(n = 1)^oo c_(-n)/z^(n - 1) --> -c_(-1).
     $
 ]
 
