@@ -114,7 +114,7 @@
   $
 ]
 
-#notice[
+#notice(name: "представление членов ряда в виде свертки")[
   $
     A_0 (f, x) = 1/(2pi) integral_(-pi)^pi f(x - t) dif t
   $
