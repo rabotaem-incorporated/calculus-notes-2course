@@ -27,7 +27,8 @@
   3. 
   $ 
     alpha_n = (A_0 + ... + A_(n - 1) + A_n)/(n + 1) = n/(n + 1) dot (A_0 + ... + A_(n - 1) + A_n)/n = n/(n + 1) (alpha_(n - 1) + A_n/n) ==> \
-    ==> A_n/n = (n + 1)/n dot alpha_n - alpha_(n - 1) --> 1 dot S - S = 0 ==> A_n = o(n)
+    ==> A_n = n underbrace(((n + 1)/n dot alpha_n - alpha_(n - 1)), --> 1 dot S - S = 0) = o(n) ==> \
+    ==> a_n = n underbrace((A_n/n - A_(n - 1)/(n - 1) (n - 1)/n), --> 0 - 0 dot 1 = 0) = o(n)
   $
 ]
 
