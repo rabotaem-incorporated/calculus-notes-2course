@@ -230,11 +230,11 @@
     $ f(z) = e^z/sqrt(1 - z) = sum_(n = 0)^oo a_n z^n. $
     Радиус сходимости у этой функции равен $1$, но теперь на границе точка ветвления $z = 1$. Однако мы можем эту особенность "улучшить". Вычтем из функции $e/sqrt(1 - z)$:
     $
-        f(z) - e/sqrt(1 - z) = underbrace((e^z - e)/sqrt(1 - z), sum_(n = 0)^oo b_n z^n) = e dot (e^(z - 1) - 1)/(sqrt(1 - z)) = e dot (sum_(k = 1)^oo 1/k! (z - 1)^k)/(sqrt(1 - z)).
+        f(z) - e/sqrt(1 - z) = (e^z - e)/sqrt(1 - z) = e dot (e^(z - 1) - 1)/(sqrt(1 - z)) = e dot (sum_(k = 1)^oo 1/k! (z - 1)^k)/(sqrt(1 - z)) = sum_(n = 0)^oo b_n z^n.
     $
     Тогда
     $
-        a_n = b_n + e dot (1/2)^overline(n)/n!.
+        a_n = b_n + e dot sum_(n=0)^oo (1/2)^overline(n)/n!.
     $
     Оценим последний ряд:
     $
