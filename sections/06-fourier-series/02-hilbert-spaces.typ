@@ -404,9 +404,9 @@
   $
   Подставим $lambda = dotp(z, l)/norm(l)^2$:
   $
-    abs(dotp(z, l))^2/norm(l)^4 dot norm(l)^2 >= abs(dotp(z, l)^2)/norm(l)^2 + abs(dotp(z, l)^2)/norm(l)^2.
+    abs(dotp(z, l))^2/norm(l)^4 dot norm(l)^2 >= (abs(dotp(z, l))^2)/norm(l)^2 + (abs(dotp(z, l))^2)/norm(l)^2.
   $
-  Значит $abs(dotp(z, l))^2 >= 2 abs(dotp(z, l))$, значит $dotp(z, l) = 0$, но $l in L$ --- любой ненулевой вектор. Значит есть $x perp L$.
+  Значит $abs(dotp(z, l))^2 >= 2 abs(dotp(z, l))^2$, значит $dotp(z, l) = 0$, но $l in L$ --- любой ненулевой вектор. Значит $x perp L$.
 ]
 
 #def[
