@@ -218,6 +218,12 @@
     2 c_n (f) = 1/(2pi) integral_(-pi)^pi (f(t) - f(t + pi/n)) e^(-i n t) dif t newline(==>)
     abs(2 c_n (f)) <= 1/(2pi) integral_(-pi)^pi underbrace(abs(f(t) - f(t + pi/n)), <= w_f (pi/n)) dif t <= w_f (pi/n).
   $
+
+  $
+    a_n (f) = 2 Re c_n (f) = 1/(2pi) integral_(-pi)^pi (f(t) - f(t + pi/n)) cos (n t) dif t ==> abs(a_n (f)) <= w_f (pi/n)
+  $
+
+  Аналогично с $b_n (f)$.
 ]
 
 #lemma[
