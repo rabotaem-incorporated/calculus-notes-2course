@@ -273,7 +273,7 @@
   1. $D_n$ --- четная, $2pi$-периодическая функция.
   2. $D_n (0) = n + 1/2$.
   3. $integral_(-pi)^pi D_n (t) dif t = pi$, $integral_0^pi D_n (t) dif t = pi/2$.
-  4. При $t != 2pi m$, $D_n (t) = (sin(n + 1/2) t)/(sin t/2)$.
+  4. При $t != 2pi m$, $D_n (t) = (sin(n + 1/2) t)/(2 sin t/2)$.
 ]
 
 #proof[
@@ -285,7 +285,7 @@
 
   4. 
     $
-      sin (t/2) D_n (t) = (sin t/2)/2 + sum_(k = 1)^n underbrace(cos(k t) dot sin(t/2), sin(k + 1/2)t - sin (k - 1/2)t) = sin (n + 1/2) t.
+      2 sin (t/2) D_n (t) = sin t/2 + sum_(k = 1)^n underbrace(2 cos(k t) dot sin(t/2), sin(k + 1/2)t - sin (k - 1/2)t) = sin (n + 1/2) t.
     $
 ]
 
