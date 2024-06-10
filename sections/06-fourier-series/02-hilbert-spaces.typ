@@ -80,7 +80,7 @@
       norm(sum_(n=1)^oo (x_n - x_(phi(n))))^2 =
       dotp(sum_(n=1)^oo (x_n - x_(phi(n))), sum_(k=1)^oo (x_k - x_(phi(k)))) newline(=)
       sum_(n=1)^oo sum_(k=1)^oo dotp(x_n - x_(phi(n)), x_k - x_(phi(k))) =
-        sum_(k,n)^oo underbrace(dotp(x_n, x_k), 0 "если" k != n) -
+        sum_(k,n=1)^oo underbrace(dotp(x_n, x_k), 0 "если" k != n) -
         sum_(k,n=1)^oo underbrace(dotp(x_(phi(n)), x_k), 0 "если" k != phi(n)) -
         sum_(k,n=1)^oo underbrace(dotp(x_n, x_(phi(n))), 0 "если" n != phi(k)) +
         sum_(k,n=1)^oo underbrace(dotp(x_phi(n), x_(phi(k))), 0 "если" n != k)
