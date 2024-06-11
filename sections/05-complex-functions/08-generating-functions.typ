@@ -234,7 +234,7 @@
     $
     Тогда
     $
-        a_n = b_n + e dot sum_(n=0)^oo (1/2)^overline(n)/n!.
+        a_n = b_n + e dot (1/2)^overline(n)/n!.
     $
     Оценим последний ряд:
     $
