@@ -82,7 +82,7 @@
       sum_(n=1)^oo sum_(k=1)^oo dotp(x_n - x_(phi(n)), x_k - x_(phi(k))) =
         sum_(k,n)^oo underbrace(dotp(x_n, x_k), 0 "если" k != n) -
         sum_(k,n=1)^oo underbrace(dotp(x_(phi(n)), x_k), 0 "если" k != phi(n)) -
-        sum_(k,n=1)^oo underbrace(dotp(x_n, x_(phi(n))), 0 "если" n != phi(k)) +
+        sum_(k,n=1)^oo underbrace(dotp(x_n, x_(phi(k))), 0 "если" n != phi(k)) +
         sum_(k,n=1)^oo underbrace(dotp(x_phi(n), x_(phi(k))), 0 "если" n != k)
       newline(=)
         sum_(n=1)^oo norm(x_n)^2
@@ -158,7 +158,7 @@
 ]
 
 #proof[
-  1. $z = x - S_n$. Достаточно доказать, что $z perp e_k$ для всех $k = 1, ..., n$.
+  1. $z = x - S_n$. Достаточно доказать, что $z perp e_k$ для всех $k   = 1, ..., n$.
     $
       dotp(z, e_k) = dotp(x - sum_(j=1)^n c_j (x) e_j, e_k) = dotp(x, e_k) - sum_(j=1)^n c_j (x) underbrace(dotp(e_j, e_k), 0 "если" k != j) = dotp(x, e_k) - c_k (x) norm(e_k)^2.
     $
@@ -400,13 +400,13 @@
   Раскроем скобки в первой норме:
   $
     norm(z - lambda l)^2 = dotp(z - lambda l, z - lambda l) = norm(z)^2 + abs(lambda)^2 norm(l)^2 - underbrace(dotp(z, lambda l), cj(lambda) dotp(z, l)) - underbrace(dotp(lambda l, z), lambda cj(dotp(z, l))) newline(==>)
-    abs(lambda)^2 norm(z)^2 >= cj(lambda) dotp(z, l) + lambda cj(dotp(z, l)).
+    abs(lambda)^2 norm(l)^2 >= cj(lambda) dotp(z, l) + lambda cj(dotp(z, l)).
   $
   Подставим $lambda = dotp(z, l)/norm(l)^2$:
   $
     abs(dotp(z, l))^2/norm(l)^4 dot norm(l)^2 >= (abs(dotp(z, l))^2)/norm(l)^2 + (abs(dotp(z, l))^2)/norm(l)^2.
   $
-  Значит $abs(dotp(z, l))^2 >= 2 abs(dotp(z, l))^2$, значит $dotp(z, l) = 0$, но $l in L$ --- любой ненулевой вектор. Значит $x perp L$.
+  Значит $abs(dotp(z, l))^2 >= 2 abs(dotp(z, l))^2$, значит $dotp(z, l) = 0$, но $l in L$ --- любой ненулевой вектор. Значит $z perp L$.
 ]
 
 #def[
