@@ -7,7 +7,7 @@
   $
     a_0/2 + sum_(k = 1)^n (a_k cos (k x) + b_k sin (k x)).
   $
-  Его степень $n$, если $norm(a_n) + norm(b_n) != 0$.
+  Его степень $n$, если $abs(a_n) + abs(b_n) != 0$.
 ]
 
 #def[
@@ -15,7 +15,7 @@
   $
     sum_(k = -n)^n c_k e^(i k x).
   $
-  Его степень $n$, если $norm(c_n) + norm(c_(-n)) != 0$.
+  Его степень $n$, если $abs(c_n) + abs(c_(-n)) != 0$.
 ]
 
 #notice[
@@ -193,7 +193,7 @@
 ]
 
 #remind[
-  $f$ --- _липшицева_ с константой $M$, или $f in Lip_alpha M$ если $abs(f(x) - f(y)) <= M abs(x - y)^alpha$ для любых $x, y in RR$. Говорят, $f in Lip_alpha$ (без указания константы), если $f in Lip_alpha M$ для некоторого $M$.
+  $f$ --- _липшицева_ с константой $M$, или $f in Lip_alpha M$ если $abs(f(x) - f(y)) <= M abs(x - y)^alpha$ для любых $x, y in RR$. Говорят $f in Lip_alpha$ (без указания константы), если $f in Lip_alpha M$ для некоторого $M$.
 ]
 
 #notice[

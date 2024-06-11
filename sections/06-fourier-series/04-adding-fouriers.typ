@@ -80,7 +80,7 @@
     $
     Действительно, 
     $
-      sum_(k = 0)^n sin^2 t/2 D_n (t) =
+      sum_(k = 0)^n (sin^2 t/2) D_n (t) =
       sum_(k = 0)^n 1/2 sin(k + 1/2) t dot sin t/2 =
       1/4 sum_(k = 0)^n (cos k t - cos (k + 1) t) = 1/4 underbrace((1 - cos (n + 1) t), 2 sin^2 (n + 1)/2 t).
     $
