@@ -425,7 +425,7 @@
 ]
 
 #proof[
-  1. Берем $x = y + z$, $y in L$, $z perp L$, и $tilde(x) = tilde(y) + tilde(z)$, $tilde(y) in L$, $tilde(z) in L$, тогда
+  1. Берем $x = y + z$, $y in L$, $z perp L$, и $tilde(x) = tilde(y) + tilde(z)$, $tilde(y) in L$, $tilde(z) perp L$, тогда
     $
       alpha x + tilde(alpha) tilde(x) = underbrace(alpha y + tilde(alpha) tilde(y), in L) + underbrace(alpha z + tilde(alpha) tilde(z), perp L) ==>
       P_L (alpha x + tilde(alpha) tilde(x)) = alpha y + tilde(alpha) tilde(y) = alpha P_L x + tilde(alpha) P_L tilde(x). 
