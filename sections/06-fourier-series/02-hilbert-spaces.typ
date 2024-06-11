@@ -400,7 +400,7 @@
   Раскроем скобки в первой норме:
   $
     norm(z - lambda l)^2 = dotp(z - lambda l, z - lambda l) = norm(z)^2 + abs(lambda)^2 norm(l)^2 - underbrace(dotp(z, lambda l), cj(lambda) dotp(z, l)) - underbrace(dotp(lambda l, z), lambda cj(dotp(z, l))) newline(==>)
-    abs(lambda)^2 norm(z)^2 >= cj(lambda) dotp(z, l) + lambda cj(dotp(z, l)).
+    abs(lambda)^2 norm(l)^2 >= cj(lambda) dotp(z, l) + lambda cj(dotp(z, l)).
   $
   Подставим $lambda = dotp(z, l)/norm(l)^2$:
   $
