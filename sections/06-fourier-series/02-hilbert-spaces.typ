@@ -250,7 +250,7 @@
   $
   Осталось подобрать коэффициенты, чтобы была ортогональность, то есть, чтобы для любого $k < n$:
   $
-    dotp(f_n, f_k) = dotp(f_n, f_k) - a_1 dotp(f_1, f_k) - ... - a_(n - 1) dotp(f_(n - 1), f_k) = dotp(f_n, f_k) - a_k dotp(f_k, f_k),
+    dotp(f_n, f_k) = dotp(x_n, f_k) - a_1 dotp(f_1, f_k) - ... - a_(n - 1) dotp(f_(n - 1), f_k) = dotp(x_n, f_k) - a_k dotp(f_k, f_k),
   $
   так как $dotp(f_i, f_k) = 0$ при $i != k$.
 
