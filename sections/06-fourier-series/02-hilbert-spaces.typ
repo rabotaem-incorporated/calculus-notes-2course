@@ -126,7 +126,7 @@
 ]
 
 #th[
-  $e_1$, $e_2$, ... --- ортогональная система в гильбертовом пространстве $H$, $x = sum_(n=1)^oo c_n e_n$. Тогда $ c_n = dotp(x, e^n)/norm(e_n)^2. $
+  $e_1$, $e_2$, ... --- ортогональная система в гильбертовом пространстве $H$, $x = sum_(n=1)^oo c_n e_n$. Тогда $ c_n = dotp(x, e_n)/norm(e_n)^2. $
 ]
 
 #proof[
@@ -196,7 +196,7 @@
 ]
 
 #proof[
-  1. Знаем $sum_(n=1)^oo norm(c_n (x) e_n)^2 <= norm(x)^2$ (неравенство Бесселя), значит $sum_(n=1)^oo c_n (x) e_n$ --- сходится.
+  1. Знаем $sum_(n=1)^oo abs(c_n (x))^2 norm(e_n)^2 <= norm(x)^2$ (неравенство Бесселя), значит $sum_(n=1)^oo c_n (x) e_n$ --- сходится.
   2. $z = x - sum_(k = 1)^oo c_k (x) e_k$.
     $
       dotp(z, e_n) = dotp(x, e_n) - sum_(k=1)^oo c_k (x) underbrace(dotp(e_k, e_n), 0 "если" k != n) = dotp(x, e_n) - c_n (x) dotp(e_n, e_n) = 0.
