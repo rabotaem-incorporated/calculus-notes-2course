@@ -126,7 +126,7 @@
 ]
 
 #proof[
-    Окружаем особые точки кругами $B_r (a)$, так как $overline(B)_r (a) subset K$ и $overline(B)_r (a) sect overline(B)_r (b) = nothing$ для различных особых точек $f$. $tilde(K) := K without Union B_r (a)$ --- компакт, как замкнутое подмножество компакта, и $f$ голоморфна в $tilde(K)$. Тогда по теореме Коши
+    Окружаем особые точки кругами $B_r (a)$ так, чтобы $overline(B)_r (a) subset K$ и $overline(B)_r (a) sect overline(B)_r (b) = nothing$ для различных особых точек $f$. $tilde(K) := K without Union B_r (a)$ --- компакт, как замкнутое подмножество компакта, и $f$ голоморфна в $tilde(K)$. Тогда по теореме Коши
     $
         0 = integral_(diff tilde(K)) f(z) dif z = integral_(diff K) f(z) dif z - sum_(a in Int K \ "особая") integral_(abs(z - a) = r) f(z) dif z.
     $
@@ -574,7 +574,7 @@
     $
     Докажем следующее:
     $
-        res_(zeta = a_k) f(zeta)/(zeta - z) = res_(zeta = a_k) (f(zeta) - G_k (zeta))/(zeta - z) + res_(zeta = a_k) (G_k (zeta))/(zeta - z) =^? -G_k (zeta).
+        res_(zeta = a_k) f(zeta)/(zeta - z) = res_(zeta = a_k) (f(zeta) - G_k (zeta))/(zeta - z) + res_(zeta = a_k) (G_k (zeta))/(zeta - z) =^? -G_k (z).
     $
     Поймем,
     $
@@ -595,7 +595,7 @@
     $
     имеет устранимую особую точку в $a_k$, потому что $f - G_k$ голоморфна в окрестности $a_k$, и $zeta - z$ не обращается в нуль, из-за чего её вычет равен $0$. Значит
     $
-        res_(zeta = a_k) f(zeta)/(zeta - z) = -G_k (zeta).
+        res_(zeta = a_k) f(zeta)/(zeta - z) = -G_k (z).
     $
     Доказали промежуточные равенства. Наконец,
     $
@@ -606,14 +606,14 @@
         2 pi i (f(z) - sum_(k: abs(a_k) < R_n) G_k (z)) ==>
         f(z) = lim_(n -> oo) sum_(k: abs(a_k) < R_n) G_k (z).
     $
-    Почему $I_n$ стремится к 0? Потому что
+    Почему $I_n$ стремится к $0$? Потому что
     $
         abs(I_n) <= 2 pi R_n max_(abs(zeta) = R_n) abs(f(zeta)/(zeta - z)) <= 2 pi R_n M_(R_n)/(R_n - abs(z)) --> 0.
     $
 ]
 
 #lemma[
-    $ctg z$ ограничен на окружностях $abs(z) = pi (n + 1/2)$
+    $ctg z$ ограничен на окружностях $abs(z) = pi (n + 1/2)$.
 ]
 
 #proof[
@@ -655,7 +655,7 @@
     $
     Поэтому
     $
-        G_0 (z) = a/z + b/z^2 = 1/z^2,
+        G_0 (z) = 1/z^2,
     $
     Мы поняли, что 
     $
