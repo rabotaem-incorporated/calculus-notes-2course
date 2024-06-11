@@ -101,7 +101,7 @@
     Здесь мы рассмотрели маленькое $r$ ($0 < r < R$, $abs(w)/r = abs(w/z) = R$), поэтому, так как мы внутри круга сходимости, есть равномерная сходимость:
     $
         1/(2pi i) integral_(abs(z) = r) sum_(m, n = 0)^oo a_(n m) w^m z^(n - m - 1) dif z =
-        1/(2pi i) sum_(m, n = 0)^oo a_(n m) w^m underbrace(integral_(abs(z) = r) z^(n - m - 1), 0 "при" n != m\, 2pi i "при" n = m) dif z =
+        1/(2pi i) sum_(m, n = 0)^oo a_(n m) w^m underbrace(integral_(abs(z) = r) z^(n - m - 1) dif z, 0 "при" n != m\,\ 2pi i "при" n = m) =
         sum_(m = 0)^oo a_(m m) w^m.
     $
 
