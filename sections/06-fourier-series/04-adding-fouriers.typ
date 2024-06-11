@@ -72,7 +72,7 @@
   
   2. $Phi_n (0) = (n + 1)/2$.
   
-  3. $1/pi integral_(-pi)^pi Phi_n (t) dif t = 1$, так как у $D_i$ интеграл $1$. В силу четности, $1/pi integral_0^pi Phi_n (t) dif t = 1/2$.
+  3. $1/pi integral_(-pi)^pi Phi_n (t) dif t = 1$, так как у $D_i$ интеграл $pi$. В силу четности, $1/pi integral_0^pi Phi_n (t) dif t = 1/2$.
   
   4. При $t != 2pi m$, 
     $
