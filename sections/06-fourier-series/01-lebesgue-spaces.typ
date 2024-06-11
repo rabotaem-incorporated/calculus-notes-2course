@@ -114,7 +114,7 @@
   $
     norm(f)_p^p =
     integral_E abs(f)^p dif mu =
-    integral_E abs(f)^p norm(1)_s dif mu newline(<=)
+    integral_E abs(f)^p dot 1 dif mu newline(<=)
     (integral_E (abs(f)^p)^r dif mu)^(1/r) dot (integral_E 1^s dif mu)^(1/s) =
     (integral_E abs(f)^q dif mu)^(p/q) dot (mu E)^(1 - p/q).
   $
@@ -127,7 +127,7 @@
 ]
 
 #exercise(plural: true)[
-  1. Пусть $E = RR$, $mu = lambda_1$, $p < q$. Придумайте пример функции, что $f in L^p$, но $f in.not L^q$.
+  1. Пусть $E = RR$, $mu = lambda_1$, $p < q$. Придумайте пример функции, что $f in L^q$, но $f in.not L^p$.
   2. Доказать, что если $p < q$, то $l^p subset l^q$.
 ]
 
@@ -167,7 +167,7 @@
   $
   И
   $
-    integral_E S^p dif mu = integral_E lim S_m^p dif mu <=^"л. Фату" liminf underbrace(integral_E S_m^p dif mu, norm(S_m)^p < 1) <= 1.
+    integral_E S^p dif mu = integral_E lim S_m^p dif mu <=^"л. Фату" liminf underbrace(integral_E S_m^p dif mu, norm(S_m)_p^p < 1) <= 1.
   $
   Значит $S$ почти везде конечна, $sum_(k = 1)^oo abs(f_(n_k) - f_(n_(k + 1)))$ сходится при почти всех $t$, а значит
   $
@@ -229,7 +229,7 @@
 ]
 
 #proof[
-  - Если $p = +oo$, то берем представителя класса эквивалентности, у которого $abs(f) <= norm(f)_oo$. Про него мы знаем, что найдутся неотрицательные ступенчатые (простые) функции $phi_n arrows f_+$ и $psi_n arrows f_-$. Тогда $phi_n - psi_n arrows f_+ - f_- = f$. Тогда $sup abs((phi_n - psi_n) - f) --> 0$, а значит $esssup abs(...)$ нем более, и $norm((phi_n - psi_n) - f)_oo --> 0$.
+  - Если $p = +oo$, то берем представителя класса эквивалентности, у которого $abs(f) <= norm(f)_oo$. Про него мы знаем, что найдутся неотрицательные ступенчатые (простые) функции $phi_n arrows f_+$ и $psi_n arrows f_-$. Тогда $phi_n - psi_n arrows f_+ - f_- = f$. Тогда $sup abs((phi_n - psi_n) - f) --> 0$, а значит $esssup abs(...)$ тем более, и $norm((phi_n - psi_n) - f)_oo --> 0$.
 
   - Если $1 <= p < +oo$, то возьмем неотрицательные ступенчатые $phi_n arrow.tr f_+$ и $psi_n arrow.tr f_-$. Тогда $ norm(f_+ - phi_n)_p^p = integral_E (f_+ - phi_n)^p dif mu -->^"т. Лебега" 0, $
     где $f_+^p <= abs(f)^p$ --- суммируемая мажоранта. Аналогично, $norm(f - phi_n) --> 0$, и
