@@ -35,7 +35,7 @@
       integral_(-pi)^pi integral_(-pi)^pi abs(F(x, t)) dif t dif x &=
       integral_(-pi)^pi underbrace(integral_(-pi)^pi abs(f(x - t)) dif x, norm(f)_1) abs(g(t)) dif t =
       norm(f)_1 dot norm(g)_1. \
-      &= integral_(-pi)^pi abs(integral_(pi)^pi f(x - t) g(t) dif t) dif x = integral_(-pi)^pi abs(h(x)) dif x = norm(h)_1.
+      &>= integral_(-pi)^pi abs(integral_(pi)^pi f(x - t) g(t) dif t) dif x = integral_(-pi)^pi abs(h(x)) dif x = norm(h)_1.
     $
     Значит функция и правда суммируема в $L_(2pi)^1$ (теорема Фубини про суммируемость сечения или что-то типа того).
   
