@@ -233,7 +233,7 @@
     a_n (f') = 1/pi integral_(-pi)^pi f' (t) cos (n t) dif t =
     1/pi (
       lr(f(t) cos(n t) |)_(t = -pi)^(t = pi) +
-      integral_(-pi)^pi f(t) dif n sin t dif t
+      integral_(-pi)^pi f(t) n sin t dif t
     )
     newline(=)
     n/pi integral_(-pi)^pi f(t) sin (n t) dif t = n b_n (f).
