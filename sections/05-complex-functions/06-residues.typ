@@ -841,7 +841,7 @@
         $
     2. Если $f in H(Omega)$, $C$ --- простой замкнутый контур, не проходящий через нули, то
         $
-            Nn_f = 1/(2pi i) Delta_C arg f,
+            Nn_f = 1/(2 pi) Delta_C arg f,
         $
         где $Delta_C arg_f$ --- изменение $arg f$ при движении по контуру.
 ]
@@ -854,7 +854,7 @@
             lr(size: #2em, Ln f(gamma(t)) |)_(t = a)^(t = b) =
             lr(size: #2em, space (ln abs(f(gamma(t))) + i arg f(gamma(t))) |)_(t = a)^(t = b) =
             lr(size: #2em, i arg f(gamma(t)) |)_(t = a)^(t = b) =
-            2pi i Delta_C arg f.
+            i Delta_C arg f.
         $
 ]
 
