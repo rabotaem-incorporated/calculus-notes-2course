@@ -1,4 +1,4 @@
-#let enable-ticket-references = false
+#let enable-ticket-references = true
 #let monochrome = false
 #let debug = true
 #let references = true

@@ -5,7 +5,7 @@ import subprocess
 
 @dataclass
 class Config:
-    enable_ticket_references: bool = False
+    enable_ticket_references: bool = True
     monochrome: bool = False
     debug: bool = False
     references: bool = True

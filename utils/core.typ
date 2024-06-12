@@ -354,10 +354,10 @@
     rect(stroke: none, width: 100%, par[
       #align(end, text(size: 0.75em, fill: color.darken(30%))[
         Билет #ticket-counter.display();.
-        #name.
+        #name
       ])
 
-      #v(-0.7em)
+      #v(-0.9em)
 
       #line(length: 100% + width + offset, stroke: (
         paint: color,
@@ -366,7 +366,7 @@
       
       #place(dy: -1cm)[#hide(name)<ticket>]
 
-      #link(<ticket-reference>, place(
+      #let tag = place(
         dx: offset,
         end,
       )[
@@ -386,7 +386,16 @@
             #move(dy: -1.6em, text(size: 0.5em)[билет])
           ], center)
         ))
-      ])
+      ]
+
+      #context {
+        let target = query(<ticket-reference>)
+        if target.len() == 0 {
+          tag
+        } else {
+          link(<ticket-reference>, tag)
+        }
+      }
     ]
   ))
 

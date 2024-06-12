@@ -44,11 +44,13 @@
                 enum.item(
                     counter("ticket").at(ticket-location).first(),
                     [
-                        #link(ticket-location, ticket-name-label.body)
-                        #box(width: 1fr, repeat[.])
+                        #box(width: 1fr)[
+                            #link(ticket-location, ticket-name-label.body)
+                            #box(width: 1fr, repeat[.])
+                        ]
                         #link(ticket-location)[#ticket-location.page()]
                     ]
                 )
             })
-    ))
+    )
 ]
