@@ -432,7 +432,7 @@
     1/pi integral_0^pi D_n (t) (f(x_0 + t) + f(x_0 - t)) dif t -
     1/pi integral_0^pi D_n (t) (f(x_0 + 0) + f(x_0 - 0)) dif t newline(=)
     1/pi integral_0^pi D_n (t) f_(x_0)^* (t) dif t =
-    1/pi integral_0^pi underbrace((f_(x_0)^* (t))/(sin t/2)) sin ((n + 1/2) t) dif t.
+    1/(2pi) integral_0^pi underbrace((f_(x_0)^* (t))/(sin t/2)) sin ((n + 1/2) t) dif t.
   $
   Теперь по лемме Римана-Лебега, это стремится к нулю, если штука над фигурной скобкой суммируема. То есть, если вот такой интеграл сходится:
   $
