@@ -115,7 +115,7 @@
 ]
 
 #notice[
-  $A_0 (f, x) = 1/(2pi) integral_(-pi)^pi f(x - t) cos(k t) dif t$.
+  $A_0 (f, x) = 1/(2pi) integral_(-pi)^pi f(x - t) dif t$.
   Это верно, так как $f$ -- это сумма каких-то синусов и косинусов, которые $2pi$-периодичны и по периоду дают интеграл $0$, и константы $a_0/2$, а значит интеграл будет какой нужно. Для $k$-го слагаемого формула такая:
 
   $
@@ -238,11 +238,7 @@
     a_n (f') = 1/pi integral_(-pi)^pi f' (t) cos (n t) dif t =
     1/pi (
       lr(f(t) cos(n t) |)_(t = -pi)^(t = pi) +
-<<<<<<< HEAD
-      integral_(-pi)^pi f(t) n sin t dif t
-=======
       integral_(-pi)^pi f(t) n sin (n t) dif t
->>>>>>> 146987a06bac5deb1ec01ca12e70ac50423e26a4
     )
     newline(=)
     n/pi integral_(-pi)^pi f(t) sin (n t) dif t = n b_n (f).
