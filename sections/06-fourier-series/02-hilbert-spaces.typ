@@ -425,7 +425,7 @@
 ]
 
 #proof[
-  1. Берем $x = y + z$, $y in L$, $z perp L$, и $tilde(x) = tilde(y) + tilde(z)$, $tilde(y) in L$, $tilde(z) in L$, тогда
+  1. Берем $x = y + z$, $y in L$, $z perp L$, и $tilde(x) = tilde(y) + tilde(z)$, $tilde(y) in L$, $tilde(z) perp L$, тогда
     $
       alpha x + tilde(alpha) tilde(x) = underbrace(alpha y + tilde(alpha) tilde(y), in L) + underbrace(alpha z + tilde(alpha) tilde(z), perp L) ==>
       P_L (alpha x + tilde(alpha) tilde(x)) = alpha y + tilde(alpha) tilde(y) = alpha P_L x + tilde(alpha) P_L tilde(x). 
@@ -433,7 +433,7 @@
   
   2. Берем $x = y + z$, $y in L$, $z perp L$. Тогда $norm(x)^2 = norm(y)^2 + norm(z)^2 >= norm(y)^2$. Значит $norm(x) >= norm(P_L x)$, значит $norm(P_L) <= 1$. Если $x in L$, то $P_L x = x$, значит $norm(P_L) = 1$.
 
-  3. Берем $x = y + z$, $y in L$, $z in L^T$. Тогда $x = P_L x + P_(L^perp) x$, то есть $Id = P_L + P_(L^perp)$.
+  3. Берем $x = y + z$, $y in L$, $z in L^perp$. Тогда $x = P_L x + P_(L^perp) x$, то есть $Id = P_L + P_(L^perp)$.
 
   4. $P_((L^perp)^perp) = Id - P_(L^perp) = Id - (Id - P_L) = P_L$, значит $L = P_L (H) = P_((L^perp)^perp) (H) = (L^perp)^perp$.
 ]
