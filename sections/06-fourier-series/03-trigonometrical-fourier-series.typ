@@ -507,7 +507,7 @@
   $
   Продолжим ее по периоду на $(-pi, pi)$. Найдем ряд Фурье. Косинусные коэффициенты нулевые. Для синусных:
   $
-    b_n = 1/pi integral_(-pi)^pi f(x) sin (n x) dif x = 2/pi integral_0^pi sin (n x) dif x = 2/pi lr(-(cos (n x))/n|)_0^pi = 2/pi (1/n - (-1)^n/n)
+    b_n = 1/pi integral_(-pi)^pi f(x) sin (n x) dif x = 2/pi integral_0^pi sin (n x) dif x = 2/pi ( lr(-(cos (n x))/n|)_0^pi ) = 2/pi (1/n - (-1)^n/n)
   $
   Значит $b_(2n) = 0$, $b_(2n + 1) = 4/(pi(2n + 1))$. Ряд Фурье:
   $
