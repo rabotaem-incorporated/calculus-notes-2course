@@ -60,48 +60,48 @@
   #figure(
     cetz.canvas({
       import cetz.draw: *
+      
       group({
         line((0, 0), (5, 0), mark: (start: "|", end: "|"), name: "gamma")
-        content((rel: (-0.2, 0), to: "gamma.left"), $a$)
-        content((rel: (0.2, 0), to: "gamma.right"), $b$)
+        content((rel: (-0.2, 0), to: "gamma.start"), $a$)
+        content((rel: (0.2, 0), to: "gamma.end"), $b$)
         line(
           (1.5, 0), (3, 0), 
           stroke: blue + 3pt,
           mark: (start: "|", end: "|", size: 0.3),
           name: "segment")
-        circle("segment.center", fill: blue, stroke: none, radius: 0.1)
-        content((rel: (0, -0.5), to: "segment.top"), $t$)
+        circle("segment.mid", fill: blue, stroke: none, radius: 0.1)
+        content((rel: (0, -0.5), to: "segment.mid"), $t$)
       }, name: "segment")
+      
       group({
         translate((8, -1))
         catmull(
           (2, 0), (4, 0), (5, 2),
           (4, 3), (0, 1), close: true
         )
-        place-anchors(
-          name: "gamma",
-          bezier-through(
-            (1.5, 1), (3, 2), (4, 1.5),
-            mark: (start: "|", end: "|"),
-          ),
-          (name: "a", pos: 0),
-          (name: "t0", pos: 0.3),
-          (name: "t", pos: 0.45),
-          (name: "t1", pos: 0.6),
-          (name: "b", pos: 1),
-        )
-        content((rel: (-0.5, 0), to: "gamma.a"), $gamma(a)$)
-        content((rel: (0.4, 0.2), to: "gamma.b"), $gamma(b)$)
         bezier-through(
-          "gamma.t0", "gamma.t", "gamma.t1",
+          name: "gamma",
+          (1.5, 1), (3, 2), (4, 1.5),
+          mark: (start: "|", end: "|"),
+        )
+        let t0 = (name: "gamma", anchor: 30%)
+        let t = (name: "gamma", anchor: 45%)
+        let t1 = (name: "gamma", anchor: 60%)
+
+        content((rel: (-0.5, 0), to: "gamma.start"), $gamma(a)$)
+        content((rel: (0.4, 0.2), to: "gamma.end"), $gamma(b)$)
+        bezier-through(
+          t0, t, t1,
           stroke: blue + 3pt,
           mark: (start: "|", end: "|"),
         )
-        circle("gamma.t", radius: 0.4, stroke: (paint: blue, dash: "dashed"), name: "Ua")
-        content((rel: (0, -0.3), to: "Ua.top"), $U_gamma(t)$)
+        circle(t, radius: 0.4, stroke: (paint: blue, dash: "dashed"), name: "Ua")
+        content((rel: (0, -0.3), to: "Ua.south"), $U_gamma(t)$)
       }, name: "mapped")
-      line((6, 0), (7, 0), mark: (end: ">"), name: "mapping")
-      content((to: "mapping", rel: (0, 0.3)), $gamma$)
+      
+      line((6, 0), (7, 0), mark: (end: ">", scale: 0.4), name: "mapping")
+      content((to: "mapping.mid", rel: (0, 0.3)), $gamma$)
     })
   )
 ]
@@ -123,33 +123,29 @@
     $ f_1 (tau) - f_2 (tau) = F_1 (gamma(tau)) - F_2 (gamma(tau)) = const $
     при $tau$ близких к $t$. По лемме#rf("locally-const-const"), они отличаются на константу.
   
-  - "Существование": $gamma[a, b]$ покрыто окрестностями, в которых у формы есть первообразная#rf("def-form-antiderivative") (напомню, первообразная вдоль пути определена для локально точных форм#rf("def-antiderivative-along-path")#rf("def-closed-exact-form")). Так как носитель $gamma$ --- компакт, по лемме Лебега существует $r > 0$ такой, что $B_r (gamma(t))$ (на картинке зеленый) целиком содежится в каком-то элементе покрытия.
+  - "Существование": $gamma[a, b]$ покрыто окрестностями, в которых у формы есть первообразная#rf("def-form-antiderivative") (напомню, первообразная вдоль пути определена для локально точных форм#rf("def-antiderivative-along-path")#rf("def-closed-exact-form")). Так как носитель $gamma$ --- компакт, по лемме Лебега существует $r > 0$ такой, что $B_r (gamma(t))$ (на картинке зеленый) целиком содержится в каком-то элементе покрытия.
 
     #figure(cetz.canvas(length: 0.6cm, {
       import cetz.draw: *
+      
       catmull((0, 0), (3, 2), (6, 6), (8, 1), (4, -2), close: true, tension: 0.5)
-      place-anchors(
-        name: "p",
-        bezier-through((2, 0), (3, 0), (6, 5), stroke: red + 2pt),
-        ..for i in range(21) { ((name: str(i), pos: i/20),) },
-      )
-      circle("p.0", radius: 0.15, stroke: none, fill: blue)
-      circle("p.0", radius: 1.1, stroke: (paint: blue, dash: "dashed"))
-      circle("p.3", radius: 0.15, stroke: none, fill: blue)
-      circle("p.3", radius: 0.9, stroke: (paint: blue, dash: "dashed"))
-      circle("p.9", radius: 0.15, stroke: none, fill: blue)
-      circle("p.9", radius: 1.5, stroke: (paint: blue, dash: "dashed"))
-      circle("p.14", radius: 0.15, stroke: none, fill: blue)
-      circle("p.14", radius: 1.3, stroke: (paint: blue, dash: "dashed"))
-      circle("p.16", radius: 0.15, stroke: none, fill: blue)
-      circle("p.16", radius: 1.2, stroke: (paint: blue, dash: "dashed"))
-      circle("p.18", radius: 0.15, stroke: none, fill: blue)
-      circle("p.18", radius: 1.1, stroke: (paint: blue, dash: "dashed"))
-      circle("p.20", radius: 0.15, stroke: none, fill: blue)
-      circle("p.20", radius: 0.8, stroke: (paint: blue, dash: "dashed"))
+      bezier-through(name: "p", (2, 0), (3, 0), (6, 5), stroke: red + 2pt)
+
+      let circ(percent, radius) = {
+        circle((name: "p", anchor: percent), radius: 0.15, stroke: none, fill: blue)
+        circle((name: "p", anchor: percent), radius: radius, stroke: (paint: blue, dash: "dashed"))
+      }
+      
+      circ(0%, 1.1)
+      circ(15%, 0.9)
+      circ(35%, 1.5)
+      circ(55%, 1.3)
+      circ(70%, 1.2)
+      circ(85%, 1.1)
+      circ(100%, 0.7)
 
       for i in range(1, 21, step: 2) {
-        circle("p." + str(i), radius: 0.3, stroke: green + 1pt, fill: rgb(0, 200, 0, 20%))
+        circle((name: "p", anchor: 100% * (i / 20) + 1%), radius: 0.3, stroke: green + 1pt, fill: rgb(0, 200, 0, 20%))
       }
     }))
 
@@ -214,30 +210,17 @@
         close: true, fill: no-fill, stroke: green,
       )
 
-      place-anchors(
-        name: "gamma1",
-        bezier-through((1, -1), (4, 3), (6, 2), stroke: red),
-        (name: "0", pos: 0),
-        (name: "c", pos: 0.5),
-        (name: "1", pos: 1),
-      )
-      place-anchors(
-        name: "gamma2",
-        bezier-through((1, -1), (6, 3), (6, 2), stroke: purple),
-        (name: "c", pos: 0.5),
-      )
-      place-anchors(
-        name: "gamma3",
-        bezier-through((1, -1), (4, -1), (6, 2), stroke: orange),
-        (name: "c", pos: 0.5),
-      )
-      content((to: "gamma1.c", rel: (-0.1, 0.5)), text(red, $gamma_1$))
-      content((to: "gamma2.c", rel: (-0.1, 0.5)), text(purple, $gamma_2$))
-      content((to: "gamma3.c", rel: (0.1, -0.5)), text(orange, $gamma_3$))
-      circle("gamma1.0", radius: 0.15, stroke: none, fill: red)
-      circle("gamma1.1", radius: 0.15, stroke: none, fill: red)
+      bezier-through(name: "gamma1", (1, -1), (4, 3), (6, 2), stroke: red)
+      bezier-through(name: "gamma2", (1, -1), (6, 3), (6, 2), stroke: purple)
+      bezier-through(name: "gamma3", (1, -1), (4, -1), (6, 2), stroke: orange)
+      
+      content((to: "gamma1.mid", rel: (-0.2, 0.5)), text(red, $gamma_1$))
+      content((to: (name: "gamma2", anchor: 69%), rel: (-0.1, 0.5)), text(purple, $gamma_2$))
+      content((to: "gamma3.mid", rel: (0.1, -0.5)), text(orange, $gamma_3$))
+      circle("gamma1.start", radius: 0.15, stroke: none, fill: red)
+      circle("gamma1.end", radius: 0.15, stroke: none, fill: red)
     }),
-    caption: [Здесть пути $gamma_1$ и $gamma_2$ являются гомотопными, а $gamma_1$ и $gamma_3$ нет.]
+    caption: [Здесь пути $gamma_1$ и $gamma_2$ являются гомотопными, а $gamma_1$ и $gamma_3$ нет.]
   )
 ]
 

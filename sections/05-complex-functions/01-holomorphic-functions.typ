@@ -136,7 +136,7 @@
     let (x1, x3) = (0.8, 3.3)
     let x2 = (x1 + x3) / 2
     rect((0.8, 1.3), (3.3, 3.1), name: "P")
-    content((to: "P.top", rel: (0.5, 0.2)), $P$)
+    content((to: "P.north", rel: (0.5, 0.2)), $P$)
 
     let (y1, y3) = (1.3, 3.1)
     let y2 = (y1 + y3) / 2
@@ -205,61 +205,76 @@
       circle((2, 2), radius: 2, fill: rgb(20, 100, 255, 10%), stroke: blue)
 
       line((-1, 2), (8, 2), name: "delta")
-      content((to: "delta.right", rel: (0.0, 0.3)), $Delta$)
+      content((to: "delta.end", rel: (0.0, 0.3)), $Delta$)
 
       set-style(mark: (fill: red), stroke: red)
-      place-marks(
-        merge-path({
+
+      merge-path(
+        name: "path",
+        {
           line((1.3, 2.0), (1.3, 3.1))
           line((1.3, 3.1), (3.3, 3.1))
           line((3.3, 3.1), (3.3, 2.0))
           line((3.3, 2.0), (1.3, 2.0))
-        }, close: true),
-        ..for i in range(10) {
-          ((mark: "<", pos: i / 10 + 0.05),)
-        }
+        }, 
+        close: true,
       )
+      for i in range(10) {
+        let anc = (name: "path", anchor: i * 10% + 6%)
+        let anc2 = (name: "path", anchor: i * 10% + 7%)
+        mark(anc, anc2, symbol: "<", scale: 0.6)
+      }
 
       set-style(mark: (fill: orange), stroke: orange)
-      place-marks(
-        merge-path({
+      merge-path(
+        name: "path2",
+        {
           line((1.3, 4 - 2.0), (1.3, 4 - 3.3))
           line((1.3, 4 - 3.3), (3.3, 4 - 3.3))
           line((3.3, 4 - 3.3), (3.3, 4 - 2.0))
           line((3.3, 4 - 2.0), (1.3, 4 - 2.0))
-        }, close: true),
-        ..for i in range(10) {
-          ((mark: ">", pos: i / 10 + 0.05),)
-        }
+        }, 
+        close: true,
       )
+      for i in range(10) {
+        let anc = (name: "path2", anchor: i * 10% + 4%)
+        let anc2 = (name: "path2", anchor: i * 10% + 5%)
+        mark(anc, anc2, symbol: ">", scale: 0.6)
+      }
     }),
 
     cetz.canvas(length: 0.8cm, {
       import cetz.draw: *
 
       line((-1, 0), (8, 0), name: "delta")
-      content((to: "delta.right", rel: (0.0, 0.3)), $Delta$)
+      content((to: "delta.end", rel: (0.0, 0.3)), $Delta$)
 
       set-style(mark: (fill: red), stroke: red)
-      place-marks(
-        merge-path({
+
+      merge-path(
+        name: "path",
+        {
           line((1, 0), (7, 0))
           line((7, 0), (7, 5))
           line((7, 5), (1, 5))
           line((1, 5), (1, 0))
-        }, close: true),
-        ..for i in range(20) {
-          ((mark: "<", pos: i / 20 + 0.02),)
-        }
+        }, 
+        close: true
       )
+      
+      for i in range(20) {
+        let anc = (name: "path", anchor: i * 5% + 1%)
+        let anc2 = (name: "path", anchor: i * 5% + 2%)
+        mark(anc, anc2, symbol: "<", scale: 0.6)
+      }
 
       set-style(mark: (fill: black))
-      place-marks(
-        line((1, 1), (7, 1), stroke: (dash: "dashed", paint: black)),
-        ..for i in range(7) {
-          ((mark: "<", pos: i / 7 + 0.02),)
-        }
-      )
+      line(name: "line", (1, 1), (7, 1), stroke: (dash: "dashed", paint: black))
+      for i in range(7) {
+        let anc = (name: "line", anchor: (i / 7) * 100% + 6%)
+        let anc2 = (name: "line", anchor: (i / 7) * 100% + 7%)
+        mark(anc, anc2, symbol: "<", scale: 0.6)
+      }
 
       line((2, 0), (2, 1), mark: (start: ">", end: ">"), stroke:black)
       content((2.3, 0.5), $eps$)

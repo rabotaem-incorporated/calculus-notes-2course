@@ -229,56 +229,50 @@
   
   #figure(cetz.canvas(length: 0.6cm, {
     import cetz.draw: *
+    
     catmull((0, 0), (3, 2), (6, 6), (8, 1), (4, -2), close: true, tension: 0.5)
-    place-anchors(
-      name: "p",
-      bezier-through((2, 0), (3, 0), (6, 5), stroke: red + 2pt),
-      ..for i in range(21) { ((name: str(i), pos: i/20),) },
-    )
-    circle("p.0", radius: 0.15, stroke: none, fill: blue)
-    circle("p.0", radius: 1, stroke: (paint: blue, dash: "dashed"))
-    circle("p.3", radius: 0.15, stroke: none, fill: blue)
-    circle("p.3", radius: 0.7, stroke: (paint: blue, dash: "dashed"))
-    circle("p.9", radius: 0.15, stroke: none, fill: blue)
-    circle("p.9", radius: 1.1, stroke: (paint: blue, dash: "dashed"))
-    circle("p.14", radius: 0.15, stroke: none, fill: blue)
-    circle("p.14", radius: 1, stroke: (paint: blue, dash: "dashed"))
-    circle("p.16", radius: 0.15, stroke: none, fill: blue)
-    circle("p.16", radius: 0.7, stroke: (paint: blue, dash: "dashed"))
-    circle("p.18", radius: 0.15, stroke: none, fill: blue)
-    circle("p.18", radius: 1.1, stroke: (paint: blue, dash: "dashed"))
-    circle("p.20", radius: 0.15, stroke: none, fill: blue)
-    circle("p.20", radius: 0.7, stroke: (paint: blue, dash: "dashed"))
+    bezier-through(name: "p", (2, 0), (3, 0), (6, 5), stroke: red + 2pt)
+
+    let circ(percent, radius) = {
+      circle((name: "p", anchor: percent), radius: 0.15, stroke: none, fill: blue)
+      circle((name: "p", anchor: percent), radius: radius, stroke: (paint: blue, dash: "dashed"))
+    }
+
+    circ(0%, 1)
+    circ(15%, 0.7)
+    circ(35%, 1.1)
+    circ(55%, 1)
+    circ(70%, 0.7)
+    circ(85%, 1.1)
+    circ(100%, 0.7)
   }))
 
   Занумеруем шарики, и пойдем последовательно от первого шарика до последнего. Мы можем так сделать: в рамках каждого шарика будем идти до точки на пересечении границы и следующего шарика. Ломаная может получиться самопересекающиейся, но из нее можно убрать все петли. Короче, доделывается, зуб даю.
   #figure(cetz.canvas(length: 1cm, {
     import cetz.draw: *
+    
     catmull((0, 0), (3, 2), (6, 6), (8, 1), (4, -2), close: true, tension: 0.5)
-    place-anchors(
-      name: "p",
-      bezier-through((2, 0), (3, 0), (6, 5), stroke: red + 2pt),
-      ..for i in range(21) { ((name: str(i), pos: i/20),) },
-    )
+    bezier-through(name: "p", (2, 0), (3, 0), (6, 5), stroke: red + 2pt)
+
+    let circ(percent, radius) = {
+      circle((name: "p", anchor: percent), radius: 0.15, stroke: none, fill: blue)
+      circle((name: "p", anchor: percent), radius: radius, stroke: (paint: blue, dash: "dashed"))
+    }
+    
     line(
-      ..for i in range(20, step: 2) {
-        ("p." + str(i), (horizontal: (), vertical: "p." + str(i + 2)))
-      }, "p.20", 
-      stroke: green + 3pt)
-    circle("p.0", radius: 0.15, stroke: none, fill: blue)
-    circle("p.0", radius: 1, stroke: (paint: blue, dash: "dashed"))
-    circle("p.3", radius: 0.15, stroke: none, fill: blue)
-    circle("p.3", radius: 0.7, stroke: (paint: blue, dash: "dashed"))
-    circle("p.9", radius: 0.15, stroke: none, fill: blue)
-    circle("p.9", radius: 1.1, stroke: (paint: blue, dash: "dashed"))
-    circle("p.14", radius: 0.15, stroke: none, fill: blue)
-    circle("p.14", radius: 1, stroke: (paint: blue, dash: "dashed"))
-    circle("p.16", radius: 0.15, stroke: none, fill: blue)
-    circle("p.16", radius: 0.7, stroke: (paint: blue, dash: "dashed"))
-    circle("p.18", radius: 0.15, stroke: none, fill: blue)
-    circle("p.18", radius: 1.1, stroke: (paint: blue, dash: "dashed"))
-    circle("p.20", radius: 0.15, stroke: none, fill: blue)
-    circle("p.20", radius: 0.7, stroke: (paint: blue, dash: "dashed"))
+      ..for i in range(100, step: 10) {
+        ((name: "p", anchor: 1% * i), (horizontal: (), vertical: (name: "p", anchor: 1% * (i + 10))))
+      }, "p.end", 
+      stroke: green + 3pt
+    )
+      
+    circ(0%, 1)
+    circ(15%, 0.7)
+    circ(35%, 1.1)
+    circ(55%, 1)
+    circ(70%, 0.7)
+    circ(85%, 1.1)
+    circ(100%, 0.7)
   }))
 ]
 
@@ -305,30 +299,27 @@
     
     #figure(
       cetz.canvas(length: 0.6cm, {
-        import cetz.draw: *
-        catmull((0, 0), (3, 2), (6, 6), (8, 1), (4, -2), close: true, tension: 0.5)
-        place-anchors(
-          name: "p",
-          bezier-through((2, 0), (3, 0), (6, 5), stroke: red + 2pt),
-          ..for i in range(21) { ((name: str(i), pos: i/20),) },
-        )
+      import cetz.draw: *
+      catmull((0, 0), (3, 2), (6, 6), (8, 1), (4, -2), close: true, tension: 0.5)
+      
+      bezier-through(name: "p", (2, 0), (3, 0), (6, 5), stroke: red + 2pt)
 
-        line(
-          ..for i in range(20, step: 5) {
-            ("p." + str(i), (horizontal: (), vertical: "p." + str(i + 5)))
-          }, "p.20", 
-          mark: (end: ">"),
-          stroke: green + 2pt
-        )
+      line(
+        ..for i in range(100, step: 25) {
+          ((name: "p", anchor: 1% * i), (horizontal: (), vertical: (name: "p", anchor: 1% * (i + 25))))
+        }, "p.end", 
+        mark: (end: ">", scale: 0.4),
+        stroke: green + 2pt
+      )
 
-        line(
-          ..for i in range(20, step: 4) {
-            ("p." + str(i), (vertical: (), horizontal: "p." + str(i + 4)))
-          }, "p.20",
-          mark: (start: ">"),
-          stroke: blue + 2pt
-        )
-      }))
+      line(
+        ..for i in range(100, step: 20) {
+          ((name: "p", anchor: 1% * i), (vertical: (), horizontal: (name: "p", anchor: 1% * (i + 20))))
+        }, "p.end", 
+        mark: (start: ">", scale: 0.4),
+        stroke: blue + 2pt
+      )
+    }))
 
     Проверим, что $F$ подходит: не умаляя общности, проверим первую координату.
     $
@@ -458,46 +449,50 @@
       content((4.4, 0), text(blue, size: 2em, $Omega$))
 
       set-style(mark: (fill: blue), stroke: blue)
-      place-marks(
-        catmull(
-          (0, -2), (8, -1), (6, 4), (2, 3), 
-          close: true, fill: pfill,
-        ),
-        ..for i in range(7) {
-          ((mark: ">", size: 0.2, pos: i / 7), )
-        }
+      catmull(
+        name: "p",
+        (0, -2), (8, -1), (6, 4), (2, 3), 
+        close: true, fill: pfill,
       )
+      for i in range(7) {
+        let anc = (name: "p", anchor: 100% * (i / 7) + 2%)
+        let anc2 = (name: "p", anchor: 100% * (i / 7) + 3%)
+        mark(anc, anc2, symbol: ">", scale: 0.6)
+      }
       
       set-style(mark: (fill: green), stroke: green)
-      place-marks(
-        catmull(
-          (1, -1), (3, 0), (3.5, -1), (2, -2),
-          close: true, fill: no-fill
-        ),
-        ..for i in range(5) {
-          ((mark: ">", size: 0.2, pos: i / 5), )
-        }
+      catmull(
+        name: "p",
+        (1, -1), (3, 0), (3.5, -1), (2, -2),
+        close: true, fill: no-fill
       )
+      for i in range(5) {
+        let anc = (name: "p", anchor: 100% * (i / 5) + 4%)
+        let anc2 = (name: "p", anchor: 100% * (i / 5) + 5%)
+        mark(anc, anc2, symbol: ">", scale: 0.6)
+      }
 
-      place-marks(
-        catmull(
-          (4, 2), (3, 1), (2, 2), (3, 3),
-          close: true, fill: no-fill
-        ),
-        ..for i in range(7) {
-          ((mark: ">", size: 0.2, pos: i / 7), )
-        }
+      catmull(
+        name: "p",
+        (4, 2), (3, 1), (2, 2), (3, 3),
+        close: true, fill: no-fill
       )
-      
-      place-marks(
-        catmull(
-          (5, 2.5), (6, 0), (6.6, 1.5), (5.5, 3),
-          close: true, fill: no-fill
-        ),
-        ..for i in range(7) {
-          ((mark: ">", size: 0.2, pos: i / 7), )
-        }
+      for i in range(7) {
+        let anc = (name: "p", anchor: 100% * (i / 7) + 5%)
+        let anc2 = (name: "p", anchor: 100% * (i / 7) + 6%)
+        mark(anc, anc2, symbol: ">", scale: 0.6)
+      }
+
+      catmull(
+        name: "p",
+        (5.5, 3), (6.6, 1.5), (6, 0), (5, 2.5),
+        close: true, fill: no-fill
       )
+      for i in range(7) {
+        let anc = (name: "p", anchor: 100% * (i / 7) + 0%)
+        let anc2 = (name: "p", anchor: 100% * (i / 7) + 1%)
+        mark(anc, anc2, symbol: ">", scale: 0.6)
+      }
     })
   )
   
@@ -546,33 +541,37 @@
   #figure[
     #cetz.canvas({
       import cetz.draw: *
-      place-marks(
-        place-anchors(name: "Omega", catmull((0, 0), (2, -0.5), (3, 0.5), (4, 0), (5, 1.5), (4, 3), (2, 2.5), close: true), (name: "a", pos: 0.25), (name: "b", pos: 0.7, fill: black)),
-        fill: black,
-        ..for i in range(7) {
-          ((mark: ">", size: 0.2, pos: i / 7), )
-        }
-      )
-      place-marks(
-        place-anchors(bezier("Omega.a", "Omega.b", (1.0, 1.5)), name: "gamma", pos: 0.5),
-        stroke: green, fill: green,
-        ..for i in range(3) {
-          (
-            (mark: "<", size: 0.2, pos: i / 3 + 2/9),
-          )
-        }
-      )
       
-      place-marks(
-        bezier("Omega.a", "Omega.b", (1.0, 1.5), stroke: none),
-        stroke: blue, fill: blue,
-        ..for i in range(3) {
-          (
-            (mark: ">", size: 0.2, pos: i / 3 + 1/9),
-          )
-        }
+      catmull(
+        name: "Omega", 
+        (0, 0), (2, -0.5), (3, 0.5), (4, 0), (5, 1.5), (4, 3), (2, 2.5), 
+        close: true
       )
-      content((rel: (-0.2, 0), to: "gamma"), $gamma$)
+      for i in range(7) {
+        let anc = (name: "Omega", anchor: 100% * (i / 7) + 0%)
+        let anc2 = (name: "Omega", anchor: 100% * (i / 7) + 1%)
+        mark(anc, anc2, symbol: ">", fill: black, scale: 0.6)
+      }
+
+      let a = (name: "Omega", anchor: 25%)
+      let b = (name: "Omega", anchor: 75%)
+      
+      bezier(
+        name: "gamma",
+        a, b, (1.0, 1.5)
+      )
+      for i in range(3) {
+        let anc = (name: "gamma", anchor: 100% * (i / 3) + 20%)
+        let anc2 = (name: "gamma", anchor: 100% * (i / 3) + 21%)
+        mark(anc, anc2, symbol: "<", scale: 0.6, stroke: green, fill: green)
+      }
+      for i in range(3) {
+        let anc = (name: "gamma", anchor: 100% * (i / 3) + 10%)
+        let anc2 = (name: "gamma", anchor: 100% * (i / 3) + 11%)
+        mark(anc, anc2, symbol: ">", scale: 0.6, stroke: blue, fill: blue)
+      }
+      
+      content((rel: (0.3, 0.2), to: "gamma.mid"), $gamma$)
       content((1.5, .5), text(blue, 2em, $Omega_1$))
       content((3.5, 1.7), text(green, 2em, $Omega_2$))
     })
